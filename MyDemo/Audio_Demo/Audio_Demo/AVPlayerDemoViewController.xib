@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AVPlayerDemoViewController">
+            <connections>
+                <outlet property="btn_Play" destination="Z8j-q2-dIM" id="KQ0-Hu-bi2"/>
+                <outlet property="lb_MusicName" destination="cVA-Sb-ZZB" id="itL-SW-ong"/>
+                <outlet property="progresView" destination="Dxu-FV-uBr" id="m8a-mo-Pbj"/>
+                <outlet property="view" destination="iN0-l3-epB" id="BJe-Rg-oDY"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z8j-q2-dIM">
+                    <color key="backgroundColor" red="1" green="0.63921568630000003" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="JhG-wW-xvv"/>
+                        <constraint firstAttribute="height" constant="30" id="iDi-qJ-IhZ"/>
+                    </constraints>
+                    <state key="normal" title="播放"/>
+                    <connections>
+                        <action selector="playButtonAction:" destination="-1" eventType="touchUpInside" id="9SJ-7y-mAd"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AvV-AL-J4U" userLabel="上一首">
+                    <color key="backgroundColor" red="1" green="0.63921568630000003" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="ca6-S1-c6n"/>
+                        <constraint firstAttribute="width" constant="87" id="qOh-Fe-gCt"/>
+                    </constraints>
+                    <state key="normal" title="&lt;"/>
+                    <connections>
+                        <action selector="prevButtonAction:" destination="-1" eventType="touchUpInside" id="uet-OB-9kA"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FeX-CW-fjO" userLabel="下一首">
+                    <color key="backgroundColor" red="1" green="0.63921568630000003" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="87" id="uDi-gI-3uY"/>
+                        <constraint firstAttribute="height" constant="30" id="zRX-rb-uFl"/>
+                    </constraints>
+                    <state key="normal" title="&gt;"/>
+                    <connections>
+                        <action selector="nextButtonAction:" destination="-1" eventType="touchUpInside" id="2Qt-Jv-mFx"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cVA-Sb-ZZB" userLabel="lb_MusicName">
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Dxu-FV-uBr"/>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Z8j-q2-dIM" firstAttribute="leading" secondItem="AvV-AL-J4U" secondAttribute="trailing" constant="26" id="2L3-UF-5zB"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="cVA-Sb-ZZB" secondAttribute="trailing" constant="20" id="6br-1I-fev"/>
+                <constraint firstAttribute="bottom" secondItem="Z8j-q2-dIM" secondAttribute="bottom" constant="165" id="FHR-2U-Pfj"/>
+                <constraint firstItem="FeX-CW-fjO" firstAttribute="top" secondItem="Z8j-q2-dIM" secondAttribute="top" id="LGA-TS-pRN"/>
+                <constraint firstItem="cVA-Sb-ZZB" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="WSp-yN-q4S"/>
+                <constraint firstItem="Dxu-FV-uBr" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="45" id="Wub-90-cUL"/>
+                <constraint firstItem="cVA-Sb-ZZB" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Z3t-4L-83P"/>
+                <constraint firstItem="FeX-CW-fjO" firstAttribute="top" secondItem="AvV-AL-J4U" secondAttribute="top" id="cvS-Ra-25v"/>
+                <constraint firstItem="FeX-CW-fjO" firstAttribute="bottom" secondItem="AvV-AL-J4U" secondAttribute="bottom" id="frR-iD-oEo"/>
+                <constraint firstItem="FeX-CW-fjO" firstAttribute="leading" secondItem="Z8j-q2-dIM" secondAttribute="trailing" constant="26" id="hpr-z2-Xb1"/>
+                <constraint firstItem="FeX-CW-fjO" firstAttribute="bottom" secondItem="Z8j-q2-dIM" secondAttribute="bottom" id="pQf-OT-dYS"/>
+                <constraint firstAttribute="trailing" secondItem="Dxu-FV-uBr" secondAttribute="trailing" constant="44" id="pgy-ew-aUx"/>
+                <constraint firstAttribute="bottom" secondItem="Dxu-FV-uBr" secondAttribute="bottom" constant="92" id="rQs-1f-h30"/>
+                <constraint firstItem="cVA-Sb-ZZB" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="vvU-79-U2t"/>
+                <constraint firstItem="Z8j-q2-dIM" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="xak-5k-iNS"/>
+            </constraints>
+            <point key="canvasLocation" x="0.5" y="65.5"/>
+        </view>
+    </objects>
+</document>

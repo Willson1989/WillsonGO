@@ -1,0 +1,9 @@
+pod "AFNetworking", "~> 2.5.4"
+pod "SDWebImage", "~> 3.7.2"
+pod "MMDrawerController", "~> 0.6.0"
+pod "DWBubbleMenuButton", "~> 1.0.1"
+pod 'AMap2DMap' #2D地图SDK(2D地图和3D地图不能同时使用)
+pod 'AMapSearch' #搜索服务SDK
+pod 'Masonry',  '~> 0.6.1'
+pod 'MBProgressHUD',  '~> 0.9.1'
+pod 'KVNProgress',  '~> 2.2.1'

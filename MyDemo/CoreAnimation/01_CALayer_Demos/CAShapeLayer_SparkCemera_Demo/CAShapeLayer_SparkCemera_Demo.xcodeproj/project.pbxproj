@@ -1,0 +1,528 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C08743BA1CC5D2AD00668FDC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C08743B91CC5D2AD00668FDC /* main.m */; };
+		C08743BD1CC5D2AD00668FDC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C08743BC1CC5D2AD00668FDC /* AppDelegate.m */; };
+		C08743C01CC5D2AD00668FDC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C08743BF1CC5D2AD00668FDC /* ViewController.m */; };
+		C08743C31CC5D2AD00668FDC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C08743C11CC5D2AD00668FDC /* Main.storyboard */; };
+		C08743C51CC5D2AD00668FDC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C08743C41CC5D2AD00668FDC /* Assets.xcassets */; };
+		C08743C81CC5D2AD00668FDC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C08743C61CC5D2AD00668FDC /* LaunchScreen.storyboard */; };
+		C08743D31CC5D2AE00668FDC /* CAShapeLayer_SparkCemera_DemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C08743D21CC5D2AE00668FDC /* CAShapeLayer_SparkCemera_DemoTests.m */; };
+		C08743DE1CC5D2AE00668FDC /* CAShapeLayer_SparkCemera_DemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C08743DD1CC5D2AE00668FDC /* CAShapeLayer_SparkCemera_DemoUITests.m */; };
+		C08743ED1CC5D3CB00668FDC /* ColorLoopView.m in Sources */ = {isa = PBXBuildFile; fileRef = C08743EC1CC5D3CB00668FDC /* ColorLoopView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C08743CF1CC5D2AE00668FDC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C08743AD1CC5D2AD00668FDC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C08743B41CC5D2AD00668FDC;
+			remoteInfo = CAShapeLayer_SparkCemera_Demo;
+		};
+		C08743DA1CC5D2AE00668FDC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C08743AD1CC5D2AD00668FDC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C08743B41CC5D2AD00668FDC;
+			remoteInfo = CAShapeLayer_SparkCemera_Demo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C08743B51CC5D2AD00668FDC /* CAShapeLayer_SparkCemera_Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CAShapeLayer_SparkCemera_Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C08743B91CC5D2AD00668FDC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C08743BB1CC5D2AD00668FDC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		C08743BC1CC5D2AD00668FDC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C08743BE1CC5D2AD00668FDC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		C08743BF1CC5D2AD00668FDC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		C08743C21CC5D2AD00668FDC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C08743C41CC5D2AD00668FDC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C08743C71CC5D2AD00668FDC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C08743C91CC5D2AD00668FDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C08743CE1CC5D2AE00668FDC /* CAShapeLayer_SparkCemera_DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CAShapeLayer_SparkCemera_DemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C08743D21CC5D2AE00668FDC /* CAShapeLayer_SparkCemera_DemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CAShapeLayer_SparkCemera_DemoTests.m; sourceTree = "<group>"; };
+		C08743D41CC5D2AE00668FDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C08743D91CC5D2AE00668FDC /* CAShapeLayer_SparkCemera_DemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CAShapeLayer_SparkCemera_DemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C08743DD1CC5D2AE00668FDC /* CAShapeLayer_SparkCemera_DemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CAShapeLayer_SparkCemera_DemoUITests.m; sourceTree = "<group>"; };
+		C08743DF1CC5D2AE00668FDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C08743EB1CC5D3CB00668FDC /* ColorLoopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorLoopView.h; sourceTree = "<group>"; };
+		C08743EC1CC5D3CB00668FDC /* ColorLoopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorLoopView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C08743B21CC5D2AD00668FDC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C08743CB1CC5D2AE00668FDC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C08743D61CC5D2AE00668FDC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C08743AC1CC5D2AD00668FDC = {
+			isa = PBXGroup;
+			children = (
+				C08743B71CC5D2AD00668FDC /* CAShapeLayer_SparkCemera_Demo */,
+				C08743D11CC5D2AE00668FDC /* CAShapeLayer_SparkCemera_DemoTests */,
+				C08743DC1CC5D2AE00668FDC /* CAShapeLayer_SparkCemera_DemoUITests */,
+				C08743B61CC5D2AD00668FDC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C08743B61CC5D2AD00668FDC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C08743B51CC5D2AD00668FDC /* CAShapeLayer_SparkCemera_Demo.app */,
+				C08743CE1CC5D2AE00668FDC /* CAShapeLayer_SparkCemera_DemoTests.xctest */,
+				C08743D91CC5D2AE00668FDC /* CAShapeLayer_SparkCemera_DemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C08743B71CC5D2AD00668FDC /* CAShapeLayer_SparkCemera_Demo */ = {
+			isa = PBXGroup;
+			children = (
+				C08743BB1CC5D2AD00668FDC /* AppDelegate.h */,
+				C08743BC1CC5D2AD00668FDC /* AppDelegate.m */,
+				C08743BE1CC5D2AD00668FDC /* ViewController.h */,
+				C08743BF1CC5D2AD00668FDC /* ViewController.m */,
+				C08743EB1CC5D3CB00668FDC /* ColorLoopView.h */,
+				C08743EC1CC5D3CB00668FDC /* ColorLoopView.m */,
+				C08743C11CC5D2AD00668FDC /* Main.storyboard */,
+				C08743C41CC5D2AD00668FDC /* Assets.xcassets */,
+				C08743C61CC5D2AD00668FDC /* LaunchScreen.storyboard */,
+				C08743C91CC5D2AD00668FDC /* Info.plist */,
+				C08743B81CC5D2AD00668FDC /* Supporting Files */,
+			);
+			path = CAShapeLayer_SparkCemera_Demo;
+			sourceTree = "<group>";
+		};
+		C08743B81CC5D2AD00668FDC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C08743B91CC5D2AD00668FDC /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C08743D11CC5D2AE00668FDC /* CAShapeLayer_SparkCemera_DemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				C08743D21CC5D2AE00668FDC /* CAShapeLayer_SparkCemera_DemoTests.m */,
+				C08743D41CC5D2AE00668FDC /* Info.plist */,
+			);
+			path = CAShapeLayer_SparkCemera_DemoTests;
+			sourceTree = "<group>";
+		};
+		C08743DC1CC5D2AE00668FDC /* CAShapeLayer_SparkCemera_DemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C08743DD1CC5D2AE00668FDC /* CAShapeLayer_SparkCemera_DemoUITests.m */,
+				C08743DF1CC5D2AE00668FDC /* Info.plist */,
+			);
+			path = CAShapeLayer_SparkCemera_DemoUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C08743B41CC5D2AD00668FDC /* CAShapeLayer_SparkCemera_Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C08743E21CC5D2AE00668FDC /* Build configuration list for PBXNativeTarget "CAShapeLayer_SparkCemera_Demo" */;
+			buildPhases = (
+				C08743B11CC5D2AD00668FDC /* Sources */,
+				C08743B21CC5D2AD00668FDC /* Frameworks */,
+				C08743B31CC5D2AD00668FDC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CAShapeLayer_SparkCemera_Demo;
+			productName = CAShapeLayer_SparkCemera_Demo;
+			productReference = C08743B51CC5D2AD00668FDC /* CAShapeLayer_SparkCemera_Demo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C08743CD1CC5D2AE00668FDC /* CAShapeLayer_SparkCemera_DemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C08743E51CC5D2AE00668FDC /* Build configuration list for PBXNativeTarget "CAShapeLayer_SparkCemera_DemoTests" */;
+			buildPhases = (
+				C08743CA1CC5D2AE00668FDC /* Sources */,
+				C08743CB1CC5D2AE00668FDC /* Frameworks */,
+				C08743CC1CC5D2AE00668FDC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C08743D01CC5D2AE00668FDC /* PBXTargetDependency */,
+			);
+			name = CAShapeLayer_SparkCemera_DemoTests;
+			productName = CAShapeLayer_SparkCemera_DemoTests;
+			productReference = C08743CE1CC5D2AE00668FDC /* CAShapeLayer_SparkCemera_DemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C08743D81CC5D2AE00668FDC /* CAShapeLayer_SparkCemera_DemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C08743E81CC5D2AE00668FDC /* Build configuration list for PBXNativeTarget "CAShapeLayer_SparkCemera_DemoUITests" */;
+			buildPhases = (
+				C08743D51CC5D2AE00668FDC /* Sources */,
+				C08743D61CC5D2AE00668FDC /* Frameworks */,
+				C08743D71CC5D2AE00668FDC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C08743DB1CC5D2AE00668FDC /* PBXTargetDependency */,
+			);
+			name = CAShapeLayer_SparkCemera_DemoUITests;
+			productName = CAShapeLayer_SparkCemera_DemoUITests;
+			productReference = C08743D91CC5D2AE00668FDC /* CAShapeLayer_SparkCemera_DemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C08743AD1CC5D2AD00668FDC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "郑毅";
+				TargetAttributes = {
+					C08743B41CC5D2AD00668FDC = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = W79774T67X;
+					};
+					C08743CD1CC5D2AE00668FDC = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = W79774T67X;
+						TestTargetID = C08743B41CC5D2AD00668FDC;
+					};
+					C08743D81CC5D2AE00668FDC = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = W79774T67X;
+						TestTargetID = C08743B41CC5D2AD00668FDC;
+					};
+				};
+			};
+			buildConfigurationList = C08743B01CC5D2AD00668FDC /* Build configuration list for PBXProject "CAShapeLayer_SparkCemera_Demo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C08743AC1CC5D2AD00668FDC;
+			productRefGroup = C08743B61CC5D2AD00668FDC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C08743B41CC5D2AD00668FDC /* CAShapeLayer_SparkCemera_Demo */,
+				C08743CD1CC5D2AE00668FDC /* CAShapeLayer_SparkCemera_DemoTests */,
+				C08743D81CC5D2AE00668FDC /* CAShapeLayer_SparkCemera_DemoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C08743B31CC5D2AD00668FDC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C08743C81CC5D2AD00668FDC /* LaunchScreen.storyboard in Resources */,
+				C08743C51CC5D2AD00668FDC /* Assets.xcassets in Resources */,
+				C08743C31CC5D2AD00668FDC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C08743CC1CC5D2AE00668FDC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C08743D71CC5D2AE00668FDC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C08743B11CC5D2AD00668FDC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C08743C01CC5D2AD00668FDC /* ViewController.m in Sources */,
+				C08743BD1CC5D2AD00668FDC /* AppDelegate.m in Sources */,
+				C08743ED1CC5D3CB00668FDC /* ColorLoopView.m in Sources */,
+				C08743BA1CC5D2AD00668FDC /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C08743CA1CC5D2AE00668FDC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C08743D31CC5D2AE00668FDC /* CAShapeLayer_SparkCemera_DemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C08743D51CC5D2AE00668FDC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C08743DE1CC5D2AE00668FDC /* CAShapeLayer_SparkCemera_DemoUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C08743D01CC5D2AE00668FDC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C08743B41CC5D2AD00668FDC /* CAShapeLayer_SparkCemera_Demo */;
+			targetProxy = C08743CF1CC5D2AE00668FDC /* PBXContainerItemProxy */;
+		};
+		C08743DB1CC5D2AE00668FDC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C08743B41CC5D2AD00668FDC /* CAShapeLayer_SparkCemera_Demo */;
+			targetProxy = C08743DA1CC5D2AE00668FDC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C08743C11CC5D2AD00668FDC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C08743C21CC5D2AD00668FDC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C08743C61CC5D2AD00668FDC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C08743C71CC5D2AD00668FDC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C08743E01CC5D2AE00668FDC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		C08743E11CC5D2AE00668FDC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C08743E31CC5D2AE00668FDC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = CAShapeLayer_SparkCemera_Demo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.--.CAShapeLayer-SparkCemera-Demo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C08743E41CC5D2AE00668FDC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = CAShapeLayer_SparkCemera_Demo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.--.CAShapeLayer-SparkCemera-Demo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		C08743E61CC5D2AE00668FDC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = CAShapeLayer_SparkCemera_DemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.--.CAShapeLayer-SparkCemera-DemoTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CAShapeLayer_SparkCemera_Demo.app/CAShapeLayer_SparkCemera_Demo";
+			};
+			name = Debug;
+		};
+		C08743E71CC5D2AE00668FDC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = CAShapeLayer_SparkCemera_DemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.--.CAShapeLayer-SparkCemera-DemoTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CAShapeLayer_SparkCemera_Demo.app/CAShapeLayer_SparkCemera_Demo";
+			};
+			name = Release;
+		};
+		C08743E91CC5D2AE00668FDC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = CAShapeLayer_SparkCemera_DemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.--.CAShapeLayer-SparkCemera-DemoUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = CAShapeLayer_SparkCemera_Demo;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		C08743EA1CC5D2AE00668FDC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = CAShapeLayer_SparkCemera_DemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.--.CAShapeLayer-SparkCemera-DemoUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = CAShapeLayer_SparkCemera_Demo;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C08743B01CC5D2AD00668FDC /* Build configuration list for PBXProject "CAShapeLayer_SparkCemera_Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C08743E01CC5D2AE00668FDC /* Debug */,
+				C08743E11CC5D2AE00668FDC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C08743E21CC5D2AE00668FDC /* Build configuration list for PBXNativeTarget "CAShapeLayer_SparkCemera_Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C08743E31CC5D2AE00668FDC /* Debug */,
+				C08743E41CC5D2AE00668FDC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C08743E51CC5D2AE00668FDC /* Build configuration list for PBXNativeTarget "CAShapeLayer_SparkCemera_DemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C08743E61CC5D2AE00668FDC /* Debug */,
+				C08743E71CC5D2AE00668FDC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C08743E81CC5D2AE00668FDC /* Build configuration list for PBXNativeTarget "CAShapeLayer_SparkCemera_DemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C08743E91CC5D2AE00668FDC /* Debug */,
+				C08743EA1CC5D2AE00668FDC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C08743AD1CC5D2AD00668FDC /* Project object */;
+}
