@@ -10,6 +10,7 @@ public class Graph : NSObject {
     internal var isDirected : Bool = false
     internal var visited : [Bool] = []
     
+    
     //遍历图的时候，num_Components会自增，connectIds用来存储各个阶段的num_Components，
     //用来标识顶点之间的连通关系。connectIds[v] 和 connectIds[w]的值相等的话，代表v和w相连
     internal var connectIds : [Int] = []
@@ -97,6 +98,7 @@ public class GraphPath{
     internal var from : [Int] = []
     internal var V : Int = INFINITY
     internal var num_Vertex : Int = 0
+    internal var distance : [Int] = [] //广度优先遍历 和 最短路径时使用
     
     internal init(capacity : Int, v : Int) {
         self.V = v
@@ -141,10 +143,22 @@ public class GraphPath{
         print()
     }
     
+    public func length(from w : Int) -> Int {
+        return self.distance[w]
+    }
+    
+    //深度优先遍历
     internal func dfsFromVertex(_ v : Int) { }
+    
+    //广度优先遍历
+    internal func bfsFromVertex(_ v : Int) { }
     
     internal func initFromArray() {
         self.from = Array(repeating: -1, count: self.num_Vertex)
+    }
+    
+    internal func initDistanceArray() {
+        self.distance = Array(repeating: 0, count: self.num_Vertex)
     }
     
     internal func initVisitedArray() {

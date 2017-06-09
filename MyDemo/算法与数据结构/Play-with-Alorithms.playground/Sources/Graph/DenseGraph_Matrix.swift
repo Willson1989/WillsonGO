@@ -96,4 +96,38 @@ public class DenseGraph_Matrix : Graph{
             }
         }
     }
+    
+    public class ShortestPath : GraphPath {
+        
+        fileprivate var G : DenseGraph_Matrix!
+        
+        public init(graph : DenseGraph_Matrix, v : Int) {
+            super.init(capacity: graph.V(), v: v)
+            self.G = graph
+            self.initDistanceArray()
+            self.bfsFromVertex(self.V)
+        }
+        
+        internal override func bfsFromVertex(_ v: Int) {
+            var queue = BasicQueue()
+            queue.enqueue(v)
+            self.distance[v] = 0
+            self.visited[v] = true
+            
+            while !queue.isEmpty() {
+                
+                let tmpV = queue.front() as! Int
+                queue.dequeue()
+                for i in 0 ..< self.num_Vertex {
+                    if self.G.graph[tmpV][i] == true && self.visited[i] == false {
+                        queue.enqueue(i)
+                        self.visited[i] = true
+                        self.from[i] = tmpV
+                        self.distance[i] = self.distance[tmpV] + 1
+                    }
+                }
+            }
+        }
+        
+    }
 }

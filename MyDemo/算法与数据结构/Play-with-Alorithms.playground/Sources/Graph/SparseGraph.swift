@@ -110,4 +110,39 @@ public class SparseGraph : Graph {
             }
         }
     }
+    
+    public class ShortestPath : GraphPath {
+        
+        fileprivate var G : SparseGraph!
+        
+        public init(graph : SparseGraph, v : Int) {
+            super.init(capacity: graph.V(), v: v)
+            self.G = graph
+            self.initDistanceArray()
+            self.bfsFromVertex(self.V)
+        }
+        
+        internal override func bfsFromVertex(_ v: Int) {
+            var queue = BasicQueue()
+            queue.enqueue(v)
+            self.distance[v] = 0
+            self.visited[v] = true
+            
+            while !queue.isEmpty() {
+                
+                let tmpV = queue.front() as! Int
+                queue.dequeue()
+                for i in 0 ..< self.G.graph[tmpV].count {
+                    let j = self.G.graph[tmpV][i]
+                    if self.visited[j] == false {
+                        queue.enqueue(j)
+                        self.visited[j] = true
+                        self.from[j] = tmpV
+                        self.distance[j] = self.distance[tmpV] + 1
+                    }
+                }
+            }
+        }
+        
+    }
 }

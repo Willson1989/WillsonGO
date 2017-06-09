@@ -5,7 +5,7 @@ import UIKit
 let N = 11
 let M = 50
 
-let from = 0
+let from = 5
 let to = 7
 
 print("///// ===== SparseGraph_AdjList =====  ")
@@ -30,7 +30,11 @@ tmpG.show()
 let path8 = SparseGraph_AdjList.Path(graph: tmpG, v: from)
 let path = path8.path(with: to)
 path8.showPath(with: to)
-
+print("SparseGraph_AdjList 最短路")
+let sPath8 = SparseGraph_AdjList.ShortestPath(graph: tmpG, v: from)
+let sPath = sPath8.path(with: to)
+sPath8.showPath(with: to)
+sPath8.length(from: to)
 
 print("///// ===== SparseGraph =====  ")
 let tmpG1 = SparseGraph(capacity: N, directed: false)
@@ -53,6 +57,11 @@ tmpG1.show()
 let path81 = SparseGraph.Path(graph: tmpG1, v: from)
 let path1 = path81.path(with: to)
 path81.showPath(with: to)
+print("SparseGraph 最短路")
+let sPath81 = SparseGraph.ShortestPath(graph: tmpG1, v: from)
+let sPath1 = sPath81.path(with: to)
+sPath81.showPath(with: to)
+sPath81.length(from: to)
 
 print("///// ===== DenseGraph_Matrix =====  ")
 let tmpG2 = DenseGraph_Matrix(capacity: N, directed: false)
@@ -75,6 +84,13 @@ tmpG2.show()
 let path82 = DenseGraph_Matrix.Path(graph: tmpG2, v: from)
 let path2 = path82.path(with: to)
 path82.showPath(with: to)
+
+print("DenseGraph_Matrix 最短路")
+let sPath82 = DenseGraph_Matrix.ShortestPath(graph: tmpG2, v: from)
+let sPath2 = sPath82.path(with: to)
+sPath82.showPath(with: to)
+sPath82.length(from: to)
+
 //tmpG.depthFirstSearch { (v) in
 //    print(v, separator: "", terminator: " ")
 //}

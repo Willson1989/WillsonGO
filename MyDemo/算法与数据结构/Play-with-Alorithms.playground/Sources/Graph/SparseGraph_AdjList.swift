@@ -136,7 +136,6 @@ public class SparseGraph_AdjList : Graph {
             print("visited array : \(self.visited)")
         }
         
-        
         override func dfsFromVertex(_ v: Int) {
             self.visited[v] = true
             var p = self.G.graph[v].firstBridge
@@ -146,6 +145,42 @@ public class SparseGraph_AdjList : Graph {
                     self.dfsFromVertex(p!.vertex)
                 }
                 p = p!.next
+            }
+        }
+    }
+    
+    public class ShortestPath : GraphPath {
+        
+        fileprivate var G : SparseGraph_AdjList!
+        
+        public init(graph : SparseGraph_AdjList, v : Int) {
+            super.init(capacity: graph.V(), v: v)
+            self.G = graph
+            self.initDistanceArray()
+            self.bfsFromVertex(self.V)
+        }
+        
+        internal override func bfsFromVertex(_ v: Int) {
+            
+            var queue = BasicQueue()
+            queue.enqueue(v)
+            self.visited[v] = true
+            self.distance[v] = 0
+            
+            while !queue.isEmpty() {
+                
+                let tmpV = queue.front() as! Int
+                queue.dequeue()
+                var p = self.G.graph[tmpV].firstBridge
+                while p != nil {
+                    if self.visited[p!.vertex] == false {
+                        queue.enqueue(p!.vertex)
+                        self.visited[p!.vertex] = true
+                        self.from[p!.vertex] = tmpV
+                        self.distance[p!.vertex] = self.distance[tmpV] + 1
+                    }
+                    p = p!.next
+                }
             }
         }
     }
