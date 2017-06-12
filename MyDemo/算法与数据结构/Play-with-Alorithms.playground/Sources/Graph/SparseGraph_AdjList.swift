@@ -115,7 +115,9 @@ public class SparseGraph_AdjList : Graph {
         var pre : EdgeNode? = nil
         var p = self.graph[v].firstBridge
         while p != nil {
+            print("aaaaa")
             if p?.vertex == w {
+                print("=====")
                 if pre == nil {
                     self.graph[v].firstBridge = p?.next
                 } else {
@@ -123,10 +125,11 @@ public class SparseGraph_AdjList : Graph {
                     p = nil
                 }
                 self.num_Edge -= 1
-            } else {
-                pre = p
-                p = p?.next
+                //不处理平行变的问题,所以匹配的时候，直接break
+                break
             }
+            pre = p
+            p = p?.next
         }
         if !self.isDirected {
             pre = nil
@@ -139,11 +142,10 @@ public class SparseGraph_AdjList : Graph {
                         pre?.next = p?.next
                         p = nil
                     }
-                    
-                } else {
-                    pre = p
-                    p = p?.next
+                    break
                 }
+                pre = p
+                p = p?.next
             }
         }
         self.depthFirstSearch(iteration: nil)
