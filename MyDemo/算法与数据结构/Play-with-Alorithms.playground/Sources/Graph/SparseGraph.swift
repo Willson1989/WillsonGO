@@ -65,6 +65,30 @@ public class SparseGraph : Graph {
         return false
     }
     
+    public func deleteEdge(_ v : Int, _ w : Int) {
+        if !self.isAvaliable(v) || !self.isAvaliable(w) {
+            return
+        }
+        
+        for i in 0 ..< self.graph[v].count {
+            print("---- \(i)")
+            if self.graph[v][i] == w {
+                self.graph[v].remove(at: i)
+                self.num_Edge -= 1
+                break
+            }
+        }
+        if !self.isDirected {
+            for i in 0 ..< self.graph[w].count {
+                if self.graph[w][i] == v {
+                    self.graph[w].remove(at: i)
+                    break
+                }
+            }
+        }
+        self.depthFirstSearch(iteration: nil)
+    }
+    
     public override func iterateGraph(forVertex v: Int, _ iteration: (Int) -> ()) {
         for i in 0 ..< self.graph[v].count {
             iteration(self.graph[v][i])
