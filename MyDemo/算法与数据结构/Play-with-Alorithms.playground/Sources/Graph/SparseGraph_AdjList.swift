@@ -83,6 +83,10 @@ public class SparseGraph_AdjList : Graph {
         num_Edge += 1
     }
     
+    public override func deleteEdge(_ v: Int, _ w: Int) {
+
+    }
+    
     internal override func dfs(v: Int, iteration: iteratorBlock?) {
 
         self.visited[v] = true

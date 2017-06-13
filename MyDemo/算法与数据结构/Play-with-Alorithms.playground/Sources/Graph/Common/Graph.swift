@@ -25,6 +25,9 @@ public class Graph : NSObject {
     //MARK: - 在v和w之间添加一条边
     internal func addEdge(_ v : Int, _ w : Int ){ }
     
+    //MARK: - 删除v和w之间的边
+    public func deleteEdge(_ v : Int, _ w : Int) { }
+    
     //MARK: - v 和 w 之间是否有边
     internal func hasEdge(_ v : Int, _ w : Int) -> Bool {
         return false
@@ -58,6 +61,7 @@ public class Graph : NSObject {
     
     //MARK: - 初始化 visited 数组
     internal func initVisitedArray() {
+        self.num_Components = 0
         self.visited = Array(repeating: false, count: self.num_Vertex)
     }
     
@@ -89,6 +93,7 @@ public class Graph : NSObject {
     
     //MARK: - 图的深度优先遍历（由于用来存储图的数据结构不同，这里需要各个Graph子类重写dfs方法）
     internal func dfs(v : Int, iteration : iteratorBlock?){ }
+
 }
 
 

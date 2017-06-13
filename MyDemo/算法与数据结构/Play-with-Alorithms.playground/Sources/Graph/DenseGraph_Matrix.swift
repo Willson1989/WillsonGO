@@ -36,6 +36,24 @@ public class DenseGraph_Matrix : Graph{
         num_Edge += 1
     }
     
+    public override func deleteEdge(_ v: Int, _ w: Int) {
+        if !self.isAvaliable(v) || !self.isAvaliable(w) {
+            return
+        }
+        if !self.hasEdge(v, w) {
+            return
+        }
+        
+        if self.graph[v][w] == true {
+            self.graph[v][w] = false
+            if self.isDirected == false {
+                self.graph[w][v] = false
+            }
+        }
+        self.num_Edge -= 1
+        self.depthFirstSearch(iteration: nil)
+    }
+    
     internal override func dfs(v: Int, iteration: iteratorBlock?) {
         self.visited[v] = true
         iteration?(v)
