@@ -112,6 +112,49 @@ public class SparseGraph_AdjList : Graph {
         return false
     }
     
+    public func deleteEdge(_ v : Int, _ w : Int) {
+        if !self.isAvaliable(v) || !self.isAvaliable(w) {
+            return
+        }
+        var pre : EdgeNode? = nil
+        var p = self.graph[v].firstBridge
+        while p != nil {
+            print("aaaaa")
+            if p?.vertex == w {
+                print("=====")
+                if pre == nil {
+                    self.graph[v].firstBridge = p?.next
+                } else {
+                    pre?.next = p?.next
+                    p = nil
+                }
+                self.num_Edge -= 1
+                //不处理平行变的问题,所以匹配的时候，直接break
+                break
+            }
+            pre = p
+            p = p?.next
+        }
+        if !self.isDirected {
+            pre = nil
+            p = self.graph[w].firstBridge
+            while p != nil {
+                if p?.vertex == v {
+                    if pre == nil {
+                        self.graph[w].firstBridge = p?.next
+                    } else {
+                        pre?.next = p?.next
+                        p = nil
+                    }
+                    break
+                }
+                pre = p
+                p = p?.next
+            }
+        }
+        self.depthFirstSearch(iteration: nil)
+    }
+    
     public override func show() {
         print("稀疏图 邻接表 ： \(self)")
         for i in 0 ..< self.num_Vertex {
