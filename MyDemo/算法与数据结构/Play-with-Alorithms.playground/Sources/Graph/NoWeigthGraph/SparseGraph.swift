@@ -65,7 +65,7 @@ public class SparseGraph : Graph {
         return false
     }
     
-    public func deleteEdge(_ v : Int, _ w : Int) {
+    public override func deleteEdge(_ v : Int, _ w : Int) {
         if !self.isAvaliable(v) || !self.isAvaliable(w) {
             return
         }

@@ -83,12 +83,8 @@ public class SparseGraph_AdjList : Graph {
         num_Edge += 1
     }
     
-    public override func deleteEdge(_ v: Int, _ w: Int) {
-
-    }
-    
     internal override func dfs(v: Int, iteration: iteratorBlock?) {
-
+        
         self.visited[v] = true
         iteration?(v)
         self.connectIds[v] = self.num_Components
@@ -112,7 +108,7 @@ public class SparseGraph_AdjList : Graph {
         return false
     }
     
-    public func deleteEdge(_ v : Int, _ w : Int) {
+    public override func deleteEdge(_ v : Int, _ w : Int) {
         if !self.isAvaliable(v) || !self.isAvaliable(w) {
             return
         }
@@ -173,7 +169,7 @@ public class SparseGraph_AdjList : Graph {
     public class Path : GraphPath {
         
         fileprivate var G : SparseGraph_AdjList!
-
+        
         public init(graph : SparseGraph_AdjList, v : Int) {
             super.init(capacity: graph.V(), v: v)
             self.G = graph
