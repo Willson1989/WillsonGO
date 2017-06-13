@@ -2,85 +2,141 @@
 
 import UIKit
 
-let N = 11
-let M = 50
-
-let from = 5
-let to = 8
-
-print("///// ===== SparseGraph_AdjList =====  ")
-let tmpG = SparseGraph_AdjList(capacity: N, directed: false)
-
-tmpG.addEdge(0, 1)
-tmpG.addEdge(2, 3)
-tmpG.addEdge(2, 4)
-tmpG.addEdge(3, 4)
-tmpG.addEdge(5, 6)
-tmpG.addEdge(6, 7)
-tmpG.addEdge(5, 7)
-tmpG.addEdge(0, 9)
-tmpG.addEdge(5, 8)
-tmpG.addEdge(2, 10)
-tmpG.addEdge(0, 8)
-tmpG.addEdge(6, 8)
-tmpG.addEdge(10, 4)
-tmpG.show()
 
 
-let path8 = SparseGraph_AdjList.Path(graph: tmpG, v: from)
-let path = path8.path(with: to)
-path8.showPath(with: to)
-print("SparseGraph_AdjList 最短路")
-let sPath8 = SparseGraph_AdjList.ShortestPath(graph: tmpG, v: from)
-let sPath = sPath8.path(with: to)
-sPath8.showPath(with: to)
-sPath8.length(from: to)
+let arr = [60, 10, 17, 71, 25, 78, 7, 57, 19, 30]
 
-tmpG.E()
-tmpG.hasEdge(5, 8)
-tmpG.deleteEdge(5, 8)
-tmpG.deleteEdge(5, 6)
-tmpG.show()
-tmpG.E()
+//var minH = IndexMinHeap_Map(array: arr)
+//
+//print()
+//print("============")
+//minH.showHeapInfo()
+//let a1 = minH.extractMin()
+//minH.showHeapInfo()
+//print()
+//
+////let a2 = minH.extractMin()
+////minH.showHeapInfo()
+////print()
+////
+////let a3 = minH.extractMin()
+////minH.showHeapInfo()
+////print()
+////
+////let a4 = minH.extractMin()
+////minH.showHeapInfo()
+////print()
+//
+//minH.insertItem(100)
+//
+//minH.showHeapInfo()
 
-let p11 = SparseGraph_AdjList.Path(graph: tmpG, v: from)
-p11.showPath(with: to)
+var maxH = IndexMinHeap_Map(array: arr)
+print("begin heap info : ")
+maxH.showHeapInfo()
+
+print("========")
+//for _ in 0 ..< 4 {
+//    let a = maxH.extractMax()
+//    print("最大元素 ：\(a)", separator: "", terminator: " -- ")
+//    maxH.printHeapInfo()
+//}
 
 
-print("///// ===== SparseGraph =====  ")
-let tmpG1 = SparseGraph(capacity: N, directed: false)
+print("111111111")
 
-tmpG1.addEdge(0, 1)
-tmpG1.addEdge(2, 3)
-tmpG1.addEdge(2, 4)
-tmpG1.addEdge(3, 4)
-tmpG1.addEdge(5, 6)
-tmpG1.addEdge(6, 7)
-tmpG1.addEdge(5, 7)
-tmpG1.addEdge(0, 9)
-tmpG1.addEdge(5, 8)
-tmpG1.addEdge(2, 10)
-tmpG1.addEdge(0, 8)
-tmpG1.addEdge(6, 8)
-tmpG1.addEdge(10, 4)
-tmpG1.show()
+for _ in 0 ..< 4 {
+    let r = Int(arc4random() % (UInt32(200 - 50 + 1)) + UInt32(50))
+    maxH.insertItem(r)
+    print("插入的元素 ：\(r)", separator: "", terminator: " -- ")
+    maxH.showHeapInfo()
+}
 
-let path81 = SparseGraph.Path(graph: tmpG1, v: from)
-let path1 = path81.path(with: to)
-path81.showPath(with: to)
-print("SparseGraph 最短路")
-let sPath81 = SparseGraph.ShortestPath(graph: tmpG1, v: from)
-let sPath1 = sPath81.path(with: to)
-sPath81.showPath(with: to)
-sPath81.length(from: to)
+maxH.insertItem(0)
+maxH.showHeapInfo()
 
-tmpG1.E()
-tmpG1.hasEdge(5, 8)
-tmpG1.deleteEdge(5, 8)
-tmpG1.hasEdge(5, 8)
-tmpG1.E()
-tmpG1.show()
-
+//let N = 11
+//let M = 50
+//
+//let from = 5
+//let to = 8
+//
+//let aa = Array<Any?>(repeating: nil, count: 5)
+//print(aa)
+//
+//print("///// ===== SparseGraph_AdjList =====  ")
+//let tmpG = SparseGraph_AdjList(capacity: N, directed: false)
+//
+//tmpG.addEdge(0, 1)
+//tmpG.addEdge(2, 3)
+//tmpG.addEdge(2, 4)
+//tmpG.addEdge(3, 4)
+//tmpG.addEdge(5, 6)
+//tmpG.addEdge(6, 7)
+//tmpG.addEdge(5, 7)
+//tmpG.addEdge(0, 9)
+//tmpG.addEdge(5, 8)
+//tmpG.addEdge(2, 10)
+//tmpG.addEdge(0, 8)
+//tmpG.addEdge(6, 8)
+//tmpG.addEdge(10, 4)
+//tmpG.show()
+//
+//
+//let path8 = SparseGraph_AdjList.Path(graph: tmpG, v: from)
+//let path = path8.path(with: to)
+//path8.showPath(with: to)
+//print("SparseGraph_AdjList 最短路")
+//let sPath8 = SparseGraph_AdjList.ShortestPath(graph: tmpG, v: from)
+//let sPath = sPath8.path(with: to)
+//sPath8.showPath(with: to)
+//sPath8.length(from: to)
+//
+//tmpG.E()
+//tmpG.hasEdge(5, 8)
+//tmpG.deleteEdge(5, 8)
+//tmpG.deleteEdge(5, 6)
+//tmpG.show()
+//tmpG.E()
+//
+//let p11 = SparseGraph_AdjList.Path(graph: tmpG, v: from)
+//p11.showPath(with: to)
+//
+//
+//print("///// ===== SparseGraph =====  ")
+//let tmpG1 = SparseGraph(capacity: N, directed: false)
+//
+//tmpG1.addEdge(0, 1)
+//tmpG1.addEdge(2, 3)
+//tmpG1.addEdge(2, 4)
+//tmpG1.addEdge(3, 4)
+//tmpG1.addEdge(5, 6)
+//tmpG1.addEdge(6, 7)
+//tmpG1.addEdge(5, 7)
+//tmpG1.addEdge(0, 9)
+//tmpG1.addEdge(5, 8)
+//tmpG1.addEdge(2, 10)
+//tmpG1.addEdge(0, 8)
+//tmpG1.addEdge(6, 8)
+//tmpG1.addEdge(10, 4)
+//tmpG1.show()
+//
+//let path81 = SparseGraph.Path(graph: tmpG1, v: from)
+//let path1 = path81.path(with: to)
+//path81.showPath(with: to)
+//print("SparseGraph 最短路")
+//let sPath81 = SparseGraph.ShortestPath(graph: tmpG1, v: from)
+//let sPath1 = sPath81.path(with: to)
+//sPath81.showPath(with: to)
+//sPath81.length(from: to)
+//
+//tmpG1.E()
+//tmpG1.hasEdge(5, 8)
+//tmpG1.deleteEdge(5, 8)
+//tmpG1.hasEdge(5, 8)
+//tmpG1.E()
+//tmpG1.show()
+//
 //
 //print("///// ===== DenseGraph_Matrix =====  ")
 //let tmpG2 = DenseGraph_Matrix(capacity: N, directed: false)

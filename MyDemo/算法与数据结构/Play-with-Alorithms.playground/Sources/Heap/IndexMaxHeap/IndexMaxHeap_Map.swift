@@ -77,9 +77,13 @@ public struct IndexMaxHeap_Map{
     }
     
     public mutating func insertItem(_ item : Int) {
+        
         data.append(item)
         last += 1
-        indexes[last] = last
+        //扩充容量
+        map.append(0)
+        indexes.append(-1)
+        indexes[last] = data.count - 1
         map[indexes[last]] = last
         fixUp(last)
     }
@@ -87,13 +91,10 @@ public struct IndexMaxHeap_Map{
     public mutating func extractMax() -> Int {
     
         let max = data[indexes[1]]
-        
         swapElement(&indexes, last, 1)
-        
-        map[last] = 0
-        
+        map[indexes[last]] = 0
+        map[indexes[1]] = 1
         last -= 1
-        
         fixDown(1)
         
         return max

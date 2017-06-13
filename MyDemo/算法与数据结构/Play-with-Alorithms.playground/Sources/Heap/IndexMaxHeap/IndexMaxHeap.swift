@@ -88,6 +88,7 @@ public struct IndexMaxHeap{
         self.data.append(item)
         self.count += 1
         self.indexes.append(self.count)
+        self.indexes[self.count] = self.data.count - 1
         self.fixUp(self.count)
     }
     
@@ -96,10 +97,6 @@ public struct IndexMaxHeap{
         let maxItem = self.data[indexes[1]]
         
         swapElement(&indexes, self.count, 1)
-        
-//        let rmIdx = indexes[self.count]
-//        self.data.remove(at: rmIdx)
-//        self.indexes.remove(at: self.count)
         
         self.count -= 1
         

@@ -2,6 +2,30 @@ import Foundation
 
 public typealias iteratorBlock = (_ v : Int) -> ()
 
+
+public typealias EdgeWeight = Comparable & Equatable
+
+// 有权图的边
+public class Edge<T : EdgeWeight> {
+    
+    public var vertexA : Int = INFINITY
+    public var vertexB : Int = INFINITY
+    public var weight : T? = nil
+    public var next : Edge<T>? = nil
+    
+    init(a : Int, b : Int, weight : T?) {
+        self.vertexA = a
+        self.vertexB = b
+        self.weight = weight
+    }
+    
+    init() {
+        self.vertexA = INFINITY
+        self.vertexB = INFINITY
+        self.weight = nil
+    }
+}
+
 public class Graph : NSObject {
     
     internal var num_Vertex : Int = 0
@@ -9,7 +33,6 @@ public class Graph : NSObject {
     internal var num_Components : Int = 0
     internal var isDirected : Bool = false
     internal var visited : [Bool] = []
-    
     
     //遍历图的时候，num_Components会自增，connectIds用来存储各个阶段的num_Components，
     //用来标识顶点之间的连通关系。connectIds[v] 和 connectIds[w]的值相等的话，代表v和w相连
@@ -24,6 +47,9 @@ public class Graph : NSObject {
     
     //MARK: - 在v和w之间添加一条边
     internal func addEdge(_ v : Int, _ w : Int ){ }
+    
+    //MARK: - 删除v和w之间的边
+    public func deleteEdge(_ v : Int, _ w : Int) { }
     
     //MARK: - v 和 w 之间是否有边
     internal func hasEdge(_ v : Int, _ w : Int) -> Bool {
@@ -58,6 +84,7 @@ public class Graph : NSObject {
     
     //MARK: - 初始化 visited 数组
     internal func initVisitedArray() {
+        self.num_Components = 0
         self.visited = Array(repeating: false, count: self.num_Vertex)
     }
     
@@ -89,6 +116,7 @@ public class Graph : NSObject {
     
     //MARK: - 图的深度优先遍历（由于用来存储图的数据结构不同，这里需要各个Graph子类重写dfs方法）
     internal func dfs(v : Int, iteration : iteratorBlock?){ }
+
 }
 
 
@@ -165,4 +193,11 @@ public class GraphPath{
         self.visited = Array(repeating: false, count: self.num_Vertex)
     }
 }
+
+
+
+
+
+
+
 

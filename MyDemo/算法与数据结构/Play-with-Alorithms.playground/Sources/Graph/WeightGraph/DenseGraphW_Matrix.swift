@@ -1,26 +1,21 @@
 import Foundation
 
-/*
- 稠密图
- 适合用  邻接矩阵  来标识
- 完全图：所有的节点和所有的节点都相连
- */
-public class DenseGraph_Matrix : Graph{
+public class DenseGraphW_Matrix<T : EdgeWeight> : Graph {
     
-    internal var graph : [[Bool]] = []
-        
+    internal var graph : [[Edge<T>?]] = []
+    
     public init(capacity : Int , directed : Bool) {
         super.init()
         self.num_Vertex = capacity
         self.num_Edge = 0
         self.isDirected = directed
         for _ in 0 ..< capacity {
-            let tmp = Array(repeating: false, count: capacity)
-            self.graph.append(tmp)
+            let tmpArr = Array<Edge<T>?>(repeating: nil, count: capacity)
+            self.graph.append(tmpArr)
         }
     }
-    
-    public override func addEdge(_ v : Int, _ w : Int ) {
+
+    public func addEdge(_ v: Int, _ w: Int, weight : T) {
         if !isAvaliable(v) || !isAvaliable(w) {
             return
         }
@@ -28,12 +23,30 @@ public class DenseGraph_Matrix : Graph{
             //如果v和w之间已经有边了，则不做任何操作
             return
         }
-        graph[v][w] = true
+        graph[v][w] = Edge(a: v, b: w, weight: weight)
         if !isDirected {
             //如果是无向图
-            graph[w][v] = true
+            graph[w][v] = Edge(a: w, b: v, weight: weight)
         }
         num_Edge += 1
+    }
+    
+    public override func deleteEdge(_ v: Int, _ w: Int) {
+        if !self.isAvaliable(v) || !self.isAvaliable(w) {
+            return
+        }
+        if !self.hasEdge(v, w) {
+            return
+        }
+        
+        if self.graph[v][w] != nil {
+            self.graph[v][w] = nil
+            if self.isDirected == false {
+                self.graph[w][v] = nil
+            }
+        }
+        self.num_Edge -= 1
+        self.depthFirstSearch(iteration: nil)
     }
     
     internal override func dfs(v: Int, iteration: iteratorBlock?) {
@@ -41,16 +54,8 @@ public class DenseGraph_Matrix : Graph{
         iteration?(v)
         self.connectIds[v] = self.num_Components
         for i in 0 ..< self.graph[v].count {
-            if self.graph[v][i] == true && self.visited[i] == false {
+            if self.graph[v][i] != nil && self.visited[i] == false {
                 self.dfs(v: i, iteration: iteration)
-            }
-        }
-    }
-    
-    public override func iterateGraph(forVertex v: Int, _ iteration: (Int) -> ()) {
-        for i in 0 ..< self.graph[v].count {
-            if self.graph[v][i] == true {
-                iteration(i)
             }
         }
     }
@@ -58,18 +63,21 @@ public class DenseGraph_Matrix : Graph{
     public override func hasEdge(_ v : Int, _ w : Int) -> Bool{
         assert(self.isAvaliable(v))
         assert(self.isAvaliable(w))
-        return self.graph[v][w]
+        return self.graph[v][w] != nil
     }
     
     public override func show() {
         
-        print("稠密图 邻接矩阵 ： \(self)")
+        print("稠密图(有权图) 邻接矩阵 ： \(self)")
         for i in 0 ..< self.num_Vertex {
             let str = String(format: "%03d", i)
             print("Vertex \(str) : ", separator: "", terminator: "")
             for j in 0 ..< self.num_Vertex {
-                let content = self.graph[i][j] == true ? "1" : "0"
-                print(content, separator: "", terminator: " ")
+                if let e = self.graph[i][j] {
+                    print("{from : \(e.vertexA), to : \(e.vertexB), w : \(e.weight)}", separator: "", terminator: " ")
+                } else {
+                    print("nil", separator: "", terminator: " ")
+                }
             }
             print()
         }
@@ -78,9 +86,9 @@ public class DenseGraph_Matrix : Graph{
     
     public class Path : GraphPath {
         
-        fileprivate var G : DenseGraph_Matrix!
+        fileprivate var G : DenseGraphW_Matrix!
         
-        public init(graph : DenseGraph_Matrix, v : Int) {
+        public init(graph : DenseGraphW_Matrix, v : Int) {
             super.init(capacity: graph.V(), v: v)
             self.G = graph
             self.dfsFromVertex(self.V)
@@ -89,7 +97,7 @@ public class DenseGraph_Matrix : Graph{
         internal override func dfsFromVertex(_ v: Int) {
             self.visited[v] = true
             for i in 0 ..< self.num_Vertex {
-                if self.G.graph[v][i] == true && self.visited[i] == false {
+                if self.G.graph[v][i] != nil && self.visited[i] == false {
                     self.from[i] = v
                     self.dfsFromVertex(i)
                 }
@@ -99,9 +107,9 @@ public class DenseGraph_Matrix : Graph{
     
     public class ShortestPath : GraphPath {
         
-        fileprivate var G : DenseGraph_Matrix!
+        fileprivate var G : DenseGraphW_Matrix!
         
-        public init(graph : DenseGraph_Matrix, v : Int) {
+        public init(graph : DenseGraphW_Matrix, v : Int) {
             super.init(capacity: graph.V(), v: v)
             self.G = graph
             self.initDistanceArray()
@@ -115,11 +123,10 @@ public class DenseGraph_Matrix : Graph{
             self.visited[v] = true
             
             while !queue.isEmpty() {
-                
                 let tmpV = queue.front() as! Int
                 queue.dequeue()
                 for i in 0 ..< self.num_Vertex {
-                    if self.G.graph[tmpV][i] == true && self.visited[i] == false {
+                    if self.G.graph[tmpV][i] != nil && self.visited[i] == false {
                         queue.enqueue(i)
                         self.visited[i] = true
                         self.from[i] = tmpV
@@ -128,6 +135,10 @@ public class DenseGraph_Matrix : Graph{
                 }
             }
         }
-        
     }
+    
 }
+
+
+
+
