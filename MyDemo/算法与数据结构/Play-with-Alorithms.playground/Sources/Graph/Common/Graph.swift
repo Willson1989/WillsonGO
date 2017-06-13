@@ -2,6 +2,30 @@ import Foundation
 
 public typealias iteratorBlock = (_ v : Int) -> ()
 
+
+public typealias EdgeWeight = Comparable & Equatable
+
+// 有权图的边
+public class Edge<T : EdgeWeight> {
+    
+    public var vertexA : Int = INFINITY
+    public var vertexB : Int = INFINITY
+    public var weight : T? = nil
+    public var next : Edge<T>? = nil
+    
+    init(a : Int, b : Int, weight : T?) {
+        self.vertexA = a
+        self.vertexB = b
+        self.weight = weight
+    }
+    
+    init() {
+        self.vertexA = INFINITY
+        self.vertexB = INFINITY
+        self.weight = nil
+    }
+}
+
 public class Graph : NSObject {
     
     internal var num_Vertex : Int = 0
@@ -9,7 +33,6 @@ public class Graph : NSObject {
     internal var num_Components : Int = 0
     internal var isDirected : Bool = false
     internal var visited : [Bool] = []
-    
     
     //遍历图的时候，num_Components会自增，connectIds用来存储各个阶段的num_Components，
     //用来标识顶点之间的连通关系。connectIds[v] 和 connectIds[w]的值相等的话，代表v和w相连
@@ -170,4 +193,11 @@ public class GraphPath{
         self.visited = Array(repeating: false, count: self.num_Vertex)
     }
 }
+
+
+
+
+
+
+
 
