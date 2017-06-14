@@ -44,6 +44,7 @@
 		3D156C191EF0DBAC0098927D /* UnionFind_UsingSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BF91EF0DBAC0098927D /* UnionFind_UsingSize.swift */; };
 		3D156C1A1EF0DBAC0098927D /* UnionFindTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BFA1EF0DBAC0098927D /* UnionFindTestHelper.swift */; };
 		3D156C1B1EF0DBAC0098927D /* 拓展知识.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BFB1EF0DBAC0098927D /* 拓展知识.swift */; };
+		3DFA2FD51EF0EE3200554E44 /* Graph_Weighted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFA2FD41EF0EE3200554E44 /* Graph_Weighted.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,7 @@
 		3D156BF91EF0DBAC0098927D /* UnionFind_UsingSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnionFind_UsingSize.swift; sourceTree = "<group>"; };
 		3D156BFA1EF0DBAC0098927D /* UnionFindTestHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnionFindTestHelper.swift; sourceTree = "<group>"; };
 		3D156BFB1EF0DBAC0098927D /* 拓展知识.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "拓展知识.swift"; sourceTree = "<group>"; };
+		3DFA2FD41EF0EE3200554E44 /* Graph_Weighted.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Graph_Weighted.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +190,7 @@
 			children = (
 				3D156BDD1EF0DBAC0098927D /* AdjacentIterators.swift */,
 				3D156BDE1EF0DBAC0098927D /* Graph.swift */,
+				3DFA2FD41EF0EE3200554E44 /* Graph_Weighted.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				3D156C051EF0DBAC0098927D /* Graph.swift in Sources */,
 				3D156C0E1EF0DBAC0098927D /* IndexMaxHeapSort.swift in Sources */,
 				3D156C0F1EF0DBAC0098927D /* IndexMinHeap_Map.swift in Sources */,
+				3DFA2FD51EF0EE3200554E44 /* Graph_Weighted.swift in Sources */,
 				3D156BFD1EF0DBAC0098927D /* InsertSort.swift in Sources */,
 				3D156C161EF0DBAC0098927D /* UnionFind_Simple.swift in Sources */,
 				3D156C1A1EF0DBAC0098927D /* UnionFindTestHelper.swift in Sources */,
@@ -531,6 +535,7 @@
 				3D156BCD1EF0DB5F0098927D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

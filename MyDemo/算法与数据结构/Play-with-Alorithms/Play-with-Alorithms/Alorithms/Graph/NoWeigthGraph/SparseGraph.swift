@@ -71,7 +71,6 @@ public class SparseGraph : Graph {
         }
         
         for i in 0 ..< self.graph[v].count {
-            print("---- \(i)")
             if self.graph[v][i] == w {
                 self.graph[v].remove(at: i)
                 self.num_Edge -= 1

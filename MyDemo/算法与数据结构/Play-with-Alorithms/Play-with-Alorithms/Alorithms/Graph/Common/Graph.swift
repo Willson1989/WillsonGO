@@ -3,28 +3,6 @@ import Foundation
 public typealias iteratorBlock = (_ v : Int) -> ()
 
 
-public typealias EdgeWeight = Comparable & Equatable
-
-// 有权图的边
-public class Edge<T : EdgeWeight> {
-    
-    public var vertexA : Int = INFINITY
-    public var vertexB : Int = INFINITY
-    public var weight : T? = nil
-    public var next : Edge<T>? = nil
-    
-    init(a : Int, b : Int, weight : T?) {
-        self.vertexA = a
-        self.vertexB = b
-        self.weight = weight
-    }
-    
-    init() {
-        self.vertexA = INFINITY
-        self.vertexB = INFINITY
-        self.weight = nil
-    }
-}
 
 public class Graph : NSObject {
     

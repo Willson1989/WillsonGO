@@ -1,6 +1,6 @@
 import Foundation
 
-public class DenseGraphW_Matrix<T : EdgeWeight> : Graph {
+public class DenseGraphW_Matrix<T : EdgeWeight> : Graph_Weighted<T> {
     
     internal var graph : [[Edge<T>?]] = []
     
@@ -15,7 +15,7 @@ public class DenseGraphW_Matrix<T : EdgeWeight> : Graph {
         }
     }
 
-    public func addEdge(_ v: Int, _ w: Int, weight : T) {
+    public override func addEdge(_ v: Int, _ w: Int, weight : T) {
         if !isAvaliable(v) || !isAvaliable(w) {
             return
         }
@@ -73,11 +73,8 @@ public class DenseGraphW_Matrix<T : EdgeWeight> : Graph {
             let str = String(format: "%03d", i)
             print("Vertex \(str) : ", separator: "", terminator: "")
             for j in 0 ..< self.num_Vertex {
-                if let e = self.graph[i][j] {
-                    print("{from : \(e.vertexA), to : \(e.vertexB), w : \(e.weight)}", separator: "", terminator: " ")
-                } else {
-                    print("nil", separator: "", terminator: " ")
-                }
+                let content = self.graph[i][j] != nil ? "1" : "0"
+                print(content, separator: "", terminator: " ")
             }
             print()
         }
