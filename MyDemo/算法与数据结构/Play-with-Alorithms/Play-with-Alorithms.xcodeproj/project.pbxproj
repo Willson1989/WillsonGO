@@ -1,0 +1,543 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3D156BBD1EF0DB5F0098927D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BBC1EF0DB5F0098927D /* AppDelegate.swift */; };
+		3D156BBF1EF0DB5F0098927D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BBE1EF0DB5F0098927D /* ViewController.swift */; };
+		3D156BC21EF0DB5F0098927D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D156BC01EF0DB5F0098927D /* Main.storyboard */; };
+		3D156BC41EF0DB5F0098927D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D156BC31EF0DB5F0098927D /* Assets.xcassets */; };
+		3D156BC71EF0DB5F0098927D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D156BC51EF0DB5F0098927D /* LaunchScreen.storyboard */; };
+		3D156BFC1EF0DBAC0098927D /* BasicQueueAndStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BD11EF0DBAC0098927D /* BasicQueueAndStack.swift */; };
+		3D156BFD1EF0DBAC0098927D /* InsertSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BD31EF0DBAC0098927D /* InsertSort.swift */; };
+		3D156BFE1EF0DBAC0098927D /* MergeSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BD41EF0DBAC0098927D /* MergeSort.swift */; };
+		3D156BFF1EF0DBAC0098927D /* QuickSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BD51EF0DBAC0098927D /* QuickSort.swift */; };
+		3D156C001EF0DBAC0098927D /* SelectionSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BD61EF0DBAC0098927D /* SelectionSort.swift */; };
+		3D156C011EF0DBAC0098927D /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BD71EF0DBAC0098927D /* Sort.swift */; };
+		3D156C021EF0DBAC0098927D /* BinarySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BD91EF0DBAC0098927D /* BinarySearch.swift */; };
+		3D156C031EF0DBAC0098927D /* BinarySearchTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BDA1EF0DBAC0098927D /* BinarySearchTree.swift */; };
+		3D156C041EF0DBAC0098927D /* AdjacentIterators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BDD1EF0DBAC0098927D /* AdjacentIterators.swift */; };
+		3D156C051EF0DBAC0098927D /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BDE1EF0DBAC0098927D /* Graph.swift */; };
+		3D156C061EF0DBAC0098927D /* DenseGraph_Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BE01EF0DBAC0098927D /* DenseGraph_Matrix.swift */; };
+		3D156C071EF0DBAC0098927D /* SparseGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BE11EF0DBAC0098927D /* SparseGraph.swift */; };
+		3D156C081EF0DBAC0098927D /* SparseGraph_AdjList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BE21EF0DBAC0098927D /* SparseGraph_AdjList.swift */; };
+		3D156C091EF0DBAC0098927D /* DenseGraphW_Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BE41EF0DBAC0098927D /* DenseGraphW_Matrix.swift */; };
+		3D156C0A1EF0DBAC0098927D /* SparseGraphW.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BE51EF0DBAC0098927D /* SparseGraphW.swift */; };
+		3D156C0B1EF0DBAC0098927D /* SparseGraphW_AdjList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BE61EF0DBAC0098927D /* SparseGraphW_AdjList.swift */; };
+		3D156C0C1EF0DBAC0098927D /* IndexMaxHeap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BE91EF0DBAC0098927D /* IndexMaxHeap.swift */; };
+		3D156C0D1EF0DBAC0098927D /* IndexMaxHeap_Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BEA1EF0DBAC0098927D /* IndexMaxHeap_Map.swift */; };
+		3D156C0E1EF0DBAC0098927D /* IndexMaxHeapSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BEB1EF0DBAC0098927D /* IndexMaxHeapSort.swift */; };
+		3D156C0F1EF0DBAC0098927D /* IndexMinHeap_Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BED1EF0DBAC0098927D /* IndexMinHeap_Map.swift */; };
+		3D156C101EF0DBAC0098927D /* HeapSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BEF1EF0DBAC0098927D /* HeapSort.swift */; };
+		3D156C111EF0DBAC0098927D /* MaxHeap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BF01EF0DBAC0098927D /* MaxHeap.swift */; };
+		3D156C121EF0DBAC0098927D /* TestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BF11EF0DBAC0098927D /* TestHelper.swift */; };
+		3D156C131EF0DBAC0098927D /* UFType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BF31EF0DBAC0098927D /* UFType.swift */; };
+		3D156C141EF0DBAC0098927D /* UnionFind_CompressPath_01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BF41EF0DBAC0098927D /* UnionFind_CompressPath_01.swift */; };
+		3D156C151EF0DBAC0098927D /* UnionFind_CompressPath_02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BF51EF0DBAC0098927D /* UnionFind_CompressPath_02.swift */; };
+		3D156C161EF0DBAC0098927D /* UnionFind_Simple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BF61EF0DBAC0098927D /* UnionFind_Simple.swift */; };
+		3D156C171EF0DBAC0098927D /* UnionFind_UsingParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BF71EF0DBAC0098927D /* UnionFind_UsingParent.swift */; };
+		3D156C181EF0DBAC0098927D /* UnionFind_UsingRank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BF81EF0DBAC0098927D /* UnionFind_UsingRank.swift */; };
+		3D156C191EF0DBAC0098927D /* UnionFind_UsingSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BF91EF0DBAC0098927D /* UnionFind_UsingSize.swift */; };
+		3D156C1A1EF0DBAC0098927D /* UnionFindTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BFA1EF0DBAC0098927D /* UnionFindTestHelper.swift */; };
+		3D156C1B1EF0DBAC0098927D /* 拓展知识.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BFB1EF0DBAC0098927D /* 拓展知识.swift */; };
+		3DFA2FD51EF0EE3200554E44 /* Graph_Weighted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFA2FD41EF0EE3200554E44 /* Graph_Weighted.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3D156BB91EF0DB5F0098927D /* Play-with-Alorithms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Play-with-Alorithms.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D156BBC1EF0DB5F0098927D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3D156BBE1EF0DB5F0098927D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3D156BC11EF0DB5F0098927D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3D156BC31EF0DB5F0098927D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3D156BC61EF0DB5F0098927D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3D156BC81EF0DB5F0098927D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D156BD11EF0DBAC0098927D /* BasicQueueAndStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicQueueAndStack.swift; sourceTree = "<group>"; };
+		3D156BD31EF0DBAC0098927D /* InsertSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsertSort.swift; sourceTree = "<group>"; };
+		3D156BD41EF0DBAC0098927D /* MergeSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MergeSort.swift; sourceTree = "<group>"; };
+		3D156BD51EF0DBAC0098927D /* QuickSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickSort.swift; sourceTree = "<group>"; };
+		3D156BD61EF0DBAC0098927D /* SelectionSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionSort.swift; sourceTree = "<group>"; };
+		3D156BD71EF0DBAC0098927D /* Sort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sort.swift; sourceTree = "<group>"; };
+		3D156BD91EF0DBAC0098927D /* BinarySearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinarySearch.swift; sourceTree = "<group>"; };
+		3D156BDA1EF0DBAC0098927D /* BinarySearchTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinarySearchTree.swift; sourceTree = "<group>"; };
+		3D156BDD1EF0DBAC0098927D /* AdjacentIterators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdjacentIterators.swift; sourceTree = "<group>"; };
+		3D156BDE1EF0DBAC0098927D /* Graph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
+		3D156BE01EF0DBAC0098927D /* DenseGraph_Matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DenseGraph_Matrix.swift; sourceTree = "<group>"; };
+		3D156BE11EF0DBAC0098927D /* SparseGraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SparseGraph.swift; sourceTree = "<group>"; };
+		3D156BE21EF0DBAC0098927D /* SparseGraph_AdjList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SparseGraph_AdjList.swift; sourceTree = "<group>"; };
+		3D156BE41EF0DBAC0098927D /* DenseGraphW_Matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DenseGraphW_Matrix.swift; sourceTree = "<group>"; };
+		3D156BE51EF0DBAC0098927D /* SparseGraphW.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SparseGraphW.swift; sourceTree = "<group>"; };
+		3D156BE61EF0DBAC0098927D /* SparseGraphW_AdjList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SparseGraphW_AdjList.swift; sourceTree = "<group>"; };
+		3D156BE91EF0DBAC0098927D /* IndexMaxHeap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexMaxHeap.swift; sourceTree = "<group>"; };
+		3D156BEA1EF0DBAC0098927D /* IndexMaxHeap_Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexMaxHeap_Map.swift; sourceTree = "<group>"; };
+		3D156BEB1EF0DBAC0098927D /* IndexMaxHeapSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexMaxHeapSort.swift; sourceTree = "<group>"; };
+		3D156BED1EF0DBAC0098927D /* IndexMinHeap_Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexMinHeap_Map.swift; sourceTree = "<group>"; };
+		3D156BEF1EF0DBAC0098927D /* HeapSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeapSort.swift; sourceTree = "<group>"; };
+		3D156BF01EF0DBAC0098927D /* MaxHeap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaxHeap.swift; sourceTree = "<group>"; };
+		3D156BF11EF0DBAC0098927D /* TestHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestHelper.swift; sourceTree = "<group>"; };
+		3D156BF31EF0DBAC0098927D /* UFType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UFType.swift; sourceTree = "<group>"; };
+		3D156BF41EF0DBAC0098927D /* UnionFind_CompressPath_01.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnionFind_CompressPath_01.swift; sourceTree = "<group>"; };
+		3D156BF51EF0DBAC0098927D /* UnionFind_CompressPath_02.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnionFind_CompressPath_02.swift; sourceTree = "<group>"; };
+		3D156BF61EF0DBAC0098927D /* UnionFind_Simple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnionFind_Simple.swift; sourceTree = "<group>"; };
+		3D156BF71EF0DBAC0098927D /* UnionFind_UsingParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnionFind_UsingParent.swift; sourceTree = "<group>"; };
+		3D156BF81EF0DBAC0098927D /* UnionFind_UsingRank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnionFind_UsingRank.swift; sourceTree = "<group>"; };
+		3D156BF91EF0DBAC0098927D /* UnionFind_UsingSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnionFind_UsingSize.swift; sourceTree = "<group>"; };
+		3D156BFA1EF0DBAC0098927D /* UnionFindTestHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnionFindTestHelper.swift; sourceTree = "<group>"; };
+		3D156BFB1EF0DBAC0098927D /* 拓展知识.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "拓展知识.swift"; sourceTree = "<group>"; };
+		3DFA2FD41EF0EE3200554E44 /* Graph_Weighted.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Graph_Weighted.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3D156BB61EF0DB5F0098927D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3D156BB01EF0DB5F0098927D = {
+			isa = PBXGroup;
+			children = (
+				3D156BBB1EF0DB5F0098927D /* Play-with-Alorithms */,
+				3D156BBA1EF0DB5F0098927D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3D156BBA1EF0DB5F0098927D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3D156BB91EF0DB5F0098927D /* Play-with-Alorithms.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3D156BBB1EF0DB5F0098927D /* Play-with-Alorithms */ = {
+			isa = PBXGroup;
+			children = (
+				3D156BCF1EF0DBAC0098927D /* Alorithms */,
+				3D156BBC1EF0DB5F0098927D /* AppDelegate.swift */,
+				3D156BBE1EF0DB5F0098927D /* ViewController.swift */,
+				3D156BC01EF0DB5F0098927D /* Main.storyboard */,
+				3D156BC31EF0DB5F0098927D /* Assets.xcassets */,
+				3D156BC51EF0DB5F0098927D /* LaunchScreen.storyboard */,
+				3D156BC81EF0DB5F0098927D /* Info.plist */,
+			);
+			path = "Play-with-Alorithms";
+			sourceTree = "<group>";
+		};
+		3D156BCF1EF0DBAC0098927D /* Alorithms */ = {
+			isa = PBXGroup;
+			children = (
+				3D156BD01EF0DBAC0098927D /* Basic */,
+				3D156BD21EF0DBAC0098927D /* BasicSort */,
+				3D156BD81EF0DBAC0098927D /* BinarySearchTree */,
+				3D156BDB1EF0DBAC0098927D /* Graph */,
+				3D156BE71EF0DBAC0098927D /* Heap */,
+				3D156BF11EF0DBAC0098927D /* TestHelper.swift */,
+				3D156BF21EF0DBAC0098927D /* UnionFind */,
+				3D156BFB1EF0DBAC0098927D /* 拓展知识.swift */,
+			);
+			path = Alorithms;
+			sourceTree = "<group>";
+		};
+		3D156BD01EF0DBAC0098927D /* Basic */ = {
+			isa = PBXGroup;
+			children = (
+				3D156BD11EF0DBAC0098927D /* BasicQueueAndStack.swift */,
+			);
+			path = Basic;
+			sourceTree = "<group>";
+		};
+		3D156BD21EF0DBAC0098927D /* BasicSort */ = {
+			isa = PBXGroup;
+			children = (
+				3D156BD31EF0DBAC0098927D /* InsertSort.swift */,
+				3D156BD41EF0DBAC0098927D /* MergeSort.swift */,
+				3D156BD51EF0DBAC0098927D /* QuickSort.swift */,
+				3D156BD61EF0DBAC0098927D /* SelectionSort.swift */,
+				3D156BD71EF0DBAC0098927D /* Sort.swift */,
+			);
+			path = BasicSort;
+			sourceTree = "<group>";
+		};
+		3D156BD81EF0DBAC0098927D /* BinarySearchTree */ = {
+			isa = PBXGroup;
+			children = (
+				3D156BD91EF0DBAC0098927D /* BinarySearch.swift */,
+				3D156BDA1EF0DBAC0098927D /* BinarySearchTree.swift */,
+			);
+			path = BinarySearchTree;
+			sourceTree = "<group>";
+		};
+		3D156BDB1EF0DBAC0098927D /* Graph */ = {
+			isa = PBXGroup;
+			children = (
+				3D156BDC1EF0DBAC0098927D /* Common */,
+				3D156BDF1EF0DBAC0098927D /* NoWeigthGraph */,
+				3D156BE31EF0DBAC0098927D /* WeightGraph */,
+			);
+			path = Graph;
+			sourceTree = "<group>";
+		};
+		3D156BDC1EF0DBAC0098927D /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				3D156BDD1EF0DBAC0098927D /* AdjacentIterators.swift */,
+				3D156BDE1EF0DBAC0098927D /* Graph.swift */,
+				3DFA2FD41EF0EE3200554E44 /* Graph_Weighted.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		3D156BDF1EF0DBAC0098927D /* NoWeigthGraph */ = {
+			isa = PBXGroup;
+			children = (
+				3D156BE01EF0DBAC0098927D /* DenseGraph_Matrix.swift */,
+				3D156BE11EF0DBAC0098927D /* SparseGraph.swift */,
+				3D156BE21EF0DBAC0098927D /* SparseGraph_AdjList.swift */,
+			);
+			path = NoWeigthGraph;
+			sourceTree = "<group>";
+		};
+		3D156BE31EF0DBAC0098927D /* WeightGraph */ = {
+			isa = PBXGroup;
+			children = (
+				3D156BE41EF0DBAC0098927D /* DenseGraphW_Matrix.swift */,
+				3D156BE51EF0DBAC0098927D /* SparseGraphW.swift */,
+				3D156BE61EF0DBAC0098927D /* SparseGraphW_AdjList.swift */,
+			);
+			path = WeightGraph;
+			sourceTree = "<group>";
+		};
+		3D156BE71EF0DBAC0098927D /* Heap */ = {
+			isa = PBXGroup;
+			children = (
+				3D156BE81EF0DBAC0098927D /* IndexMaxHeap */,
+				3D156BEC1EF0DBAC0098927D /* IndexMinHeap_Map */,
+				3D156BEE1EF0DBAC0098927D /* MaxHeap */,
+			);
+			path = Heap;
+			sourceTree = "<group>";
+		};
+		3D156BE81EF0DBAC0098927D /* IndexMaxHeap */ = {
+			isa = PBXGroup;
+			children = (
+				3D156BE91EF0DBAC0098927D /* IndexMaxHeap.swift */,
+				3D156BEA1EF0DBAC0098927D /* IndexMaxHeap_Map.swift */,
+				3D156BEB1EF0DBAC0098927D /* IndexMaxHeapSort.swift */,
+			);
+			path = IndexMaxHeap;
+			sourceTree = "<group>";
+		};
+		3D156BEC1EF0DBAC0098927D /* IndexMinHeap_Map */ = {
+			isa = PBXGroup;
+			children = (
+				3D156BED1EF0DBAC0098927D /* IndexMinHeap_Map.swift */,
+			);
+			path = IndexMinHeap_Map;
+			sourceTree = "<group>";
+		};
+		3D156BEE1EF0DBAC0098927D /* MaxHeap */ = {
+			isa = PBXGroup;
+			children = (
+				3D156BEF1EF0DBAC0098927D /* HeapSort.swift */,
+				3D156BF01EF0DBAC0098927D /* MaxHeap.swift */,
+			);
+			path = MaxHeap;
+			sourceTree = "<group>";
+		};
+		3D156BF21EF0DBAC0098927D /* UnionFind */ = {
+			isa = PBXGroup;
+			children = (
+				3D156BF31EF0DBAC0098927D /* UFType.swift */,
+				3D156BF41EF0DBAC0098927D /* UnionFind_CompressPath_01.swift */,
+				3D156BF51EF0DBAC0098927D /* UnionFind_CompressPath_02.swift */,
+				3D156BF61EF0DBAC0098927D /* UnionFind_Simple.swift */,
+				3D156BF71EF0DBAC0098927D /* UnionFind_UsingParent.swift */,
+				3D156BF81EF0DBAC0098927D /* UnionFind_UsingRank.swift */,
+				3D156BF91EF0DBAC0098927D /* UnionFind_UsingSize.swift */,
+				3D156BFA1EF0DBAC0098927D /* UnionFindTestHelper.swift */,
+			);
+			path = UnionFind;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3D156BB81EF0DB5F0098927D /* Play-with-Alorithms */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3D156BCB1EF0DB5F0098927D /* Build configuration list for PBXNativeTarget "Play-with-Alorithms" */;
+			buildPhases = (
+				3D156BB51EF0DB5F0098927D /* Sources */,
+				3D156BB61EF0DB5F0098927D /* Frameworks */,
+				3D156BB71EF0DB5F0098927D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Play-with-Alorithms";
+			productName = "Play-with-Alorithms";
+			productReference = 3D156BB91EF0DB5F0098927D /* Play-with-Alorithms.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3D156BB11EF0DB5F0098927D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = ZhengYi;
+				TargetAttributes = {
+					3D156BB81EF0DB5F0098927D = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 3D156BB41EF0DB5F0098927D /* Build configuration list for PBXProject "Play-with-Alorithms" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3D156BB01EF0DB5F0098927D;
+			productRefGroup = 3D156BBA1EF0DB5F0098927D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3D156BB81EF0DB5F0098927D /* Play-with-Alorithms */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3D156BB71EF0DB5F0098927D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D156BC71EF0DB5F0098927D /* LaunchScreen.storyboard in Resources */,
+				3D156BC41EF0DB5F0098927D /* Assets.xcassets in Resources */,
+				3D156BC21EF0DB5F0098927D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3D156BB51EF0DB5F0098927D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D156C131EF0DBAC0098927D /* UFType.swift in Sources */,
+				3D156C051EF0DBAC0098927D /* Graph.swift in Sources */,
+				3D156C0E1EF0DBAC0098927D /* IndexMaxHeapSort.swift in Sources */,
+				3D156C0F1EF0DBAC0098927D /* IndexMinHeap_Map.swift in Sources */,
+				3DFA2FD51EF0EE3200554E44 /* Graph_Weighted.swift in Sources */,
+				3D156BFD1EF0DBAC0098927D /* InsertSort.swift in Sources */,
+				3D156C161EF0DBAC0098927D /* UnionFind_Simple.swift in Sources */,
+				3D156C1A1EF0DBAC0098927D /* UnionFindTestHelper.swift in Sources */,
+				3D156C0D1EF0DBAC0098927D /* IndexMaxHeap_Map.swift in Sources */,
+				3D156C071EF0DBAC0098927D /* SparseGraph.swift in Sources */,
+				3D156C0A1EF0DBAC0098927D /* SparseGraphW.swift in Sources */,
+				3D156BFF1EF0DBAC0098927D /* QuickSort.swift in Sources */,
+				3D156C021EF0DBAC0098927D /* BinarySearch.swift in Sources */,
+				3D156C171EF0DBAC0098927D /* UnionFind_UsingParent.swift in Sources */,
+				3D156C0C1EF0DBAC0098927D /* IndexMaxHeap.swift in Sources */,
+				3D156C001EF0DBAC0098927D /* SelectionSort.swift in Sources */,
+				3D156C031EF0DBAC0098927D /* BinarySearchTree.swift in Sources */,
+				3D156C041EF0DBAC0098927D /* AdjacentIterators.swift in Sources */,
+				3D156BBF1EF0DB5F0098927D /* ViewController.swift in Sources */,
+				3D156BBD1EF0DB5F0098927D /* AppDelegate.swift in Sources */,
+				3D156C101EF0DBAC0098927D /* HeapSort.swift in Sources */,
+				3D156C121EF0DBAC0098927D /* TestHelper.swift in Sources */,
+				3D156C011EF0DBAC0098927D /* Sort.swift in Sources */,
+				3D156C0B1EF0DBAC0098927D /* SparseGraphW_AdjList.swift in Sources */,
+				3D156C081EF0DBAC0098927D /* SparseGraph_AdjList.swift in Sources */,
+				3D156C1B1EF0DBAC0098927D /* 拓展知识.swift in Sources */,
+				3D156C151EF0DBAC0098927D /* UnionFind_CompressPath_02.swift in Sources */,
+				3D156C061EF0DBAC0098927D /* DenseGraph_Matrix.swift in Sources */,
+				3D156C111EF0DBAC0098927D /* MaxHeap.swift in Sources */,
+				3D156BFC1EF0DBAC0098927D /* BasicQueueAndStack.swift in Sources */,
+				3D156C181EF0DBAC0098927D /* UnionFind_UsingRank.swift in Sources */,
+				3D156BFE1EF0DBAC0098927D /* MergeSort.swift in Sources */,
+				3D156C091EF0DBAC0098927D /* DenseGraphW_Matrix.swift in Sources */,
+				3D156C191EF0DBAC0098927D /* UnionFind_UsingSize.swift in Sources */,
+				3D156C141EF0DBAC0098927D /* UnionFind_CompressPath_01.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3D156BC01EF0DB5F0098927D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3D156BC11EF0DB5F0098927D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3D156BC51EF0DB5F0098927D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3D156BC61EF0DB5F0098927D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3D156BC91EF0DB5F0098927D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3D156BCA1EF0DB5F0098927D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3D156BCC1EF0DB5F0098927D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Play-with-Alorithms/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Zhengyi.demo.Play-with-Alorithms";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		3D156BCD1EF0DB5F0098927D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Play-with-Alorithms/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Zhengyi.demo.Play-with-Alorithms";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3D156BB41EF0DB5F0098927D /* Build configuration list for PBXProject "Play-with-Alorithms" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D156BC91EF0DB5F0098927D /* Debug */,
+				3D156BCA1EF0DB5F0098927D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3D156BCB1EF0DB5F0098927D /* Build configuration list for PBXNativeTarget "Play-with-Alorithms" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D156BCC1EF0DB5F0098927D /* Debug */,
+				3D156BCD1EF0DB5F0098927D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3D156BB11EF0DB5F0098927D /* Project object */;
+}

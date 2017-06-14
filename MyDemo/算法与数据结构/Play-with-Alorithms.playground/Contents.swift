@@ -61,9 +61,6 @@ maxH.showHeapInfo()
 //let from = 5
 //let to = 8
 //
-//let aa = Array<Any?>(repeating: nil, count: 5)
-//print(aa)
-//
 //print("///// ===== SparseGraph_AdjList =====  ")
 //let tmpG = SparseGraph_AdjList(capacity: N, directed: false)
 //
