@@ -14,12 +14,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let w1 = WeInfo(wId: 111, wName: "aaa")
-        let w2 = WeInfo(wId: 222, wName: "bbb")
         
-        let w3 = WeInfo.addWeight(w1, w2)
-        
-        print("w1 : \(w1.wID), w2 : \(w2.wID), w3 : \(w3.wID)")
+//        let w3 = GraphWeight.addWeight(w1, w2)
+//        
+//        print("w1 : \(w1.wID), w2 : \(w2.wID), w3 : \(w3.wID)")
 
         let arr = TestHelper.randomArray(len: 10, limit: 50)
 
@@ -106,45 +104,7 @@ class ViewController: UIViewController {
     }
 }
 
-class WeInfo : GraphWeight {
-    /// Adds `lhs` and `rhs`, returning the result and a `Bool` that is
-    /// `true` iff the operation caused an arithmetic overflow.
 
-    
-    var wID: Int = INFINITY
-    var wName : String = ""
-    
-    init(wId : Int, wName : String) {
-        self.wID = wId
-        self.wName = wName
-    }
-    
-    public static func <(lhs: WeInfo, rhs : WeInfo) -> Bool {
-        return lhs.wID < rhs.wID
-    }
-    
-    public static func <=(lhs: WeInfo, rhs : WeInfo) -> Bool {
-        return lhs.wID <= rhs.wID
-    }
-    
-    public static func >(lhs: WeInfo, rhs : WeInfo) -> Bool {
-        return lhs.wID > rhs.wID
-    }
-    
-    public static func >=(lhs: WeInfo, rhs : WeInfo) -> Bool {
-        return lhs.wID >= rhs.wID
-    }
-    
-    public static func ==(lhs: WeInfo, rhs : WeInfo) -> Bool {
-        return lhs.wID == rhs.wID
-    }
-    
-    static func addWeight<T>(_ w1: T, _ w2: T) -> T where T : GraphWeight {
-        let wi1 = w1 as! WeInfo
-        let wi2 = w2 as! WeInfo
-        return WeInfo(wId: wi1.wID + wi2.wID, wName: wi1.wName) as! T
-    }
-}
 
 
 //class WInfo : GraphWeight{

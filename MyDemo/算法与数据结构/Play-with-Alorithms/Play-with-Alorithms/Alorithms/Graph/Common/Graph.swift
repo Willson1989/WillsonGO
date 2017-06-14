@@ -3,6 +3,7 @@ import Foundation
 public typealias iteratorBlock = (_ v : Int) -> ()
 
 public let INFINITY : Int = 65535
+public let INFINITY_F : Float = 65535.0
 
 public class Graph : NSObject {
     

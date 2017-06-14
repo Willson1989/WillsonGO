@@ -8,22 +8,11 @@
 
 import UIKit
 
-public protocol GraphWeight : Equatable, Comparable{
-    
-    var wID : Int { get set }
-  
-    static func addWeight<T>(_ w1 : T, _ w2 : T) -> T where T : GraphWeight
-
-}
-
-//public typealias EdgeWeight = GraphWeight
-//public typealias iteratorBlock_Weighted = (_ v : Int, _ weight : EdgeWeight) -> ()
-
 // 链表实现邻接表时，顶点的数据结构
-internal class Vertex<T : GraphWeight> {
+internal class Vertex {
     
     public var v : Int = -1
-    public var firstArc : Edge<T>? = nil
+    public var firstArc : Edge? = nil
     
     init(vertex : Int) {
         self.v = vertex
@@ -32,14 +21,14 @@ internal class Vertex<T : GraphWeight> {
 }
 
 // 有权图的边
-public class Edge<T : GraphWeight> {
+public class Edge {
     
     internal var from : Int = INFINITY
     internal var to   : Int = INFINITY
-    internal var weight : T? = nil
-    internal var next : Edge<T>? = nil
+    internal var weight :  Float? = nil
+    internal var next : Edge? = nil
     
-    init(a : Int, b : Int, weight : T?) {
+    init(a : Int, b : Int, weight : Float?) {
         self.from = a
         self.to = b
         self.weight = weight
@@ -68,14 +57,14 @@ public class Edge<T : GraphWeight> {
         return self.to
     }
     
-    public func wt() -> T? {
+    public func wt() -> Float? {
         return self.weight
     }
 }
 
-class Graph_Weighted<T : GraphWeight> : Graph {
+public class Graph_Weighted : Graph {
 
-    public func addEdge(_ v : Int, _ w : Int, weight : T) { }
+    public func addEdge(_ v : Int, _ w : Int, weight : Float) { }
     
     
     
@@ -89,10 +78,10 @@ class Graph_Weighted<T : GraphWeight> : Graph {
  连接两个部分的节点的边被称为 横切边。（即这个边的两个节点一个是红色一个是蓝色）
  在多个横切边中权值最小的边一定是这个图的最小生成树的一条边
  */
-class MST<T : GraphWeight> {
+class MST {
     
     internal var marked : [Bool] = []
-    internal var mst : [Edge<T>] = []
+    internal var mst : [Edge] = []
     
     //访问节点v
     internal func visit(_ v : Int) { }

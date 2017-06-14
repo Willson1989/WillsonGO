@@ -1,8 +1,8 @@
 import Foundation
 
-public class DenseGraphW_Matrix<T : GraphWeight> : Graph_Weighted<T> {
+public class DenseGraphW_Matrix : Graph_Weighted {
     
-    internal var graph : [[Edge<T>?]] = []
+    internal var graph : [[Edge?]] = []
     
     public init(capacity : Int , directed : Bool) {
         super.init()
@@ -10,12 +10,12 @@ public class DenseGraphW_Matrix<T : GraphWeight> : Graph_Weighted<T> {
         self.num_Edge = 0
         self.isDirected = directed
         for _ in 0 ..< capacity {
-            let tmpArr = Array<Edge<T>?>(repeating: nil, count: capacity)
+            let tmpArr = Array<Edge?>(repeating: nil, count: capacity)
             self.graph.append(tmpArr)
         }
     }
 
-    public override func addEdge(_ v: Int, _ w: Int, weight : T) {
+    public override func addEdge(_ v: Int, _ w: Int, weight : Float) {
         if !isAvaliable(v) || !isAvaliable(w) {
             return
         }

@@ -2,9 +2,9 @@ import Foundation
 
 //使用链表实现邻接表的 带权图
 
-public class SparseGraphW_AdjList<T : GraphWeight> : Graph_Weighted<T> {
+public class SparseGraphW_AdjList : Graph_Weighted {
     
-    fileprivate var graph : [Vertex<T>] = []
+    fileprivate var graph : [Vertex] = []
     
     public init(capacity : Int , directed : Bool) {
         super.init()
@@ -12,12 +12,12 @@ public class SparseGraphW_AdjList<T : GraphWeight> : Graph_Weighted<T> {
         self.num_Vertex = capacity
         self.isDirected = directed
         for i in 0 ..< capacity {
-            let v = Vertex<T>(vertex: i)
+            let v = Vertex(vertex: i)
             self.graph.append(v)
         }
     }
     
-    public override func addEdge(_ v: Int, _ w: Int, weight : T) {
+    public override func addEdge(_ v: Int, _ w: Int, weight : Float) {
         if !isAvaliable(v) || !isAvaliable(w) {
             return
         }
@@ -71,7 +71,7 @@ public class SparseGraphW_AdjList<T : GraphWeight> : Graph_Weighted<T> {
         if !self.isAvaliable(v) || !self.isAvaliable(w) {
             return
         }
-        var pre : Edge<T>? = nil
+        var pre : Edge? = nil
         var p = self.graph[v].firstArc
         while p != nil {
             if p?.to == w {

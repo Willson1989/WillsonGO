@@ -1,9 +1,9 @@
 import Foundation
 
 
-public class SparseGraphW<T : GraphWeight> : Graph_Weighted<T> {
+public class SparseGraphW : Graph_Weighted {
     
-    public var graph : [[Edge<T>?]] = []
+    public var graph : [[Edge?]] = []
     
     public init(capacity : Int , directed : Bool) {
         super.init()
@@ -12,11 +12,11 @@ public class SparseGraphW<T : GraphWeight> : Graph_Weighted<T> {
         self.isDirected = directed
         
         for _ in 0 ..< capacity {
-            self.graph.append( [Edge<T>?]() )
+            self.graph.append( [Edge?]() )
         }
     }
     
-    public override func addEdge(_ v: Int, _ w: Int, weight: T) {
+    public override func addEdge(_ v: Int, _ w: Int, weight: Float) {
         if !self.isAvaliable(v) || !self.isAvaliable(w) {
             return
         }
