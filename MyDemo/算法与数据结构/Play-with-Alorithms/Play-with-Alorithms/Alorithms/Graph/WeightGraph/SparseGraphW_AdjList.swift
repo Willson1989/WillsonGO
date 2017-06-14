@@ -2,7 +2,7 @@ import Foundation
 
 //使用链表实现邻接表的 带权图
 
-public class SparseGraphW_AdjList<T : EdgeWeight> : Graph_Weighted<T> {
+public class SparseGraphW_AdjList<T : GraphWeight> : Graph_Weighted<T> {
     
     fileprivate var graph : [Vertex<T>] = []
     

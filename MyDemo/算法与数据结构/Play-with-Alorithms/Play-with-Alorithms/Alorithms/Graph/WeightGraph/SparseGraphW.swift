@@ -1,7 +1,7 @@
 import Foundation
 
 
-public class SparseGraphW<T : EdgeWeight> : Graph_Weighted<T> {
+public class SparseGraphW<T : GraphWeight> : Graph_Weighted<T> {
     
     public var graph : [[Edge<T>?]] = []
     

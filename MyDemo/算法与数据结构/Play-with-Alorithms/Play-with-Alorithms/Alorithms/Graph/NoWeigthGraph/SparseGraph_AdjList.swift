@@ -5,8 +5,6 @@ import Foundation
  适合用  邻接表(链表)  来标识
  */
 
-public let INFINITY : Int = 65535
-
 //边表节点
 internal class EdgeNode {
     public var vertex : Int = -1

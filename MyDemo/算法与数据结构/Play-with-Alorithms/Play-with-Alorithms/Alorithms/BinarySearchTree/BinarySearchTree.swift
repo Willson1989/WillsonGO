@@ -64,7 +64,7 @@ public class Node<NodeKeyType : Comparable & Equatable> : NSObject {
 
 }
 
-typealias TreeEnumaratorBlock<T : Comparable & Equatable> = ( _ key : T? , _ value : Any?) -> Void
+public typealias TreeEnumaratorBlock<T : Comparable & Equatable> = ( _ key : T? , _ value : Any?) -> Void
 
 
 public struct BinarySearchTree<KeyType : Comparable & Equatable> {

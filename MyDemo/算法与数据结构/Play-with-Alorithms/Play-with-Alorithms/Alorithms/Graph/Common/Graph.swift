@@ -2,7 +2,7 @@ import Foundation
 
 public typealias iteratorBlock = (_ v : Int) -> ()
 
-
+public let INFINITY : Int = 65535
 
 public class Graph : NSObject {
     

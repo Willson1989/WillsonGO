@@ -1,6 +1,6 @@
 import Foundation
 
-public class DenseGraphW_Matrix<T : EdgeWeight> : Graph_Weighted<T> {
+public class DenseGraphW_Matrix<T : GraphWeight> : Graph_Weighted<T> {
     
     internal var graph : [[Edge<T>?]] = []
     
