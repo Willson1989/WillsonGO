@@ -36,6 +36,14 @@ public class IndexMinHeap_Map<T : Comparable & Equatable> {
         }
     }
     
+    public init(capacity : Int) {
+        last = 0
+        let cap = capacity + 1
+        index = Array(repeating: -1, count: cap)
+        map = Array(repeating: 0, count: cap)
+        data = Array(repeating: nil, count: cap)
+    }
+    
     fileprivate func fixDown(_ idx : Int) {
         
         var i = idx

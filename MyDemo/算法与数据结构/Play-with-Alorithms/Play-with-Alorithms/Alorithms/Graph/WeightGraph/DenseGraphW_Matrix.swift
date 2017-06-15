@@ -134,6 +134,21 @@ public class DenseGraphW_Matrix : Graph_Weighted {
         }
     }
     
+    public class LazyPrimMST : MST {
+        
+        fileprivate var graph : DenseGraphW_Matrix!
+        
+        public init(graph : DenseGraphW_Matrix) {
+            super.init(capacity: graph.V())
+            
+        }
+        
+        
+        internal override func visit(_ v: Int) {
+            
+        }
+    }
+    
 }
 
 
