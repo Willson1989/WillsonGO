@@ -41,12 +41,14 @@ public class IndexMinHeap_Map<T : Comparable & Equatable> {
         let cap = capacity + 1
         index = Array(repeating: -1, count: cap)
         map = Array(repeating: 0, count: cap)
-        data = Array(repeating: nil, count: cap)
     }
     
     fileprivate func fixDown(_ idx : Int) {
         
         var i = idx
+        if last <= 0 {
+            return
+        }
         assert(i >= 1 && i <= last)
         
         let tmpIdx = index[i]
@@ -71,6 +73,9 @@ public class IndexMinHeap_Map<T : Comparable & Equatable> {
     fileprivate func fixUp(_ idx : Int) {
         
         var i = idx
+        if last <= 0 {
+            return
+        }
         assert(i >= 1 && i <= last)
         
         let tmpIdx = index[i]
@@ -85,6 +90,7 @@ public class IndexMinHeap_Map<T : Comparable & Equatable> {
     }
     
     public func extractMin() -> T? {
+        
         let min = data[index[1]]
         swapElement(&index, last, 1)
         map[index[last]] = 0
@@ -123,6 +129,17 @@ public class IndexMinHeap_Map<T : Comparable & Equatable> {
         index[last] = data.count - 1
         map[index[last]] = last
         fixUp(last)
+        
+        // ----------------
+        
+//        data.append(item)
+//        let newLast = last + 1
+//        map.append(0)
+//        index.append(-1)
+//        index[newLast] = data.count - 1
+//        map[index[newLast]] = newLast
+//        fixUp(newLast)
+//        last += 1
     }
     
     public func isEmpty() -> Bool{

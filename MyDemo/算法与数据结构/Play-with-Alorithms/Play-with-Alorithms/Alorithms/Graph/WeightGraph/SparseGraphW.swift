@@ -5,12 +5,8 @@ public class SparseGraphW : Graph_Weighted {
     
     public var graph : [[Edge?]] = []
     
-    public init(capacity : Int , directed : Bool) {
-        super.init()
-        self.num_Vertex = capacity
-        self.num_Edge = 0
-        self.isDirected = directed
-        
+    public override init(capacity : Int , directed : Bool) {
+        super.init(capacity: capacity, directed: directed)
         for _ in 0 ..< capacity {
             self.graph.append( [Edge?]() )
         }
@@ -151,6 +147,31 @@ public class SparseGraphW : Graph_Weighted {
             }
         }
         
+    }
+    
+    public class LazyPrimMST : MST {
+        
+        fileprivate var G : SparseGraphW!
+        
+        public init(graph : SparseGraphW) {
+            super.init(capacity: graph.V())
+            self.G = graph
+            
+            //Lazy Prim
+            self.GenericMST_lazyPrim()
+        }
+        
+        override func visit(_ v: Int) {
+            
+            marked[v] = true
+            for i in 0 ..< G.graph[v].count {
+                let e = G.graph[v][i]!
+                if marked[e.other(v)] == false {
+                    //是横切边
+                    pq.insertItem(e)
+                }
+            }
+        }
     }
 }
 

@@ -35,25 +35,10 @@ public class SparseGraph_AdjList : Graph {
     
     fileprivate var graph : [VertexNode] = []
     
-    public init(capacity : Int , directed : Bool) {
-        super.init()
-        self.num_Edge = 0
-        self.num_Vertex = capacity
-        self.isDirected = directed
+    public override init(capacity : Int , directed : Bool) {
+        super.init(capacity: capacity, directed: directed)
         for i in 0 ..< capacity {
             let v = VertexNode(vertex: i, data: nil)
-            self.graph.append(v)
-        }
-    }
-    
-    public init(dataArray : [Any], directed : Bool) {
-        super.init()
-        self.num_Vertex = dataArray.count
-        self.num_Edge = 0
-        self.isDirected = directed
-        for i in 0 ..< dataArray.count {
-            let data = dataArray[i]
-            let v = VertexNode(vertex: i, data: data)
             self.graph.append(v)
         }
     }

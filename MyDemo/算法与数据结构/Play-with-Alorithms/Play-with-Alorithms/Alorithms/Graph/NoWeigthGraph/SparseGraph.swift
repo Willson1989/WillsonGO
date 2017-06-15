@@ -9,11 +9,8 @@ public class SparseGraph : Graph {
     
     internal var graph : [[Int]] = []
     
-    public init(capacity : Int , directed : Bool) {
-        super.init()
-        self.num_Vertex = capacity
-        self.num_Edge = 0
-        self.isDirected = directed
+    public override init(capacity : Int , directed : Bool) {
+        super.init(capacity: capacity, directed: directed)
         for _ in 0 ..< capacity {
             self.graph.append( [Int]() )
         }

@@ -4,11 +4,8 @@ public class DenseGraphW_Matrix : Graph_Weighted {
     
     internal var graph : [[Edge?]] = []
     
-    public init(capacity : Int , directed : Bool) {
-        super.init()
-        self.num_Vertex = capacity
-        self.num_Edge = 0
-        self.isDirected = directed
+    public override init(capacity : Int , directed : Bool) {
+        super.init(capacity: capacity, directed: directed)
         for _ in 0 ..< capacity {
             let tmpArr = Array<Edge?>(repeating: nil, count: capacity)
             self.graph.append(tmpArr)
@@ -136,16 +133,30 @@ public class DenseGraphW_Matrix : Graph_Weighted {
     
     public class LazyPrimMST : MST {
         
-        fileprivate var graph : DenseGraphW_Matrix!
+        fileprivate var G : DenseGraphW_Matrix!
         
         public init(graph : DenseGraphW_Matrix) {
             super.init(capacity: graph.V())
+            self.G = graph
             
+            //Lazy Prim
+            self.GenericMST_lazyPrim()
         }
         
-        
         internal override func visit(_ v: Int) {
-            
+            assert(v < self.G.V())
+            //当前访问的节点变成红色了
+            self.marked[v] = true
+            for i in 0 ..< G.V() {
+                if let e = G.graph[v][i] {
+                    if marked[e.other(v)] == false {
+                        //另一个节点是蓝色，说明e是横切边，将e添加到最小堆中
+                        print("about to insert, [ \(e.V()), \(e.W()) ] w : \(e.wt())")
+                        
+                        pq.insertItem(e)
+                    }
+                }
+            }
         }
     }
     

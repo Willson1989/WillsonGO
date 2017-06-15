@@ -5,7 +5,7 @@ public typealias iteratorBlock = (_ v : Int) -> ()
 public let INFINITY : Int = 65535
 public let INFINITY_F : Float = 65535.0
 
-public class Graph : NSObject {
+public class Graph {
     
     internal var num_Vertex : Int = 0
     internal var num_Edge : Int = 0
@@ -17,11 +17,17 @@ public class Graph : NSObject {
     //用来标识顶点之间的连通关系。connectIds[v] 和 connectIds[w]的值相等的话，代表v和w相连
     internal var connectIds : [Int] = []
     
-    override init() {
-        super.init()
+    internal init() {
         self.num_Vertex = 0
         self.num_Edge = 0
         self.num_Components = 0
+    }
+    
+    internal init(capacity : Int, directed : Bool) {
+        self.num_Vertex = capacity
+        self.num_Edge = 0
+        self.num_Components = 0
+        self.isDirected = directed
     }
     
     //MARK: - 在v和w之间添加一条边

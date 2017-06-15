@@ -6,11 +6,8 @@ public class SparseGraphW_AdjList : Graph_Weighted {
     
     fileprivate var graph : [Vertex] = []
     
-    public init(capacity : Int , directed : Bool) {
-        super.init()
-        self.num_Edge = 0
-        self.num_Vertex = capacity
-        self.isDirected = directed
+    public override init(capacity : Int , directed : Bool) {
+        super.init(capacity: capacity, directed: directed)
         for i in 0 ..< capacity {
             let v = Vertex(vertex: i)
             self.graph.append(v)
@@ -181,6 +178,30 @@ public class SparseGraphW_AdjList : Graph_Weighted {
                     }
                     p = p!.next
                 }
+            }
+        }
+    }
+    
+    
+    public class LazyPrimMST : MST {
+        
+        internal var G : SparseGraphW_AdjList!
+        
+        public init(graph : SparseGraphW_AdjList) {
+            super.init(capacity: graph.V())
+            self.G = graph
+            self.GenericMST_lazyPrim()
+        }
+
+        
+        override func visit(_ v: Int) {
+            marked[v] = true
+            var e = G.graph[v].firstArc
+            while e != nil {
+                if marked[e!.other(v)] == false {
+                    pq.insertItem(e!)
+                }
+                e = e!.next
             }
         }
     }

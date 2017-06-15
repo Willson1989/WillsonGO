@@ -9,11 +9,8 @@ public class DenseGraph_Matrix : Graph{
     
     internal var graph : [[Bool]] = []
         
-    public init(capacity : Int , directed : Bool) {
-        super.init()
-        self.num_Vertex = capacity
-        self.num_Edge = 0
-        self.isDirected = directed
+    public override init(capacity : Int , directed : Bool) {
+        super.init(capacity: capacity, directed: directed)
         for _ in 0 ..< capacity {
             let tmp = Array(repeating: false, count: capacity)
             self.graph.append(tmp)
