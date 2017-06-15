@@ -2,7 +2,7 @@ import Foundation
 
 public class UnionFind_UsingRank : UnionFind_UsingParent {
     
-    //存储元素对应的树的层数，rank[p] 表示元素p为根的集合的层数
+    //存储元素对应的树的层数，rank[p] 表示以元素p为根的集合的层数
     public var rank : [Int] = []
     
     override init() {

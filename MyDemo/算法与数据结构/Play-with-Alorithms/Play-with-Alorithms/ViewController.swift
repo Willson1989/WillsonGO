@@ -18,7 +18,7 @@ class ViewController: UIViewController {
 
         let g1 = testWeightedGraph()
         
-        let lpMST = SparseGraphW_AdjList.LazyPrimMST(graph: g1)
+        let lpMST = SparseGraphW.KruskalMST(graph: g1)
         lpMST.showMST()
     }
     
@@ -35,9 +35,9 @@ class ViewController: UIViewController {
     }
 }
 
-func testWeightedGraph() -> SparseGraphW_AdjList {
+func testWeightedGraph() -> SparseGraphW {
     
-    let g = SparseGraphW_AdjList(capacity: 8, directed: false)
+    let g = SparseGraphW(capacity: 8, directed: false)
     
     g.addEdge(0, 2, weight: 0.26)
     g.addEdge(0, 7, weight: 0.16)

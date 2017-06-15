@@ -223,9 +223,29 @@ public class MST_Prim {
     }
 }
 
+public class MST_Kruskal {
 
-
-
-
+    internal var mstArray : [Edge] = []
+    internal var mstTotalWeight : Float = 0.0
+    
+    internal func GenericMST_Kruskal() { }
+    
+    internal func result() -> Float {
+        return mstTotalWeight
+    }
+    
+    internal func showMST() {
+        if mstArray.isEmpty {
+            print("无最小生成树")
+            return
+        }
+        print("最小生成树 ： ", separator: "", terminator: "\n")
+        for i in 0 ..< mstArray.count {
+            let e = mstArray[i]
+            print("[ \(e.V()) , \(e.W()) ], weight : \(e.wt())")
+        }
+        print("总权值 ： \(self.result())")
+    }
+}
 
 

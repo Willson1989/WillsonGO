@@ -48,7 +48,7 @@ public class UnionFind_Simple : UFType{
         }
         for i in 0 ..< self.idArray.count {
             if pId == self.idArray[i] {
-                self.idArray[i] = pId
+                self.idArray[i] = qId
             }
         }
     }

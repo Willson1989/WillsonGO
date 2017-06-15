@@ -208,7 +208,48 @@ public class SparseGraphW : Graph_Weighted {
         }
     }
     
-    
+    public class KruskalMST : MST_Kruskal {
+        
+        fileprivate var G : SparseGraphW!
+        
+        public init(graph : SparseGraphW) {
+            super.init()
+            self.G = graph
+            self.GenericMST_Kruskal()
+        }
+        
+        internal override func GenericMST_Kruskal() {
+            
+            let pq = IndexMinHeap_Map<Edge>(capacity: G.E())
+            
+            let uf = UnionFind_UsingSize(capacity: G.V())
+            
+            for i in 0 ..< G.V() {
+                for j in 0 ..< G.graph[i].count {
+                    let e = G.graph[i][j]!
+                    if e.V() < e.W() {
+                        pq.insertItem(e)
+                    }
+                }
+            }
+            
+            while !pq.isEmpty() && mstArray.count < G.V() - 1 {
+                
+                let e = pq.extractMin()!
+                
+                if uf.isConnected(e.V(), e.W()) {
+                    continue
+                }
+                
+                mstArray.append(e)
+                uf.union(e.V(), e.W())
+            }
+            
+            for i in 0 ..< mstArray.count {
+                mstTotalWeight += mstArray[i].wt()
+            }
+        }
+    }
 }
 
 

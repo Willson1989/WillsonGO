@@ -195,6 +195,59 @@ public class DenseGraphW_Matrix : Graph_Weighted {
             }
         }
     }
+    
+    public class KruskalMST : MST_Kruskal {
+        
+        fileprivate var G : DenseGraphW_Matrix!
+        
+        public init(graph : DenseGraphW_Matrix) {
+            
+            super.init()
+            self.G = graph
+            self.GenericMST_Kruskal()
+        }
+        
+        override func GenericMST_Kruskal() {
+            //使用最小堆来对图中的所有边进行排序
+            let minHeap = IndexMinHeap_Map<Edge>(capacity: G.E())
+            
+            let unionFind = UnionFind_UsingRank(capacity: G.V())
+            
+            //对每一个节点的邻接边进行遍历
+            for i in 0 ..< G.V() {
+                for j in 0 ..< G.graph[i].count {
+                    if let e = G.graph[i][j] {
+                        if e.V() < e.W() {
+                            minHeap.insertItem(e)
+                        }
+                    }
+                }
+            }
+            // 堆不为空 而且 最小生成树的边个数小于节点个数减一
+            // 有n个节点，那么最小生成树的边数目最多为 n-1
+            // 所以这里可以提前结束循环
+            while (minHeap.isEmpty() == false && self.mstArray.count < G.V() - 1) {
+                
+                let minE = minHeap.extractMin()!
+                
+                if unionFind.isConnected(minE.V(), minE.W()) {
+                    //如果取出的最小权边的两个顶点相连接（或者说有相同的根节点）则构成了环路
+                    //因为最小生成树不可以有环路，所以这样的边不使用
+                    continue
+                }
+                mstArray.append(minE)
+                
+                //该边符合条件，纳入最小生成树中，同时在并查集中让这边的两个顶点相连接
+                unionFind.union(minE.V(), minE.W())
+            }
+            
+            // 计算总权值
+            for i in 0 ..< mstArray.count {
+                mstTotalWeight += mstArray[i].wt()
+            }
+        }
+        
+    }
 }
 
 

@@ -238,6 +238,48 @@ public class SparseGraphW_AdjList : Graph_Weighted {
             }
         }
     }
+    
+    public class KruskalMST : MST_Kruskal {
+        
+        fileprivate var G : SparseGraphW_AdjList!
+        
+        public init(graph : SparseGraphW_AdjList) {
+            super.init()
+            self.G = graph
+            
+            self.GenericMST_Kruskal()
+        }
+        
+        internal override func GenericMST_Kruskal() {
+            
+            let pq = IndexMinHeap_Map<Edge>(capacity: G.E())
+            let uf = UnionFind_CompressPath_01(capacity: G.V())
+            
+            for i in 0 ..< G.V() {
+                var p = G.graph[i].firstArc
+                while p != nil {
+                    
+                    if p!.V() < p!.W() {
+                        pq.insertItem(p!)
+                    }
+                    p = p!.next
+                }
+            }
+            
+            while pq.isEmpty() == false && self.mstArray.count < G.V() - 1 {
+                let e = pq.extractMin()!
+                if uf.isConnected(e.V(), e.W()) {
+                    continue
+                }
+                self.mstArray.append(e)
+                uf.union(e.V(), e.W())
+            }
+            
+            for i in 0 ..< mstArray.count {
+                mstTotalWeight += mstArray[i].wt()
+            }
+        }
+    }
 }
 
 
