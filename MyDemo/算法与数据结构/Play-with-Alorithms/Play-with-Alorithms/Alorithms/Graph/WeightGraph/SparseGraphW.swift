@@ -149,7 +149,7 @@ public class SparseGraphW : Graph_Weighted {
         
     }
     
-    public class LazyPrimMST : MST {
+    public class LazyPrimMST : MST_LazyPrim {
         
         fileprivate var G : SparseGraphW!
         
@@ -173,6 +173,42 @@ public class SparseGraphW : Graph_Weighted {
             }
         }
     }
+    
+    public class PrimMST : MST_Prim {
+        
+        fileprivate var G : SparseGraphW!
+        
+        public init(graph : SparseGraphW) {
+            super.init(capacity: graph.V())
+            self.G = graph
+            
+            // Prim
+            self.GenericMST_Prim()
+        }
+        
+        override func visit(_ v: Int) {
+            
+            marked[v] = true
+            
+            for i in 0 ..< G.graph[v].count {
+                
+                let e = G.graph[v][i]!
+                let w = e.other(v)
+
+                if !marked[w] {
+                    if edgeTo[w] == nil {
+                        edgeTo[w] = e
+                        ipq.insertItem(e.wt())
+                    } else if e.wt() < edgeTo[w]!.wt() {
+                        ipq.changeItem(with: e.wt(), heapIndex: w)
+                        edgeTo[w] = e
+                    }
+                }
+            }
+        }
+    }
+    
+    
 }
 
 

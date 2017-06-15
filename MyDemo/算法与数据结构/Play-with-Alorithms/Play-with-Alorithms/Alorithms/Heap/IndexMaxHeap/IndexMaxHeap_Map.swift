@@ -110,6 +110,9 @@ public struct IndexMaxHeap_Map{
     fileprivate mutating func fixUp(_ idx : Int) {
         
         var i = idx
+        if last <= 0 {
+            return
+        }
         assert(i >= 1 && i <= last)
         
         let tmpIdx = indexes[i]
@@ -128,6 +131,11 @@ public struct IndexMaxHeap_Map{
     fileprivate mutating func fixDown(_ idx : Int) {
         
         var i = idx
+        
+        if last <= 0 {
+            return
+        }
+        
         assert(i >= 1 && i <= last)
         
         let tmpIdx = indexes[i]

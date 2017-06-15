@@ -131,7 +131,7 @@ public class DenseGraphW_Matrix : Graph_Weighted {
         }
     }
     
-    public class LazyPrimMST : MST {
+    public class LazyPrimMST : MST_LazyPrim {
         
         fileprivate var G : DenseGraphW_Matrix!
         
@@ -160,6 +160,41 @@ public class DenseGraphW_Matrix : Graph_Weighted {
         }
     }
     
+    public class PrimMST : MST_Prim {
+        
+        fileprivate var G : DenseGraphW_Matrix!
+        
+        public init(graph : DenseGraphW_Matrix) {
+            super.init(capacity: graph.V())
+            self.G = graph
+            
+            // Prim
+            self.GenericMST_Prim()
+        }
+        
+        override func visit(_ v: Int) {
+            
+            marked[v] = true
+            for i in 0 ..< G.V() {
+                if let e = G.graph[v][i] {
+                    let w = e.other(v)
+                    if marked[w] == false { //是横切边
+                        // 总是取和w相连的权值最小的边，然后将其权值存储进最小堆中
+                        if edgeTo[w] == nil {
+                            // 没存储过和w顶点相连接的横切边
+                            ipq.insertItem(e.wt())
+                            edgeTo[w] = e
+                            
+                        } else if e.wt() < edgeTo[w]!.wt() {
+                            // 如果edgeTo中存储过和w相连的横切边，那么比较权值大小，存入权值小的边
+                            edgeTo[w] = e
+                            ipq.changeItem(with: e.wt(), heapIndex: w)
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 

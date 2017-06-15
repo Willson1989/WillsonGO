@@ -96,7 +96,7 @@ public class Graph_Weighted : Graph {
     连接两个部分的节点的边被称为 横切边。（即这个边的两个节点一个是红色一个是蓝色）
     在多个横切边中权值最小的边一定是这个图的最小生成树的一条边
  */
-public class MST {
+public class MST_LazyPrim {
     
     internal var marked : [Bool] = []
     internal var mstArray : [Edge?] = []
@@ -114,17 +114,13 @@ public class MST {
     internal func GenericMST_lazyPrim() {
         //从第一个节点开始访问
         self.visit(0)
-        
         while pq.isEmpty() == false {
-            
             //取出最小权值的边
             let e = pq.extractMin()!
-            
             //如果边的两个顶点都是红色，说明不是横切边,弃用
             if marked[e.V()] == marked[e.W()] {
                 continue
             }
-            
             self.mstArray.append(e)
             if marked[e.V()] == true {
                 self.visit(e.W())
@@ -132,7 +128,6 @@ public class MST {
                 self.visit(e.V())
             }
         }
-        
         //计算总权值
         for i in 0 ..< self.mstArray.count {
             if let e = self.mstArray[i] {
@@ -166,6 +161,67 @@ public class MST {
     }
 }
 
+public class MST_Prim {
+    
+    //用来存储节点对应的最小权值的横切边的权值
+    internal var ipq : IndexMinHeap_Map<Float>!
+    
+    //用来存储和节点相连的最小权值的横切边对象
+    internal var edgeTo : [Edge?] = []
+    
+    //如果一个节点被访问（变成红色）那么指定索引的元素值为true
+    internal var marked : [Bool] = []
+    
+    //用来存储最小生成树的边
+    internal var mstArray : [Edge] = []
+    
+    //最小生成树的边的权值的总和
+    internal var mstTotalWeight : Float = 0.0
+    
+    internal var num_Vertex : Int = 0
+    
+    internal init(capacity : Int) {
+        self.num_Vertex = capacity
+        self.marked = Array(repeating: false, count: capacity)
+        self.edgeTo = Array(repeating: nil, count: capacity)
+        self.ipq = IndexMinHeap_Map(capacity: capacity)
+    }
+    
+    internal func GenericMST_Prim() {
+        visit(0)
+        
+        while !ipq.isEmpty() {
+            
+            let minEIndex = ipq.extractMinIndex()
+            if let minE = edgeTo[minEIndex] {
+                self.mstArray.append(minE)
+                self.visit(minEIndex)
+            }
+        }
+        
+        for i in 0 ..< self.mstArray.count {
+            self.mstTotalWeight += self.mstArray[i].wt()
+        }
+    }
+    internal func visit(_ v : Int) { }
+    
+    internal func showMST() {
+        if mstArray.isEmpty {
+            print("无最小生成树")
+            return
+        }
+        print("最小生成树 ： ", separator: "", terminator: "\n")
+        for i in 0 ..< mstArray.count {
+            let e = mstArray[i]
+            print("[ \(e.V()) , \(e.W()) ], weight : \(e.wt())")
+        }
+        print("总权值 ： \(self.result())")
+    }
+    
+    public func result() -> Float {
+        return self.mstTotalWeight
+    }
+}
 
 
 

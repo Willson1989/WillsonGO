@@ -100,6 +100,10 @@ public class IndexMinHeap_Map<T : Comparable & Equatable> {
         return min
     }
     
+    public func extractMinIndex() -> Int {
+        return index[1]
+    }
+    
     public func changeItem(with item : T , arrayIndex idx : Int) {
         
         let i = idx + 1
@@ -129,17 +133,6 @@ public class IndexMinHeap_Map<T : Comparable & Equatable> {
         index[last] = data.count - 1
         map[index[last]] = last
         fixUp(last)
-        
-        // ----------------
-        
-//        data.append(item)
-//        let newLast = last + 1
-//        map.append(0)
-//        index.append(-1)
-//        index[newLast] = data.count - 1
-//        map[index[newLast]] = newLast
-//        fixUp(newLast)
-//        last += 1
     }
     
     public func isEmpty() -> Bool{
