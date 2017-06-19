@@ -213,7 +213,7 @@ public class SparseGraphW : Graph_Weighted {
         fileprivate var G : SparseGraphW!
         
         public init(graph : SparseGraphW) {
-            super.init()
+            super.init(capacity: graph.V())
             self.G = graph
             self.GenericMST_Kruskal()
         }

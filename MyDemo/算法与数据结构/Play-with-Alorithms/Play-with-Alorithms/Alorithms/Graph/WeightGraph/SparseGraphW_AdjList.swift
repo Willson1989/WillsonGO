@@ -182,7 +182,7 @@ public class SparseGraphW_AdjList : Graph_Weighted {
         }
     }
     
-    
+
     public class LazyPrimMST : MST_LazyPrim {
         
         internal var G : SparseGraphW_AdjList!
@@ -213,7 +213,6 @@ public class SparseGraphW_AdjList : Graph_Weighted {
         public init(graph : SparseGraphW_AdjList) {
             super.init(capacity: graph.V())
             self.G = graph
-            
             // Prim
             self.GenericMST_Prim()
         }
@@ -244,9 +243,8 @@ public class SparseGraphW_AdjList : Graph_Weighted {
         fileprivate var G : SparseGraphW_AdjList!
         
         public init(graph : SparseGraphW_AdjList) {
-            super.init()
+            super.init(capacity: graph.V())
             self.G = graph
-            
             self.GenericMST_Kruskal()
         }
         
@@ -265,7 +263,6 @@ public class SparseGraphW_AdjList : Graph_Weighted {
                     p = p!.next
                 }
             }
-            
             while pq.isEmpty() == false && self.mstArray.count < G.V() - 1 {
                 let e = pq.extractMin()!
                 if uf.isConnected(e.V(), e.W()) {
@@ -274,7 +271,6 @@ public class SparseGraphW_AdjList : Graph_Weighted {
                 self.mstArray.append(e)
                 uf.union(e.V(), e.W())
             }
-            
             for i in 0 ..< mstArray.count {
                 mstTotalWeight += mstArray[i].wt()
             }

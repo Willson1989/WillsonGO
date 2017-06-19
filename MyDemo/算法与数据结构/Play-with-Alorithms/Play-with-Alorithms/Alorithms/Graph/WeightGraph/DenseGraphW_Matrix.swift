@@ -202,7 +202,7 @@ public class DenseGraphW_Matrix : Graph_Weighted {
         
         public init(graph : DenseGraphW_Matrix) {
             
-            super.init()
+            super.init(capacity: graph.V())
             self.G = graph
             self.GenericMST_Kruskal()
         }
@@ -210,7 +210,6 @@ public class DenseGraphW_Matrix : Graph_Weighted {
         override func GenericMST_Kruskal() {
             //使用最小堆来对图中的所有边进行排序
             let minHeap = IndexMinHeap_Map<Edge>(capacity: G.E())
-            
             let unionFind = UnionFind_UsingRank(capacity: G.V())
             
             //对每一个节点的邻接边进行遍历
@@ -240,7 +239,6 @@ public class DenseGraphW_Matrix : Graph_Weighted {
                 //该边符合条件，纳入最小生成树中，同时在并查集中让这边的两个顶点相连接
                 unionFind.union(minE.V(), minE.W())
             }
-            
             // 计算总权值
             for i in 0 ..< mstArray.count {
                 mstTotalWeight += mstArray[i].wt()

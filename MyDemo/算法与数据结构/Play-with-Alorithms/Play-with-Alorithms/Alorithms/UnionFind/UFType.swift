@@ -20,7 +20,6 @@ public class UFType : NSObject {
             self.idArray.append(i)
         }
     }
-
     
     public func find(_ p : Int) -> Int {
         return UnionFind_NotFound

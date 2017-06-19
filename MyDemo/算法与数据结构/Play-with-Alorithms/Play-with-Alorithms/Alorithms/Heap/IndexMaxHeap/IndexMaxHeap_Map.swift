@@ -12,12 +12,9 @@ public struct IndexMaxHeap_Map{
     //元素在数组中的索引  --(查找到)--> 这个元素在堆中的索引位置
     fileprivate var map : [Int] = []
     
-    
     fileprivate var last : Int = 0
     
-    
     public init(capacity : Int) {
-        
         let cap = capacity + 1
         data = Array(repeating: -1, count: cap)
         indexes = Array(repeating: -1, count: cap)
@@ -26,9 +23,8 @@ public struct IndexMaxHeap_Map{
     }
     
     public init(arr : [Int]) {
-        
-        let cap = arr.count + 1
         last = 0
+        let cap = arr.count + 1
         data = Array(repeating: -1, count: cap)
         indexes = Array(repeating: -1, count: cap)
         map = Array(repeating: 0, count: cap)
@@ -96,7 +92,6 @@ public struct IndexMaxHeap_Map{
         map[indexes[1]] = 1
         last -= 1
         fixDown(1)
-        
         return max
     }
     
@@ -131,22 +126,17 @@ public struct IndexMaxHeap_Map{
     fileprivate mutating func fixDown(_ idx : Int) {
         
         var i = idx
-        
         if last <= 0 {
             return
         }
-        
         assert(i >= 1 && i <= last)
-        
         let tmpIdx = indexes[i]
         let tmp = data[tmpIdx]
-
         while left(i) <= last {
             var j = left(i)
             if j + 1 <= last && data[indexes[j + 1]] > data[indexes[j]] {
                 j += 1
             }
-            
             if tmp > data[indexes[j]] {
                 break
             }
