@@ -12,19 +12,68 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let arr = [38, 34, 50, 52, 14, 15, 18, 36, 55, 2]
+        print("array : \(arr)")
+        let h = IndexMinHeap_Tmp(arr: arr)
+//        let h = IndexMinHeap_Tmp(capacity: 10)
+
+//        for i in 0 ..< arr.count {
+//            h.insert(item: arr[i])
+//        }
+        
+        h.showHeap()
+//        for _ in 0 ..< 5 {
+//            let min = h.extractMin()
+//            print("min : \(min)")
+//        }
+//        h.showHeap()
+        h.insert(item: 90)
+        h.insert(item: 0)
+        print(h.extractMin())
+        print(h.extractMin())
+        h.showHeap()
+        h.change(with: 0, atArrayIndex: 4)
+        
+        h.showHeap()
+        
+//        h.insert(item: 50)
+//        h.insert(item: 5)
+//        h.showHeap()
+//        
+//        let m1 = h.extractMin()!
+//        print("m1 : \(m1)")
+//        h.showHeap()
+//        h.insert(item: 20)
+//        h.showHeap()
+//        let m2 = h.extractMin()!
+//        h.showHeap()
+//        print("m2 : \(m2)")
+//        h.showHeap()
+//        h.insert(item: 80)
+//        h.showHeap()
+//        
+//        h.insert(item: 12)
+//        h.insert(item: 40)
+//        h.insert(item: 11)
+//        h.insert(item: 65)
+//        
+//        print()
+//        h.showHeap()
+//        h.showOriginData()
+//        print()
+//        print("insert 40 at array index 1")
+//        //h.insert(item: 40, at: 1)
+//        h.insert(item: 65)
+//        h.showHeap()
+//        h.showOriginData()
+        
+        return
         
         let g1 = testWeightedGraph()
-        
         let lpMST = SparseGraphW.KruskalMST(graph: g1)
         lpMST.showMST()
     }
-    
-//    func randomInfo(from arr : [WInfo]) -> WInfo {
-//        assert(arr.count > 0)
-//        let r = Int(arc4random() % UInt32(arr.count))
-//        return arr[r]
-//    }
 
     
     override func didReceiveMemoryWarning() {

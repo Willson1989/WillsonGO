@@ -8,21 +8,23 @@
 
 import UIKit
 
-fileprivate let NG : Int = -1
+fileprivate let NG : Int = 0
 
 class IndexMinHeap_Tmp {
 
-    var index : [Int] = []
-    var map : [Int] = []
-    var data : [Int?] = []
-    var last : Int = 0
+    var index : [Int]  = [NG]
+    var map   : [Int]  = [NG]
+    var data  : [Int?] = [nil]
+    var count : Int = 0
+    var capacity : Int = 0
     
     public init(capacity : Int) {
-        let cap = capacity + 1
-        index = Array(repeating: NG, count: cap)
-        map = Array(repeating: NG, count: cap)
-        data = Array(repeating: nil, count: cap)
-        last = 0
+        //let cap = capacity + 1
+        //map = Array(repeating: NG, count: cap)
+        //index = Array(repeating: NG, count: cap)
+        //data = Array(repeating: nil, count: cap)
+        count = 0
+        self.capacity = capacity
     }
     
     
@@ -31,32 +33,33 @@ class IndexMinHeap_Tmp {
         let cap = arr.count + 1
         index = Array(repeating: NG, count: cap)
         map = Array(repeating: NG, count: cap)
-        last = 0
+        count = 0
         data = Array(repeating: nil, count: cap)
         for i in 0 ..< arr.count {
             data[i + 1] = arr[i]
             index[i + 1] = i + 1
             map[index[i + 1]] = i + 1
-            last += 1
+            count += 1
         }
         //heapify
-        for i in stride(from: last/2, through: 1, by: -1) {
+        for i in stride(from: count/2, through: 1, by: -1) {
             fixDown(i)
         }
     }
     
     func fixDown(_ idx : Int) {
         var i = idx
-        if last <= 0 {
+        if count <= 0 {
             return
         }
-        assert(i >= 1 && i <= last)
-        
+        if data[index[i]] == nil {
+            return
+        }
         let tmp = data[index[i]]!
         let tmpIdx = index[i]
-        while left(i) <= last {
+        while left(i) <= count {
             var j = left(i)
-            if j + 1 <= last && data[index[j+1]]! < data[index[j]]! {
+            if j + 1 <= count && data[index[j+1]]! < data[index[j]]! {
                 j = j + 1
             }
             if tmp < data[index[j]]! {
@@ -72,14 +75,15 @@ class IndexMinHeap_Tmp {
     
     func fixUp(_ idx : Int) {
         var i = idx
-        if last <= 0 {
+        if count <= 0 {
             return
         }
-        assert(i >= 1 && i <= last)
-        
+        if data[index[i]] == nil {
+            return
+        }
         let tmp = data[index[i]]!
         let tmpIdx = index[i]
-        while i >= 1 && tmp < data[index[parent(i)]]! {
+        while parent(i) >= 1 && tmp < data[index[parent(i)]]! {
             
             index[i] = index[parent(i)]
             map[index[i]] = i
@@ -93,46 +97,53 @@ class IndexMinHeap_Tmp {
         data.append(item)
         index.append(NG)
         map.append(NG)
-        last += 1
-        index[last] = data.count - 1
-        map[index[last]] = last
-        fixUp(last)
+        count += 1
+        index[count] = data.count - 1
+        map[index[count]] = count
+        fixUp(count)
     }
     
     func insert(item : Int, at idx : Int) {
         let i = idx + 1
-        assert(i >= 1 && i <= last)
+        assert(i >= 1 && i <= count)
         data[i] = item
-        last += 1
+        count += 1
         index.append(i)
-        map[i] = last
-        fixUp(last)
+        map[i] = count
+        fixUp(count)
     }
     
-    func extractMin() -> Int {
-        
+    func extractMin() -> Int? {
+        if self.isEmpty() {
+            print("heap is empty")
+            return nil
+        }
         let ret = data[index[1]]!
-        swapElement(&index, 1, last)
-        map[index[last]] = NG
+        swapElement(&index, 1, count)
+        map[index[count]] = NG
         map[index[1]] = 1
-        last -= 1
+        count -= 1
         fixDown(1)
         return ret
     }
     
     func extractMinIndex() -> Int {
+        if self.isEmpty() {
+            print("heap is empty")
+            return NG
+        }
         let ret = index[1] - 1
-        swapElement(&index, last, 1)
-        map[index[last]] = 0
+        swapElement(&index, count, 1)
+        map[index[count]] = 0
         map[index[1]] = 1
-        last -= 1
+        count -= 1
         fixDown(1)
         return ret
     }
     
     func change(with item : Int, atArrayIndex idx : Int) {
         let i = idx + 1
-        assert(i >= 1 && i <= last)
+        assert(i >= 1 && i <= count)
         let hIdx = map[i]
         data[i] = item
         fixDown(hIdx)
@@ -140,9 +151,8 @@ class IndexMinHeap_Tmp {
     }
     
     func change(with item : Int, atHeapIndex idx : Int) {
-        
         let i = idx + 1
-        assert(i >= 1 && i <= last)
+        assert(i >= 1 && i <= count)
         let arrIdx = index[i]
         data[arrIdx] = item
         fixUp(i)
@@ -150,15 +160,35 @@ class IndexMinHeap_Tmp {
     }
     
     func contain(withArrayIndex idx: Int) -> Bool {
+        if self.isEmpty() {
+            return false
+        }
         let i = idx + 1
-        if i <= 1 && i >= last {
+        if i <= 1 && i >= count {
             return map[i] != NG
         }
         return false
     }
     
     func isEmpty() -> Bool {
-        return last == 0
+        return count == 0
+    }
+    
+    func showHeap() {
+        print("index min heap info : ")
+        for i in 1 ... count {
+            print(data[index[i]]!, separator: "", terminator: " ")
+        }
+        print()
+    }
+    
+    func showOriginData() {
+        print("index min heap origin data : ")
+        for i in 1 ... data.count - 1 {
+            let item = data[i]!
+            print(item, separator: "", terminator: " ")
+        }
+        print()
     }
 }
 
