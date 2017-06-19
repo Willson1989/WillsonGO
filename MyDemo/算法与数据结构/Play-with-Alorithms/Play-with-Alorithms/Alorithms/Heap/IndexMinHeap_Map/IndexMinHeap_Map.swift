@@ -1,11 +1,13 @@
 import Foundation
 
 
-fileprivate let NODATA : Int = 65535
+fileprivate let NG : Int = 65535
 
 public protocol HeapDataType : Comparable, Equatable {
     
 }
+
+public let NODATA : Int = -1
 
 //最小堆
 public class IndexMinHeap_Map<T : Comparable & Equatable> {
@@ -20,8 +22,8 @@ public class IndexMinHeap_Map<T : Comparable & Equatable> {
         
         last = 0
         let cap = array.count + 1
-        index = Array(repeating: -1, count: cap)
-        map = Array(repeating: -1, count: cap)
+        index = Array(repeating: NG, count: cap)
+        map = Array(repeating: NG, count: cap)
         data = Array(repeating: nil, count: cap)
         
         for i in 0 ..< array.count {
@@ -39,8 +41,8 @@ public class IndexMinHeap_Map<T : Comparable & Equatable> {
     public init(capacity : Int) {
         last = 0
         let cap = capacity + 1
-        index = Array(repeating: -1, count: cap)
-        map = Array(repeating: 0, count: cap)
+        index = Array(repeating: NG, count: cap)
+        map = Array(repeating: NG, count: cap)
     }
     
     fileprivate func fixDown(_ idx : Int) {
@@ -101,7 +103,13 @@ public class IndexMinHeap_Map<T : Comparable & Equatable> {
     }
     
     public func extractMinIndex() -> Int {
-        return index[1]
+        let ret = index[1] - 1
+        swapElement(&index, last, 1)
+        map[index[last]] = 0
+        map[index[1]] = 1
+        last -= 1
+        fixDown(1)
+        return ret
     }
     
     public func changeItem(with item : T , arrayIndex idx : Int) {
@@ -128,15 +136,32 @@ public class IndexMinHeap_Map<T : Comparable & Equatable> {
         data.append(item)
         last += 1
         //扩充容量
-        map.append(0)
-        index.append(-1)
+        map.append(NG)
+        index.append(NG)
         index[last] = data.count - 1
         map[index[last]] = last
         fixUp(last)
     }
     
+    //对使用者来说，索引时从0开始的
+    public func insertItem(_ item : T , at idx : Int) {
+        let i = idx + 1
+        assert(i <= last && i >= 1)
+        data[i] = item
+        index.append(i)
+        map[i] = last + 1
+        last += 1
+        fixUp(last)
+    }
+    
     public func isEmpty() -> Bool{
         return last == 0
+    }
+    
+    //指定数据中的元素索引，看这个索引是否存在于堆中
+    public func containItem(dataIndex i : Int) -> Bool {
+        
+        return map[i] != NG
     }
     
     public func showOriginData() {
