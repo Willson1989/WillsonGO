@@ -7,11 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-<<<<<<< HEAD
 		3D068FE01EF3785B0080688E /* TestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D068FDF1EF3785B0080688E /* TestHelper.swift */; };
-=======
 		29A74C921EF6C04200FA80B6 /* IndexMinHeap_Tmp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A74C911EF6C04200FA80B6 /* IndexMinHeap_Tmp.swift */; };
->>>>>>> 2ee966a109de4c2ac126e6e7bd16f1c449d5a505
 		3D156BBD1EF0DB5F0098927D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BBC1EF0DB5F0098927D /* AppDelegate.swift */; };
 		3D156BBF1EF0DB5F0098927D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BBE1EF0DB5F0098927D /* ViewController.swift */; };
 		3D156BC21EF0DB5F0098927D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D156BC01EF0DB5F0098927D /* Main.storyboard */; };
@@ -52,11 +49,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-<<<<<<< HEAD
 		3D068FDF1EF3785B0080688E /* TestHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestHelper.swift; sourceTree = "<group>"; };
-=======
 		29A74C911EF6C04200FA80B6 /* IndexMinHeap_Tmp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexMinHeap_Tmp.swift; sourceTree = "<group>"; };
->>>>>>> 2ee966a109de4c2ac126e6e7bd16f1c449d5a505
 		3D156BB91EF0DB5F0098927D /* Play-with-Alorithms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Play-with-Alorithms.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D156BBC1EF0DB5F0098927D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D156BBE1EF0DB5F0098927D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
