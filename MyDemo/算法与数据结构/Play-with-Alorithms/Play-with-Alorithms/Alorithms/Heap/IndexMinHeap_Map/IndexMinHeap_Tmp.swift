@@ -142,8 +142,10 @@ class IndexMinHeap_Tmp {
     }
     
     func change(with item : Int, atArrayIndex idx : Int) {
+        if !contain(idx) {
+            return
+        }
         let i = idx + 1
-        assert(i >= 1 && i <= count)
         let hIdx = map[i]
         data[i] = item
         fixDown(hIdx)
@@ -152,14 +154,15 @@ class IndexMinHeap_Tmp {
     
     func change(with item : Int, atHeapIndex idx : Int) {
         let i = idx + 1
-        assert(i >= 1 && i <= count)
-        let arrIdx = index[i]
-        data[arrIdx] = item
-        fixUp(i)
-        fixDown(i)
+        if i >= 1 && i <= count {
+            let arrIdx = index[i]
+            data[arrIdx] = item
+            fixUp(i)
+            fixDown(i)
+        }
     }
     
-    func contain(withArrayIndex idx: Int) -> Bool {
+    func contain(_ idx : Int) -> Bool {
         if self.isEmpty() {
             return false
         }

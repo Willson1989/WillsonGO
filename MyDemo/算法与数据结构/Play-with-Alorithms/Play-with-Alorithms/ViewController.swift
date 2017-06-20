@@ -33,8 +33,8 @@ class ViewController: UIViewController {
         print(h.extractMin())
         print(h.extractMin())
         h.showHeap()
-        h.change(with: 0, atArrayIndex: 4)
-        
+        //h.change(with: 1, atArrayIndex: 9)
+        h.insert(item: 1, at: 0)
         h.showHeap()
         
 //        h.insert(item: 50)
