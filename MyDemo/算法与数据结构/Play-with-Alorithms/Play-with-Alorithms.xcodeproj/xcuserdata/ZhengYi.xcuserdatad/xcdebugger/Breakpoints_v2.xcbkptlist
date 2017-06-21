@@ -9,61 +9,77 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Play-with-Alorithms/ViewController.swift"
-            timestampString = "519545037.491763"
+            filePath = "Play-with-Alorithms/Alorithms/Graph/WeightGraph/DenseGraphW_Matrix.swift"
+            timestampString = "519731371.894079"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "210"
+            endingLineNumber = "210"
+            landmarkName = "visit(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Play-with-Alorithms/ViewController.swift"
-            timestampString = "519567869.517694"
+            filePath = "Play-with-Alorithms/Alorithms/Graph/WeightGraph/DenseGraphW_Matrix.swift"
+            timestampString = "519731371.894079"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "216"
+            endingLineNumber = "216"
+            landmarkName = "visit(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Play-with-Alorithms/ViewController.swift"
-            timestampString = "519567871.47514"
+            filePath = "Play-with-Alorithms/Alorithms/Graph/WeightGraph/DenseGraphW_Matrix.swift"
+            timestampString = "519731371.894079"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "231"
+            endingLineNumber = "231"
+            landmarkName = "visit(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Play-with-Alorithms/ViewController.swift"
-            timestampString = "519567876.154724"
+            filePath = "Play-with-Alorithms/Alorithms/Heap/IndexMinHeap_Map/IndexMinHeap.swift"
+            timestampString = "519729528.302672"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
+            landmarkName = "insert(item:at:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Play-with-Alorithms/Alorithms/Heap/IndexMinHeap_Map/IndexMinHeap.swift"
+            timestampString = "519729529.299232"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
+            landmarkName = "insert(item:at:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

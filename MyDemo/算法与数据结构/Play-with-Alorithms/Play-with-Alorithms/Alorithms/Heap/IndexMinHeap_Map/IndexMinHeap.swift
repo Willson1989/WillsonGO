@@ -19,10 +19,10 @@ class IndexMinHeap<T : Comparable & Equatable> {
     var capacity : Int = 0
     
     public init(capacity : Int) {
-        //let cap = capacity + 1
-        //map = Array(repeating: NG, count: cap)
-        //index = Array(repeating: NG, count: cap)
-        //data = Array(repeating: nil, count: cap)
+//        let cap = capacity + 1
+//        map = Array(repeating: NG, count: cap)
+//        index = Array(repeating: NG, count: cap)
+//        data = Array(repeating: nil, count: cap)
         count = 0
         self.capacity = capacity
     }
@@ -110,9 +110,9 @@ class IndexMinHeap<T : Comparable & Equatable> {
     func insert(item : T, at idx : Int) {
         let i = idx + 1
         //不重复添加元素
-        if contain(idx) {
-            return
-        }
+//        if contain(idx) {
+//            return
+//        }
         //个数不能超过原有的大小
         if count + 1 > capacity {
             return
@@ -162,8 +162,8 @@ class IndexMinHeap<T : Comparable & Equatable> {
         let i = idx + 1
         let hIdx = map[i]
         data[i] = item
-        fixDown(hIdx)
         fixUp(hIdx)
+        fixDown(hIdx)
     }
     
     func change(with item : T, atHeapIndex idx : Int) {
@@ -192,6 +192,10 @@ class IndexMinHeap<T : Comparable & Equatable> {
     }
     
     func showHeap() {
+        if count == 0 {
+            print("heap is empty")
+            return
+        }
         print("index min heap info : ")
         for i in 1 ... count {
             print(data[index[i]]!, separator: "", terminator: " ")

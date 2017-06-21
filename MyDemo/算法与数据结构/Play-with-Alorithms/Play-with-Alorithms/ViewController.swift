@@ -55,7 +55,8 @@ class ViewController: UIViewController {
 //        
 //        h.insert(item: 12)
 //        h.insert(item: 40)
-//        h.insert(item: 11)
+//        h.insert(item: 11)#0	0x000000010c4eabcb in ViewController.viewDidLoad() -> () at /Users/ZhengYi/WillsonGO/MyDemo/算法与数据结构/Play-with-Alorithms/Play-with-Alorithms/ViewController.swift:73
+
 //        h.insert(item: 65)
 //        
 //        print()
@@ -70,9 +71,22 @@ class ViewController: UIViewController {
         
 //        return
         
-        let g1 = testWeightedGraph()
-        let lpMST = DenseGraphW_Matrix.PrimMST(graph: g1)
-        lpMST.showMST()
+        print("DenseGraphW_Matrix : ====  ")
+        let g1 = testWeightedGraph_DenseGraphW_Matrix()
+        let lpMST1 = DenseGraphW_Matrix.PrimMST(graph: g1)
+        lpMST1.showMST()
+        
+        print()
+        print("SparseGraphW : ====  ")
+        let g2 = testWeightedGraph_SparseGraphW()
+        let lpMST2 = SparseGraphW.PrimMST(graph: g2)
+        lpMST2.showMST()
+//
+        print()
+        print("SparseGraphW_AdjList : ====  ")
+        let g3 = testWeightedGraph_SparseGraphW_AdjList()
+        let lpMST3 = SparseGraphW_AdjList.PrimMST(graph: g3)
+        lpMST3.showMST()
     }
 
     
@@ -82,9 +96,37 @@ class ViewController: UIViewController {
     }
 }
 
-func testWeightedGraph() -> DenseGraphW_Matrix {
+func testWeightedGraph_DenseGraphW_Matrix() -> DenseGraphW_Matrix {
     
     let g = DenseGraphW_Matrix(capacity: 8, directed: false)
+    g.addEdge(0, 2, weight: 0.26)
+    g.addEdge(0, 7, weight: 0.16)
+    g.addEdge(0, 4, weight: 0.38)
+    g.addEdge(0, 6, weight: 0.58)
+    
+    g.addEdge(1, 5, weight: 0.32)
+    g.addEdge(1, 7, weight: 0.19)
+    g.addEdge(1, 2, weight: 0.36)
+    g.addEdge(1, 3, weight: 0.29)
+    
+    g.addEdge(2, 3, weight: 0.17)
+    g.addEdge(2, 6, weight: 0.40)
+    g.addEdge(2, 7, weight: 0.34)
+    
+    g.addEdge(3, 6, weight: 0.52)
+    
+    g.addEdge(4, 5, weight: 0.35)
+    g.addEdge(4, 6, weight: 0.93)
+    g.addEdge(4, 7, weight: 0.37)
+    
+    g.addEdge(5, 7, weight: 0.28)
+
+    return g
+}
+
+func testWeightedGraph_SparseGraphW() -> SparseGraphW {
+    
+    let g = SparseGraphW(capacity: 8, directed: false)
     
     g.addEdge(0, 2, weight: 0.26)
     g.addEdge(0, 7, weight: 0.16)
@@ -111,7 +153,34 @@ func testWeightedGraph() -> DenseGraphW_Matrix {
     return g
 }
 
-
+func testWeightedGraph_SparseGraphW_AdjList() -> SparseGraphW_AdjList {
+    
+    let g = SparseGraphW_AdjList(capacity: 8, directed: false)
+    
+    g.addEdge(0, 2, weight: 0.26)
+    g.addEdge(0, 7, weight: 0.16)
+    g.addEdge(0, 4, weight: 0.38)
+    g.addEdge(0, 6, weight: 0.58)
+    
+    g.addEdge(1, 5, weight: 0.32)
+    g.addEdge(1, 7, weight: 0.19)
+    g.addEdge(1, 2, weight: 0.36)
+    g.addEdge(1, 3, weight: 0.29)
+    
+    g.addEdge(2, 3, weight: 0.17)
+    g.addEdge(2, 6, weight: 0.40)
+    g.addEdge(2, 7, weight: 0.34)
+    
+    g.addEdge(3, 6, weight: 0.52)
+    
+    g.addEdge(4, 5, weight: 0.35)
+    g.addEdge(4, 6, weight: 0.93)
+    g.addEdge(4, 7, weight: 0.37)
+    
+    g.addEdge(5, 7, weight: 0.28)
+    
+    return g
+}
 
 
 

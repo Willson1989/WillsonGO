@@ -162,14 +162,48 @@ public class DenseGraphW_Matrix : Graph_Weighted {
     
     public class PrimMST : MST_Prim {
         
-        fileprivate var G : DenseGraphW_Matrix!
+        
+        
+        fileprivate var G : DenseGraphW_Matrix!    
+        fileprivate var h : IndexMinHeap<MST_Prim.Weight>!
         
         public init(graph : DenseGraphW_Matrix) {
             super.init(capacity: graph.V())
             self.G = graph
-            
+            self.h = IndexMinHeap(capacity: graph.V())
             // Prim
             self.GenericMST_Prim()
+        }
+        
+        override internal func GenericMST_Prim() {
+//            visit(0)
+//            while !ipq.isEmpty() {
+//                let minEIndex = ipq.extractMinIndex()
+//                print("min index : \(minEIndex)")
+//                print("after extract : ", separator: "", terminator: " ")
+//                ipq.showHeap()
+//                print()
+//                if let minE = edgeTo[minEIndex] {
+//                    print("extracted weight : \(minE.wt())")
+//                    print()
+//                    mstArray.append(minE)
+//                    visit(minEIndex)
+//                } else {
+//                    print("edge of index : \(minEIndex) -- not found in edgeTo Array")
+//                }
+//            }
+            visit(0)
+            while !h.isEmpty() {
+                if let min = h.extractMin() {
+                    if let minE = edgeTo[min.vertex] {
+                        mstArray.append(minE)
+                        visit(min.vertex)
+                    }
+                }
+            }
+            for i in 0 ..< self.mstArray.count {
+                mstTotalWeight += mstArray[i].wt()
+            }
         }
         
         override func visit(_ v: Int) {
@@ -182,15 +216,15 @@ public class DenseGraphW_Matrix : Graph_Weighted {
                         // 总是取和w相连的权值最小的边，然后将其权值存储进最小堆中
                         if edgeTo[w] == nil {
                             // 没存储过和w顶点相连接的横切边
-                            //ipq.insertItem(e.wt())
-                            ipq.insert(item: e.wt())
+                            let wt = MST_Prim.Weight(vertex: w, weight: e.weight)
+                            h.insert(item: wt)
                             edgeTo[w] = e
                             
                         } else if e.wt() < edgeTo[w]!.wt() {
                             // 如果edgeTo中存储过和w相连的横切边，那么比较权值大小，存入权值小的边
                             edgeTo[w] = e
-                            //ipq.changeItem(with: e.wt(), heapIndex: w)
-                            ipq.change(with: e.wt(), atHeapIndex: w)
+                            let wt = MST_Prim.Weight(vertex: w, weight: e.weight)
+                            h.change(with: wt, atArrayIndex: w)
                         }
                     }
                 }

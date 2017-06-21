@@ -185,6 +185,37 @@ public class MST_LazyPrim : MST{
 //MARK: - MST_Prim
 public class MST_Prim : MST {
     
+    public class Weight : Comparable, Equatable {
+        
+        public var vertex : Int   = -1
+        public var weight : Float = 0.0
+        
+        public init(vertex : Int, weight : Float) {
+            self.vertex = vertex
+            self.weight = weight
+        }
+        
+        public static func < (l : MST_Prim.Weight, r : MST_Prim.Weight) -> Bool {
+            return l.weight < r.weight
+        }
+        
+        public static func <= (l : MST_Prim.Weight, r : MST_Prim.Weight) -> Bool {
+            return l.weight <= r.weight
+        }
+        
+        public static func > (l : MST_Prim.Weight, r : MST_Prim.Weight) -> Bool {
+            return l.weight > r.weight
+        }
+        
+        public static func >= (l : MST_Prim.Weight, r : MST_Prim.Weight) -> Bool {
+            return l.weight >= r.weight
+        }
+        
+        public static func == (l : MST_Prim.Weight, r : MST_Prim.Weight) -> Bool {
+            return l.weight == r.weight
+        }
+    }
+    
     // Prim 算法 用来存储节点对应的最小权值的横切边的权值
     internal var ipq : IndexMinHeap<Float>!
     
