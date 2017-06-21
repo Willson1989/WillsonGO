@@ -152,8 +152,8 @@ public class DenseGraphW_Matrix : Graph_Weighted {
                     if marked[e.other(v)] == false {
                         //另一个节点是蓝色，说明e是横切边，将e添加到最小堆中
                         print("about to insert, [ \(e.V()), \(e.W()) ] w : \(e.wt())")
-                        
-                        pq.insertItem(e)
+                        //pq.insertItem(e)
+                        pq.insert(item: e)
                     }
                 }
             }
@@ -182,13 +182,15 @@ public class DenseGraphW_Matrix : Graph_Weighted {
                         // 总是取和w相连的权值最小的边，然后将其权值存储进最小堆中
                         if edgeTo[w] == nil {
                             // 没存储过和w顶点相连接的横切边
-                            ipq.insertItem(e.wt())
+                            //ipq.insertItem(e.wt())
+                            ipq.insert(item: e.wt())
                             edgeTo[w] = e
                             
                         } else if e.wt() < edgeTo[w]!.wt() {
                             // 如果edgeTo中存储过和w相连的横切边，那么比较权值大小，存入权值小的边
                             edgeTo[w] = e
-                            ipq.changeItem(with: e.wt(), heapIndex: w)
+                            //ipq.changeItem(with: e.wt(), heapIndex: w)
+                            ipq.change(with: e.wt(), atHeapIndex: w)
                         }
                     }
                 }
@@ -209,7 +211,7 @@ public class DenseGraphW_Matrix : Graph_Weighted {
         
         override func GenericMST_Kruskal() {
             //使用最小堆来对图中的所有边进行排序
-            let minHeap = IndexMinHeap_Map<Edge>(capacity: G.E())
+            let minHeap = IndexMinHeap<Edge>(capacity: G.E())
             let unionFind = UnionFind_UsingRank(capacity: G.V())
             
             //对每一个节点的邻接边进行遍历
@@ -217,7 +219,8 @@ public class DenseGraphW_Matrix : Graph_Weighted {
                 for j in 0 ..< G.graph[i].count {
                     if let e = G.graph[i][j] {
                         if e.V() < e.W() {
-                            minHeap.insertItem(e)
+                            //minHeap.insertItem(e)
+                            minHeap.insert(item: e)
                         }
                     }
                 }

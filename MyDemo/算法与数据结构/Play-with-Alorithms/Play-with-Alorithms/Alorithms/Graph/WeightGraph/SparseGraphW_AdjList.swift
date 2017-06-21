@@ -199,7 +199,8 @@ public class SparseGraphW_AdjList : Graph_Weighted {
             var e = G.graph[v].firstArc
             while e != nil {
                 if marked[e!.other(v)] == false {
-                    pq.insertItem(e!)
+                    //pq.insertItem(e!)
+                    pq.insert(item: e!)
                 }
                 e = e!.next
             }
@@ -226,10 +227,10 @@ public class SparseGraphW_AdjList : Graph_Weighted {
                 if !marked[w] {
                     if edgeTo[w] == nil {
                         edgeTo[w] = p
-                        ipq.insertItem(p!.wt())
+                        ipq.insert(item: p!.wt())
                         
                     } else if p!.wt() < edgeTo[w]!.wt() {
-                        ipq.changeItem(with: p!.wt(), heapIndex: w)
+                        ipq.change(with: p!.wt(), atHeapIndex: w)
                         edgeTo[w] = p
                     }
                 }
@@ -250,7 +251,7 @@ public class SparseGraphW_AdjList : Graph_Weighted {
         
         internal override func GenericMST_Kruskal() {
             
-            let pq = IndexMinHeap_Map<Edge>(capacity: G.E())
+            let pq = IndexMinHeap<Edge>(capacity: G.E())
             let uf = UnionFind_CompressPath_01(capacity: G.V())
             
             for i in 0 ..< G.V() {
@@ -258,7 +259,8 @@ public class SparseGraphW_AdjList : Graph_Weighted {
                 while p != nil {
                     
                     if p!.V() < p!.W() {
-                        pq.insertItem(p!)
+                        //pq.insertItem(p!)
+                        pq.insert(item: p!)
                     }
                     p = p!.next
                 }

@@ -3,10 +3,6 @@ import Foundation
 
 fileprivate let NG : Int = 65535
 
-public protocol HeapDataType : Comparable, Equatable {
-    
-}
-
 public let NODATA : Int = -1
 
 //最小堆

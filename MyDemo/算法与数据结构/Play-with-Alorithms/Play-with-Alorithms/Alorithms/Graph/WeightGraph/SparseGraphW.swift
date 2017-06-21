@@ -168,7 +168,7 @@ public class SparseGraphW : Graph_Weighted {
                 let e = G.graph[v][i]!
                 if marked[e.other(v)] == false {
                     //是横切边
-                    pq.insertItem(e)
+                    pq.insert(item: e)
                 }
             }
         }
@@ -198,9 +198,11 @@ public class SparseGraphW : Graph_Weighted {
                 if !marked[w] {
                     if edgeTo[w] == nil {
                         edgeTo[w] = e
-                        ipq.insertItem(e.wt())
+                        ipq.insert(item: e.wt())
+                        
                     } else if e.wt() < edgeTo[w]!.wt() {
-                        ipq.changeItem(with: e.wt(), heapIndex: w)
+                        //ipq.changeItem(with: e.wt(), heapIndex: w)
+                        ipq.change(with: e.wt(), atHeapIndex: w)
                         edgeTo[w] = e
                     }
                 }
@@ -220,7 +222,7 @@ public class SparseGraphW : Graph_Weighted {
         
         internal override func GenericMST_Kruskal() {
             
-            let pq = IndexMinHeap_Map<Edge>(capacity: G.E())
+            let pq = IndexMinHeap<Edge>(capacity: G.E())
             
             let uf = UnionFind_UsingSize(capacity: G.V())
             
@@ -228,7 +230,8 @@ public class SparseGraphW : Graph_Weighted {
                 for j in 0 ..< G.graph[i].count {
                     let e = G.graph[i][j]!
                     if e.V() < e.W() {
-                        pq.insertItem(e)
+                        //pq.insertItem(e)
+                        pq.insert(item: e)
                     }
                 }
             }

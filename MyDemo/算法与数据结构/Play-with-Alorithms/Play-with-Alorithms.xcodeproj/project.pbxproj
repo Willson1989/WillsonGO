@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		29A74C921EF6C04200FA80B6 /* IndexMinHeap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A74C911EF6C04200FA80B6 /* IndexMinHeap.swift */; };
 		3D068FE01EF3785B0080688E /* TestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D068FDF1EF3785B0080688E /* TestHelper.swift */; };
-		29A74C921EF6C04200FA80B6 /* IndexMinHeap_Tmp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A74C911EF6C04200FA80B6 /* IndexMinHeap_Tmp.swift */; };
 		3D156BBD1EF0DB5F0098927D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BBC1EF0DB5F0098927D /* AppDelegate.swift */; };
 		3D156BBF1EF0DB5F0098927D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BBE1EF0DB5F0098927D /* ViewController.swift */; };
 		3D156BC21EF0DB5F0098927D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D156BC01EF0DB5F0098927D /* Main.storyboard */; };
@@ -49,8 +49,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		29A74C911EF6C04200FA80B6 /* IndexMinHeap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexMinHeap.swift; sourceTree = "<group>"; };
 		3D068FDF1EF3785B0080688E /* TestHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestHelper.swift; sourceTree = "<group>"; };
-		29A74C911EF6C04200FA80B6 /* IndexMinHeap_Tmp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexMinHeap_Tmp.swift; sourceTree = "<group>"; };
 		3D156BB91EF0DB5F0098927D /* Play-with-Alorithms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Play-with-Alorithms.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D156BBC1EF0DB5F0098927D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D156BBE1EF0DB5F0098927D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -241,7 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				3D156BED1EF0DBAC0098927D /* IndexMinHeap_Map.swift */,
-				29A74C911EF6C04200FA80B6 /* IndexMinHeap_Tmp.swift */,
+				29A74C911EF6C04200FA80B6 /* IndexMinHeap.swift */,
 			);
 			path = IndexMinHeap_Map;
 			sourceTree = "<group>";
@@ -373,7 +373,7 @@
 				3D156C111EF0DBAC0098927D /* MaxHeap.swift in Sources */,
 				3D156BFC1EF0DBAC0098927D /* BasicQueueAndStack.swift in Sources */,
 				3D156C181EF0DBAC0098927D /* UnionFind_UsingRank.swift in Sources */,
-				29A74C921EF6C04200FA80B6 /* IndexMinHeap_Tmp.swift in Sources */,
+				29A74C921EF6C04200FA80B6 /* IndexMinHeap.swift in Sources */,
 				3D156BFE1EF0DBAC0098927D /* MergeSort.swift in Sources */,
 				3D156C091EF0DBAC0098927D /* DenseGraphW_Matrix.swift in Sources */,
 				3D156C191EF0DBAC0098927D /* UnionFind_UsingSize.swift in Sources */,

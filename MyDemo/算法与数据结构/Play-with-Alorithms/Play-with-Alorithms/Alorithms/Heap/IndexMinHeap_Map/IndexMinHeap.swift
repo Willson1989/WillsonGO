@@ -1,5 +1,5 @@
 //
-//  IndexMinHeap_Tmp.swift
+//  IndexMinHeap.swift
 //  Play-with-Alorithms
 //
 //  Created by WillHelen on 2017/6/18.
@@ -10,11 +10,11 @@ import UIKit
 
 fileprivate let NG : Int = 0
 
-class IndexMinHeap_Tmp {
+class IndexMinHeap<T : Comparable & Equatable> {
 
     var index : [Int]  = [NG]
     var map   : [Int]  = [NG]
-    var data  : [Int?] = [nil]
+    var data  : [T?] = [nil]
     var count : Int = 0
     var capacity : Int = 0
     
@@ -28,12 +28,13 @@ class IndexMinHeap_Tmp {
     }
     
     
-    public init(arr : [Int]) {
+    public init(arr : [T]) {
         
         let cap = arr.count + 1
         index = Array(repeating: NG, count: cap)
         map = Array(repeating: NG, count: cap)
         count = 0
+        capacity = cap
         data = Array(repeating: nil, count: cap)
         for i in 0 ..< arr.count {
             data[i + 1] = arr[i]
@@ -93,7 +94,7 @@ class IndexMinHeap_Tmp {
         index[i] = tmpIdx
     }
     
-    func insert(item : Int) {
+    func insert(item : T) {
         data.append(item)
         index.append(NG)
         map.append(NG)
@@ -103,17 +104,30 @@ class IndexMinHeap_Tmp {
         fixUp(count)
     }
     
-    func insert(item : Int, at idx : Int) {
+    //不能和insert(item : Int)共同使用，
+    //只能使用其中一个insert方法来向堆中添加元素
+    //不能重复在同一个位置insert元素
+    func insert(item : T, at idx : Int) {
         let i = idx + 1
-        assert(i >= 1 && i <= count)
+        //不重复添加元素
+        if contain(idx) {
+            return
+        }
+        //个数不能超过原有的大小
+        if count + 1 > capacity {
+            return
+        }
+        if i < 1 || i > count {
+            return
+        }
         data[i] = item
         count += 1
-        index.append(i)
+        index[count] = i
         map[i] = count
         fixUp(count)
     }
     
-    func extractMin() -> Int? {
+    func extractMin() -> T? {
         if self.isEmpty() {
             print("heap is empty")
             return nil
@@ -141,7 +155,7 @@ class IndexMinHeap_Tmp {
         return ret
     }
     
-    func change(with item : Int, atArrayIndex idx : Int) {
+    func change(with item : T, atArrayIndex idx : Int) {
         if !contain(idx) {
             return
         }
@@ -152,7 +166,7 @@ class IndexMinHeap_Tmp {
         fixUp(hIdx)
     }
     
-    func change(with item : Int, atHeapIndex idx : Int) {
+    func change(with item : T, atHeapIndex idx : Int) {
         let i = idx + 1
         if i >= 1 && i <= count {
             let arrIdx = index[i]

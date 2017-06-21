@@ -13,29 +13,29 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let arr = [38, 34, 50, 52, 14, 15, 18, 36, 55, 2]
-        print("array : \(arr)")
-        let h = IndexMinHeap_Tmp(arr: arr)
-//        let h = IndexMinHeap_Tmp(capacity: 10)
-
-//        for i in 0 ..< arr.count {
-//            h.insert(item: arr[i])
-//        }
-        
-        h.showHeap()
-//        for _ in 0 ..< 5 {
-//            let min = h.extractMin()
-//            print("min : \(min)")
-//        }
+//        let arr = [38, 34, 50, 52, 14, 15, 18, 36, 55, 2]
+//        print("array : \(arr)")
+//        let h = IndexMinHeap(arr: arr)
+////        let h = IndexMinHeap_Tmp(capacity: 10)
+//
+////        for i in 0 ..< arr.count {
+////            h.insert(item: arr[i])
+////        }
+//        
 //        h.showHeap()
-        h.insert(item: 90)
-        h.insert(item: 0)
-        print(h.extractMin())
-        print(h.extractMin())
-        h.showHeap()
-        //h.change(with: 1, atArrayIndex: 9)
-        h.insert(item: 1, at: 0)
-        h.showHeap()
+////        for _ in 0 ..< 5 {
+////            let min = h.extractMin()
+////            print("min : \(min)")
+////        }
+////        h.showHeap()
+//        h.insert(item: 90)
+//        h.insert(item: 0)
+//        print(h.extractMin())
+//        print(h.extractMin())
+//        h.showHeap()
+//        //h.change(with: 1, atArrayIndex: 9)
+//        h.insert(item: 1, at: 0)
+//        h.showHeap()
         
 //        h.insert(item: 50)
 //        h.insert(item: 5)
@@ -68,10 +68,10 @@ class ViewController: UIViewController {
 //        h.showHeap()
 //        h.showOriginData()
         
-        return
+//        return
         
         let g1 = testWeightedGraph()
-        let lpMST = SparseGraphW.KruskalMST(graph: g1)
+        let lpMST = DenseGraphW_Matrix.PrimMST(graph: g1)
         lpMST.showMST()
     }
 
@@ -82,9 +82,9 @@ class ViewController: UIViewController {
     }
 }
 
-func testWeightedGraph() -> SparseGraphW {
+func testWeightedGraph() -> DenseGraphW_Matrix {
     
-    let g = SparseGraphW(capacity: 8, directed: false)
+    let g = DenseGraphW_Matrix(capacity: 8, directed: false)
     
     g.addEdge(0, 2, weight: 0.26)
     g.addEdge(0, 7, weight: 0.16)

@@ -148,11 +148,11 @@ public class MST {
 public class MST_LazyPrim : MST{
     
     // Lazy Prim 算法，用来存储横切边
-    internal var pq : IndexMinHeap_Map<Edge>!
+    internal var pq : IndexMinHeap<Edge>!
     
     public override init(capacity : Int) {
         super.init(capacity: capacity)
-        pq = IndexMinHeap_Map(capacity: capacity)
+        pq = IndexMinHeap(capacity: capacity)
         marked = Array(repeating: false, count: capacity)
     }
     
@@ -186,7 +186,7 @@ public class MST_LazyPrim : MST{
 public class MST_Prim : MST {
     
     // Prim 算法 用来存储节点对应的最小权值的横切边的权值
-    internal var ipq : IndexMinHeap_Map<Float>!
+    internal var ipq : IndexMinHeap<Float>!
     
     // Prim 算法 用来存储和节点相连的最小权值的横切边对象
     internal var edgeTo : [Edge?] = []
@@ -194,7 +194,7 @@ public class MST_Prim : MST {
     public override init(capacity : Int) {
         super.init(capacity: capacity)
         edgeTo = Array(repeating: nil, count: capacity)
-        ipq = IndexMinHeap_Map(capacity: capacity)
+        ipq = IndexMinHeap(capacity: capacity)
     }
     
     internal func GenericMST_Prim() {
@@ -217,6 +217,11 @@ public class MST_Kruskal : MST {
     
     internal func GenericMST_Kruskal() { }
     
+}
+
+//MARK: - Dijkstra 单源最短路径
+public class ShortestPath_Dijkstra {
+ 
 }
 
 
