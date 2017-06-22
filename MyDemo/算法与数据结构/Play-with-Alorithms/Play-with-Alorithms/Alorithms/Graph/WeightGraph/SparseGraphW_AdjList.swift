@@ -129,8 +129,6 @@ public class SparseGraphW_AdjList : Graph_Weighted {
             self.G = graph
             //寻路算法
             self.dfsFromVertex(self.V)
-            print("from array : \(self.from)")
-            print("visited array : \(self.visited)")
         }
         
         override func dfsFromVertex(_ v: Int) {
@@ -188,7 +186,7 @@ public class SparseGraphW_AdjList : Graph_Weighted {
         internal var G : SparseGraphW_AdjList!
         
         public init(graph : SparseGraphW_AdjList) {
-            super.init(capacity: graph.V())
+            super.init(capacity: graph.E())
             self.G = graph
             self.GenericMST_lazyPrim()
         }
@@ -227,7 +225,7 @@ public class SparseGraphW_AdjList : Graph_Weighted {
                 if !marked[w] {
                     if edgeTo[w] == nil {
                         edgeTo[w] = p
-                        ipq.insert(item: p!.wt())
+                        ipq.insert(item: p!.wt(), at: w)
                         
                     } else if p!.wt() < edgeTo[w]!.wt() {
                         ipq.change(with: p!.wt(), atHeapIndex: w)
@@ -251,7 +249,7 @@ public class SparseGraphW_AdjList : Graph_Weighted {
         
         internal override func GenericMST_Kruskal() {
             
-            let pq = IndexMinHeap<Edge>(capacity: G.E())
+            let pq = SimpleHeap<Edge>(capacity: G.E(), type : HeapType.min)
             let uf = UnionFind_CompressPath_01(capacity: G.V())
             
             for i in 0 ..< G.V() {
@@ -259,14 +257,13 @@ public class SparseGraphW_AdjList : Graph_Weighted {
                 while p != nil {
                     
                     if p!.V() < p!.W() {
-                        //pq.insertItem(p!)
                         pq.insert(item: p!)
                     }
                     p = p!.next
                 }
             }
             while pq.isEmpty() == false && self.mstArray.count < G.V() - 1 {
-                let e = pq.extractMin()!
+                let e = pq.extract()!
                 if uf.isConnected(e.V(), e.W()) {
                     continue
                 }

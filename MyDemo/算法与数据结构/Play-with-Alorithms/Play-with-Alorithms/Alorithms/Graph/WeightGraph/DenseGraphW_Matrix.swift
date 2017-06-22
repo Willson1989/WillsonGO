@@ -136,7 +136,7 @@ public class DenseGraphW_Matrix : Graph_Weighted {
         fileprivate var G : DenseGraphW_Matrix!
         
         public init(graph : DenseGraphW_Matrix) {
-            super.init(capacity: graph.V())
+            super.init(capacity: graph.E())
             self.G = graph
             
             //Lazy Prim
@@ -151,8 +151,6 @@ public class DenseGraphW_Matrix : Graph_Weighted {
                 if let e = G.graph[v][i] {
                     if marked[e.other(v)] == false {
                         //另一个节点是蓝色，说明e是横切边，将e添加到最小堆中
-                        print("about to insert, [ \(e.V()), \(e.W()) ] w : \(e.wt())")
-                        //pq.insertItem(e)
                         pq.insert(item: e)
                     }
                 }
@@ -162,48 +160,13 @@ public class DenseGraphW_Matrix : Graph_Weighted {
     
     public class PrimMST : MST_Prim {
         
-        
-        
         fileprivate var G : DenseGraphW_Matrix!    
-        fileprivate var h : IndexMinHeap<MST_Prim.Weight>!
         
         public init(graph : DenseGraphW_Matrix) {
             super.init(capacity: graph.V())
             self.G = graph
-            self.h = IndexMinHeap(capacity: graph.V())
             // Prim
             self.GenericMST_Prim()
-        }
-        
-        override internal func GenericMST_Prim() {
-//            visit(0)
-//            while !ipq.isEmpty() {
-//                let minEIndex = ipq.extractMinIndex()
-//                print("min index : \(minEIndex)")
-//                print("after extract : ", separator: "", terminator: " ")
-//                ipq.showHeap()
-//                print()
-//                if let minE = edgeTo[minEIndex] {
-//                    print("extracted weight : \(minE.wt())")
-//                    print()
-//                    mstArray.append(minE)
-//                    visit(minEIndex)
-//                } else {
-//                    print("edge of index : \(minEIndex) -- not found in edgeTo Array")
-//                }
-//            }
-            visit(0)
-            while !h.isEmpty() {
-                if let min = h.extractMin() {
-                    if let minE = edgeTo[min.vertex] {
-                        mstArray.append(minE)
-                        visit(min.vertex)
-                    }
-                }
-            }
-            for i in 0 ..< self.mstArray.count {
-                mstTotalWeight += mstArray[i].wt()
-            }
         }
         
         override func visit(_ v: Int) {
@@ -216,15 +179,13 @@ public class DenseGraphW_Matrix : Graph_Weighted {
                         // 总是取和w相连的权值最小的边，然后将其权值存储进最小堆中
                         if edgeTo[w] == nil {
                             // 没存储过和w顶点相连接的横切边
-                            let wt = MST_Prim.Weight(vertex: w, weight: e.weight)
-                            h.insert(item: wt)
+                            ipq.insert(item: e.wt(), at: w)
                             edgeTo[w] = e
                             
                         } else if e.wt() < edgeTo[w]!.wt() {
                             // 如果edgeTo中存储过和w相连的横切边，那么比较权值大小，存入权值小的边
+                            ipq.change(with: e.wt(), atDataIndex: w)
                             edgeTo[w] = e
-                            let wt = MST_Prim.Weight(vertex: w, weight: e.weight)
-                            h.change(with: wt, atArrayIndex: w)
                         }
                     }
                 }
@@ -245,7 +206,7 @@ public class DenseGraphW_Matrix : Graph_Weighted {
         
         override func GenericMST_Kruskal() {
             //使用最小堆来对图中的所有边进行排序
-            let minHeap = IndexMinHeap<Edge>(capacity: G.E())
+            let minHeap = SimpleHeap<Edge>(capacity: G.E(), type: HeapType.min)
             let unionFind = UnionFind_UsingRank(capacity: G.V())
             
             //对每一个节点的邻接边进行遍历
@@ -253,7 +214,6 @@ public class DenseGraphW_Matrix : Graph_Weighted {
                 for j in 0 ..< G.graph[i].count {
                     if let e = G.graph[i][j] {
                         if e.V() < e.W() {
-                            //minHeap.insertItem(e)
                             minHeap.insert(item: e)
                         }
                     }
@@ -264,7 +224,7 @@ public class DenseGraphW_Matrix : Graph_Weighted {
             // 所以这里可以提前结束循环
             while (minHeap.isEmpty() == false && self.mstArray.count < G.V() - 1) {
                 
-                let minE = minHeap.extractMin()!
+                let minE = minHeap.extract()!
                 
                 if unionFind.isConnected(minE.V(), minE.W()) {
                     //如果取出的最小权边的两个顶点相连接（或者说有相同的根节点）则构成了环路

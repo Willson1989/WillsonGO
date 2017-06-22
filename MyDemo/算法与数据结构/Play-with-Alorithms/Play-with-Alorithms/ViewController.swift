@@ -14,6 +14,27 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
 //        let arr = [38, 34, 50, 52, 14, 15, 18, 36, 55, 2]
+//        
+////        let h1 = SimpleHeap(arr: arr, type: .max)
+//        let h1 = SimpleHeap<Int>(capacity: arr.count, type: HeapType.min)
+//        h1.showHeap()
+//        
+//        for i in 0 ..< arr.count {
+//            //h1.insert(item: arr[i], at: i)
+//            h1.insert(item: arr[i])
+//            h1.showHeap()
+//        }
+//        
+//        print("about to extract")
+//        for _ in 0 ..< 18 {
+//            if let ret = h1.extract() {
+//                print("result : \(ret)")
+//            }
+//            h1.showHeap()
+//        }
+//        return
+//
+//        return
 //        print("array : \(arr)")
 //        let h = IndexMinHeap(arr: arr)
 ////        let h = IndexMinHeap_Tmp(capacity: 10)
@@ -73,19 +94,19 @@ class ViewController: UIViewController {
         
         print("DenseGraphW_Matrix : ====  ")
         let g1 = testWeightedGraph_DenseGraphW_Matrix()
-        let lpMST1 = DenseGraphW_Matrix.PrimMST(graph: g1)
+        let lpMST1 = DenseGraphW_Matrix.KruskalMST(graph: g1)
         lpMST1.showMST()
         
         print()
         print("SparseGraphW : ====  ")
         let g2 = testWeightedGraph_SparseGraphW()
-        let lpMST2 = SparseGraphW.PrimMST(graph: g2)
+        let lpMST2 = SparseGraphW.KruskalMST(graph: g2)
         lpMST2.showMST()
-//
+        
         print()
         print("SparseGraphW_AdjList : ====  ")
         let g3 = testWeightedGraph_SparseGraphW_AdjList()
-        let lpMST3 = SparseGraphW_AdjList.PrimMST(graph: g3)
+        let lpMST3 = SparseGraphW_AdjList.KruskalMST(graph: g3)
         lpMST3.showMST()
     }
 

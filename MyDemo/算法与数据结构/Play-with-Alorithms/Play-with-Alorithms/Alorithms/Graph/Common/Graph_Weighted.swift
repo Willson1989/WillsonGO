@@ -148,11 +148,11 @@ public class MST {
 public class MST_LazyPrim : MST{
     
     // Lazy Prim 算法，用来存储横切边
-    internal var pq : IndexMinHeap<Edge>!
+    internal var pq : SimpleHeap<Edge>!
     
     public override init(capacity : Int) {
         super.init(capacity: capacity)
-        pq = IndexMinHeap(capacity: capacity)
+        pq = SimpleHeap(capacity: capacity, type: .min)
         marked = Array(repeating: false, count: capacity)
     }
     
@@ -162,7 +162,7 @@ public class MST_LazyPrim : MST{
         visit(0)
         while pq.isEmpty() == false {
             //取出最小权值的边
-            let e = pq.extractMin()!
+            let e = pq.extract()!
             //如果边的两个顶点都是红色，说明不是横切边,弃用
             if marked[e.V()] == marked[e.W()] {
                 continue
@@ -217,7 +217,8 @@ public class MST_Prim : MST {
     }
     
     // Prim 算法 用来存储节点对应的最小权值的横切边的权值
-    internal var ipq : IndexMinHeap<Float>!
+    internal var ipq : IndexHeap<Float>!
+
     
     // Prim 算法 用来存储和节点相连的最小权值的横切边对象
     internal var edgeTo : [Edge?] = []
@@ -225,13 +226,13 @@ public class MST_Prim : MST {
     public override init(capacity : Int) {
         super.init(capacity: capacity)
         edgeTo = Array(repeating: nil, count: capacity)
-        ipq = IndexMinHeap(capacity: capacity)
+        ipq = IndexHeap(capacity: capacity, type: .min)
     }
     
     internal func GenericMST_Prim() {
         visit(0)
         while !ipq.isEmpty() {
-            let minEIndex = ipq.extractMinIndex()
+            let minEIndex = ipq.extractIndex()
             if let minE = edgeTo[minEIndex] {
                 mstArray.append(minE)
                 visit(minEIndex)

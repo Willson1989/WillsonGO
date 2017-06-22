@@ -12,7 +12,8 @@ public func swapElement(_ arr : inout [Int], _ posx : Int, _ posy : Int) {
     swap(&arr[posx], &arr[posy])
 }
 
-public func swapElement_T<T : Comparable>(_ arr : inout [T], _ posx : Int, _ posy : Int) {
+
+public func swapElement_T<T : Comparable & Equatable>(_ arr : inout [T], _ posx : Int, _ posy : Int) {
     if  posx >= arr.count ||
         posy >= arr.count ||
         posx < 0 ||
@@ -24,8 +25,7 @@ public func swapElement_T<T : Comparable>(_ arr : inout [T], _ posx : Int, _ pos
     swap(&arr[posx], &arr[posy])
 }
 
-//两个元素交换位置（泛型类型）
-public func swapElement_T<T : Comparable>(_ arr : inout [T], _ posx : Int , posy : Int) {
+public func swapElement_T_Optional<T : Comparable & Equatable>(_ arr : inout [T?], _ posx : Int, _ posy : Int) {
     if  posx >= arr.count ||
         posy >= arr.count ||
         posx < 0 ||

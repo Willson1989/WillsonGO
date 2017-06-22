@@ -98,8 +98,6 @@ public class SparseGraphW : Graph_Weighted {
             
             //寻路算法
             self.dfsFromVertex(self.V)
-            print("from array : \(self.from)")
-            print("visited array : \(self.visited)")
         }
         
         internal override func dfsFromVertex(_ v: Int) {
@@ -154,7 +152,7 @@ public class SparseGraphW : Graph_Weighted {
         fileprivate var G : SparseGraphW!
         
         public init(graph : SparseGraphW) {
-            super.init(capacity: graph.V())
+            super.init(capacity: graph.E())
             self.G = graph
             
             //Lazy Prim
@@ -198,10 +196,9 @@ public class SparseGraphW : Graph_Weighted {
                 if !marked[w] {
                     if edgeTo[w] == nil {
                         edgeTo[w] = e
-                        ipq.insert(item: e.wt())
+                        ipq.insert(item: e.wt(), at: w)
                         
                     } else if e.wt() < edgeTo[w]!.wt() {
-                        //ipq.changeItem(with: e.wt(), heapIndex: w)
                         ipq.change(with: e.wt(), atHeapIndex: w)
                         edgeTo[w] = e
                     }
@@ -222,7 +219,7 @@ public class SparseGraphW : Graph_Weighted {
         
         internal override func GenericMST_Kruskal() {
             
-            let pq = IndexMinHeap<Edge>(capacity: G.E())
+            let pq = SimpleHeap<Edge>(capacity: G.E(), type : HeapType.min)
             
             let uf = UnionFind_UsingSize(capacity: G.V())
             
@@ -230,7 +227,6 @@ public class SparseGraphW : Graph_Weighted {
                 for j in 0 ..< G.graph[i].count {
                     let e = G.graph[i][j]!
                     if e.V() < e.W() {
-                        //pq.insertItem(e)
                         pq.insert(item: e)
                     }
                 }
@@ -238,7 +234,7 @@ public class SparseGraphW : Graph_Weighted {
             
             while !pq.isEmpty() && mstArray.count < G.V() - 1 {
                 
-                let e = pq.extractMin()!
+                let e = pq.extract()!
                 
                 if uf.isConnected(e.V(), e.W()) {
                     continue
