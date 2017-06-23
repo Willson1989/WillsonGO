@@ -42,6 +42,9 @@
 		3D912C5A1EFBCDCF00A62181 /* SimpleHeap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D912C571EFBCDCF00A62181 /* SimpleHeap.swift */; };
 		3D912C5B1EFBCDCF00A62181 /* IndexHeap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D912C581EFBCDCF00A62181 /* IndexHeap.swift */; };
 		3D912C5C1EFBCDCF00A62181 /* CommonHeap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D912C591EFBCDCF00A62181 /* CommonHeap.swift */; };
+		3D912C5E1EFCAAAA00A62181 /* MinimumSpanTrees.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D912C5D1EFCAAAA00A62181 /* MinimumSpanTrees.swift */; };
+		3D912C601EFCAB1500A62181 /* FindingPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D912C5F1EFCAB1500A62181 /* FindingPath.swift */; };
+		3D912C621EFCB28200A62181 /* SourceShortestPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D912C611EFCB28200A62181 /* SourceShortestPath.swift */; };
 		3DFA2FD51EF0EE3200554E44 /* Graph_Weighted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFA2FD41EF0EE3200554E44 /* Graph_Weighted.swift */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +86,9 @@
 		3D912C571EFBCDCF00A62181 /* SimpleHeap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleHeap.swift; sourceTree = "<group>"; };
 		3D912C581EFBCDCF00A62181 /* IndexHeap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexHeap.swift; sourceTree = "<group>"; };
 		3D912C591EFBCDCF00A62181 /* CommonHeap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonHeap.swift; sourceTree = "<group>"; };
+		3D912C5D1EFCAAAA00A62181 /* MinimumSpanTrees.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinimumSpanTrees.swift; sourceTree = "<group>"; };
+		3D912C5F1EFCAB1500A62181 /* FindingPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindingPath.swift; sourceTree = "<group>"; };
+		3D912C611EFCB28200A62181 /* SourceShortestPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceShortestPath.swift; sourceTree = "<group>"; };
 		3DFA2FD41EF0EE3200554E44 /* Graph_Weighted.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Graph_Weighted.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -188,6 +194,9 @@
 				3D156BDD1EF0DBAC0098927D /* AdjacentIterators.swift */,
 				3D156BDE1EF0DBAC0098927D /* Graph.swift */,
 				3DFA2FD41EF0EE3200554E44 /* Graph_Weighted.swift */,
+				3D912C5F1EFCAB1500A62181 /* FindingPath.swift */,
+				3D912C5D1EFCAAAA00A62181 /* MinimumSpanTrees.swift */,
+				3D912C611EFCB28200A62181 /* SourceShortestPath.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -321,6 +330,7 @@
 				3D156BFF1EF0DBAC0098927D /* QuickSort.swift in Sources */,
 				3D156C021EF0DBAC0098927D /* BinarySearch.swift in Sources */,
 				3D156C171EF0DBAC0098927D /* UnionFind_UsingParent.swift in Sources */,
+				3D912C5E1EFCAAAA00A62181 /* MinimumSpanTrees.swift in Sources */,
 				3D156C001EF0DBAC0098927D /* SelectionSort.swift in Sources */,
 				3D068FE01EF3785B0080688E /* TestHelper.swift in Sources */,
 				3D156C031EF0DBAC0098927D /* BinarySearchTree.swift in Sources */,
@@ -331,11 +341,13 @@
 				3D156C011EF0DBAC0098927D /* Sort.swift in Sources */,
 				3D912C5A1EFBCDCF00A62181 /* SimpleHeap.swift in Sources */,
 				3D156C0B1EF0DBAC0098927D /* SparseGraphW_AdjList.swift in Sources */,
+				3D912C601EFCAB1500A62181 /* FindingPath.swift in Sources */,
 				3D156C081EF0DBAC0098927D /* SparseGraph_AdjList.swift in Sources */,
 				3D156C1B1EF0DBAC0098927D /* 拓展知识.swift in Sources */,
 				3D156C151EF0DBAC0098927D /* UnionFind_CompressPath_02.swift in Sources */,
 				3D156C061EF0DBAC0098927D /* DenseGraph_Matrix.swift in Sources */,
 				3D156BFC1EF0DBAC0098927D /* BasicQueueAndStack.swift in Sources */,
+				3D912C621EFCB28200A62181 /* SourceShortestPath.swift in Sources */,
 				3D156C181EF0DBAC0098927D /* UnionFind_UsingRank.swift in Sources */,
 				3D156BFE1EF0DBAC0098927D /* MergeSort.swift in Sources */,
 				3D156C091EF0DBAC0098927D /* DenseGraphW_Matrix.swift in Sources */,

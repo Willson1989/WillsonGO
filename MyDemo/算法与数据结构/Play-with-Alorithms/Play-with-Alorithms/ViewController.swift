@@ -34,80 +34,43 @@ class ViewController: UIViewController {
 //        }
 //        return
 //
-//        return
-//        print("array : \(arr)")
-//        let h = IndexMinHeap(arr: arr)
-////        let h = IndexMinHeap_Tmp(capacity: 10)
 //
-////        for i in 0 ..< arr.count {
-////            h.insert(item: arr[i])
-////        }
-//        
-//        h.showHeap()
-////        for _ in 0 ..< 5 {
-////            let min = h.extractMin()
-////            print("min : \(min)")
-////        }
-////        h.showHeap()
-//        h.insert(item: 90)
-//        h.insert(item: 0)
-//        print(h.extractMin())
-//        print(h.extractMin())
-//        h.showHeap()
-//        //h.change(with: 1, atArrayIndex: 9)
-//        h.insert(item: 1, at: 0)
-//        h.showHeap()
         
-//        h.insert(item: 50)
-//        h.insert(item: 5)
-//        h.showHeap()
-//        
-//        let m1 = h.extractMin()!
-//        print("m1 : \(m1)")
-//        h.showHeap()
-//        h.insert(item: 20)
-//        h.showHeap()
-//        let m2 = h.extractMin()!
-//        h.showHeap()
-//        print("m2 : \(m2)")
-//        h.showHeap()
-//        h.insert(item: 80)
-//        h.showHeap()
-//        
-//        h.insert(item: 12)
-//        h.insert(item: 40)
-//        h.insert(item: 11)#0	0x000000010c4eabcb in ViewController.viewDidLoad() -> () at /Users/ZhengYi/WillsonGO/MyDemo/算法与数据结构/Play-with-Alorithms/Play-with-Alorithms/ViewController.swift:73
-
-//        h.insert(item: 65)
+//        print("DenseGraphW_Matrix : ====  ")
+//        let g1 = testWeightedGraph_DenseGraphW_Matrix()
+//        let lpMST1 = DenseGraphW_Matrix.KruskalMST(graph: g1)
+//        lpMST1.showMST()
 //        
 //        print()
-//        h.showHeap()
-//        h.showOriginData()
+//        print("SparseGraphW : ====  ")
+//        let g2 = testWeightedGraph_SparseGraphW()
+//        let lpMST2 = SparseGraphW.KruskalMST(graph: g2)
+//        lpMST2.showMST()
+//        
 //        print()
-//        print("insert 40 at array index 1")
-//        //h.insert(item: 40, at: 1)
-//        h.insert(item: 65)
-//        h.showHeap()
-//        h.showOriginData()
+//        print("SparseGraphW_AdjList : ====  ")
+//        let g3 = testWeightedGraph_SparseGraphW_AdjList()
+//        let lpMST3 = SparseGraphW_AdjList.KruskalMST(graph: g3)
+//        lpMST3.showMST()
         
-//        return
+        let from = 4
+        let to = 0
         
-        print("DenseGraphW_Matrix : ====  ")
-        let g1 = testWeightedGraph_DenseGraphW_Matrix()
-        let lpMST1 = DenseGraphW_Matrix.KruskalMST(graph: g1)
-        lpMST1.showMST()
-        
-        print()
-        print("SparseGraphW : ====  ")
-        let g2 = testWeightedGraph_SparseGraphW()
-        let lpMST2 = SparseGraphW.KruskalMST(graph: g2)
-        lpMST2.showMST()
+        print("SparseGraphW Dijkstra Shortest Path: ====  ")
+        let g11 = testDijkstra_SparseGraphW()
+        let sp11 = SparseGraphW.DijkstraPath(source: from, graph: g11)
+        sp11.showPath(to: to)
         
         print()
-        print("SparseGraphW_AdjList : ====  ")
-        let g3 = testWeightedGraph_SparseGraphW_AdjList()
-        let lpMST3 = SparseGraphW_AdjList.KruskalMST(graph: g3)
-        lpMST3.showMST()
+        print("DenseGraphW_Matrix Dijkstra Shortest Path: ====  ")
+        let g12 = testDijkstra_DenseGraphW_Matrix()
+        let sp12 = DenseGraphW_Matrix.DijkstraPath(source: from, graph: g12)
+        sp12.showPath(to: to)
+        print()
+        print("SparseGraphW_AdjList Dijkstra Shortest Path: ====  ")
+        let g13 = testDijkstra_SparseGraphW_AdjList()
+        let sp13 = SparseGraphW_AdjList.DijkstraPath(source: from, graph: g13)
+        sp13.showPath(to: to)
     }
 
     
@@ -204,6 +167,56 @@ func testWeightedGraph_SparseGraphW_AdjList() -> SparseGraphW_AdjList {
 }
 
 
+func testDijkstra_DenseGraphW_Matrix() -> DenseGraphW_Matrix {
+    let g = DenseGraphW_Matrix(capacity: 5, directed: false)
+    
+    g.addEdge(0, 2, weight: 2)
+    g.addEdge(0, 1, weight: 5)
+    g.addEdge(0, 3, weight: 6)
+    
+    g.addEdge(2, 1, weight: 1)
+    g.addEdge(2, 3, weight: 3)
+    g.addEdge(2, 4, weight: 5)
+    
+    g.addEdge(1, 4, weight: 1)
+    g.addEdge(3, 4, weight: 2)
+
+    return g
+}
 
 
+func testDijkstra_SparseGraphW_AdjList() -> SparseGraphW_AdjList {
+    let g = SparseGraphW_AdjList(capacity: 5, directed: false)
+    
+    g.addEdge(0, 2, weight: 2)
+    g.addEdge(0, 1, weight: 5)
+    g.addEdge(0, 3, weight: 6)
+    
+    g.addEdge(2, 1, weight: 1)
+    g.addEdge(2, 3, weight: 3)
+    g.addEdge(2, 4, weight: 5)
+    
+    g.addEdge(1, 4, weight: 1)
+    g.addEdge(3, 4, weight: 2)
+    
+    return g
+}
+
+func testDijkstra_SparseGraphW() -> SparseGraphW {
+    let g = SparseGraphW(capacity: 6, directed: false)
+    
+    g.addEdge(0, 2, weight: 2)
+    g.addEdge(0, 1, weight: 5)
+    g.addEdge(0, 3, weight: 6)
+    
+    g.addEdge(2, 1, weight: 1)
+    g.addEdge(2, 3, weight: 3)
+    g.addEdge(2, 4, weight: 5)
+    
+    g.addEdge(1, 4, weight: 1)
+    g.addEdge(3, 4, weight: 2)
+    
+    
+    return g
+}
 

@@ -78,6 +78,11 @@ public class DenseGraphW_Matrix : Graph_Weighted {
         print()
     }
     
+    
+}
+
+//MARK: - Finding a Path
+extension DenseGraphW_Matrix {
     public class Path : GraphPath {
         
         fileprivate var G : DenseGraphW_Matrix!
@@ -130,6 +135,10 @@ public class DenseGraphW_Matrix : Graph_Weighted {
             }
         }
     }
+}
+
+//MARK: - MST
+extension DenseGraphW_Matrix {
     
     public class LazyPrimMST : MST_LazyPrim {
         
@@ -160,7 +169,7 @@ public class DenseGraphW_Matrix : Graph_Weighted {
     
     public class PrimMST : MST_Prim {
         
-        fileprivate var G : DenseGraphW_Matrix!    
+        fileprivate var G : DenseGraphW_Matrix!
         
         public init(graph : DenseGraphW_Matrix) {
             super.init(capacity: graph.V())
@@ -245,6 +254,55 @@ public class DenseGraphW_Matrix : Graph_Weighted {
     }
 }
 
+
+
+//MARK: - Dijkstra Shortest Path
+extension DenseGraphW_Matrix {
+    
+    public class DijkstraPath : ShortestPath_Dijkstra {
+        
+        fileprivate var G : DenseGraphW_Matrix
+        
+        public init(source : Int , graph : DenseGraphW_Matrix) {
+            self.G = graph
+            super.init(source: source, capacity: graph.V())
+            // Dijkstra
+            self.dijkstraPath()
+        }
+        
+        internal override func dijkstraPath() {
+            
+            distTo[s] = 0.0
+            pq.insert(item: 0.0, at: s)
+            marked[s] = true
+            while !pq.isEmpty() {
+                //获取最短路径的顶点
+                let v = pq.extractIndex()
+                marked[v] = true
+    
+                //遍历顶点v的邻接点
+                for i in 0 ..< G.V() {
+                    if let e = G.graph[v][i] {
+                        let w = e.other(v)
+                        if !marked[w] {
+                            if from[w] == nil || distTo[v] + e.wt() < distTo[w] {
+                                distTo[w] = distTo[v] + e.wt()
+                                from[w] = e
+                                if !pq.contain(w) {
+                                    pq.insert(item: distTo[w], at: w)
+                                } else {
+                                    pq.change(with: distTo[w], atDataIndex: w)
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    
+}
 
 
 

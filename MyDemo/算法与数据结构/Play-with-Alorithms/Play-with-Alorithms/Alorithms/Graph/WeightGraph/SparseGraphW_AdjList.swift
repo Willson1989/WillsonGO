@@ -119,6 +119,11 @@ public class SparseGraphW_AdjList : Graph_Weighted {
         }
         print()
     }
+}
+
+
+//MARK: - Finding a Path
+extension SparseGraphW_AdjList {
     
     public class Path : GraphPath {
         
@@ -156,7 +161,6 @@ public class SparseGraphW_AdjList : Graph_Weighted {
         }
         
         internal override func bfsFromVertex(_ v: Int) {
-            
             var queue = BasicQueue()
             queue.enqueue(v)
             self.visited[v] = true
@@ -179,8 +183,12 @@ public class SparseGraphW_AdjList : Graph_Weighted {
             }
         }
     }
-    
+}
 
+
+//MARK: - MST
+extension SparseGraphW_AdjList {
+    
     public class LazyPrimMST : MST_LazyPrim {
         
         internal var G : SparseGraphW_AdjList!
@@ -190,7 +198,7 @@ public class SparseGraphW_AdjList : Graph_Weighted {
             self.G = graph
             self.GenericMST_lazyPrim()
         }
-
+        
         
         override func visit(_ v: Int) {
             marked[v] = true
@@ -278,9 +286,51 @@ public class SparseGraphW_AdjList : Graph_Weighted {
 }
 
 
-
-
-
+//MARK: - Dijkstra Shortest Path
+extension SparseGraphW_AdjList {
+    
+    public class DijkstraPath : ShortestPath_Dijkstra {
+        
+        fileprivate var G : SparseGraphW_AdjList
+        
+        public init(source : Int , graph : SparseGraphW_AdjList) {
+            self.G = graph
+            super.init(source: source, capacity: graph.V())
+            self.dijkstraPath()
+        }
+        
+        override func dijkstraPath() {
+            
+            distTo[s] = 0.0
+            pq.insert(item: 0.0, at: s)
+            marked[s] = true
+            
+            while !pq.isEmpty() {
+                
+                let v = pq.extractIndex()
+                marked[v] = true
+                
+                // 遍历v的邻接点
+                var e = G.graph[v].firstArc
+                while e != nil {
+                    let w = e!.other(v)
+                    if !marked[w] {
+                        if from[w] == nil || distTo[v] + e!.wt() < distTo[w] {
+                            distTo[w] = distTo[v] + e!.wt()
+                            from[w] = e
+                            if !pq.contain(w) {
+                                pq.insert(item: distTo[w], at: w)
+                            } else {
+                                pq.insert(item: distTo[w], at: w)
+                            }
+                        }
+                    }
+                    e = e!.next
+                }
+            }
+        }
+    }
+}
 
 
 
