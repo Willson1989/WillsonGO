@@ -1,102 +1,22 @@
 //
-//  Graph_Weighted.swift
+//  MinimumSpanTrees.swift
 //  Play-with-Alorithms
 //
-//  Created by ZhengYi on 2017/6/14.
+//  Created by ZhengYi on 2017/6/23.
 //  Copyright © 2017年 ZhengYi. All rights reserved.
 //
 
-import UIKit
-
-// 链表实现邻接表时，顶点的数据结构
-internal class Vertex {
-    
-    public var v : Int = -1
-    public var firstArc : Edge? = nil
-    
-    init(vertex : Int) {
-        self.v = vertex
-        self.firstArc = nil
-    }
-}
-
-// 有权图的边
-public class Edge : Comparable , Equatable{
-    
-    internal var from : Int = INFINITY
-    internal var to   : Int = INFINITY
-    internal var weight :  Float = 0.0
-    internal var next : Edge? = nil
-    
-    init(a : Int, b : Int, weight : Float) {
-        self.from = a
-        self.to = b
-        self.weight = weight
-    }
-    
-    init() {
-        from = INFINITY
-        to = INFINITY
-        weight = 0.0
-    }
-    
-    //指定一个顶点，返回与之连接的另一个顶点
-    public func other(_ v : Int) -> Int {
-        if v == from {
-            return to
-        } else {
-            return from
-        }
-    }
-    
-    public func V() -> Int {
-        return self.from
-    }
-    
-    public func W() -> Int {
-        return self.to
-    }
-    
-    public func wt() -> Float {
-        return self.weight
-    }
-    
-    public static func < (l : Edge, r : Edge) -> Bool {
-        return l.weight < r.weight
-    }
-    
-    public static func <= (l : Edge, r : Edge) -> Bool {
-        return l.weight <= r.weight
-    }
-    
-    public static func > (l : Edge, r : Edge) -> Bool {
-        return l.weight > r.weight
-    }
-    
-    public static func >= (l : Edge, r : Edge) -> Bool {
-        return l.weight >= r.weight
-    }
-    
-    public static func == (l : Edge, r : Edge) -> Bool {
-        return l.weight == r.weight
-    }
-}
-
-public class Graph_Weighted : Graph {
-
-    public func addEdge(_ v : Int, _ w : Int, weight : Float) { }
-}
+import Foundation
 
 
-<<<<<<< HEAD
 /*
  最小生成树
-    一个图可以生成最小生成树的前提是这个图是连通的
+ 一个图可以生成最小生成树的前提是这个图是连通的
  
  切分定理：
-    将一个图分成两个部分（一部分节点为蓝色，一部分节点为红色）
-    连接两个部分的节点的边被称为 横切边。（即这个边的两个节点一个是红色一个是蓝色）
-    在多个横切边中权值最小的边一定是这个图的最小生成树的一条边
+ 将一个图分成两个部分（一部分节点为蓝色，一部分节点为红色）
+ 连接两个部分的节点的边被称为 横切边。（即这个边的两个节点一个是红色一个是蓝色）
+ 在多个横切边中权值最小的边一定是这个图的最小生成树的一条边
  */
 //MARK: - 最小生成树
 public class MST {
@@ -149,11 +69,11 @@ public class MST {
 public class MST_LazyPrim : MST{
     
     // Lazy Prim 算法，用来存储横切边
-    internal var pq : IndexMinHeap<Edge>!
+    internal var pq : SimpleHeap<Edge>!
     
     public override init(capacity : Int) {
         super.init(capacity: capacity)
-        pq = IndexMinHeap(capacity: capacity)
+        pq = SimpleHeap(capacity: capacity, type: .min)
         marked = Array(repeating: false, count: capacity)
     }
     
@@ -163,7 +83,7 @@ public class MST_LazyPrim : MST{
         visit(0)
         while pq.isEmpty() == false {
             //取出最小权值的边
-            let e = pq.extractMin()!
+            let e = pq.extract()!
             //如果边的两个顶点都是红色，说明不是横切边,弃用
             if marked[e.V()] == marked[e.W()] {
                 continue
@@ -218,8 +138,8 @@ public class MST_Prim : MST {
     }
     
     // Prim 算法 用来存储节点对应的最小权值的横切边的权值
-    internal var ipq : IndexMinHeap<Float>!
-    internal var h : IndexMinHeap<MST_Prim.Weight>!
+    internal var ipq : IndexHeap<Float>!
+    
     
     // Prim 算法 用来存储和节点相连的最小权值的横切边对象
     internal var edgeTo : [Edge?] = []
@@ -227,18 +147,16 @@ public class MST_Prim : MST {
     public override init(capacity : Int) {
         super.init(capacity: capacity)
         edgeTo = Array(repeating: nil, count: capacity)
-        ipq = IndexMinHeap(capacity: capacity)
-        h = IndexMinHeap(capacity: capacity)
+        ipq = IndexHeap(capacity: capacity, type: .min)
     }
     
     internal func GenericMST_Prim() {
         visit(0)
-        while !h.isEmpty() {
-            if let minWeight = h.extractMin() {
-                if let minE = edgeTo[minWeight.vertex] {
-                    mstArray.append(minE)
-                    visit(minWeight.vertex)
-                }
+        while !ipq.isEmpty() {
+            let minEIndex = ipq.extractIndex()
+            if let minE = edgeTo[minEIndex] {
+                mstArray.append(minE)
+                visit(minEIndex)
             }
         }
         for i in 0 ..< self.mstArray.count {
@@ -253,8 +171,10 @@ public class MST_Kruskal : MST {
     internal func GenericMST_Kruskal() { }
     
 }
-=======
->>>>>>> d5aa68c09de37db8674d0350cb0aabeb37b0a882
+
+
+
+
 
 
 

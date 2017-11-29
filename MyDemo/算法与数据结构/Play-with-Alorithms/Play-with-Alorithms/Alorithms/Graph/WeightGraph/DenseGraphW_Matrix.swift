@@ -78,6 +78,11 @@ public class DenseGraphW_Matrix : Graph_Weighted {
         print()
     }
     
+    
+}
+
+//MARK: - Finding a Path
+extension DenseGraphW_Matrix {
     public class Path : GraphPath {
         
         fileprivate var G : DenseGraphW_Matrix!
@@ -130,13 +135,17 @@ public class DenseGraphW_Matrix : Graph_Weighted {
             }
         }
     }
+}
+
+//MARK: - MST
+extension DenseGraphW_Matrix {
     
     public class LazyPrimMST : MST_LazyPrim {
         
         fileprivate var G : DenseGraphW_Matrix!
         
         public init(graph : DenseGraphW_Matrix) {
-            super.init(capacity: graph.V())
+            super.init(capacity: graph.E())
             self.G = graph
             
             //Lazy Prim
@@ -151,8 +160,6 @@ public class DenseGraphW_Matrix : Graph_Weighted {
                 if let e = G.graph[v][i] {
                     if marked[e.other(v)] == false {
                         //另一个节点是蓝色，说明e是横切边，将e添加到最小堆中
-                        print("about to insert, [ \(e.V()), \(e.W()) ] w : \(e.wt())")
-                        //pq.insertItem(e)
                         pq.insert(item: e)
                     }
                 }
@@ -162,8 +169,12 @@ public class DenseGraphW_Matrix : Graph_Weighted {
     
     public class PrimMST : MST_Prim {
         
+<<<<<<< HEAD
         
         fileprivate var G : DenseGraphW_Matrix!    
+=======
+        fileprivate var G : DenseGraphW_Matrix!
+>>>>>>> d5aa68c09de37db8674d0350cb0aabeb37b0a882
         
         public init(graph : DenseGraphW_Matrix) {
             super.init(capacity: graph.V())
@@ -182,15 +193,13 @@ public class DenseGraphW_Matrix : Graph_Weighted {
                         // 总是取和w相连的权值最小的边，然后将其权值存储进最小堆中
                         if edgeTo[w] == nil {
                             // 没存储过和w顶点相连接的横切边
-                            let wt = MST_Prim.Weight(vertex: w, weight: e.weight)
-                            h.insert(item: wt)
+                            ipq.insert(item: e.wt(), at: w)
                             edgeTo[w] = e
                             
                         } else if e.wt() < edgeTo[w]!.wt() {
                             // 如果edgeTo中存储过和w相连的横切边，那么比较权值大小，存入权值小的边
+                            ipq.change(with: e.wt(), atDataIndex: w)
                             edgeTo[w] = e
-                            let wt = MST_Prim.Weight(vertex: w, weight: e.weight)
-                            h.change(with: wt, atArrayIndex: w)
                         }
                     }
                 }
@@ -211,7 +220,7 @@ public class DenseGraphW_Matrix : Graph_Weighted {
         
         override func GenericMST_Kruskal() {
             //使用最小堆来对图中的所有边进行排序
-            let minHeap = IndexMinHeap<Edge>(capacity: G.E())
+            let minHeap = SimpleHeap<Edge>(capacity: G.E(), type: HeapType.min)
             let unionFind = UnionFind_UsingRank(capacity: G.V())
             
             //对每一个节点的邻接边进行遍历
@@ -219,7 +228,6 @@ public class DenseGraphW_Matrix : Graph_Weighted {
                 for j in 0 ..< G.graph[i].count {
                     if let e = G.graph[i][j] {
                         if e.V() < e.W() {
-                            //minHeap.insertItem(e)
                             minHeap.insert(item: e)
                         }
                     }
@@ -230,7 +238,7 @@ public class DenseGraphW_Matrix : Graph_Weighted {
             // 所以这里可以提前结束循环
             while (minHeap.isEmpty() == false && self.mstArray.count < G.V() - 1) {
                 
-                let minE = minHeap.extractMin()!
+                let minE = minHeap.extract()!
                 
                 if unionFind.isConnected(minE.V(), minE.W()) {
                     //如果取出的最小权边的两个顶点相连接（或者说有相同的根节点）则构成了环路
@@ -251,6 +259,53 @@ public class DenseGraphW_Matrix : Graph_Weighted {
     }
 }
 
+//MARK: - Dijkstra Shortest Path
+extension DenseGraphW_Matrix {
+    
+    public class DijkstraPath : ShortestPath_Dijkstra {
+        
+        fileprivate var G : DenseGraphW_Matrix
+        
+        public init(source : Int , graph : DenseGraphW_Matrix) {
+            self.G = graph
+            super.init(source: source, capacity: graph.V())
+            // Dijkstra
+            self.dijkstraPath()
+        }
+        
+        internal override func dijkstraPath() {
+            
+            distTo[s] = 0.0
+            pq.insert(item: 0.0, at: s)
+            marked[s] = true
+            while !pq.isEmpty() {
+                //获取最短路径的顶点
+                let v = pq.extractIndex()
+                marked[v] = true
+    
+                //遍历顶点v的邻接点
+                for i in 0 ..< G.V() {
+                    if let e = G.graph[v][i] {
+                        let w = e.other(v)
+                        if !marked[w] {
+                            if from[w] == nil || distTo[v] + e.wt() < distTo[w] {
+                                distTo[w] = distTo[v] + e.wt()
+                                from[w] = e
+                                if !pq.contain(w) {
+                                    pq.insert(item: distTo[w], at: w)
+                                } else {
+                                    pq.change(with: distTo[w], atDataIndex: w)
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    
+}
 
 
 

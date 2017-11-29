@@ -55,7 +55,6 @@ public class SparseGraphW : Graph_Weighted {
         if !self.isAvaliable(v) || !self.isAvaliable(w) {
             return
         }
-        
         for i in 0 ..< self.graph[v].count {
             if self.graph[v][i]!.to == w {
                 self.graph[v].remove(at: i)
@@ -87,7 +86,10 @@ public class SparseGraphW : Graph_Weighted {
         }
         print()
     }
-    
+}
+
+//MARK: - Finding a Path
+extension SparseGraphW {
     public class Path : GraphPath {
         
         fileprivate var G : SparseGraphW!
@@ -95,11 +97,8 @@ public class SparseGraphW : Graph_Weighted {
         public init(graph : SparseGraphW, v : Int) {
             super.init(capacity: graph.V(), v: v)
             self.G = graph
-            
             //寻路算法
             self.dfsFromVertex(self.V)
-            print("from array : \(self.from)")
-            print("visited array : \(self.visited)")
         }
         
         internal override func dfsFromVertex(_ v: Int) {
@@ -130,9 +129,7 @@ public class SparseGraphW : Graph_Weighted {
             queue.enqueue(v)
             self.distance[v] = 0
             self.visited[v] = true
-            
             while !queue.isEmpty() {
-                
                 let tmpV = queue.front() as! Int
                 queue.dequeue()
                 for i in 0 ..< self.G.graph[tmpV].count {
@@ -146,23 +143,22 @@ public class SparseGraphW : Graph_Weighted {
                 }
             }
         }
-        
     }
-    
+}
+
+//MARK: - MST
+extension SparseGraphW {
     public class LazyPrimMST : MST_LazyPrim {
         
         fileprivate var G : SparseGraphW!
         
         public init(graph : SparseGraphW) {
-            super.init(capacity: graph.V())
+            super.init(capacity: graph.E())
             self.G = graph
-            
             //Lazy Prim
             self.GenericMST_lazyPrim()
         }
-        
         override func visit(_ v: Int) {
-            
             marked[v] = true
             for i in 0 ..< G.graph[v].count {
                 let e = G.graph[v][i]!
@@ -181,7 +177,6 @@ public class SparseGraphW : Graph_Weighted {
         public init(graph : SparseGraphW) {
             super.init(capacity: graph.V())
             self.G = graph
-            
             // Prim
             self.GenericMST_Prim()
         }
@@ -189,21 +184,24 @@ public class SparseGraphW : Graph_Weighted {
         override func visit(_ v: Int) {
             
             marked[v] = true
-            
             for i in 0 ..< G.graph[v].count {
-                
                 let e = G.graph[v][i]!
                 let w = e.other(v)
-
                 if !marked[w] {
                     if edgeTo[w] == nil {
                         edgeTo[w] = e
+<<<<<<< HEAD
                         let wt = MST_Prim.Weight(vertex: w, weight: e.wt())
                         h.insert(item: wt)
                         
                     } else if e.wt() < edgeTo[w]!.wt() {
                         let wt = MST_Prim.Weight(vertex: w, weight: e.wt())
                         h.change(with: wt, atHeapIndex: w)
+=======
+                        ipq.insert(item: e.wt(), at: w)
+                    } else if e.wt() < edgeTo[w]!.wt() {
+                        ipq.change(with: e.wt(), atHeapIndex: w)
+>>>>>>> d5aa68c09de37db8674d0350cb0aabeb37b0a882
                         edgeTo[w] = e
                     }
                 }
@@ -222,38 +220,83 @@ public class SparseGraphW : Graph_Weighted {
         }
         
         internal override func GenericMST_Kruskal() {
-            
-            let pq = IndexMinHeap<Edge>(capacity: G.E())
-            
+            let pq = SimpleHeap<Edge>(capacity: G.E(), type : HeapType.min)
             let uf = UnionFind_UsingSize(capacity: G.V())
-            
             for i in 0 ..< G.V() {
                 for j in 0 ..< G.graph[i].count {
                     let e = G.graph[i][j]!
                     if e.V() < e.W() {
-                        //pq.insertItem(e)
                         pq.insert(item: e)
                     }
                 }
             }
-            
             while !pq.isEmpty() && mstArray.count < G.V() - 1 {
-                
-                let e = pq.extractMin()!
-                
+                let e = pq.extract()!
                 if uf.isConnected(e.V(), e.W()) {
                     continue
                 }
-                
                 mstArray.append(e)
                 uf.union(e.V(), e.W())
             }
-            
             for i in 0 ..< mstArray.count {
                 mstTotalWeight += mstArray[i].wt()
             }
         }
     }
 }
+
+//MARK: - Dijkstra Shortest Path
+extension SparseGraphW {
+    
+    public class DijkstraPath : ShortestPath_Dijkstra {
+        
+        fileprivate var G : SparseGraphW!
+        
+        public init(source : Int , graph : SparseGraphW) {
+            super.init(source: source, capacity: graph.V())
+            self.G = graph
+            self.dijkstraPath()
+        }
+        
+        internal override func dijkstraPath() {
+            
+            distTo[s] = 0.0
+            marked[s] = true
+            pq.insert(item: 0.0, at: s)
+            
+            while !pq.isEmpty() {
+                
+                let v = pq.extractIndex()
+                marked[v] = true
+                
+                for i in 0 ..< G.graph[v].count {
+                    let e = G.graph[v][i]!
+                    let w = e.other(v)
+                    
+                    if !marked[w] {
+                        if from[w] == nil || distTo[v] + e.wt() < distTo[w] {
+                            distTo[w] = distTo[v] + e.wt()
+                            from[w] = e
+                            if !pq.contain(w) {
+                                pq.insert(item: distTo[w], at: w)
+                            } else {
+                                pq.change(with: distTo[w], atDataIndex: w)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
 
 

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		29A74C921EF6C04200FA80B6 /* IndexMinHeap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A74C911EF6C04200FA80B6 /* IndexMinHeap.swift */; };
 		3D068FE01EF3785B0080688E /* TestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D068FDF1EF3785B0080688E /* TestHelper.swift */; };
 		3D156BBD1EF0DB5F0098927D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BBC1EF0DB5F0098927D /* AppDelegate.swift */; };
 		3D156BBF1EF0DB5F0098927D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BBE1EF0DB5F0098927D /* ViewController.swift */; };
@@ -30,12 +29,6 @@
 		3D156C091EF0DBAC0098927D /* DenseGraphW_Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BE41EF0DBAC0098927D /* DenseGraphW_Matrix.swift */; };
 		3D156C0A1EF0DBAC0098927D /* SparseGraphW.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BE51EF0DBAC0098927D /* SparseGraphW.swift */; };
 		3D156C0B1EF0DBAC0098927D /* SparseGraphW_AdjList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BE61EF0DBAC0098927D /* SparseGraphW_AdjList.swift */; };
-		3D156C0C1EF0DBAC0098927D /* IndexMaxHeap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BE91EF0DBAC0098927D /* IndexMaxHeap.swift */; };
-		3D156C0D1EF0DBAC0098927D /* IndexMaxHeap_Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BEA1EF0DBAC0098927D /* IndexMaxHeap_Map.swift */; };
-		3D156C0E1EF0DBAC0098927D /* IndexMaxHeapSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BEB1EF0DBAC0098927D /* IndexMaxHeapSort.swift */; };
-		3D156C0F1EF0DBAC0098927D /* IndexMinHeap_Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BED1EF0DBAC0098927D /* IndexMinHeap_Map.swift */; };
-		3D156C101EF0DBAC0098927D /* HeapSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BEF1EF0DBAC0098927D /* HeapSort.swift */; };
-		3D156C111EF0DBAC0098927D /* MaxHeap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BF01EF0DBAC0098927D /* MaxHeap.swift */; };
 		3D156C131EF0DBAC0098927D /* UFType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BF31EF0DBAC0098927D /* UFType.swift */; };
 		3D156C141EF0DBAC0098927D /* UnionFind_CompressPath_01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BF41EF0DBAC0098927D /* UnionFind_CompressPath_01.swift */; };
 		3D156C151EF0DBAC0098927D /* UnionFind_CompressPath_02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BF51EF0DBAC0098927D /* UnionFind_CompressPath_02.swift */; };
@@ -45,11 +38,17 @@
 		3D156C191EF0DBAC0098927D /* UnionFind_UsingSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BF91EF0DBAC0098927D /* UnionFind_UsingSize.swift */; };
 		3D156C1A1EF0DBAC0098927D /* UnionFindTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BFA1EF0DBAC0098927D /* UnionFindTestHelper.swift */; };
 		3D156C1B1EF0DBAC0098927D /* 拓展知识.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BFB1EF0DBAC0098927D /* 拓展知识.swift */; };
+		3D912C561EFBBCB800A62181 /* HeapSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D912C551EFBBCB800A62181 /* HeapSort.swift */; };
+		3D912C5A1EFBCDCF00A62181 /* SimpleHeap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D912C571EFBCDCF00A62181 /* SimpleHeap.swift */; };
+		3D912C5B1EFBCDCF00A62181 /* IndexHeap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D912C581EFBCDCF00A62181 /* IndexHeap.swift */; };
+		3D912C5C1EFBCDCF00A62181 /* CommonHeap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D912C591EFBCDCF00A62181 /* CommonHeap.swift */; };
+		3D912C5E1EFCAAAA00A62181 /* MinimumSpanTrees.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D912C5D1EFCAAAA00A62181 /* MinimumSpanTrees.swift */; };
+		3D912C601EFCAB1500A62181 /* FindingPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D912C5F1EFCAB1500A62181 /* FindingPath.swift */; };
+		3D912C621EFCB28200A62181 /* SourceShortestPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D912C611EFCB28200A62181 /* SourceShortestPath.swift */; };
 		3DFA2FD51EF0EE3200554E44 /* Graph_Weighted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFA2FD41EF0EE3200554E44 /* Graph_Weighted.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		29A74C911EF6C04200FA80B6 /* IndexMinHeap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexMinHeap.swift; sourceTree = "<group>"; };
 		3D068FDF1EF3785B0080688E /* TestHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestHelper.swift; sourceTree = "<group>"; };
 		3D156BB91EF0DB5F0098927D /* Play-with-Alorithms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Play-with-Alorithms.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D156BBC1EF0DB5F0098927D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -74,12 +73,6 @@
 		3D156BE41EF0DBAC0098927D /* DenseGraphW_Matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DenseGraphW_Matrix.swift; sourceTree = "<group>"; };
 		3D156BE51EF0DBAC0098927D /* SparseGraphW.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SparseGraphW.swift; sourceTree = "<group>"; };
 		3D156BE61EF0DBAC0098927D /* SparseGraphW_AdjList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SparseGraphW_AdjList.swift; sourceTree = "<group>"; };
-		3D156BE91EF0DBAC0098927D /* IndexMaxHeap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexMaxHeap.swift; sourceTree = "<group>"; };
-		3D156BEA1EF0DBAC0098927D /* IndexMaxHeap_Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexMaxHeap_Map.swift; sourceTree = "<group>"; };
-		3D156BEB1EF0DBAC0098927D /* IndexMaxHeapSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexMaxHeapSort.swift; sourceTree = "<group>"; };
-		3D156BED1EF0DBAC0098927D /* IndexMinHeap_Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexMinHeap_Map.swift; sourceTree = "<group>"; };
-		3D156BEF1EF0DBAC0098927D /* HeapSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeapSort.swift; sourceTree = "<group>"; };
-		3D156BF01EF0DBAC0098927D /* MaxHeap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaxHeap.swift; sourceTree = "<group>"; };
 		3D156BF31EF0DBAC0098927D /* UFType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UFType.swift; sourceTree = "<group>"; };
 		3D156BF41EF0DBAC0098927D /* UnionFind_CompressPath_01.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnionFind_CompressPath_01.swift; sourceTree = "<group>"; };
 		3D156BF51EF0DBAC0098927D /* UnionFind_CompressPath_02.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnionFind_CompressPath_02.swift; sourceTree = "<group>"; };
@@ -89,6 +82,13 @@
 		3D156BF91EF0DBAC0098927D /* UnionFind_UsingSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnionFind_UsingSize.swift; sourceTree = "<group>"; };
 		3D156BFA1EF0DBAC0098927D /* UnionFindTestHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnionFindTestHelper.swift; sourceTree = "<group>"; };
 		3D156BFB1EF0DBAC0098927D /* 拓展知识.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "拓展知识.swift"; sourceTree = "<group>"; };
+		3D912C551EFBBCB800A62181 /* HeapSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeapSort.swift; sourceTree = "<group>"; };
+		3D912C571EFBCDCF00A62181 /* SimpleHeap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleHeap.swift; sourceTree = "<group>"; };
+		3D912C581EFBCDCF00A62181 /* IndexHeap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndexHeap.swift; sourceTree = "<group>"; };
+		3D912C591EFBCDCF00A62181 /* CommonHeap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonHeap.swift; sourceTree = "<group>"; };
+		3D912C5D1EFCAAAA00A62181 /* MinimumSpanTrees.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinimumSpanTrees.swift; sourceTree = "<group>"; };
+		3D912C5F1EFCAB1500A62181 /* FindingPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindingPath.swift; sourceTree = "<group>"; };
+		3D912C611EFCB28200A62181 /* SourceShortestPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SourceShortestPath.swift; sourceTree = "<group>"; };
 		3DFA2FD41EF0EE3200554E44 /* Graph_Weighted.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Graph_Weighted.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -159,6 +159,7 @@
 		3D156BD21EF0DBAC0098927D /* BasicSort */ = {
 			isa = PBXGroup;
 			children = (
+				3D912C551EFBBCB800A62181 /* HeapSort.swift */,
 				3D156BD31EF0DBAC0098927D /* InsertSort.swift */,
 				3D156BD41EF0DBAC0098927D /* MergeSort.swift */,
 				3D156BD51EF0DBAC0098927D /* QuickSort.swift */,
@@ -193,6 +194,9 @@
 				3D156BDD1EF0DBAC0098927D /* AdjacentIterators.swift */,
 				3D156BDE1EF0DBAC0098927D /* Graph.swift */,
 				3DFA2FD41EF0EE3200554E44 /* Graph_Weighted.swift */,
+				3D912C5F1EFCAB1500A62181 /* FindingPath.swift */,
+				3D912C5D1EFCAAAA00A62181 /* MinimumSpanTrees.swift */,
+				3D912C611EFCB28200A62181 /* SourceShortestPath.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -220,39 +224,11 @@
 		3D156BE71EF0DBAC0098927D /* Heap */ = {
 			isa = PBXGroup;
 			children = (
-				3D156BE81EF0DBAC0098927D /* IndexMaxHeap */,
-				3D156BEC1EF0DBAC0098927D /* IndexMinHeap_Map */,
-				3D156BEE1EF0DBAC0098927D /* MaxHeap */,
+				3D912C571EFBCDCF00A62181 /* SimpleHeap.swift */,
+				3D912C581EFBCDCF00A62181 /* IndexHeap.swift */,
+				3D912C591EFBCDCF00A62181 /* CommonHeap.swift */,
 			);
 			path = Heap;
-			sourceTree = "<group>";
-		};
-		3D156BE81EF0DBAC0098927D /* IndexMaxHeap */ = {
-			isa = PBXGroup;
-			children = (
-				3D156BE91EF0DBAC0098927D /* IndexMaxHeap.swift */,
-				3D156BEA1EF0DBAC0098927D /* IndexMaxHeap_Map.swift */,
-				3D156BEB1EF0DBAC0098927D /* IndexMaxHeapSort.swift */,
-			);
-			path = IndexMaxHeap;
-			sourceTree = "<group>";
-		};
-		3D156BEC1EF0DBAC0098927D /* IndexMinHeap_Map */ = {
-			isa = PBXGroup;
-			children = (
-				3D156BED1EF0DBAC0098927D /* IndexMinHeap_Map.swift */,
-				29A74C911EF6C04200FA80B6 /* IndexMinHeap.swift */,
-			);
-			path = IndexMinHeap_Map;
-			sourceTree = "<group>";
-		};
-		3D156BEE1EF0DBAC0098927D /* MaxHeap */ = {
-			isa = PBXGroup;
-			children = (
-				3D156BEF1EF0DBAC0098927D /* HeapSort.swift */,
-				3D156BF01EF0DBAC0098927D /* MaxHeap.swift */,
-			);
-			path = MaxHeap;
 			sourceTree = "<group>";
 		};
 		3D156BF21EF0DBAC0098927D /* UnionFind */ = {
@@ -342,41 +318,41 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D912C5B1EFBCDCF00A62181 /* IndexHeap.swift in Sources */,
 				3D156C131EF0DBAC0098927D /* UFType.swift in Sources */,
 				3D156C051EF0DBAC0098927D /* Graph.swift in Sources */,
-				3D156C0E1EF0DBAC0098927D /* IndexMaxHeapSort.swift in Sources */,
-				3D156C0F1EF0DBAC0098927D /* IndexMinHeap_Map.swift in Sources */,
 				3DFA2FD51EF0EE3200554E44 /* Graph_Weighted.swift in Sources */,
 				3D156BFD1EF0DBAC0098927D /* InsertSort.swift in Sources */,
 				3D156C161EF0DBAC0098927D /* UnionFind_Simple.swift in Sources */,
 				3D156C1A1EF0DBAC0098927D /* UnionFindTestHelper.swift in Sources */,
-				3D156C0D1EF0DBAC0098927D /* IndexMaxHeap_Map.swift in Sources */,
 				3D156C071EF0DBAC0098927D /* SparseGraph.swift in Sources */,
 				3D156C0A1EF0DBAC0098927D /* SparseGraphW.swift in Sources */,
 				3D156BFF1EF0DBAC0098927D /* QuickSort.swift in Sources */,
 				3D156C021EF0DBAC0098927D /* BinarySearch.swift in Sources */,
 				3D156C171EF0DBAC0098927D /* UnionFind_UsingParent.swift in Sources */,
-				3D156C0C1EF0DBAC0098927D /* IndexMaxHeap.swift in Sources */,
+				3D912C5E1EFCAAAA00A62181 /* MinimumSpanTrees.swift in Sources */,
 				3D156C001EF0DBAC0098927D /* SelectionSort.swift in Sources */,
 				3D068FE01EF3785B0080688E /* TestHelper.swift in Sources */,
 				3D156C031EF0DBAC0098927D /* BinarySearchTree.swift in Sources */,
 				3D156C041EF0DBAC0098927D /* AdjacentIterators.swift in Sources */,
 				3D156BBF1EF0DB5F0098927D /* ViewController.swift in Sources */,
 				3D156BBD1EF0DB5F0098927D /* AppDelegate.swift in Sources */,
-				3D156C101EF0DBAC0098927D /* HeapSort.swift in Sources */,
+				3D912C561EFBBCB800A62181 /* HeapSort.swift in Sources */,
 				3D156C011EF0DBAC0098927D /* Sort.swift in Sources */,
+				3D912C5A1EFBCDCF00A62181 /* SimpleHeap.swift in Sources */,
 				3D156C0B1EF0DBAC0098927D /* SparseGraphW_AdjList.swift in Sources */,
+				3D912C601EFCAB1500A62181 /* FindingPath.swift in Sources */,
 				3D156C081EF0DBAC0098927D /* SparseGraph_AdjList.swift in Sources */,
 				3D156C1B1EF0DBAC0098927D /* 拓展知识.swift in Sources */,
 				3D156C151EF0DBAC0098927D /* UnionFind_CompressPath_02.swift in Sources */,
 				3D156C061EF0DBAC0098927D /* DenseGraph_Matrix.swift in Sources */,
-				3D156C111EF0DBAC0098927D /* MaxHeap.swift in Sources */,
 				3D156BFC1EF0DBAC0098927D /* BasicQueueAndStack.swift in Sources */,
+				3D912C621EFCB28200A62181 /* SourceShortestPath.swift in Sources */,
 				3D156C181EF0DBAC0098927D /* UnionFind_UsingRank.swift in Sources */,
-				29A74C921EF6C04200FA80B6 /* IndexMinHeap.swift in Sources */,
 				3D156BFE1EF0DBAC0098927D /* MergeSort.swift in Sources */,
 				3D156C091EF0DBAC0098927D /* DenseGraphW_Matrix.swift in Sources */,
 				3D156C191EF0DBAC0098927D /* UnionFind_UsingSize.swift in Sources */,
+				3D912C5C1EFBCDCF00A62181 /* CommonHeap.swift in Sources */,
 				3D156C141EF0DBAC0098927D /* UnionFind_CompressPath_01.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
