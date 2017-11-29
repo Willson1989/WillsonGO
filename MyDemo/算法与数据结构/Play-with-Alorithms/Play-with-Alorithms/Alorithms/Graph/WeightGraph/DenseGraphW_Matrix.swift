@@ -163,47 +163,13 @@ public class DenseGraphW_Matrix : Graph_Weighted {
     public class PrimMST : MST_Prim {
         
         
-        
         fileprivate var G : DenseGraphW_Matrix!    
-        fileprivate var h : IndexMinHeap<MST_Prim.Weight>!
         
         public init(graph : DenseGraphW_Matrix) {
             super.init(capacity: graph.V())
             self.G = graph
-            self.h = IndexMinHeap(capacity: graph.V())
             // Prim
             self.GenericMST_Prim()
-        }
-        
-        override internal func GenericMST_Prim() {
-//            visit(0)
-//            while !ipq.isEmpty() {
-//                let minEIndex = ipq.extractMinIndex()
-//                print("min index : \(minEIndex)")
-//                print("after extract : ", separator: "", terminator: " ")
-//                ipq.showHeap()
-//                print()
-//                if let minE = edgeTo[minEIndex] {
-//                    print("extracted weight : \(minE.wt())")
-//                    print()
-//                    mstArray.append(minE)
-//                    visit(minEIndex)
-//                } else {
-//                    print("edge of index : \(minEIndex) -- not found in edgeTo Array")
-//                }
-//            }
-            visit(0)
-            while !h.isEmpty() {
-                if let min = h.extractMin() {
-                    if let minE = edgeTo[min.vertex] {
-                        mstArray.append(minE)
-                        visit(min.vertex)
-                    }
-                }
-            }
-            for i in 0 ..< self.mstArray.count {
-                mstTotalWeight += mstArray[i].wt()
-            }
         }
         
         override func visit(_ v: Int) {

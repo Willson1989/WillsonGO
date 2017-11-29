@@ -198,11 +198,12 @@ public class SparseGraphW : Graph_Weighted {
                 if !marked[w] {
                     if edgeTo[w] == nil {
                         edgeTo[w] = e
-                        ipq.insert(item: e.wt())
+                        let wt = MST_Prim.Weight(vertex: w, weight: e.wt())
+                        h.insert(item: wt)
                         
                     } else if e.wt() < edgeTo[w]!.wt() {
-                        //ipq.changeItem(with: e.wt(), heapIndex: w)
-                        ipq.change(with: e.wt(), atHeapIndex: w)
+                        let wt = MST_Prim.Weight(vertex: w, weight: e.wt())
+                        h.change(with: wt, atHeapIndex: w)
                         edgeTo[w] = e
                     }
                 }

@@ -218,6 +218,7 @@ public class MST_Prim : MST {
     
     // Prim 算法 用来存储节点对应的最小权值的横切边的权值
     internal var ipq : IndexMinHeap<Float>!
+    internal var h : IndexMinHeap<MST_Prim.Weight>!
     
     // Prim 算法 用来存储和节点相连的最小权值的横切边对象
     internal var edgeTo : [Edge?] = []
@@ -226,15 +227,17 @@ public class MST_Prim : MST {
         super.init(capacity: capacity)
         edgeTo = Array(repeating: nil, count: capacity)
         ipq = IndexMinHeap(capacity: capacity)
+        h = IndexMinHeap(capacity: capacity)
     }
     
     internal func GenericMST_Prim() {
         visit(0)
-        while !ipq.isEmpty() {
-            let minEIndex = ipq.extractMinIndex()
-            if let minE = edgeTo[minEIndex] {
-                mstArray.append(minE)
-                visit(minEIndex)
+        while !h.isEmpty() {
+            if let minWeight = h.extractMin() {
+                if let minE = edgeTo[minWeight.vertex] {
+                    mstArray.append(minE)
+                    visit(minWeight.vertex)
+                }
             }
         }
         for i in 0 ..< self.mstArray.count {
