@@ -1,29 +1,6 @@
 
-import { StackNavigator } from 'react-navigation'
+import React , {Component} from 'react'
 
-
-var CustomNavigationOption = ({navigation}) => {
-
-    var headerStyles = {
-        backgroundColor:'#ee735c',
-    }
-
-    var headerTitleStyle = {
-        color:'#fff',
-        fontSize:15,
-        textAlign:'center',
-        fontWeight:'600',
-        alignSelf:'center'
-    }
-
-    return {
-        headerStyle: headerStyles,
-        headerBackTitle : null,
-        headerTitleStyle : headerTitleStyle,
-        gesturesEnabled : false,
-        headerTitle:'Video List'
-    }
-}
 
 var netConfig = {
     headerParams:{
@@ -39,16 +16,10 @@ var netConfig = {
         like      : 'api/like',
         comment   : 'api/comment',
         submitComment : 'api/submitComment',
+        verifyCodeLogin : 'api/verifyCodeLogin',
+        getVerifyCode : 'api/getVerifyCode',
         tempTest  : 'api/tempTest'
     },
-    navOptions : CustomNavigationOption,
 }
-
-
-
-// export {
-//     netConfig,
-//     CustomNavigationOption,
-// }
 
 module.exports = netConfig

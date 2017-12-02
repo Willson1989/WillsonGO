@@ -9,11 +9,17 @@ import {
     Text,
     StyleSheet,
     Image,
+    TouchableOpacity,
 } from 'react-native'
 
+import { StackNavigator } from 'react-navigation'
+import LoginPage from './Account/LoginPage.js'
 
+var UIUtil = require('../Common/UIUtil')
 
-export default class MorePage extends React.Component {
+class MorePage extends React.Component {
+
+    static navigationOptions = ({navigation}) => UIUtil.navOptions(navigation,'我的', false)
 
     constructor(props) {
         super(props)
@@ -25,8 +31,24 @@ export default class MorePage extends React.Component {
         return (
             <View>
                 <Text>{'This is More page'}</Text>
+                <TouchableOpacity onPress={() => {
+                    UIUtil.navigate(this.props.navigation,'login',true)
+                }}>
+                    <Text>{'去登录'}</Text>
+                </TouchableOpacity>
             </View>
         )
     }
 
 }
+
+const MoreNavigator = StackNavigator({
+    more : {
+        screen : MorePage,
+    },
+    login : {
+        screen : LoginPage,
+    }
+})
+
+export  { MoreNavigator }

@@ -15,7 +15,7 @@ import  Icon  from 'react-native-vector-icons/Ionicons'
 import  MorePage  from './Main/MorePage.js'
 import  VideoPage from './Main/VideoPage.js'
 import  { ListNavigator } from './Main/ListPage.js'
-
+import  { MoreNavigator } from './Main/MorePage.js'
 
 var TABBAR_HEIGHT = 49
 
@@ -117,7 +117,7 @@ export default class TabBarMainView01 extends Component {
                                   size={28}
                                   color='#ed7b65'/>
                         }>
-                        <MorePage />
+                        <MoreNavigator />
 
                     </TabNavigator.Item>
 

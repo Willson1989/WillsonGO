@@ -8,17 +8,13 @@ import {
     View,
     Text,
     StyleSheet,
-    Image,
     ImageBackground,
     FlatList,
-    ListView,
     TouchableHighlight,
     ActivityIndicator,
     Alert,
-    DeviceEventEmitter
 } from 'react-native'
 
-import { listData } from '../Common/MockData'
 import { StackNavigator } from 'react-navigation'
 import Icon from 'react-native-vector-icons/Ionicons'
 import VideoDetail from "./VideoDetail";
@@ -26,7 +22,7 @@ import VideoDetail from "./VideoDetail";
 var _ = require('lodash')
 var NetUtil = require('../Common/NetUtil')
 var netConfig = require('../Common/Config')
-var CustomNavigationOption = require('../Common/Config')
+var UIUtil = require('../Common/UIUtil')
 var Dimensions = require('Dimensions')
 
 var screenWidth = Dimensions.get('window').width
@@ -142,9 +138,7 @@ class ListPageItem extends Component {
 
 class ListPage extends Component {
 
-    static navigationOptions = ({navigation}) => {
-        return _.assign(netConfig.navOptions, {headerTitle:'视频列表'})
-    }
+    static navigationOptions = ({navigation}) => UIUtil.navOptions(navigation, '视频列表', false)
     
     _renderItem = ({item}) => {
         return (
@@ -156,9 +150,8 @@ class ListPage extends Component {
     }
 
     _gotoDetailPage = (videoItemInfo) => {
-        var {navigate} = this.props.navigation
-        navigate('Detail', {videoItemInfo : videoItemInfo})
-        DeviceEventEmitter.emit('TabbarHidden',{hidden : true})
+        let params = {videoItemInfo : videoItemInfo}
+        UIUtil.navigate(this.props.navigation,'Detail',params,true)
     }
 
     _renderFooter() {
@@ -428,8 +421,14 @@ const styles = StyleSheet.create({
 
 
 const ListNavigator = StackNavigator({
-    List   : {screen : ListPage},
-    Detail : {screen : VideoDetail},
+    List   :
+        {
+            screen : ListPage,
+        },
+    Detail :
+        {
+            screen : VideoDetail
+        },
 })
 
 

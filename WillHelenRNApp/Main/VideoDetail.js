@@ -17,6 +17,7 @@ import Icon from 'react-native-vector-icons/Ionicons'
 import Video from 'react-native-video'
 import Button from 'react-native-button'
 
+var UIUtil = require('../Common/UIUtil')
 var NetUtil = require('../Common/NetUtil')
 var netConfig = require('../Common/Config')
 var Dimensions = require('Dimensions')
@@ -88,8 +89,7 @@ class CommentInputPage extends Component {
                 <TouchableOpacity
                     activeOpacity={1.0}
                     style={ciStyles.closeArea}
-                    onPress={this.closeAction}
-                >
+                    onPress={this.closeAction}>
                     <Icon
                         name='ios-close'
                         style={ciStyles.cancelBtn}
@@ -486,24 +486,7 @@ const videoStyles = StyleSheet.create({
 
 export default class VideoDetail extends Component {
 
-    static navigationOptions = ({navigation}) => {
-        return {
-            headerLeft :
-                <TouchableOpacity
-                    style={{
-                        marginLeft : 10,
-                        width : 50,
-                        height : 40,}}
-                    onPress={() => {
-                    DeviceEventEmitter.emit('TabbarHidden',{hidden : false})
-                    navigation.goBack()
-                }}>
-                    <Icon style={{marginVertical:10}}
-                          name = 'ios-arrow-back'
-                          size={21}/>
-                </TouchableOpacity>,
-        }
-    }
+    static navigationOptions = ({navigation}) => UIUtil.navOptions(navigation, '视频详情')
 
     constructor(props) {
         super(props)
@@ -598,7 +581,6 @@ export default class VideoDetail extends Component {
 
     render() {
         var videoItemInfo = this.state.videoItemInfo
-
         return (
             <View style={styles.container}>
                 <MainVideo
