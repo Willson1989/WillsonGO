@@ -190,18 +190,9 @@ extension SparseGraphW {
                 if !marked[w] {
                     if edgeTo[w] == nil {
                         edgeTo[w] = e
-<<<<<<< HEAD
-                        let wt = MST_Prim.Weight(vertex: w, weight: e.wt())
-                        h.insert(item: wt)
-                        
-                    } else if e.wt() < edgeTo[w]!.wt() {
-                        let wt = MST_Prim.Weight(vertex: w, weight: e.wt())
-                        h.change(with: wt, atHeapIndex: w)
-=======
                         ipq.insert(item: e.wt(), at: w)
                     } else if e.wt() < edgeTo[w]!.wt() {
                         ipq.change(with: e.wt(), atHeapIndex: w)
->>>>>>> d5aa68c09de37db8674d0350cb0aabeb37b0a882
                         edgeTo[w] = e
                     }
                 }

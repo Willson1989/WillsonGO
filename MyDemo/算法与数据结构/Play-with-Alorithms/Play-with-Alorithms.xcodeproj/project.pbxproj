@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		29C1E92A204FB8E700D369B2 /* FibonacciSequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C1E929204FB8E700D369B2 /* FibonacciSequence.swift */; };
 		3D068FE01EF3785B0080688E /* TestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D068FDF1EF3785B0080688E /* TestHelper.swift */; };
 		3D156BBD1EF0DB5F0098927D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BBC1EF0DB5F0098927D /* AppDelegate.swift */; };
 		3D156BBF1EF0DB5F0098927D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156BBE1EF0DB5F0098927D /* ViewController.swift */; };
@@ -49,6 +50,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		29C1E929204FB8E700D369B2 /* FibonacciSequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FibonacciSequence.swift; sourceTree = "<group>"; };
 		3D068FDF1EF3785B0080688E /* TestHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestHelper.swift; sourceTree = "<group>"; };
 		3D156BB91EF0DB5F0098927D /* Play-with-Alorithms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Play-with-Alorithms.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D156BBC1EF0DB5F0098927D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 			children = (
 				3D068FDF1EF3785B0080688E /* TestHelper.swift */,
 				3D156BD11EF0DBAC0098927D /* BasicQueueAndStack.swift */,
+				29C1E929204FB8E700D369B2 /* FibonacciSequence.swift */,
 			);
 			path = Basic;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				3D156C181EF0DBAC0098927D /* UnionFind_UsingRank.swift in Sources */,
 				3D156BFE1EF0DBAC0098927D /* MergeSort.swift in Sources */,
 				3D156C091EF0DBAC0098927D /* DenseGraphW_Matrix.swift in Sources */,
+				29C1E92A204FB8E700D369B2 /* FibonacciSequence.swift in Sources */,
 				3D156C191EF0DBAC0098927D /* UnionFind_UsingSize.swift in Sources */,
 				3D912C5C1EFBCDCF00A62181 /* CommonHeap.swift in Sources */,
 				3D156C141EF0DBAC0098927D /* UnionFind_CompressPath_01.swift in Sources */,

@@ -169,12 +169,7 @@ extension DenseGraphW_Matrix {
     
     public class PrimMST : MST_Prim {
         
-<<<<<<< HEAD
-        
-        fileprivate var G : DenseGraphW_Matrix!    
-=======
         fileprivate var G : DenseGraphW_Matrix!
->>>>>>> d5aa68c09de37db8674d0350cb0aabeb37b0a882
         
         public init(graph : DenseGraphW_Matrix) {
             super.init(capacity: graph.V())
