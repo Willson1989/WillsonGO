@@ -149,6 +149,10 @@ public struct BinarySearchTree<KeyType : Comparable & Equatable> {
         _postOrder(node: root, enumaratorBlock: enumarator)
     }
     
+    public mutating func reverseTree() {
+        self.root = self._reverse(root: self.root)
+    }
+    
     //广度优先遍历
     public func levelOrder(enumarator : TreeEnumaratorBlock<KeyType>) {
         if self.isEmpty() == true {
@@ -623,6 +627,26 @@ public struct BinarySearchTree<KeyType : Comparable & Equatable> {
                 return node
             }
         }
+    }
+    
+    fileprivate func _reverse(root : Node<KeyType>?) -> Node<KeyType>? {
+        if root == nil { return nil }
+        if !(root?.left == nil && root?.right == nil) {
+            //调换左右子树
+            let temp = root?.left
+            root?.left = root?.right
+            root?.right = temp
+            
+            if root?.left != nil {
+                root?.left = _reverse(root: root?.left)
+            }
+            
+            if root?.right != nil {
+                root?.right = _reverse(root: root?.right)
+            }
+            
+        }
+        return root
     }
     
     fileprivate mutating func _destroyNode(_ node : inout Node<KeyType>?) {
