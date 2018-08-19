@@ -8,4 +8,8 @@
 
 import Foundation
 
+let zys = Solution()
 
+let str1 = "a#c"
+let str2 = "#a#c"
+print(zys.backspaceCompare(str1, str2))

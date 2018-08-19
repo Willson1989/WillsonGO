@@ -58,23 +58,35 @@ class BSTree_Int {
         self.root = nil
     }
     
-    convenience init (arrangeWithArray a : [Int]) {
+    convenience init (arrangeWithArray a : [Int?]) {
         self.init()
-        self.root = TreeNode(a[0])
-        let q = Queue()
-        for i in 1 ..< a.count {
-            q.enqueue(TreeNode(a[i]))
+        if a.isEmpty {
+            return
         }
-        func gen(_ n : NodeType) {
-            while q.isEmpty == false {
-                let tmp = q.dequeue()
-                if n.left == nil {
-                    n.left = tmp
+        var a = a
+        self.root = TreeNode(a[0]!)
+        a.remove(at: 0)
+        let q = Queue()
+        q.enqueue(self.root)
+        while !q.isEmpty {
+            let node = q.dequeue()!
+            if node.left == nil {
+                if a.isEmpty {
+                    return
                 }
-                if n.right == nil {
-                    n.right = tmp
+                let num = a[0]
+                node.left = num == nil ? nil : TreeNode(num!)
+                q.enqueue(node.left)
+                a.remove(at: 0)
+            }
+            if node.right == nil {
+                if a.isEmpty {
+                    return
                 }
-                
+                let num = a[0]
+                node.right = num == nil ? nil : TreeNode(num!)
+                q.enqueue(node.right)
+                a.remove(at: 0)
             }
         }
     }
@@ -88,10 +100,18 @@ class BSTree_Int {
     }
     
     func deep(_ root : NodeType?) -> Int {
-        if root == nil {
+//        if root == nil {
+//            return 0
+//        }
+//        return max(deep(root?.left), deep(root?.right)) + 1
+        return BSTree_Int.deep(withNode: self.root)
+    }
+    
+    class func deep(withNode node : NodeType?) -> Int {
+        if node == nil {
             return 0
         }
-        return max(deep(root?.left), deep(root?.right)) + 1
+        return max(deep(withNode: node?.left), deep(withNode: node?.right)) + 1
     }
     
     func insert(_ node : NodeType?) {

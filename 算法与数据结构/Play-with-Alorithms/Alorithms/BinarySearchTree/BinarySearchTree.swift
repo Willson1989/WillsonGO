@@ -78,7 +78,6 @@ public struct BinarySearchTree<KeyType : Comparable & Equatable> {
     
     //MARK: - Public
     //=======================================
-    
     public func size() -> Int {
         if root == nil {
             return 0

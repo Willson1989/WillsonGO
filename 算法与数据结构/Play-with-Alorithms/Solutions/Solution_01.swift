@@ -98,8 +98,7 @@ extension Solution {
        如果是情况1，那么对左边有序的子数组进行二分查找。
        如果是情况2，那么对右边无序的子数组重新查找。
      */
-    
-    func search(_ nums: [Int], _ target: Int) -> Int {
+    func searchInRotatedArray(_ nums: [Int], _ target: Int) -> Int {
         
         var left = 0
         var right = nums.count - 1
@@ -126,5 +125,343 @@ extension Solution {
             }
         }
         return -1
+    }
+    
+    
+    /*
+     leetCode #53
+     https://leetcode-cn.com/problems/maximum-subarray/description/
+     给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
+     示例:
+     输入: [-2,1,-3,4,-1,2,1,-5,4],
+     输出: 6
+     解释: 连续子数组 [4,-1,2,1] 的和最大，为 6。
+     参考：https://www.cnblogs.com/coderJiebao/p/Algorithmofnotes27.html
+
+     解法：（分治法 or 动态规划）
+     步骤 1：令状态 dp[i] 表示以 A[i] 作为末尾的连续序列的最大和（这里是说 A[i] 必须作为连续序列的末尾）。
+     步骤 2：做如下考虑：因为 dp[i] 要求是必须以 A[i] 结尾的连续序列，那么只有两种情况：
+     这个最大和的连续序列只有一个元素，即以 A[i] 开始，以 A[i] 结尾。
+     这个最大和的连续序列有多个元素，即从前面某处 A[p] 开始 (p<i)，一直到 A[i] 结尾。
+     　　　　对第一种情况，最大和就是 A[i] 本身。
+     　　　　对第二种情况，最大和是 dp[i-1]+A[i]。
+     　　　　于是得到状态转移方程： dp[i] = max(A[i], dp[i-1]+A[i])
+     这个式子只和 i 与 i 之前的元素有关，且边界为 dp[0] = A[0]，
+     由此从小到大枚举 i，即可得到整个 dp 数组。
+     接着输出 dp[0]，dp[1]，...，dp[n-1] 中的最大子即为最大连续子序列的和。
+     */
+    func maxSubArray(_ nums: [Int]) -> Int {
+        
+        if nums.isEmpty {
+            return 0
+        }
+        //动态规划，已经计算的不需要再算了
+        var cache = Array(repeating: Int.min, count: nums.count)
+        func _dp(_ a : [Int], _ index : Int) -> Int {
+            if index == 0 {
+                cache[0] = a[0]
+                return a[0]
+            }
+            if cache[index] != Int.min {
+                return cache[index]
+            }
+            cache[index] = max(a[index], _dp(a, index-1) + a[index])
+            return cache[index]
+        }
+        
+        var dp_max = Int.min
+        for i in 0 ..< nums.count {
+            let dp = _dp(nums, i)
+            if dp >= dp_max {
+                dp_max = dp
+            }
+        }
+        return dp_max
+    }
+    
+    func maxSubArray1(_ nums: [Int]) -> Int {
+        
+        let len = nums.count
+        var dp : [Int] = Array(repeating: Int.min, count: len)
+        dp[0] = nums[0]
+        dp[1] = max(nums[0], nums[1])
+        
+        for i in 2 ..< len {
+            dp[i] = max(dp[i-1] + nums[i], nums[i])
+        }
+        
+        var res_max = Int.max
+        for item in dp {
+            res_max = item > res_max ? item : res_max
+        }
+        
+        return res_max
+    }
+    
+    
+    /*
+     leetCode #746
+     https://leetcode-cn.com/problems/min-cost-climbing-stairs/description/
+     数组的每个索引做为一个阶梯，第 i个阶梯对应着一个非负数的体力花费值 cost[i](索引从0开始)。
+     每当你爬上一个阶梯你都要花费对应的体力花费值，然后你可以选择继续爬一个阶梯或者爬两个阶梯。
+     您需要找到达到楼层顶部的最低花费。在开始时，你可以选择从索引为 0 或 1 的元素作为初始阶梯。
+     
+     示例 1:
+     输入: cost = [10, 15, 20]
+     输出: 15
+     解释: 最低花费是从cost[1]开始，然后走两步即可到阶梯顶，一共花费15。
+     
+     示例 2:
+     输入: cost = [1, 100, 1, 1, 1, 100, 1, 1, 100, 1]
+     输出: 6
+     解释: 最低花费方式是从cost[0]开始，逐个经过那些1，跳过cost[3]，一共花费6。
+     */
+    /*
+     在分析的时候要加上楼顶，既然到达楼顶就是最终目的，那不妨设楼顶的花费为0，像下面一样分析：
+     零个台阶：0
+     一个台阶：1,0
+     两个台阶：1,100,0
+     三个台阶：1,100,1,0
+     。。。
+     
+     所以dp[0]=0；
+     由于一次可以迈两步，可以直接从越过一个台阶直接到楼顶，dp[1]也等于0
+     下面是分析一个台阶以上的情况。设i是某阶台阶（包括楼顶）
+     四个台阶： 1,100,1,1,0
+     由于一次最多迈两步，我可以从第四个台阶迈到楼顶，也可以从第三个迈过去
+     对于第四，第三个台阶的花费是确定的，分别为 cost[3] 与 cost [2]，
+     第四，第三个台阶之前的最小花费分别是dp[3]与dp[2]
+     （别忘了dp[0]是零个台阶的花费，所以第四个台阶之前的最小花费应该是dp[3]）
+     所以对于到楼顶，有如下两种选择：
+     到达倒数第一个台阶最小花费+本身花费，即cost[3]+dp[3]+0；
+     到达倒数第二个台阶最小花费+本身花费，即cost[2]+dp[2]+0
+     选择其中最小的一个
+     推而广之，到达第n(n>2)个台阶最小花费dp[n]=min(dp[n-2]+cost[n-2],dp[n-1]+cost[n-1]);
+     https://blog.csdn.net/qq_40636117/article/details/81475680
+     */
+    func minCostClimbingStairs(_ cost: [Int]) -> Int {
+        let len = cost.count
+        var dp : [Int] = Array(repeating: Int.max, count: len+1)
+        dp[0] = 0
+        dp[1] = 0
+        
+        for i in 2 ... len {
+            dp[i] = min(dp[i-1] + cost[i-1], dp[i-2] + cost[i-2])
+        }
+        return dp[len]
+    }
+    
+    /*
+     leetCode #704
+     https://leetcode-cn.com/problems/binary-search/description/
+     二分查找
+     */
+    func binarySearch(_ nums: [Int], _ target: Int) -> Int {
+        var left = 0, right = nums.count-1
+        var mid = 0
+        while left <= right {
+            mid = (right - left) / 2 + left
+            if nums[mid] == target {
+                return mid
+            } else if target < nums[mid] {
+                right = mid - 1
+            } else {
+                left = mid + 1
+            }
+        }
+        return -1
+    }
+    
+    /*
+     leetCode #110
+     https://leetcode-cn.com/problems/balanced-binary-tree/description/
+     给定一个二叉树，判断它是否是高度平衡的二叉树。 本题中，一棵高度平衡二叉树定义为：
+     一个二叉树每个节点 的左右两个子树的高度差的绝对值不超过1。
+     示例 1:
+     给定二叉树 [3,9,20,null,null,15,7]   返回 true 。
+         3
+        / \
+       9   20
+      / \
+     15  7
+     
+     示例 2:
+     给定二叉树 [1,2,2,3,3,null,null,4,4]   返回 false 。
+     
+           1
+          / \
+         2   2
+        / \
+       3   3
+      / \
+     4   4
+    */
+    func isBalanced(_ root: TreeNode<Int>?) -> Bool {
+        
+        func _depth(_ node : TreeNode<Int>?) -> Int {
+            if node == nil { return 0 }
+            return max(_depth(node?.left), _depth(node?.right)) + 1
+        }
+        
+        func _isBalanced(_ node : TreeNode<Int>?) -> Bool {
+            if node == nil {
+                return true
+            }
+            if abs(_depth(node?.left) - _depth(node?.right)) > 1 {
+                return false
+            }
+            return _isBalanced(node?.left) && _isBalanced(node?.right)
+        }
+        return _isBalanced(root)
+    }
+    
+    /*
+     leetCode #111
+     https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/description/
+     给定一个二叉树，找出其最小深度。 最小深度是从根节点到最近叶子节点的最短路径上的节点数量。
+     说明: 叶子节点是指没有子节点的节点。
+     
+     示例:
+     给定二叉树 [3,9,20,null,null,15,7], 返回它的最小深度  2.
+          3
+         / \
+        9  20
+       / \
+      15  7
+     */
+    func minDepth(_ root: TreeNode<Int>?) -> Int {
+        func _depth(_ n : TreeNode<Int>?) -> Int {
+            if n == nil {
+                return 0
+            }
+            return min(_depth(n?.left), _depth(n?.right)) + 1
+        }
+        if root == nil {
+            return 0
+        }
+        if root?.left == nil && root?.right == nil {
+            return 1
+        } else if root?.left == nil {
+            return _depth(root?.right) + 1
+        } else if root?.right == nil {
+            return _depth(root?.left) + 1
+        } else {
+            return _depth(root)
+        }
+    }
+    /*
+     leetCode #20
+     https://leetcode-cn.com/problems/valid-parentheses/description/
+     给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串，判断字符串是否有效。
+     有效字符串需满足：
+     左括号必须用相同类型的右括号闭合。 左括号必须以正确的顺序闭合。 注意空字符串可被认为是有效字符串。
+     
+     示例 1:
+     输入: "()"  输出: true
+     
+     示例 2:
+     输入: "()[]{}"  输出: true
+     
+     示例 3:
+     输入: "(]"  输出: false
+     
+     示例 4:
+     输入: "([)]"  输出: false
+     
+     示例 5:
+     输入: "{[]}"  输出: true
+     */
+    func isBracketsBalances(_ s : String) -> Bool {
+        
+        func isPair(_ l : Character, _ r : Character) -> Bool {
+            switch l {
+            case "(": return r == ")"
+            case "[": return r == "]"
+            case "{": return r == "}"
+            default : return false
+            }
+        }
+        if s.isEmpty {
+            return true
+        }
+        var lArr = [Character]()
+        for c in s {
+            if c == "{" || c == "(" || c == "[" {
+                lArr.append(c)
+            }
+            
+            if c == "}" || c == ")" || c == "]" {
+                if lArr.isEmpty {
+                    return false
+                }
+                let c_last = lArr.last!
+                if isPair(c_last, c) {
+                    lArr.removeLast()
+                } else {
+                    return false
+                }
+            }
+        }
+        return lArr.isEmpty
+    }
+
+    /*
+     leetCode #844
+     https://leetcode-cn.com/problems/backspace-string-compare/description/
+     给定 S 和 T 两个字符串，当它们分别被输入到空白的文本编辑器后，判断二者是否相等，并返回结果。 # 代表退格字符。
+     示例 1：
+     输入：S = "ab#c", T = "ad#c"
+     输出：true
+     解释：S 和 T 都会变成 “ac”。
+     
+     示例 2：
+     输入：S = "ab##", T = "c#d#"
+     输出：true
+     解释：S 和 T 都会变成 “”。
+     
+     示例 3：
+     输入：S = "a##c", T = "#a#c"
+     输出：true
+     解释：S 和 T 都会变成 “c”。
+     
+     示例 4：
+     输入：S = "a#c", T = "b"
+     输出：false
+     解释：S 会变成 “c”，但 T 仍然是 “b”。
+     */
+    func backspaceCompare(_ S: String, _ T: String) -> Bool {
+        var arr_s = [Character]()
+        var arr_t = [Character]()
+        
+        for c in S {
+            if c == "#" {
+                if !arr_s.isEmpty {
+                    arr_s.removeLast()
+                }
+            } else {
+                arr_s.append(c)
+            }
+        }
+        for c in T {
+            if c == "#" {
+                if !arr_t.isEmpty {
+                    arr_t.removeLast()
+                }
+            } else {
+                arr_t.append(c)
+            }
+        }
+        
+        if arr_s.count != arr_t.count {
+            return false
+        }
+        
+        for i in 0 ..< arr_s.count {
+            if arr_s[i] != arr_t[i] {
+                return false
+            }
+        }
+        
+        return true
     }
 }
