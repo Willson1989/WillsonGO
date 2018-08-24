@@ -10,6 +10,7 @@ import Foundation
 
 class Solution {
     
+    
     /*
      leetCode #26
      https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/description/
@@ -566,21 +567,21 @@ class Solution {
         
         var n1 = l1, n2 = l2
         var add = 0
-        let res = ListNode(v: Int.min)
+        let res = ListNode(Int.min)
         var currNode = res
         while n1 != nil || n2 != nil {
             let val1 = n1 == nil ? 0 : n1!.val
             let val2 = n2 == nil ? 0 : n2!.val
             let temp = val1 + val2 + add
             add = temp / 10
-            currNode.next = ListNode(v: temp % 10)
+            currNode.next = ListNode(temp % 10)
             currNode = currNode.next!
             n1 = n1 == nil ? nil : n1!.next
             n2 = n2 == nil ? nil : n2!.next
         }
         
         if add == 1 {
-            currNode.next = ListNode(v: 1)
+            currNode.next = ListNode(1)
         }
         return res.next
         

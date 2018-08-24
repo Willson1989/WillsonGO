@@ -47,6 +47,7 @@
 		04A781712126A16800D9384D /* NodeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7816C2126A16800D9384D /* NodeList.swift */; };
 		04A781722126A16800D9384D /* BSTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7816D2126A16800D9384D /* BSTree.swift */; };
 		04A781742126A16800D9384D /* Solution_01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7816F2126A16800D9384D /* Solution_01.swift */; };
+		04A7824D212C2AD100D9384D /* Solution_02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7824C212C2AD100D9384D /* Solution_02.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -103,6 +104,7 @@
 		04A7816C2126A16800D9384D /* NodeList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeList.swift; sourceTree = "<group>"; };
 		04A7816D2126A16800D9384D /* BSTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSTree.swift; sourceTree = "<group>"; };
 		04A7816F2126A16800D9384D /* Solution_01.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Solution_01.swift; sourceTree = "<group>"; };
+		04A7824C212C2AD100D9384D /* Solution_02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solution_02.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -262,6 +264,7 @@
 				04A7816A2126A16800D9384D /* Solution.swift */,
 				04A7816B2126A16800D9384D /* Dependencies */,
 				04A7816F2126A16800D9384D /* Solution_01.swift */,
+				04A7824C212C2AD100D9384D /* Solution_02.swift */,
 			);
 			path = Solutions;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				04A781712126A16800D9384D /* NodeList.swift in Sources */,
 				04A7815521269F2900D9384D /* SparseGraphW_AdjList.swift in Sources */,
 				04A7816321269F2900D9384D /* SelectionSort.swift in Sources */,
+				04A7824D212C2AD100D9384D /* Solution_02.swift in Sources */,
 				04A7814D21269F2900D9384D /* UFType.swift in Sources */,
 				04A7816821269F2900D9384D /* CommonHeap.swift in Sources */,
 				04A7814621269F2900D9384D /* 拓展知识.swift in Sources */,

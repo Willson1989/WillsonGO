@@ -12,7 +12,7 @@ class ListNode {
     var val : Int;
     var next : ListNode?;
     
-    init(v : Int) {
+    init(_ v : Int) {
         self.val = v;
     }
 }
@@ -50,7 +50,7 @@ class NodeList {
     }
     
     func appendToHead(withValue v : Int) {
-        let node = ListNode(v: v)
+        let node = ListNode(v)
         if self.head == nil {
             self.head = node;
             self.tail = node;
@@ -62,7 +62,7 @@ class NodeList {
     }
     
     func appendToTail(withValue v : Int) {
-        let node = ListNode(v: v);
+        let node = ListNode(v);
         if self.tail == nil {
             self.tail = node;
             self.head = self.tail;
@@ -73,7 +73,7 @@ class NodeList {
     }
     
     func partition(withTarget t : Int) -> ListNode? {
-        let prevDummy = ListNode(v: 0), postDummy = ListNode(v: 0);
+        let prevDummy = ListNode(0), postDummy = ListNode(0);
         var node = self.head
         var prev = prevDummy, post = postDummy
         while node != nil {
