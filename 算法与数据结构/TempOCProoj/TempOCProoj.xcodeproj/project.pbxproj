@@ -15,6 +15,7 @@
 		04A781912127B08200D9384D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A781902127B08200D9384D /* main.m */; };
 		04A7819B2127B08200D9384D /* TempOCProojTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A7819A2127B08200D9384D /* TempOCProojTests.m */; };
 		04A781A62127B08200D9384D /* TempOCProojUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A781A52127B08200D9384D /* TempOCProojUITests.m */; };
+		04D6D92D21314F4D00099EC5 /* NSObject+ZYObserverable.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D6D92C21314F4D00099EC5 /* NSObject+ZYObserverable.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		04A781A12127B08200D9384D /* TempOCProojUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TempOCProojUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04A781A52127B08200D9384D /* TempOCProojUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TempOCProojUITests.m; sourceTree = "<group>"; };
 		04A781A72127B08200D9384D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04D6D92B21314F4D00099EC5 /* NSObject+ZYObserverable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+ZYObserverable.h"; sourceTree = "<group>"; };
+		04D6D92C21314F4D00099EC5 /* NSObject+ZYObserverable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ZYObserverable.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +108,8 @@
 				04A781822127B07F00D9384D /* AppDelegate.m */,
 				04A781842127B07F00D9384D /* ViewController.h */,
 				04A781852127B07F00D9384D /* ViewController.m */,
+				04D6D92B21314F4D00099EC5 /* NSObject+ZYObserverable.h */,
+				04D6D92C21314F4D00099EC5 /* NSObject+ZYObserverable.m */,
 				04A781872127B07F00D9384D /* Main.storyboard */,
 				04A7818A2127B08200D9384D /* Assets.xcassets */,
 				04A7818C2127B08200D9384D /* LaunchScreen.storyboard */,
@@ -264,6 +269,7 @@
 			files = (
 				04A781862127B07F00D9384D /* ViewController.m in Sources */,
 				04A781912127B08200D9384D /* main.m in Sources */,
+				04D6D92D21314F4D00099EC5 /* NSObject+ZYObserverable.m in Sources */,
 				04A781832127B07F00D9384D /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

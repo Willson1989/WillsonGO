@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Solutions/Solution_02.swift"
-            timestampString = "557073623.515592"
+            filePath = "TempOCProoj/NSObject+ZYObserverable.m"
+            timestampString = "556991018.812194"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "156"
-            endingLineNumber = "156"
-            landmarkName = "generateMatrix(_:)"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "-zy_addObserver:forKey:options:changedBlock:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Solutions/Solution_02.swift"
-            timestampString = "557073623.516106"
+            filePath = "TempOCProoj/ViewController.m"
+            timestampString = "556991018.812724"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
-            landmarkName = "generateMatrix(_:)"
+            startingLineNumber = "212"
+            endingLineNumber = "212"
+            landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Solutions/Solution_02.swift"
-            timestampString = "557073623.516449"
+            filePath = "TempOCProoj/ViewController.m"
+            timestampString = "556991018.812799"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
-            landmarkName = "generateMatrix(_:)"
+            startingLineNumber = "232"
+            endingLineNumber = "232"
+            landmarkName = "-touchesBegan:withEvent:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -57,13 +57,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Solutions/Solution_02.swift"
-            timestampString = "557073623.516796"
+            filePath = "TempOCProoj/NSObject+ZYObserverable.m"
+            timestampString = "556991018.812863"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "181"
-            endingLineNumber = "181"
-            landmarkName = "generateMatrix(_:)"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "-zy_addObserver:forKey:options:changedBlock:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -73,13 +73,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Solutions/Solution_02.swift"
-            timestampString = "557073623.5170929"
+            filePath = "TempOCProoj/NSObject+ZYObserverable.m"
+            timestampString = "556991018.813205"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "190"
-            endingLineNumber = "190"
-            landmarkName = "generateMatrix(_:)"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "-zy_addObserver:forKey:options:changedBlock:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -89,13 +89,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Solutions/Solution_02.swift"
-            timestampString = "557073623.51739"
+            filePath = "TempOCProoj/NSObject+ZYObserverable.m"
+            timestampString = "556991018.813539"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "246"
-            endingLineNumber = "246"
-            landmarkName = "titleToNumber(_:)"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "-swizz_setValue:forKey:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -105,14 +105,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Solutions/Solution_02.swift"
-            timestampString = "557073623.517652"
+            filePath = "TempOCProoj/NSObject+ZYObserverable.m"
+            timestampString = "556991018.813851"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "251"
-            endingLineNumber = "251"
-            landmarkName = "titleToNumber(_:)"
-            landmarkType = "7">
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "setterIMP"
+            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
