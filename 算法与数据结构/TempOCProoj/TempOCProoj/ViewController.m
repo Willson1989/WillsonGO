@@ -8,7 +8,9 @@
 
 #import "ViewController.h"
 #import "NSObject+ZYObserverable.h"
-
+#import "ZYTempView.h"
+#import <objc/runtime.h>
+#import <objc/message.h>
 
 @interface ZYLineView : UIView
 @end
@@ -178,15 +180,93 @@ typedef void(^ZYTimerActionBlock)();
 
 @end
 
+@interface Student : NSObject
+
+@end
+
+@implementation Student
+
+- (int)age {
+    return 888;
+}
+
+@end
+
+@interface Employee : NSObject
+@end
+
+@implementation Employee
+- (int)age {
+    return 777;
+}
+@end
+
+
 @interface Person : NSObject
 
-@property (nonatomic, copy) NSString * name;
+@property (copy, nonatomic) NSString * pName;
+- (void)showInfo;
+- (void)updateName:(NSString *)name;
+@property (assign, nonatomic) NSInteger age;
 
 @end
 
 @implementation Person
+@dynamic age;
+
+int age(id self , SEL _cmd) {
+    return 999;
+}
+
+int tempAge(id self, SEL _cmd) {
+    return 1000;
+}
+
+//1
+//- (id)forwardingTargetForSelector:(SEL)aSelector {
+//    return [[Employee alloc] init];
+//}
+
+//2
++ (BOOL)resolveInstanceMethod:(SEL)sel {
+    NSLog(@"resolveInstanceMethod : %@", NSStringFromSelector(sel));
+    class_addMethod([self class], NSSelectorFromString(@"tempAge"), (IMP)age, "i@:");
+    return NO;
+}
+
+//3
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
+    NSLog(@"methodSignatureForSelector : %@",NSStringFromSelector(aSelector));
+    NSMethodSignature *sig = [super methodSignatureForSelector:aSelector];
+    if (!sig) {
+        Student *stu = [[Student alloc] init];
+        sig = [stu methodSignatureForSelector:aSelector];
+    }
+    NSLog(@"methodSignatureForSelector signature : %@",sig);
+    return sig;
+}
+
+//4
+- (void)forwardInvocation:(NSInvocation *)anInvocation {
+    NSLog(@"methodSignatureForSelector signature : %@",anInvocation.methodSignature);
+    Student *s = [[Student alloc] init];
+    [anInvocation invokeWithTarget:s];
+}
+
+- (void)showInfo {
+    NSLog(@"%@",[self class]);
+}
+
+- (void)updateName:(NSString *)name {
+    [self willChangeValueForKey:@"pName"];
+    _pName = name;
+    [self didChangeValueForKey:@"pName"];
+}
 
 @end
+
+
+
 
 @interface ViewController ()
 
@@ -203,33 +283,61 @@ typedef void(^ZYTimerActionBlock)();
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    Person * p = [[Person alloc] init];
-    p.name = @"willson";
+    self.view.backgroundColor = [UIColor whiteColor];
+    Person *p = [[Person alloc] init];
+    p.pName = @"willson";
     _p = p;
+   
+    [p addObserver:self forKeyPath:@"pName" options:NSKeyValueObservingOptionNew context:nil];
     
-    [_p zy_addObserver:self forKey:@"name" options:NSKeyValueObservingOptionNew changedBlock:^(id observedObject, NSString *key, id oldValue, id newValue) {
-        NSLog(@"监听到了改变， oldValue : %@, newValue : %@", oldValue, newValue);
-    }];
-    
-    self.queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    self.src = dispatch_source_create(DISPATCH_SOURCE_TYPE_DATA_ADD, 0, 0, self.queue);
-    dispatch_source_set_event_handler(self.src, ^{
-        NSLog(@"handler invoked : %lu", dispatch_source_get_data(self.src));
-    });
-    dispatch_resume(self.src);
+    int count = 0;
+    Method *list = class_copyMethodList(object_getClass(p), &count);
+    for (int i = 0 ; i < count ; i++) {
+        Method m = list[i];
+        SEL sel = method_getName(m);
+        NSString *methodName = NSStringFromSelector(sel);
+        NSLog(@"kvo person obj method name : %@",methodName);
+    }
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"pName"]) {
+        NSLog(@"pName changed : %@",change[NSKeyValueChangeNewKey]);
+    }
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    dispatch_async(self.queue, ^{
-       
-        for (NSUInteger i= 1 ; i <= 5; i++) {
-            dispatch_source_merge_data(self.src, 1);
-            [NSThread sleepForTimeInterval:0.0001];
-        }
-        
+    [_p updateName:@"helen"];
+    NSLog(@"age : %zd",_p.age);
+    
+}
+
+- (void)gcdTest {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSLog(@"A");
     });
-    _p.name = @"helen";
+    NSLog(@"B");
+    dispatch_queue_t tempQueue = dispatch_queue_create(DISPATCH_QUEUE_SERIAL, nil);
+    
+//    dispatch_queue_t tempQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0ul);
+    dispatch_sync(tempQueue, ^{
+        NSLog(@"C");
+    });
+    
+    dispatch_async(tempQueue, ^{
+        NSLog(@"D");
+    });
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSLog(@"E");
+    });
+    
+    [self performSelector:@selector(method) withObject:nil afterDelay:0.0];
+    NSLog(@"F");
+}
+
+- (void)method {
+    NSLog(@"G");
 }
 
 - (void)didReceiveMemoryWarning {

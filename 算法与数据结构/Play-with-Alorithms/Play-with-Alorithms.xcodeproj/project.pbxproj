@@ -48,6 +48,8 @@
 		04A781722126A16800D9384D /* BSTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7816D2126A16800D9384D /* BSTree.swift */; };
 		04A781742126A16800D9384D /* Solution_01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7816F2126A16800D9384D /* Solution_01.swift */; };
 		04A7824D212C2AD100D9384D /* Solution_02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7824C212C2AD100D9384D /* Solution_02.swift */; };
+		04BDDB0721456DA1009BC08E /* Trie.mm in Sources */ = {isa = PBXBuildFile; fileRef = 04BDDB0621456DA1009BC08E /* Trie.mm */; };
+		04D6D94E2135963B00099EC5 /* Solution_03.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D6D94D2135963B00099EC5 /* Solution_03.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -105,6 +107,10 @@
 		04A7816D2126A16800D9384D /* BSTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSTree.swift; sourceTree = "<group>"; };
 		04A7816F2126A16800D9384D /* Solution_01.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Solution_01.swift; sourceTree = "<group>"; };
 		04A7824C212C2AD100D9384D /* Solution_02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solution_02.swift; sourceTree = "<group>"; };
+		04BDDB0521456DA1009BC08E /* Trie.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Trie.h; sourceTree = "<group>"; };
+		04BDDB0621456DA1009BC08E /* Trie.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Trie.mm; sourceTree = "<group>"; };
+		04D6D94D2135963B00099EC5 /* Solution_03.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solution_03.swift; sourceTree = "<group>"; };
+		04EF8C23213ED58A00816840 /* Play-with-Alorithms-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Play-with-Alorithms-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				04A7811A21269F2900D9384D /* 拓展知识.swift */,
+				04EF8C22213ED56700816840 /* Trie树 */,
 				04A7811B21269F2900D9384D /* UnionFind */,
 				04A7812421269F2900D9384D /* Graph */,
 				04A7813421269F2900D9384D /* Basic */,
@@ -265,6 +272,7 @@
 				04A7816B2126A16800D9384D /* Dependencies */,
 				04A7816F2126A16800D9384D /* Solution_01.swift */,
 				04A7824C212C2AD100D9384D /* Solution_02.swift */,
+				04D6D94D2135963B00099EC5 /* Solution_03.swift */,
 			);
 			path = Solutions;
 			sourceTree = "<group>";
@@ -276,6 +284,16 @@
 				04A7816D2126A16800D9384D /* BSTree.swift */,
 			);
 			path = Dependencies;
+			sourceTree = "<group>";
+		};
+		04EF8C22213ED56700816840 /* Trie树 */ = {
+			isa = PBXGroup;
+			children = (
+				04EF8C23213ED58A00816840 /* Play-with-Alorithms-Bridging-Header.h */,
+				04BDDB0521456DA1009BC08E /* Trie.h */,
+				04BDDB0621456DA1009BC08E /* Trie.mm */,
+			);
+			path = "Trie树";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,6 +328,7 @@
 				TargetAttributes = {
 					04A7810E21269EE800D9384D = {
 						CreatedOnToolsVersion = 9.4;
+						LastSwiftMigration = 0940;
 					};
 				};
 			};
@@ -351,6 +370,7 @@
 				04A7814621269F2900D9384D /* 拓展知识.swift in Sources */,
 				04A7815821269F2900D9384D /* SparseGraph_AdjList.swift in Sources */,
 				04A7815B21269F2900D9384D /* TestHelper.swift in Sources */,
+				04BDDB0721456DA1009BC08E /* Trie.mm in Sources */,
 				04A7814B21269F2900D9384D /* UnionFindTestHelper.swift in Sources */,
 				04A7815C21269F2900D9384D /* FibonacciSequence.swift in Sources */,
 				04A7815621269F2900D9384D /* DenseGraphW_Matrix.swift in Sources */,
@@ -376,6 +396,7 @@
 				04A7814A21269F2900D9384D /* UnionFind_CompressPath_02.swift in Sources */,
 				04A7814C21269F2900D9384D /* UnionFind_UsingParent.swift in Sources */,
 				04A7815A21269F2900D9384D /* DenseGraph_Matrix.swift in Sources */,
+				04D6D94E2135963B00099EC5 /* Solution_03.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,8 +519,16 @@
 		04A7811721269EE800D9384D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Alorithms/Trie树/Play-with-Alorithms-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -507,8 +536,15 @@
 		04A7811821269EE800D9384D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Alorithms/Trie树/Play-with-Alorithms-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;

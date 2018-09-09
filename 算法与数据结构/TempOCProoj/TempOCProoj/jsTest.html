@@ -1,0 +1,58 @@
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+            <style>
+                .outer{
+                    height: 200px;width:200px;background: palegreen
+                }
+            </style>
+            </head>
+    <body>
+        <div class="outer" id="outer">
+            <button id="btn">button</button>
+        </div>
+    </body>
+    <script>
+        function changeBgColor(color){
+            document.getElementById('outer').style.background = color;
+        }
+        window.onload = function(){
+            var handler = {
+                callHander: function (json) {
+                    if (judgeIOS()) {
+                        window.webkit.messageHandlers.aaa.postMessage(JSON.stringify(json))
+                        console.log('is ios')
+                    }else {
+                        // window.aaa.postMessage(JSON.stringify(json));
+                        console.log('not ios')
+                    }
+                }};
+            document.getElementById('btn').onclick = function(){
+                setAppAppearance();
+                // changeBgColor('red')
+            }
+            function setAppAppearance(){
+                handler.callHander({
+                                   'body':"setWebViewAppearance",
+                                   'buttons': [
+                                               {
+                                               "text":"分享",
+                                               "action":""
+                                               }
+                                               ],
+                                   'title':"这是webView的标题"
+                                   });
+            }
+            
+            function judgeIOS(){
+                var u = navigator.userAgent;
+                var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+                var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+                                      return isiOS
+                                      }
+                                      }
+                                      
+                                      
+                                      
+                                      </script>
+    </html>

@@ -16,6 +16,9 @@
 		04A7819B2127B08200D9384D /* TempOCProojTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A7819A2127B08200D9384D /* TempOCProojTests.m */; };
 		04A781A62127B08200D9384D /* TempOCProojUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A781A52127B08200D9384D /* TempOCProojUITests.m */; };
 		04D6D92D21314F4D00099EC5 /* NSObject+ZYObserverable.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D6D92C21314F4D00099EC5 /* NSObject+ZYObserverable.m */; };
+		04D6D94A2135795600099EC5 /* ZYWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D6D9492135795600099EC5 /* ZYWebViewController.m */; };
+		04D6D94C213579BE00099EC5 /* jsTest.html in Resources */ = {isa = PBXBuildFile; fileRef = 04D6D94B213579BE00099EC5 /* jsTest.html */; };
+		04D6D951213799D600099EC5 /* ZYTempView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D6D950213799D600099EC5 /* ZYTempView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +57,11 @@
 		04A781A72127B08200D9384D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04D6D92B21314F4D00099EC5 /* NSObject+ZYObserverable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+ZYObserverable.h"; sourceTree = "<group>"; };
 		04D6D92C21314F4D00099EC5 /* NSObject+ZYObserverable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ZYObserverable.m"; sourceTree = "<group>"; };
+		04D6D9482135795600099EC5 /* ZYWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYWebViewController.h; sourceTree = "<group>"; };
+		04D6D9492135795600099EC5 /* ZYWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYWebViewController.m; sourceTree = "<group>"; };
+		04D6D94B213579BE00099EC5 /* jsTest.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = jsTest.html; sourceTree = "<group>"; };
+		04D6D94F213799D600099EC5 /* ZYTempView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYTempView.h; sourceTree = "<group>"; };
+		04D6D950213799D600099EC5 /* ZYTempView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYTempView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +116,11 @@
 				04A781822127B07F00D9384D /* AppDelegate.m */,
 				04A781842127B07F00D9384D /* ViewController.h */,
 				04A781852127B07F00D9384D /* ViewController.m */,
+				04D6D9482135795600099EC5 /* ZYWebViewController.h */,
+				04D6D9492135795600099EC5 /* ZYWebViewController.m */,
+				04D6D94F213799D600099EC5 /* ZYTempView.h */,
+				04D6D950213799D600099EC5 /* ZYTempView.m */,
+				04D6D94B213579BE00099EC5 /* jsTest.html */,
 				04D6D92B21314F4D00099EC5 /* NSObject+ZYObserverable.h */,
 				04D6D92C21314F4D00099EC5 /* NSObject+ZYObserverable.m */,
 				04A781872127B07F00D9384D /* Main.storyboard */,
@@ -243,6 +256,7 @@
 				04A7818E2127B08200D9384D /* LaunchScreen.storyboard in Resources */,
 				04A7818B2127B08200D9384D /* Assets.xcassets in Resources */,
 				04A781892127B07F00D9384D /* Main.storyboard in Resources */,
+				04D6D94C213579BE00099EC5 /* jsTest.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,10 +281,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04D6D94A2135795600099EC5 /* ZYWebViewController.m in Sources */,
 				04A781862127B07F00D9384D /* ViewController.m in Sources */,
 				04A781912127B08200D9384D /* main.m in Sources */,
 				04D6D92D21314F4D00099EC5 /* NSObject+ZYObserverable.m in Sources */,
 				04A781832127B07F00D9384D /* AppDelegate.m in Sources */,
+				04D6D951213799D600099EC5 /* ZYTempView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

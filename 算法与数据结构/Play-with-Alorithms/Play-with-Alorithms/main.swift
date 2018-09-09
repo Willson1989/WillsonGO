@@ -8,14 +8,34 @@
 
 import Foundation
 
-let zys = Solution()
-let a = [[4,4,4,4],
-         [4,4,4,4],
-         [4,4,4,4],
-         [4,4,4,4]]
-print(zys.numMagicSquaresInside(a))
+public extension Character {
+    
+    public func getASCII(_ c : Character) -> Int {
+        var num = 0
+        for scalar in String(c).unicodeScalars {
+            num = Int(scalar.value)
+        }
+        return num
+    }
+    
+    var letterIndex : Int {
+        return getASCII(self) - getASCII("a")
+    }
+    
+}
 
-print("solution count : \(zys.climbStairs(3))")
+let zys = Solution()
+
+let c1 : Character = "A"
+
+print(c1.letterIndex)
+
+
+
+let dic : [String : String] = ["name" : "will"]
+
+let containAgeKey = dic.keys.contains(where: {$0 == "age"})
+
 
 
 
