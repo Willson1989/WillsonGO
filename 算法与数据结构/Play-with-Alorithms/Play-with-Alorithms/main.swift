@@ -8,34 +8,26 @@
 
 import Foundation
 
+
 public extension Character {
-    
-    public func getASCII(_ c : Character) -> Int {
+    public func ASCII() -> Int {
         var num = 0
-        for scalar in String(c).unicodeScalars {
+        for scalar in String(self).unicodeScalars {
             num = Int(scalar.value)
         }
         return num
     }
-    
-    var letterIndex : Int {
-        return getASCII(self) - getASCII("a")
-    }
-    
 }
 
-let zys = Solution()
+let s = Solution()
 
-let c1 : Character = "A"
-
-print(c1.letterIndex)
-
-
-
-let dic : [String : String] = ["name" : "will"]
-
-let containAgeKey = dic.keys.contains(where: {$0 == "age"})
-
-
-
+print(s.constructRectangle(1))
+print(s.constructRectangle(2))
+print(s.constructRectangle(3))
+print(s.constructRectangle(4))
+print(s.constructRectangle(18))
+print(s.constructRectangle(21))
+print(s.constructRectangle(12))
+print(s.constructRectangle(44))
+print(s.constructRectangle(150))
 

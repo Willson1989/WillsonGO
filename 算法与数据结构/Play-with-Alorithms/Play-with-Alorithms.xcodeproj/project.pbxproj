@@ -44,7 +44,7 @@
 		04A7816721269F2900D9384D /* SimpleHeap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7814421269F2900D9384D /* SimpleHeap.swift */; };
 		04A7816821269F2900D9384D /* CommonHeap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7814521269F2900D9384D /* CommonHeap.swift */; };
 		04A781702126A16800D9384D /* Solution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7816A2126A16800D9384D /* Solution.swift */; };
-		04A781712126A16800D9384D /* NodeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7816C2126A16800D9384D /* NodeList.swift */; };
+		04A781712126A16800D9384D /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7816C2126A16800D9384D /* List.swift */; };
 		04A781722126A16800D9384D /* BSTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7816D2126A16800D9384D /* BSTree.swift */; };
 		04A781742126A16800D9384D /* Solution_01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7816F2126A16800D9384D /* Solution_01.swift */; };
 		04A7824D212C2AD100D9384D /* Solution_02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7824C212C2AD100D9384D /* Solution_02.swift */; };
@@ -103,7 +103,7 @@
 		04A7814421269F2900D9384D /* SimpleHeap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleHeap.swift; sourceTree = "<group>"; };
 		04A7814521269F2900D9384D /* CommonHeap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonHeap.swift; sourceTree = "<group>"; };
 		04A7816A2126A16800D9384D /* Solution.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Solution.swift; sourceTree = "<group>"; };
-		04A7816C2126A16800D9384D /* NodeList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeList.swift; sourceTree = "<group>"; };
+		04A7816C2126A16800D9384D /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 		04A7816D2126A16800D9384D /* BSTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSTree.swift; sourceTree = "<group>"; };
 		04A7816F2126A16800D9384D /* Solution_01.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Solution_01.swift; sourceTree = "<group>"; };
 		04A7824C212C2AD100D9384D /* Solution_02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solution_02.swift; sourceTree = "<group>"; };
@@ -280,7 +280,7 @@
 		04A7816B2126A16800D9384D /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
-				04A7816C2126A16800D9384D /* NodeList.swift */,
+				04A7816C2126A16800D9384D /* List.swift */,
 				04A7816D2126A16800D9384D /* BSTree.swift */,
 			);
 			path = Dependencies;
@@ -361,7 +361,7 @@
 				04A7816521269F2900D9384D /* QuickSort.swift in Sources */,
 				04A7815021269F2900D9384D /* FindingPath.swift in Sources */,
 				04A7816021269F2900D9384D /* HeapSort.swift in Sources */,
-				04A781712126A16800D9384D /* NodeList.swift in Sources */,
+				04A781712126A16800D9384D /* List.swift in Sources */,
 				04A7815521269F2900D9384D /* SparseGraphW_AdjList.swift in Sources */,
 				04A7816321269F2900D9384D /* SelectionSort.swift in Sources */,
 				04A7824D212C2AD100D9384D /* Solution_02.swift in Sources */,

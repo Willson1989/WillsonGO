@@ -9,7 +9,7 @@
 import Foundation
 
 class ListNode {
-    var val : Int;
+    var val  : Int;
     var next : ListNode?;
     
     init(_ v : Int) {
@@ -17,7 +17,7 @@ class ListNode {
     }
 }
 
-class NodeList {
+class List {
     var head : ListNode?
     var tail : ListNode?
     
@@ -33,8 +33,18 @@ class NodeList {
         }
     }
     
+    init?(listNode : ListNode?) {
+        guard let listNode = listNode else { return nil }
+        self.head = listNode
+        var p : ListNode? = listNode
+        while p?.next != nil {
+            p = p?.next
+        }
+        self.tail = p
+    }
+    
     func printList() {
-        NodeList.printList(withHeader: self.head)
+        List.printList(withHeader: self.head)
     }
     
     class func printList(withHeader header : ListNode?) {
@@ -49,6 +59,7 @@ class NodeList {
         }
     }
     
+    // 插入节点 头插
     func appendToHead(withValue v : Int) {
         let node = ListNode(v)
         if self.head == nil {
@@ -61,6 +72,7 @@ class NodeList {
         }
     }
     
+    // 插入节点 尾插
     func appendToTail(withValue v : Int) {
         let node = ListNode(v);
         if self.tail == nil {
@@ -72,6 +84,7 @@ class NodeList {
         }
     }
     
+    // 按照t的值将链表分割开，大于t的在前边，小于t的在后边
     func partition(withTarget t : Int) -> ListNode? {
         let prevDummy = ListNode(0), postDummy = ListNode(0);
         var node = self.head
