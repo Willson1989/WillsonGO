@@ -398,6 +398,78 @@ extension Solution {
         return true
     }
     
+    // MARK: -------------- leetCode #242
+    /*
+     https://leetcode-cn.com/problems/valid-anagram/
+     给定两个字符串 s 和 t ，编写一个函数来判断 t 是否是 s 的一个字母异位词。
+     
+     示例 1:
+     输入: s = "anagram", t = "nagaram" 输出: true
+     
+     示例 2:
+     输入: s = "rat", t = "car" 输出: false
+     
+     说明:  你可以假设字符串只包含小写字母。
+     进阶:  如果输入字符串包含 unicode 字符怎么办？你能否调整你的解法来应对这种情况？
+     */
+    //使用字典（可以包含所有字符：字母，数字，中文，特殊符号等）
+    func isAnagram(_ s: String, _ t: String) -> Bool {
+        var dic : [Character : Int] = [:]
+        for index in t.indices {
+            let c = t[index]
+            if let count = dic[c] {
+                dic[c] = count + 1
+            } else {
+                dic[c] = 1
+            }
+        }
+        for index in s.indices {
+            let c = s[index]
+            if let count = dic[c] {
+                if count <= 0 {
+                    return false
+                } else {
+                    dic[c] = count - 1
+                }
+            } else {
+                return false
+            }
+        }
+        for (_, value) in dic {
+            if value != 0 {
+                return false
+            }
+        }
+        return true
+    }
+    
+    //只包含小写字母，使用字母表（同#383赎金信），速度会快一些
+    func isAnagram1(_ s: String, _ t: String) -> Bool {
+        var tb_s = Array(repeating: 0, count: 26)
+        for index in s.indices {
+            let char : Character = s[index]
+            for asc in char.unicodeScalars {
+                let num = Int(asc.value - 97)
+                tb_s[num] += 1
+            }
+        }
+        
+        var tb_t = Array(repeating: 0, count: 26)
+        for index in t.indices {
+            let char : Character = t[index]
+            for asc in char.unicodeScalars {
+                let num = Int(asc.value - 97)
+                tb_t[num] += 1
+            }
+        }
+        for i in 0 ..< 26 {
+            if tb_s[i] != tb_t[i] {
+                return false
+            }
+        }
+        return true
+    }
+    
     // MARK: -------------- leetCode #492
     /*
      https://leetcode-cn.com/problems/construct-the-rectangle/
@@ -460,4 +532,57 @@ extension Solution {
         }
         return res
     }
+    
+    
+    // MARK: -------------- leetCode #58
+    /*
+     https://leetcode-cn.com/problems/length-of-last-word/
+     给定一个仅包含大小写字母和空格 ' ' 的字符串，返回其最后一个单词的长度。 如果不存在最后一个单词，请返回 0 。
+     说明：一个单词是指由字母组成，但不包含任何空格的字符串。
+     示例:
+     输入: "Hello World"  输出: 5
+     */
+    
+    func lengthOfLastWord1(_ s: String) -> Int {
+        if s.isEmpty { return 0 }
+        var index = s.count - 1
+        for i in stride(from: s.count - 1, through: 0, by: -1) {
+            let c = s[s.index(s.startIndex, offsetBy: i)]
+            if c != " " {
+                index = i
+                break
+            }
+        }
+        var count = 0
+        for i in stride(from: index, through: 0, by: -1) {
+            let c = s[s.index(s.startIndex, offsetBy: i)]
+            if c == " " {
+                break
+            } else {
+                count += 1
+            }
+        }
+        return count
+    }
+    
+    //优化
+    //从后往前遍历字符，遇到第一个字母就开始计数，之前的空格都跳过
+    func lengthOfLastWord(_ s: String) -> Int {
+        if s.isEmpty { return 0 }
+        var count = 0
+        var getChar = false
+        for i in stride(from: s.count - 1, through: 0, by: -1) {
+            let c = s[s.index(s.startIndex, offsetBy: i)]
+            if c == " " {
+                if getChar {
+                   break
+                }
+            } else {
+                count += 1
+                getChar = true
+            }
+        }
+        return count
+    }
+    
 }

@@ -21,13 +21,15 @@ public extension Character {
 
 let s = Solution()
 
-print(s.constructRectangle(1))
-print(s.constructRectangle(2))
-print(s.constructRectangle(3))
-print(s.constructRectangle(4))
-print(s.constructRectangle(18))
-print(s.constructRectangle(21))
-print(s.constructRectangle(12))
-print(s.constructRectangle(44))
-print(s.constructRectangle(150))
+let ss = "   1"
+
+print(s.lengthOfLastWord("   a"))
+print(s.lengthOfLastWord("a"))
+print(s.lengthOfLastWord("a   "))
+print(s.lengthOfLastWord("ddd da  dddcc   "))
+print(s.lengthOfLastWord("    "))
+print(s.lengthOfLastWord(" "))
+print(s.lengthOfLastWord("asdasda"))
+print(s.lengthOfLastWord("asdasd "))
+print(s.lengthOfLastWord("   aaasdasd"))
 
