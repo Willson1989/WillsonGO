@@ -11,7 +11,7 @@ import Foundation
 
 extension Solution {
     
-    // MARK: -------------- leetCode #804
+    // MARK: -------------- 唯一摩尔斯密码词 leetCode #804
     /*
      https://leetcode-cn.com/problems/unique-morse-code-words/description/
      国际摩尔斯密码定义一种标准编码方式，将每个字母对应于一个由一系列点和短线组成的字符串，
@@ -55,7 +55,7 @@ extension Solution {
         return total.keys.count
     }
 
-    // MARK: -------------- leetCode #28
+    // MARK: -------------- 实现strStr() leetCode #28
     /*
      https://leetcode-cn.com/problems/implement-strstr/description/
      实现 strStr() 函数。
@@ -92,7 +92,7 @@ extension Solution {
         return -1
     }
     
-    // MARK: -------------- leetCode #21
+    // MARK: -------------- 合并两个有序链表 leetCode #21
     /*
      https://leetcode-cn.com/problems/merge-two-sorted-lists/
      将两个有序链表合并为一个新的有序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。
@@ -126,7 +126,7 @@ extension Solution {
         return newHeader?.next
     }
     
-    // MARK: -------------- leetCode #784
+    // MARK: -------------- 字母大小写全排列 leetCode #784
     /*
      https://leetcode-cn.com/problems/letter-case-permutation/
      给定一个字符串S，通过将字符串S中的每个字母转变大小写，我们可以获得一个新的字符串。返回所有可能得到的字符串集合。
@@ -231,7 +231,7 @@ extension Solution {
         return res
     }
     
-    // MARK: -------------- leetCode #401
+    // MARK: -------------- 二进制手表 leetCode #401
     /*
      https://leetcode-cn.com/problems/binary-watch/
      二进制手表顶部有 4 个 LED 代表小时（0-11），底部的 6 个 LED 代表分钟（0-59）。
@@ -298,7 +298,7 @@ extension Solution {
     }
     
     
-    // MARK: -------------- leetCode #383
+    // MARK: -------------- 赎金信 leetCode #383
     /*
      https://leetcode-cn.com/problems/ransom-note/
      给定一个赎金信 (ransom) 字符串和一个杂志(magazine)字符串，
@@ -398,7 +398,7 @@ extension Solution {
         return true
     }
     
-    // MARK: -------------- leetCode #242
+    // MARK: -------------- 有效的字母异位词 leetCode #242
     /*
      https://leetcode-cn.com/problems/valid-anagram/
      给定两个字符串 s 和 t ，编写一个函数来判断 t 是否是 s 的一个字母异位词。
@@ -470,7 +470,7 @@ extension Solution {
         return true
     }
     
-    // MARK: -------------- leetCode #492
+    // MARK: -------------- 构造矩形 leetCode #492
     /*
      https://leetcode-cn.com/problems/construct-the-rectangle/
      现给定一个具体的矩形页面面积，你的任务是设计一个长度为 L 和宽度为 W 且满足以下要求的矩形的页面。要求：
@@ -534,7 +534,7 @@ extension Solution {
     }
     
     
-    // MARK: -------------- leetCode #58
+    // MARK: -------------- 最后一个单词的长度 leetCode #58
     /*
      https://leetcode-cn.com/problems/length-of-last-word/
      给定一个仅包含大小写字母和空格 ' ' 的字符串，返回其最后一个单词的长度。 如果不存在最后一个单词，请返回 0 。
@@ -585,4 +585,170 @@ extension Solution {
         return count
     }
     
+    
+    
+    // MARK: -------------- 快乐数 leetCode #202
+    /*
+     https://leetcode-cn.com/problems/happy-number/
+     编写一个算法来判断一个数是不是“快乐数”。
+     一个“快乐数”定义为：对于一个正整数，每一次将该数替换为它每个位置上的数字的平方和，
+     然后重复这个过程直到这个数变为 1，也可能是无限循环但始终变不到 1。如果可以变为 1，那么这个数就是快乐数。
+     示例:
+     输入: 19   输出: true
+     解释:
+     1^2 + 9^2 = 82
+     8^2 + 2^2 = 68
+     6^2 + 8^2 = 100
+     1^2 + 0^2 + 0^2 = 1
+     
+     参考： https://www.cnblogs.com/aprilcheny/p/4930174.html
+     */
+    /*
+     解法1：
+     可以发现，任意一个大于1的数执行上述循环过程若干次后，都会得到一个小于等于10的数。
+     因此我们先算出[0,10]之间哪些是快乐数并保存下来，然后对输入数字不断进行上述过程循环，
+     直至小于等于10，再判断即可。
+     */
+    func isHappy(_ n: Int) -> Bool {
+        func sum(_ n : Int) -> Int {
+            var sum = 0
+            var arr = [Int](), n = n
+            while n > 0 {
+                arr.append(n % 10)
+                n = n / 10
+            }
+            for i in 0 ..< arr.count {
+                sum += (arr[i] * arr[i])
+            }
+            return sum
+        }
+        
+        //算出[0,10]之间的快乐数
+        let yes : [Bool] = [false, true, false, false, false, false, false, true, false, false, true]
+        var n = n
+        while n > 10 {
+            n = sum(n)
+        }
+        return yes[n]
+    }
+    
+    /*
+     解法2：
+     根据定义，一个数经过上述循环过程，要么得到1退出，要么无限循环下去。
+     可以发现，无限循环下去的情况会是在若干次循环过程中，某两次得到了不为1的相同数字。
+     因此可以将循环过程中得到的数字存下来，再下一次循环后得到的数字与前面的进行比较，若出现过则终止循环并与1进行比较。
+     */
+    func isHappy_1(_ n: Int) -> Bool {
+        func sum(_ n : Int) -> Int {
+            var sum = 0
+            var arr = [Int](), n = n
+            while n > 0 {
+                arr.append(n % 10)
+                n = n / 10
+            }
+            for i in 0 ..< arr.count {
+                sum += (arr[i] * arr[i])
+            }
+            return sum
+        }
+        var set = Set<Int>(), n = n
+        while n != 1 {
+            n = sum(n)
+            print("res : \(n)")
+            if set.contains(n) {
+                break
+            }
+            set.insert(n)
+        }
+        return n == 1
+    }
+    
+    // MARK: -------------- 存在重复元素 leetCode #217
+    /*
+     https://leetcode-cn.com/problems/contains-duplicate/
+     给定一个整数数组，判断是否存在重复元素。
+     如果任何值在数组中出现至少两次，函数返回 true。如果数组中每个元素都不相同，则返回 false。
+     示例 1:
+     输入: [1,2,3,1]  输出: true
+     
+     示例 2:
+     输入: [1,2,3,4]  输出: false
+     
+     示例 3:
+     输入: [1,1,1,3,3,4,3,2,4,2] 输出: true
+     */
+    func containsDuplicate(_ nums: [Int]) -> Bool {
+        var set = Set<Int>()
+        for n in nums {
+            if set.contains(n) {
+                return true
+            }
+            set.insert(n)
+        }
+        return false
+    }
+    
+    
+    // MARK: -------------- 两个数组的交集 II leetCode #350
+    /*
+     https://leetcode-cn.com/problems/intersection-of-two-arrays-ii/
+     给定两个数组，编写一个函数来计算它们的交集。
+     示例 1:
+     输入: nums1 = [1,2,2,1], nums2 = [2,2]    输出: [2,2]
+     
+     示例 2:
+     输入: nums1 = [4,9,5], nums2 = [9,4,9,8,4] 输出: [4,9]
+     
+     说明：
+     输出结果中每个元素出现的次数，应与元素在两个数组中出现的次数一致。
+     我们可以不考虑输出结果的顺序。
+     
+     进阶:
+     如果给定的数组已经排好序呢？你将如何优化你的算法？
+     如果 nums1 的大小比 nums2 小很多，哪种方法更优？
+     如果 nums2 的元素存储在磁盘上，磁盘内存是有限的，并且你不能一次加载所有的元素到内存中，你该怎么办？
+     */
+    func intersect(_ nums1: [Int], _ nums2: [Int]) -> [Int] {
+        var dic = [Int : Int]()
+        for n in nums1 {
+            if let count = dic[n] {
+                dic[n] = count + 1
+            } else {
+                dic[n] = 1
+            }
+        }
+        var res = [Int]()
+        for n in nums2 {
+            if let count = dic[n], count > 0 {
+                res.append(n)
+                dic[n] = count - 1
+            }
+        }
+        return res
+    }
+    
+    func intersect_1(_ nums1: [Int], _ nums2: [Int]) -> [Int] {
+        let arr1 = nums1.sorted { (a, b) -> Bool in
+            return a < b
+        }
+        let arr2 = nums2.sorted { (a, b) -> Bool in
+            return a < b
+        }
+        var res = [Int]()
+        var idx1 = 0, idx2 = 0
+        while idx1 < arr1.count && idx2 < arr2.count {
+            let curr1 = arr1[idx1], curr2 = arr2[idx2]
+            if curr1 == curr2 {
+                idx1 += 1
+                idx2 += 1
+                res.append(curr1)
+                
+            } else if curr1 < curr2 {
+                idx1 += 1
+            } else {
+                idx2 += 1
+            }
+        }
+        return res
+    }
 }

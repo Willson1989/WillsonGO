@@ -10,9 +10,8 @@ import Foundation
 
 class Solution {
     
-    
+    // MARK: -------------- 数组中的重复 leetCode  #26
     /*
-     leetCode #26
      https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/description/
      给定一个排序数组，你需要在原地删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。
      不要使用额外的数组空间，你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。
@@ -67,31 +66,8 @@ class Solution {
         return res
     }
     
+    // MARK: -------------- 回文数 leetCode #9
     /*
-     leetCode #1
-     https://leetcode-cn.com/problems/two-sum/description/
-     给定一个整数数组和一个目标值，找出数组中和为目标值的两个数。
-     你可以假设每个输入只对应一种答案，且同样的元素不能被重复利用。
-     
-     示例:
-     给定 nums = [2, 7, 11, 15], target = 9
-     因为 nums[0] + nums[1] = 2 + 7 = 9
-     所以返回 [0, 1]
-     */
-    func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
-        var dic = [Int : Int?] ()
-        for i in 0 ..< nums.count {
-            if let idx = dic[target - nums[i]] {
-                return [idx!, i]
-            } else {
-                dic[nums[i]] = i
-            }
-        }
-        return []
-    }
-    
-    /*
-     leetCode #9
      https://leetcode-cn.com/problems/palindrome-number/description/
      判断一个整数是否是回文数。回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。
      示例 1:
@@ -129,8 +105,8 @@ class Solution {
         return res == x
     }
     
+    // MARK: -------------- 罗马数字转整数 leetCode #13
     /*
-     leetCode #13
      https://leetcode-cn.com/problems/roman-to-integer/description/
      罗马数字包含以下七种字符：I， V， X， L，C，D 和 M。
      字符          数值
@@ -203,9 +179,9 @@ class Solution {
         
         return t
     }
-    
+
+    // MARK: -------------- 最长公共前缀 leetCode #14
     /*
-     leetCode #14
      https://leetcode-cn.com/problems/longest-common-prefix/description/
      编写一个函数来查找字符串数组中的最长公共前缀。 如果不存在公共前缀，返回空字符串 ""。
      
@@ -244,8 +220,8 @@ class Solution {
         return String(s[startIndex ..< endIndex])
     }
     
+    // MARK: -------------- 1比特与2比特字符 leetCode #717
     /*
-     leetCode #717
      https://leetcode-cn.com/problems/1-bit-and-2-bit-characters/description/
      有两种特殊字符。第一种字符可以用一比特0来表示。第二种字符可以用两比特(10 或 11)来表示。
      现给一个由若干比特组成的字符串。问最后一个字符是否必定为一个一比特字符。给定的字符串总是由0结束。
@@ -288,8 +264,8 @@ class Solution {
         return lastOffset == 1
     }
     
+    // MARK: --------------  二进制求和 leetCode #67
     /*
-     leetCode #67
      https://leetcode-cn.com/problems/add-binary/description/
      给定两个二进制字符串，返回他们的和（用二进制表示）。输入为非空字符串且只包含数字 1 和 0。
      
@@ -330,8 +306,8 @@ class Solution {
         return res
     }
     
+    // MARK: -------------- 字符串相加 leetCode #415
     /*
-     leetCode #415
      https://leetcode-cn.com/problems/add-strings/description/
      给定两个字符串形式的非负整数 num1 和num2 ，计算它们的和。
      注意：
@@ -379,8 +355,8 @@ class Solution {
         return res
     }
     
+    // MARK: -------------- 各位相加 leetCode #258
     /*
-     leetCode #258
      https://leetcode-cn.com/problems/add-digits/description/
      给定一个非负整数 num，反复将各个位上的数字相加，直到结果为一位数。
      
@@ -408,8 +384,8 @@ class Solution {
         return addDigits(sum)
     }
     
+    // MARK: -------------- 排列硬币 leetCode #441
     /*
-     leetCode #441
      https://leetcode-cn.com/problems/arranging-coins/description/
      你总共有 n 枚硬币，你需要将它们摆成一个阶梯形状，第 k 行就必须正好有 k 枚硬币。
      给定一个数字 n，找出可形成完整阶梯行的总行数。 n 是一个非负整数，并且在32位有符号整型的范围内。
@@ -439,8 +415,8 @@ class Solution {
         return row == 1 ? 1 : row - 1
     }
     
+    // MARK: -------------- 数组拆分I leetCode #561
     /*
-     leetCode #561
      https://leetcode-cn.com/problems/array-partition-i/description/
      给定长度为 2n 的数组, 你的任务是将这些数分成 n 对, 例如 (a1, b1), (a2, b2), ..., (an, bn) ，
      使得从1 到 n 的 min(ai, bi) 总和最大。
@@ -466,17 +442,17 @@ class Solution {
         return sum
     }
     
+    // MARK: -------------- 二叉树的层平均值 leetCode #637
     /*
-     leetCode #637
      https://leetcode-cn.com/problems/average-of-levels-in-binary-tree/description/
      给定一个非空二叉树, 返回一个由每层节点平均值组成的数组.
      
      示例 1:
      输入:
-     3
-     / \
-     9  20
-     /  \
+         3
+        / \
+       9  20
+      /  \
      15   7
      输出: [3, 14.5, 11]
      解释:
@@ -512,17 +488,17 @@ class Solution {
         return [0]
     }
     
+    // MARK: -------------- 二叉树的层次遍历 II leetCode #107
     /*
-     leetCode #107
      https://leetcode-cn.com/problems/binary-tree-level-order-traversal-ii/description/
      给定一个二叉树，返回其节点值自底向上的层次遍历。 （即按从叶子节点所在层到根节点所在的层，逐层从左向右遍历）
      
      例如：
      给定二叉树 [3,9,20,null,null,15,7],
-     3
-     / \
-     9  20
-     /  \
+         3
+        / \
+       9  20
+      / \
      15   7
      返回其自底向上的层次遍历为：
      [ [15,7], [9,20], [3] ]
@@ -554,8 +530,9 @@ class Solution {
         return res.reversed()
     }
     
+    // MARK: -------------- 两数相加（链表）leetCode #2
     /*
-     leetCode #2
+     https://leetcode-cn.com/problems/add-two-numbers/
      给定两个非空链表来表示两个非负整数。位数按照逆序方式存储，它们的每个节点只存储单个数字。将两数相加返回一个新的链表。
      你可以假设除了数字 0 之外，这两个数字都不会以零开头。
      
@@ -587,24 +564,24 @@ class Solution {
         
     }
     
+    // MARK: -------------- 对称二叉树 leetCode #101
     /*
-     leetCode #101
      https://leetcode-cn.com/problems/symmetric-tree/description/
      给定一个二叉树，检查它是否是镜像对称的。
      
      例如，二叉树 [1,2,2,3,4,4,3] 是对称的。
-     1
-     / \
-     2   2
-     / \ / \
+         1
+        / \
+       2   2
+      / \ / \
      3  4 4  3
      但是下面这个 [1,2,2,null,3,null,3] 则不是镜像对称的:
      
-     1
-     / \
-     2   2
-     \   \
-     3    3
+         1
+        / \
+       2   2
+        \   \
+        3    3
      
      说明:
      如果你可以运用递归和迭代两种方法解决这个问题，会很加分。
@@ -634,9 +611,9 @@ class Solution {
         return _isSymmetric(root!.left, root!.right)
     }
     
-    
+    // MARK: -------------- 两整数之和 leetCode #371
     /*
-     leetCode #371
+     https://leetcode-cn.com/problems/sum-of-two-integers/
      不使用运算符 + 和-，计算两整数a 、b之和。
      示例：
      若 a = 1 ，b = 2，返回 3。

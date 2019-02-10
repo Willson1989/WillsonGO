@@ -10,7 +10,7 @@ import Foundation
 
 extension Solution {
     
-    // MARK: -------------- leetCode #203
+    // MARK: -------------- 移除链表元素 leetCode #203
     /*
      https://leetcode-cn.com/problems/remove-linked-list-elements/description/
      删除链表中等于给定值 val 的所有节点。
@@ -129,7 +129,7 @@ extension Solution {
         return res
     }
     
-    // MARK: -------------- leetCode #59
+    // MARK: -------------- 螺旋矩阵 II leetCode #59
     /*
      https://leetcode-cn.com/problems/spiral-matrix-ii/description/
      参考：可以参考#54，使用螺旋打印矩阵的逆向思维
@@ -202,7 +202,7 @@ extension Solution {
         return res
     }
     
-    // MARK: -------------- leetCode #171
+    // MARK: -------------- Excel表列序号 leetCode #171
     /*
      https://leetcode-cn.com/problems/excel-sheet-column-number/description/
      给定一个Excel表格中的列名称，返回其相应的列序号。
@@ -260,7 +260,7 @@ extension Solution {
         return sum
     }
     
-    // MARK: -------------- leetCode #168
+    // MARK: -------------- Excel表列名称 leetCode #168
     /*
      https://leetcode-cn.com/problems/excel-sheet-column-title/description/
      给定一个正整数，返回它在 Excel 表中相对应的列名称。
@@ -305,7 +305,7 @@ extension Solution {
         return res
     }
     
-    // MARK: -------------- leetCode #66
+    // MARK: -------------- 加一 leetCode #66
     /*
      https://leetcode-cn.com/problems/plus-one/description/
      给定一个由整数组成的非空数组所表示的非负整数，在该数的基础上加一。
@@ -347,7 +347,7 @@ extension Solution {
         return res
     }
     
-    // MARK: -------------- leetCode #840
+    // MARK: -------------- 矩阵中的幻方 leetCode #840
     /*
      https://leetcode-cn.com/problems/magic-squares-in-grid/description/
      3 x 3 的幻方是一个填充有从 1 到 9 的不同数字的 3 x 3 矩阵，其中每行，每列以及两条对角线上的各数之和都相等。
@@ -407,7 +407,7 @@ extension Solution {
         return total
     }
     
-    // MARK: -------------- leetCode #70
+    // MARK: -------------- 爬楼梯 leetCode #70
     /*
      https://leetcode-cn.com/problems/climbing-stairs/description/
      假设你正在爬楼梯。需要 n 阶你才能到达楼顶。 每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？
@@ -448,7 +448,7 @@ extension Solution {
         return _step(n, &cache)
     }
     
-    // MARK: -------------- leetCode #852
+    // MARK: -------------- 山脉数组的峰顶索引 leetCode #852
     /*
      https://leetcode-cn.com/problems/peak-index-in-a-mountain-array/description/
      我们把符合下列属性的数组 A 称作山脉：

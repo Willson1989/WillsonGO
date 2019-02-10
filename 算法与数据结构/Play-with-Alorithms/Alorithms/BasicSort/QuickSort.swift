@@ -99,6 +99,8 @@ public extension Sort {
     }
     
     //MARK: -  双路快速排序
+    // 当数组中有很多重复值的情况下，上述的normal快速排序会退化为n^2级别
+    // 原因是 == v 的元素会被交换到某一端，导致partition之后的二分树极不平衡
     public static func quickSort_2Ways(arr : inout [Int]) {
         let len = arr.count
         Sort._quickSort_2Ways(arr: &arr, left: 0, right: len-1)
@@ -132,7 +134,7 @@ public extension Sort {
                 i += 1
             }
             //由于left是基准值的位置，所以这里j最多可以达到left+1的位置
-            while j >= left + 1 && arr[j] > v{
+            while j >= left + 1 && arr[j] > v {
                 j -= 1
             }
             

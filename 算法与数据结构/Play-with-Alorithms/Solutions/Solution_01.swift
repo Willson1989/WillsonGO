@@ -70,7 +70,7 @@ extension Solution {
         return res
     }
     
-    // MARK: -------------- leetCode #33
+    // MARK: -------------- 搜索旋转排序数组 leetCode #33
     /*
      https://leetcode-cn.com/problems/search-in-rotated-sorted-array/description/
      假设按照升序排序的数组在预先未知的某个点上进行了旋转。
@@ -127,7 +127,7 @@ extension Solution {
         return -1
     }
     
-    // MARK: -------------- leetCode #53
+    // MARK: -------------- 最大子序和 leetCode #53
     /*
      https://leetcode-cn.com/problems/maximum-subarray/description/
      给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
@@ -197,7 +197,7 @@ extension Solution {
         return res_max
     }
     
-    // MARK: -------------- leetCode #746
+    // MARK: -------------- 使用最小花费爬楼梯 leetCode #746
     /*
      https://leetcode-cn.com/problems/min-cost-climbing-stairs/description/
      数组的每个索引做为一个阶梯，第 i个阶梯对应着一个非负数的体力花费值 cost[i](索引从0开始)。
@@ -249,7 +249,7 @@ extension Solution {
         return dp[len]
     }
     
-    // MARK: -------------- leetCode #704
+    // MARK: -------------- 二分查找 leetCode #704
     /*
      https://leetcode-cn.com/problems/binary-search/description/
      二分查找
@@ -270,7 +270,7 @@ extension Solution {
         return -1
     }
     
-    // MARK: -------------- leetCode #110
+    // MARK: -------------- 平衡二叉树 leetCode #110
     /*
      https://leetcode-cn.com/problems/balanced-binary-tree/description/
      给定一个二叉树，判断它是否是高度平衡的二叉树。 本题中，一棵高度平衡二叉树定义为：
@@ -313,7 +313,7 @@ extension Solution {
         return _isBalanced(root)
     }
     
-    // MARK: -------------- leetCode #111
+    // MARK: -------------- 二叉树的最小深度 leetCode #111
     /*
      https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/description/
      给定一个二叉树，找出其最小深度。 最小深度是从根节点到最近叶子节点的最短路径上的节点数量。
@@ -348,7 +348,7 @@ extension Solution {
         }
     }
     
-    // MARK: -------------- leetCode #20
+    // MARK: -------------- 有效的括号 leetCode #20
     /*
      https://leetcode-cn.com/problems/valid-parentheses/description/
      给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串，判断字符串是否有效。
@@ -404,7 +404,7 @@ extension Solution {
         return lArr.isEmpty
     }
 
-    // MARK: -------------- leetCode #844
+    // MARK: -------------- 比较含退格的字符串 leetCode #844
     /*
      https://leetcode-cn.com/problems/backspace-string-compare/description/
      给定 S 和 T 两个字符串，当它们分别被输入到空白的文本编辑器后，判断二者是否相等，并返回结果。 # 代表退格字符。
@@ -463,7 +463,7 @@ extension Solution {
         return true
     }
     
-    // MARK: -------------- leetCode #283
+    // MARK: -------------- 移动零 leetCode #283
     /*
      https://leetcode-cn.com/problems/move-zeroes/description/
      给定一个数组 nums，编写一个函数将所有 0 移动到数组的末尾，同时保持非零元素的相对顺序。
@@ -489,7 +489,7 @@ extension Solution {
         }
     }
     
-    // MARK: -------------- leetCode #27
+    // MARK: -------------- 移除元素 leetCode #27
     /*
      https://leetcode-cn.com/problems/remove-element/description/
      给定一个数组 nums 和一个值 val，你需要原地移除所有数值等于 val 的元素，返回移除后数组的新长度。
