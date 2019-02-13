@@ -512,4 +512,203 @@ extension Solution {
         }
         return res
     }
+    
+    // MARK: -------------- 回旋镖的数量 leetCode #447
+    /*
+     https://leetcode-cn.com/problems/number-of-boomerangs/submissions/
+     给定平面上 n 对不同的点，“回旋镖” 是由点表示的元组 (i, j, k) ，
+     其中 i 和 j 之间的距离和 i 和 k 之间的距离相等（需要考虑元组的顺序）。
+     找到所有回旋镖的数量。你可以假设 n 最大为 500，所有点的坐标在闭区间 [-10000, 10000] 中。
+     
+     示例:
+     输入:  [[0,0],[1,0],[2,0]]  输出: 2
+     
+     解释:
+     两个回旋镖为 [[1,0],[0,0],[2,0]] 和 [[1,0],[2,0],[0,0]]
+     
+     解法：
+     观察到 i 是一个 “枢纽”，对于每个点i，遍历其余点到 i 的距离对于每个枢纽 i，
+     计算它到其它点j的距离，并将距离作为键存入字典 dict 中，value 为距离的个数。时间复杂度为：O(n^2)。 距离作为键值。
+     如果对应距离的个数大于1，则证明存在回旋镖组合，对value进行全排列（value * （value-1））则得出了该回旋镖的数目
+     */
+    func numberOfBoomerangs(_ points: [[Int]]) -> Int {
+        
+        func getDistance(_ p1 : [Int], _ p2 : [Int]) -> Double {
+            let x = Double(p1[0] - p2[0])
+            let y = Double(p1[1] - p2[1])
+            return x * x + y * y
+        }
+        
+        // 以点 i 为枢纽记录其它点到 i 的距离作为key，而 value 则是到 i 点的相应距离的数目
+        var totalCount = 0
+        for i in 0 ..< points.count {
+            var distMap = [Double : Int]()
+            for j in 0 ..< points.count {
+                if i == j {
+                    continue
+                }
+                let d = getDistance(points[i], points[j])
+                if let count = distMap[d] {
+                    distMap[d] = count + 1
+                } else {
+                    distMap[d] = 1
+                }
+            }
+            var subCount = 0
+            //统计以 i 点为枢纽的回旋镖的数目
+            for (_, count) in distMap {
+                subCount = subCount + (count * (count - 1)) // 全排列
+            }
+            totalCount += subCount
+        }
+        return totalCount
+    }
+    
+    
+    // MARK: -------------- 直线上最多的点数 leetCode #149
+    /*
+     https://leetcode-cn.com/problems/max-points-on-a-line/
+     给定一个二维平面，平面上有 n 个点，求最多有多少个点在同一条直线上。
+     
+     示例 1:
+     输入: [[1,1],[2,2],[3,3]]  输出: 3
+     解释:
+     ^
+     |
+     |        o
+     |     o
+     |  o
+     +------------->
+     0  1  2  3  4
+     
+     示例 2:
+     输入: [[1,1],[3,2],[5,3],[4,1],[2,3],[1,4]]   输出: 4
+     解释:
+     ^
+     |
+     |  o
+     |     o        o
+     |        o
+     |  o        o
+     +------------------->
+     0  1  2  3  4  5  6
+     
+     
+     · 知识点：哈希表、欧几里得最大公约数算法
+     · 思路：用分数形式存储直线的斜率，切勿忘记斜率不存在的情况
+     · 解法：
+       1) 新建一个长度为点的数量的数组maxCount，用以保存对于每一个点i其斜率存在的情况下的直线的经过的最多的点的个数。
+       2) 首先设置一个外循环依次遍历所有的点，外循环变量记为i。每一次循环都新建一个哈希表用以记录与i点在同一条直线上
+          的直线的斜率以及该斜率直线下点的个数。 再新建一个变量samePointCount，用以记录与点i在坐标平面上位置相同的
+          点j的数量。还得新建一个变量verticalCount，用以记录经过点i且垂直于x轴（即斜率不存在）的直线的情况。
+       3) 再设置一个内循环依次遍历所有的点，内循环变量记为j。
+       4) 如果遍历到的点满足i ！= j，说明遍历到的不是同一个点，那么我们就需要来判断点j和点i是否在同一条直线上。
+          由数学基本知识可知，平面上的一点以及相应的斜率就可以确定一条直线。
+          设点A(x1, y1), 点B(x2, y2), 直线AB的斜率 K = (y2 - y1) / (x2 - x1)
+       5) 当点i的x坐标与点j的x坐标不相等时，点i和点j的斜率是存在的。由于直接求斜率会产生误差，LeetCode上的一些测试用例不能通过。
+          因此我们计算其分数形式表示的斜率，即dy/dx，其中dy为点i和点j的y坐标的差值，dx为点i和点j的x坐标的差值。
+          另外，我们需要把分数dy/dx化简到不能约分的形式，防止4/2和2/1这两条斜率明明相同的直线却被视作两条直线的情况出现。
+          需要保存两个变量dy和dx，可以用一个长度为2的整型数组arrKey来保存，其中arrKey[0]保存dy，arrKey[1]保存dx。
+          如果（1）中新建的哈希表中已经保存了nums的值，那么相应arrKey对应的值+1即可；否则，在哈希表中新增一个键arrKey，其值为1。
+       6) 在（4）中我们说需要对dy/dx进行约分处理，那么我们就需要一个函数来求dy和dx的最大公约数gcd，
+          令dy = dy / gcd，dx = dx / gcd。
+          该函数其实很简单，我们可以用欧几里得算法递归地求解，公式为gcd(a, b) = gcd(b, a mod b)。
+       7) 如果点i的x坐标与点j的x坐标相等，这又可以分为两种情况:
+          a) 如果点i的y坐标和点j的y坐标也相等，那么说明点i和点j的点在坐标平面上是同一个点，那么我们需要samePointCount++，
+             同时垂直于x轴的直线的数量也需要verticalCount++。
+          b) 如果点i的y坐标和点j的y坐标不相等，我们只需要对垂直于x轴的直线的数量 verticalCount 进行加1处理
+       8) 对于每一个点i，经过点i且经过点数最多的直线应该在verticalCount + 1(加一是要加上i点本身) 和（samePointCount + maxCount[i]）中取最大值。
+       9) 遍历一遍count数组，求得其最大值返回即可。
+     · 时间复杂度是O(n ^ 2)。空间复杂度是O(n)。
+     
+     · 参考： https://blog.csdn.net/qq_41231926/article/details/81475442
+     */
+    private func _maxPoints(_ points: [Point]) -> Int {
+        
+        // 求最大公约数
+        func getGCD(_ a : Int, _ b : Int) -> Int {
+            if b == 0 {
+                return a
+            }
+            return getGCD(b , a % b)
+        }
+        // 数组大小为点的个数，用来记录与每一个点在同一条直线上的最大点的个数
+        var maxCount : [Int] = Array(repeating: 0, count: points.count)
+        
+        
+        for i in 0 ..< points.count {
+            // 至少有一个点
+            maxCount[i] = 1
+            // 经过点i，和i垂直的点的个数，由于垂直两点的斜率不存在（除零），所以单独统计
+            var verticalCount : Int = 0
+            var samePointCount : Int = 0
+            // 以斜率信息为为key， 该斜率对应的直线上(经过i点)的点的个数为value
+            var map = [[Int] : Int]()
+            
+            for j in 0 ..< points.count {
+                if i == j {
+                    continue
+                }
+                // j 到 i 的线段
+                if points[i].x != points[j].x {
+                    let dx = points[i].x - points[j].x
+                    let dy = points[i].y - points[j].y
+                    let gcd = getGCD(dx, dy)
+                    let arrKey = [dx / gcd, dy / gcd]
+                    if let count = map[arrKey] {
+                        map[arrKey] = count + 1
+                    } else {
+                        map[arrKey] = 1
+                    }
+                }
+                else { //points[i].x == points[j].x
+                    if points[i].y == points[j].y {
+                        //如果有坐标也相等，则是同一个点
+                        samePointCount += 1
+                    }
+                    verticalCount += 1
+                }
+            }
+            
+            for (_, pCount) in map {
+                let finalCount = pCount + 1 // 加上i点本身
+                if finalCount > maxCount[i] {
+                    maxCount[i] = finalCount
+                }
+            }
+            
+            // 有斜率的直线上的点的总数（包括坐标与 i 点相同的点的个数）
+            // 没有斜率的直线（垂直经过i点的直线线）上的点的总数（包括坐标与 i 点相同的点的个数）
+            // 上述两者取最大值，即为和i点的在同一条直线上数目最多的点的个数
+            maxCount[i] = maxCount[i] + samePointCount
+            maxCount[i] = max(maxCount[i], verticalCount + 1)
+            
+        }
+        var res : Int = 0
+        for count in maxCount {
+            if count > res {
+                res = count
+            }
+        }
+        return res
+    }
+    
+    // Definition for a point.
+    class Point {
+        public var x: Int
+        public var y: Int
+        public init(_ x: Int, _ y: Int) {
+            self.x = x
+            self.y = y
+        }
+    }
+    
+    func maxPoints(_ points: [[Int]]) -> Int {
+        var pArr = [Point]()
+        for p in points {
+            let pModel = Point(p[0], p[1])
+            pArr.append(pModel)
+        }
+        return _maxPoints(pArr)
+    }
 }

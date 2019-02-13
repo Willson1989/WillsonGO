@@ -10,6 +10,16 @@ import Foundation
 
 class Solution {
     
+    // MARK: -------------- 求两个数的最大公约数
+    func getGCD(_ a : Int, _ b : Int) -> Int {
+        if b == 0 {
+            return a
+        }
+        return getGCD(b , a % b)
+    }
+
+    
+    
     // MARK: -------------- 数组中的重复 leetCode  #26
     /*
      https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/description/
