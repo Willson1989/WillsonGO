@@ -415,4 +415,101 @@ extension Solution {
         return res
     }
     
+    // MARK: -------------- 四数相加 II leetCode #454
+    /*
+     https://leetcode-cn.com/problems/4sum-ii/
+     给定四个包含整数的数组列表 A , B , C , D ,计算有多少个元组 (i, j, k, l) ，使得 A[i] + B[j] + C[k] + D[l] = 0。
+     为了使问题简单化，所有的 A, B, C, D 具有相同的长度 N，且 0 ≤ N ≤ 500 。所有整数的范围在 -228 到 228 - 1 之间，
+     最终结果不会超过 231 - 1 。
+     
+     例如:
+     输入:
+     A = [ 1, 2]
+     B = [-2,-1]
+     C = [-1, 2]
+     D = [ 0, 2]
+     
+     输出:
+     2
+     
+     解释:
+     两个元组如下:
+     1. (0, 0, 0, 1) -> A[0] + B[0] + C[0] + D[1] = 1 + (-2) + (-1) + 2 = 0
+     2. (1, 1, 0, 0) -> A[1] + B[1] + C[0] + D[0] = 2 + (-1) + (-1) + 0 = 0
+     
+     解法：
+     合理合理运用查找表的键值，首先遍历A、B两个数组，将两个数组中所有元素搭配求和之后的值作为键值存储到 map 中，value值为次数。
+     再遍历C、D两个数组，将0减去C中某一个元素和D中某一个元素相加的和（0 - (C[i] + D[j])）作为key到map中查找，如果找到了就代表之前
+     遍历A和B时有两个元素之和再加上C、D两数之和正好为0。
+     */
+    func fourSumCount(_ A: [Int], _ B: [Int], _ C: [Int], _ D: [Int]) -> Int {
+        var map = [Int : Int]()
+        for i in 0 ..< A.count {
+            for j in 0 ..< B.count {
+                let key = A[i] + B[j]
+                if let count = map[key] {
+                    map[key] = count + 1
+                } else {
+                    map[key] = 1
+                }
+            }
+        }
+
+        var res = 0
+        for i in 0 ..< C.count {
+            for j in 0 ..< D.count {
+                let key = 0 - ( C[i] + D[j] ) // A + B
+                if let count = map[key] {
+                    res += count
+                }
+            }
+        }
+        return res
+    }
+    
+    // MARK: -------------- 字母异位词分组 leetCode #49
+    /*
+     https://leetcode-cn.com/problems/group-anagrams/
+     给定一个字符串数组，将字母异位词组合在一起。字母异位词指字母相同，但排列不同的字符串。
+     
+     示例:
+     
+     输入: ["eat", "tea", "tan", "ate", "nat", "bat"],
+     输出:
+     [
+     ["ate","eat","tea"],
+     ["nat","tan"],
+     ["bat"]
+     ]
+     说明：
+     
+     所有输入均为小写字母。
+     不考虑答案输出的顺序。
+     
+     解法：
+     遍历数组，将每一个单词按字符排序之后作为key存入字典中，字典的value对应的是一个set
+     */
+    func groupAnagrams(_ strs: [String]) -> [[String]] {
+        
+        func sort(_ s : String) -> String {
+            return String(s.sorted())
+        }
+        var map = [String : [String]]()
+        for str in strs {
+            let key = sort(str)
+            if var arr = map[key] {
+                arr.append(str)
+                map[key] = arr
+            } else {
+                var arr = [String]()
+                arr.append(str)
+                map[key] = arr
+            }
+        }
+        var res = [[String]]()
+        for (_ , strs) in map {
+            res.append(strs)
+        }
+        return res
+    }
 }

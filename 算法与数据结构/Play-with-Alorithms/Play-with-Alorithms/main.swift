@@ -28,11 +28,6 @@ func intersection_1(_ nums1: [Int], _ nums2: [Int]) -> [Int] {
 
 let s = Solution()
 
-
-let aaa = [1,-2,-5,-4,-3,3,3,5]
-let ttt = -11
-let res = s.fourSum(aaa, ttt)
-
+let sss = ["eat","tea","tan","ate","nat","bat"]
+let res = s.groupAnagrams(sss)
 print(res)
-
-
