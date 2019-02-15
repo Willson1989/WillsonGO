@@ -28,23 +28,21 @@ func intersection_1(_ nums1: [Int], _ nums2: [Int]) -> [Int] {
 
 let s = Solution()
 
-let input = [[1,1],[3,2],[5,3],[4,1],[2,3],[1,4]]
-let p1 = [1,1]
-let p2 = [3,2]
-let p3 = [5,3]
-let p4 = [5,3]
-let p5 = [4,1]
-let p6 = [1,4]
-
-let keys = [p1,p2,p3,p4,p5,p6]
-
-var map = [[Int] : String]()
-for p in keys {
-    map[p] = "[\(p[0]), \(p[1])]"
-}
-var pkey = [5,3]
-pkey[0] = 1
-pkey[1] = 1
-print("maxPoints : ",s.maxPoints(input))
+let input = [2,1]
+print("containsNearbyDuplicate : ",s.containsNearbyAlmostDuplicate(input, 1,1))
 
 
+let island : [[Character]] =
+    [
+        []
+]
+//[
+// ["1","1","1","1","0","1","1","1"],
+// ["1","1","1","1","0","1","1","1"],
+// ["1","1","0","0","0","0","0","0"],
+// ["1","1","0","1","1","0","1","1"],
+// ["1","1","0","1","1","0","0","1"],
+// ["1","1","0","1","1","0","0","1"],
+//]
+
+print("numIslands : ",s.numIslands(island))

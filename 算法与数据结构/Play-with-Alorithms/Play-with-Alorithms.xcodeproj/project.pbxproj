@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		045788E22215464900AC9010 /* LeetCode_MyCircularQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045788E12215464900AC9010 /* LeetCode_MyCircularQueue.swift */; };
+		04638DA92215784B007B8556 /* Solution_05.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04638DA82215784B007B8556 /* Solution_05.swift */; };
 		04A7811321269EE800D9384D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7811221269EE800D9384D /* main.swift */; };
 		04A7814621269F2900D9384D /* 拓展知识.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7811A21269F2900D9384D /* 拓展知识.swift */; };
 		04A7814721269F2900D9384D /* UnionFind_CompressPath_01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7811C21269F2900D9384D /* UnionFind_CompressPath_01.swift */; };
@@ -66,6 +68,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		045788E12215464900AC9010 /* LeetCode_MyCircularQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeetCode_MyCircularQueue.swift; sourceTree = "<group>"; };
+		04638DA82215784B007B8556 /* Solution_05.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solution_05.swift; sourceTree = "<group>"; };
 		04A7810F21269EE800D9384D /* Play-with-Alorithms */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Play-with-Alorithms"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04A7811221269EE800D9384D /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		04A7811A21269F2900D9384D /* 拓展知识.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "拓展知识.swift"; sourceTree = "<group>"; };
@@ -129,7 +133,7 @@
 		04A7810621269EE800D9384D = {
 			isa = PBXGroup;
 			children = (
-				04A781692126A16800D9384D /* Solutions */,
+				04A781692126A16800D9384D /* LeetCode */,
 				04A7811921269F2900D9384D /* Alorithms */,
 				04A7811121269EE800D9384D /* Play-with-Alorithms */,
 				04A7811021269EE800D9384D /* Products */,
@@ -267,7 +271,7 @@
 			path = Heap;
 			sourceTree = "<group>";
 		};
-		04A781692126A16800D9384D /* Solutions */ = {
+		04A781692126A16800D9384D /* LeetCode */ = {
 			isa = PBXGroup;
 			children = (
 				04A7816A2126A16800D9384D /* Solution.swift */,
@@ -276,8 +280,10 @@
 				04A7824C212C2AD100D9384D /* Solution_02.swift */,
 				04D6D94D2135963B00099EC5 /* Solution_03.swift */,
 				04BA9214220BCACE004F1FF8 /* Solution_04.swift */,
+				04638DA82215784B007B8556 /* Solution_05.swift */,
+				045788E12215464900AC9010 /* LeetCode_MyCircularQueue.swift */,
 			);
-			path = Solutions;
+			path = LeetCode;
 			sourceTree = "<group>";
 		};
 		04A7816B2126A16800D9384D /* Dependencies */ = {
@@ -380,6 +386,7 @@
 				04A7815621269F2900D9384D /* DenseGraphW_Matrix.swift in Sources */,
 				04A7815921269F2900D9384D /* SparseGraph.swift in Sources */,
 				04A7811321269EE800D9384D /* main.swift in Sources */,
+				04638DA92215784B007B8556 /* Solution_05.swift in Sources */,
 				04A7814721269F2900D9384D /* UnionFind_CompressPath_01.swift in Sources */,
 				04A7814F21269F2900D9384D /* AdjacentIterators.swift in Sources */,
 				04A7815721269F2900D9384D /* SparseGraphW.swift in Sources */,
@@ -394,6 +401,7 @@
 				04A7815121269F2900D9384D /* SourceShortestPath.swift in Sources */,
 				04A781722126A16800D9384D /* BSTree.swift in Sources */,
 				04A781702126A16800D9384D /* Solution.swift in Sources */,
+				045788E22215464900AC9010 /* LeetCode_MyCircularQueue.swift in Sources */,
 				04A7814E21269F2900D9384D /* UnionFind_UsingSize.swift in Sources */,
 				04A7814821269F2900D9384D /* UnionFind_UsingRank.swift in Sources */,
 				04A7816621269F2900D9384D /* IndexHeap.swift in Sources */,

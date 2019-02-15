@@ -632,9 +632,9 @@ extension Solution {
             }
             return getGCD(b , a % b)
         }
+        
         // 数组大小为点的个数，用来记录与每一个点在同一条直线上的最大点的个数
         var maxCount : [Int] = Array(repeating: 0, count: points.count)
-        
         
         for i in 0 ..< points.count {
             // 至少有一个点
@@ -710,5 +710,92 @@ extension Solution {
             pArr.append(pModel)
         }
         return _maxPoints(pArr)
+    }
+    
+    // MARK: -------------- 存在重复元素 II leetCode #219
+    /*
+     https://leetcode-cn.com/problems/contains-duplicate-ii/
+     给定一个整数数组和一个整数 k，判断数组中是否存在两个不同的索引 i 和 j，
+     使得 nums [i] = nums [j]，并且 i 和 j 的差的绝对值最大为 k。
+     
+     示例 1:
+     输入: nums = [1,2,3,1], k = 3 输出: true
+     
+     示例 2:
+     输入: nums = [1,0,1,1], k = 1 输出: true
+     
+     示例 3:
+     输入: nums = [1,2,3,1,2,3], k = 2 输出: false
+     
+     使用滑动窗口和查找表来解答此题:
+     滑动窗口指在查找表中限制有限的元素个数（限制可视范围），并对即将放入的元素进行条件判断
+     该题中，循环遍历数组元素并将元素放入查找表中，然后不断查找当前滑动窗口中是否有重复值，
+     当窗口中元素大于k时，要将窗口中最左边的元素移除（保证窗口中有<=k的个数的元素）
+     */
+    func containsNearbyDuplicate(_ nums: [Int], _ k: Int) -> Bool {
+        let len = nums.count
+        if len <= 1 {
+            return false
+        }
+        var set = Set<Int>()
+        for i in 0 ..< len {
+            
+            // 如果在有限个数k的窗口中包含相同的元素，则条件成立，返回true
+            if set.contains(nums[i]) {
+                return true
+            }
+            set.insert(nums[i])
+            if set.count > k {
+                // 如果窗口中元素个数>k，则移出最左边的元素(最老的元素)，保证窗口大小为k
+                set.remove(nums[i-k])
+            }
+        }
+        return false
+    }
+    
+    // MARK: -------------- 存在重复元素 III leetCode #220
+    /*
+     https://leetcode-cn.com/problems/contains-duplicate-iii/
+     给定一个整数数组，判断数组中是否有两个不同的索引 i 和 j，
+     使得 nums [i] 和 nums [j] 的差的绝对值最大为 t，并且 i 和 j 之间的差的绝对值最大为 k。
+     
+     示例 1:
+     输入: nums = [1,2,3,1], k = 3, t = 0 输出: true
+     
+     示例 2:
+     输入: nums = [1,0,1,1], k = 1, t = 2 输出: true
+     
+     示例 3:
+     输入: nums = [1,5,9,1,5,9], k = 2, t = 3 输出: false
+     
+     依然使用#219的思路，使用滑动窗口和查找表来解答此题:
+     限制滑动窗口的大小为k，当遍历数组得到一个元素时，用该元素与查找表滑动窗口中的每个元素做相减绝对值处理。
+     如果得数 <= t, 则满足题中条件，return true
+     */
+    func containsNearbyAlmostDuplicate(_ nums: [Int], _ k: Int, _ t: Int) -> Bool {
+        let len = nums.count
+        if len <= 1 {
+            return false
+        }
+        var set = Set<Int>()
+        for i in 0 ..< len {
+            let elem = nums[i]
+            if t == 0 {
+                if set.contains(elem) {
+                    return true
+                }
+            } else {
+                for subElem in set {
+                    if abs(elem - subElem) <= t {
+                        return true
+                    }
+                }
+            }
+            set.insert(elem)
+            if set.count > k {
+                set.remove(nums[i - k])
+            }
+        }
+        return false
     }
 }
