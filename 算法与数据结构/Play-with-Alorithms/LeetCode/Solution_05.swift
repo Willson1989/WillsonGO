@@ -219,7 +219,7 @@ extension Solution {
      在获取某一结点k的邻接结点时，只需要从1到k遍历并求值a=k-i*i,如果a>0,则a是k的邻接结点将其加入队列，如果a==0，则求解结束，a<0则跳出循环
      参考：https://blog.csdn.net/hghggff/article/details/83756088
      */
-    func numSquares(_ n: Int) -> Int {
+    func numSquares_bfs(_ n: Int) -> Int {
         /* 抽象成图的最短路径的问题，并利用广度优先搜索的方式求解 */
         let queue = BasicQueue<Int>()
         var visited = Set<Int>()
@@ -253,6 +253,67 @@ extension Solution {
             step += 1
         }
         return step
+    }
+    
+    /*
+     解法2：
+     动态规划，推到出状态转换方程之后解决。
+     创建dp数组用来存储每个数的最小的完全平方数如ap[i] = k, 那么数字i的最小的完全平方数就是k。
+     每一个数字（除了零以外）都可以由该数字大小数目的1相加而成，所以dp的数组中元素的初始值可以设置为i，即dp[i]=i（0则特殊，值为1）
+     
+     通过计算有如下现象：
+     1 = 1 * 1
+     2 = 1 + 1
+     3 = 2 + 1
+     4 = 2 * 2
+     5 = 4 + 1
+     6 = 5 + 1, 2 + 4
+     7 = 6 + 1, 3 + 4
+     8 = 7 + 1, 4 + 4
+     9 = 8 + 1, 5 + 4、 9（9 + 0）
+     10 = 9 + 1 , 6 + 4
+     11 = 10 + 1, 7 + 4, 9 + 2
+     12 = 11 + 1, 8 + 4, 9 + 3
+     13 = 12 + 1, 9 + 4
+     
+     则
+     dp[1]  = 1
+     dp[2]  = dp[1] + 1 = 2
+     dp[3]  = dp[2] + 1 = 2 + 1 = 3
+     dp[4]  = 1
+     dp[5]  = dp[4] + 1 = 1 + 1 = 2
+     dp[6]  = min( dp[5] + 1, dp[2] + 1 )
+     dp[7]  = min( dp[6] + 1, dp[3] + 1 )
+     dp[8]  = min( dp[7] + 1, dp[4] + 1 )
+     dp[9]  = 1
+     dp[10] = min( dp[9] + 1 , dp[6] + 1 )
+     dp[11] = min( dp[10] + 1, dp[7] + 1, dp[2] + 1 )
+     dp[12] = min( dp[11] + 1, dp[8] + 1, dp[3] + 1 )
+     dp[13] = min( dp[12] + 1, dp[9] + 1 )
+     
+     所以可以推到出：
+     dp[n] = min ( dp[n - i * i] + 1, dp[n] )
+     其中i为从1开始每次循环累加1，并且i*i <= n
+     
+     参考：
+     https://segmentfault.com/a/1190000013363355
+     https://www.cnblogs.com/rainxbow/p/9700908.html
+     */
+    func numSquares_dp(_ n: Int) -> Int {
+        var dp = Array(repeating: 1, count: n+1)
+        for i in 0 ... n {
+            dp[i] = i > 1 ? i : 1
+            var j = 1
+            while j * j <= i {
+                if j * j == i {
+                    dp[i] = 1
+                } else {
+                    dp[i] = min(dp[i], dp[i-j*j] + 1)
+                }
+                j += 1
+            }
+        }
+        return dp[n]
     }
     
     
