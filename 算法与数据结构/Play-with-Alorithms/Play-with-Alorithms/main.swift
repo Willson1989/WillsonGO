@@ -45,10 +45,11 @@ let island : [[Character]] =
 // ["1","1","0","1","1","0","0","1"],
 //]
 
-let inininin = [73,74,75,71,69,72,76,73]
-//let inininin = [Int]()
-print("dailyTemperatures : ",s.dailyTemperatures_stack(inininin))
+//let ininin = ["10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+"]
+//let ininin = ["4", "13", "5", "/", "+"]
+//let ininin = ["2", "1", "+", "3", "*"]
+let ininin = ["2","+"]
 
-
+print("evalRPN : ", s.evalRPN(ininin))
 
 
