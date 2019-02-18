@@ -297,6 +297,7 @@ extension Solution {
      
      参考：
      https://segmentfault.com/a/1190000013363355
+     https://blog.csdn.net/happyaaaaaaaaaaa/article/details/51584790
      https://www.cnblogs.com/rainxbow/p/9700908.html
      */
     func numSquares_dp(_ n: Int) -> Int {
@@ -317,6 +318,210 @@ extension Solution {
     }
     
     
+    // MARK: -------------- 每日温度 leetCode #739
+    /*
+     https://leetcode-cn.com/problems/daily-temperatures/
+     根据每日 气温 列表，请重新生成一个列表，对应位置的输入是你需要再等待多久温度才会升高的天数。
+     如果之后都不会升高，请输入 0 来代替。
+     
+     例如，给定一个列表 temperatures = [73, 74, 75, 71, 69, 72, 76, 73]，你的输出应该是 [1, 1, 4, 2, 1, 1, 0, 0]。
+     提示：气温 列表长度的范围是 [1, 30000]。每个气温的值的都是 [30, 100] 范围内的整数。
+     */
+    // 暴力解法：双重循环会超出时间限制
+    func dailyTemperatures(_ T: [Int]) -> [Int] {
+        guard T.isEmpty == false else { return [] }
+        var res = Array(repeating: 0, count: T.count)
+        for i in 0 ..< T.count-1 {
+            for k in i+1 ..< T.count {
+                if T[k] > T[i] {
+                    res[i] = k - i
+                    break
+                }
+            }
+        }
+        return res
+    }
+    
+    /*
+     使用 递减栈 解决：
+     栈里只有递减元素，思路是这样的，我们遍历数组，如果栈不空，且当前数字大于栈顶元素，
+     那么如果直接入栈的话就不是递减栈了。所以我们取出栈顶元素，那么由于当前数字大于栈顶元素的数字，
+     而且一定是第一个大于栈顶元素的数，那么我们直接求出下标差就是二者的距离了，
+     然后继续看新的栈顶元素，直到当前数字小于等于栈顶元素停止，然后将数字入栈，
+     这样就可以一直保持递减栈，且每个数字和第一个大于它的数的距离也可以算出来了
+     参考：https://blog.csdn.net/jackzhang_123/article/details/78894769
+     */
+    func dailyTemperatures_stack(_ T: [Int]) -> [Int] {
+        class BasicStack {
+            
+            fileprivate var data = [Int]()
+            
+            func push(_ x: Int) {
+                data.append(x)
+            }
+            
+            func pop() {
+                if data.isEmpty {
+                    return
+                }
+                data.removeLast()
+            }
+            
+            func top() -> Int? {
+                if data.isEmpty {
+                    return nil
+                }
+                return data.last!
+            }
+            
+            func isEmpty() -> Bool {
+                return data.count <= 0
+            }
+        }
+        guard T.isEmpty == false else { return [] }
+        var res = Array(repeating: 0, count: T.count)
+        let s = BasicStack()
+        for i in 0 ..< T.count {
+            while !s.isEmpty() && T[i] > T[s.top()!] {
+                // 总是保持栈中栈底元素到栈顶元素是递减的
+                // 如果当前元素大于栈顶元素，则pop之后将大的元素入栈
+                let top = s.top()!
+                s.pop()
+                res[top] = i - top
+            }
+            s.push(i)
+        }
+        return res
+    }
+    
+    // MARK: -------------- 逆波兰表达式求值 leetCode #150
+    /*
+     https://leetcode-cn.com/problems/evaluate-reverse-polish-notation/
+     根据逆波兰表示法（https://baike.baidu.com/item/逆波兰式/128437），求表达式的值。
+     
+     有效的运算符包括 +, -, *, / 。每个运算对象可以是整数，也可以是另一个逆波兰表达式。
+     
+     说明：
+     整数除法只保留整数部分。
+     给定逆波兰表达式总是有效的。换句话说，表达式总会得出有效数值且不存在除数为 0 的情况。
+     示例 1：
+     
+     输入: ["2", "1", "+", "3", "*"]    输出: 9
+     解释: ((2 + 1) * 3) = 9
+     示例 2：
+     
+     输入: ["4", "13", "5", "/", "+"]   输出: 6
+     解释: (4 + (13 / 5)) = 6
+     示例 3：
+     
+     输入: ["10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+"]  输出: 22
+     解释:
+     ((10 * (6 / ((9 + 3) * -11))) + 17) + 5
+     = ((10 * (6 / (12 * -11))) + 17) + 5
+     = ((10 * (6 / -132)) + 17) + 5
+     = ((10 * 0) + 17) + 5
+     = (0 + 17) + 5
+     = 17 + 5
+     = 22
+     */
+    func evalRPN(_ tokens: [String]) -> Int {
+        class BasicStack {
+            fileprivate var data = [Int]()
+            func isEmpty() -> Bool { return data.count <= 0 }
+            func push(_ x: Int) { data.append(x) }
+            func pop() {
+                if data.isEmpty { return }
+                data.removeLast()
+            }
+            func top() -> Int? {
+                if data.isEmpty { return nil }
+                return data.last!
+            }
+            func size() -> Int { return data.count }
+        }
+        
+        func makeOP(_ a : Int, _ op : String, _ b : Int) -> Int {
+            switch op {
+            case "+": return a+b
+            case "-": return a-b
+            case "*": return a*b
+            default:  return a/b
+            }
+        }
+        
+        let opSet : Set<String> = ["+", "-", "*", "/"]
+        if tokens.count == 1 && !opSet.contains(tokens[0]) {
+            return Int(tokens[0]) ?? 0
+        }
+        let numStack = BasicStack()
+        for c in tokens {
+            let isNum = !opSet.contains(c)
+            if isNum {
+                numStack.push(Int(c) ?? 0)
+            } else {
+                let num1 = numStack.top() ?? 0
+                numStack.pop()
+                let num2 = numStack.top() ?? 0
+                numStack.pop()
+                numStack.push(makeOP(num2, c, num1))
+            }
+        }
+        return numStack.top() ?? 0
+    }
+
+    
+    //MARK: - Stack for solutions
+    class BasicStack<T : Comparable> {
+        
+        fileprivate var minItems = [T]()
+        fileprivate var data = [T]()
+        
+        init() {
+            
+        }
+        
+        func push(_ x: T) {
+            if data.isEmpty {
+                minItems.append(x)
+                data.append(x)
+            } else {
+                data.append(x)
+                if x <= minItems.last! {
+                    minItems.append(x)
+                }
+            }
+        }
+        
+        func pop() {
+            if data.isEmpty {
+                return
+            }
+            let last = data.last!
+            let min  = minItems.last!
+            if last == min {
+                minItems.removeLast()
+            }
+            data.removeLast()
+        }
+        
+        func top() -> T? {
+            if data.isEmpty {
+                return nil
+            }
+            return data.last!
+        }
+        
+        func getMin() -> T?{
+            if minItems.isEmpty {
+                return nil
+            }
+            return minItems.last!
+        }
+        
+        func isEmpty() -> Bool {
+            return data.count <= 0
+        }
+    }
     
     //MARK: - Queue for solutions
     class BasicQueue<T> {
@@ -356,6 +561,8 @@ extension Solution {
             return self.queueArr.count
         }
     }
+
+
 }
 
 
