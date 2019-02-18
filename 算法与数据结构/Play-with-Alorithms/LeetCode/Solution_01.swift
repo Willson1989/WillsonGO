@@ -403,6 +403,42 @@ extension Solution {
         }
         return lArr.isEmpty
     }
+    
+    /*
+     使用栈来解决：
+     遍历字符串的每个字符，凡是遇到左括号，都入栈。
+     如果遇到右括号，则与栈顶元素做匹配，如果匹配，则栈做pop操作，同时遍历到下一个字符
+     如果不匹配，字符串不满足条件
+     */
+    func isBracketsBalances_stack(_ s : String) -> Bool {
+        func isPair(_ l : Character, _ r : Character) -> Bool {
+            switch l {
+            case "(": return r == ")"
+            case "[": return r == "]"
+            case "{": return r == "}"
+            default : return false
+            }
+        }
+        
+        if s.isEmpty {
+            return true
+        }
+        let stk = BasicStack<Character>()
+        for c in s {
+            if c == "{" || c == "(" || c == "[" {
+                stk.push(c)
+            } else {
+                guard let top = stk.top() else {
+                    return false
+                }
+                if isPair(top, c) {
+                    return false
+                }
+                stk.pop()
+            }
+        }
+        return stk.isEmpty()
+    }
 
     // MARK: -------------- 比较含退格的字符串 leetCode #844
     /*

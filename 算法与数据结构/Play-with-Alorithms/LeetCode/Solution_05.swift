@@ -297,6 +297,7 @@ extension Solution {
      
      参考：
      https://segmentfault.com/a/1190000013363355
+     https://blog.csdn.net/happyaaaaaaaaaaa/article/details/51584790
      https://www.cnblogs.com/rainxbow/p/9700908.html
      */
     func numSquares_dp(_ n: Int) -> Int {
@@ -317,6 +318,135 @@ extension Solution {
     }
     
     
+    // MARK: -------------- 打开转盘锁 leetCode #739
+    /*
+     https://leetcode-cn.com/problems/daily-temperatures/
+     根据每日 气温 列表，请重新生成一个列表，对应位置的输入是你需要再等待多久温度才会升高的天数。
+     如果之后都不会升高，请输入 0 来代替。
+     
+     例如，给定一个列表 temperatures = [73, 74, 75, 71, 69, 72, 76, 73]，你的输出应该是 [1, 1, 4, 2, 1, 1, 0, 0]。
+     提示：气温 列表长度的范围是 [1, 30000]。每个气温的值的都是 [30, 100] 范围内的整数。
+     */
+    // 暴力解法：双重循环会超出时间限制
+    func dailyTemperatures(_ T: [Int]) -> [Int] {
+        guard T.isEmpty == false else { return [] }
+        var res = Array(repeating: 0, count: T.count)
+        for i in 0 ..< T.count-1 {
+            for k in i+1 ..< T.count {
+                if T[k] > T[i] {
+                    res[i] = k - i
+                    break
+                }
+            }
+        }
+        return res
+    }
+    
+    /*
+     使用 递减栈 解决：
+     栈里只有递减元素，思路是这样的，我们遍历数组，如果栈不空，且当前数字大于栈顶元素，
+     那么如果直接入栈的话就不是递减栈了。所以我们取出栈顶元素，那么由于当前数字大于栈顶元素的数字，
+     而且一定是第一个大于栈顶元素的数，那么我们直接求出下标差就是二者的距离了，
+     然后继续看新的栈顶元素，直到当前数字小于等于栈顶元素停止，然后将数字入栈，
+     这样就可以一直保持递减栈，且每个数字和第一个大于它的数的距离也可以算出来了
+     参考：https://blog.csdn.net/jackzhang_123/article/details/78894769
+     */
+    func dailyTemperatures_stack(_ T: [Int]) -> [Int] {
+        class BasicStack {
+            
+            fileprivate var data = [Int]()
+            
+            func push(_ x: Int) {
+                data.append(x)
+            }
+            
+            func pop() {
+                if data.isEmpty {
+                    return
+                }
+                data.removeLast()
+            }
+            
+            func top() -> Int? {
+                if data.isEmpty {
+                    return nil
+                }
+                return data.last!
+            }
+            
+            func isEmpty() -> Bool {
+                return data.count <= 0
+            }
+        }
+        guard T.isEmpty == false else { return [] }
+        var res = Array(repeating: 0, count: T.count)
+        let s = BasicStack()
+        for i in 0 ..< T.count {
+            while !s.isEmpty() && T[i] > T[s.top()!] {
+                // 总是保持栈中栈底元素到栈顶元素是递减的
+                // 如果当前元素大于栈顶元素，则pop之后将大的元素入栈
+                let top = s.top()!
+                s.pop()
+                res[top] = i - top
+            }
+            s.push(i)
+        }
+        return res
+    }
+
+    
+    //MARK: - Stack for solutions
+    class BasicStack<T : Comparable> {
+        
+        fileprivate var minItems = [T]()
+        fileprivate var data = [T]()
+        
+        init() {
+            
+        }
+        
+        func push(_ x: T) {
+            if data.isEmpty {
+                minItems.append(x)
+                data.append(x)
+            } else {
+                data.append(x)
+                if x <= minItems.last! {
+                    minItems.append(x)
+                }
+            }
+        }
+        
+        func pop() {
+            if data.isEmpty {
+                return
+            }
+            let last = data.last!
+            let min  = minItems.last!
+            if last == min {
+                minItems.removeLast()
+            }
+            data.removeLast()
+        }
+        
+        func top() -> T? {
+            if data.isEmpty {
+                return nil
+            }
+            return data.last!
+        }
+        
+        func getMin() -> T?{
+            if minItems.isEmpty {
+                return nil
+            }
+            return minItems.last!
+        }
+        
+        func isEmpty() -> Bool {
+            return data.count <= 0
+        }
+    }
     
     //MARK: - Queue for solutions
     class BasicQueue<T> {
@@ -356,6 +486,8 @@ extension Solution {
             return self.queueArr.count
         }
     }
+
+
 }
 
 

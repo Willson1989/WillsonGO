@@ -45,4 +45,10 @@ let island : [[Character]] =
 // ["1","1","0","1","1","0","0","1"],
 //]
 
-print("numSquares : ",s.numSquares_dp(13))
+let inininin = [73,74,75,71,69,72,76,73]
+//let inininin = [Int]()
+print("dailyTemperatures : ",s.dailyTemperatures_stack(inininin))
+
+
+
+
