@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d0966329-6fbc-4c7c-9937-1463aca53f8b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/算法与数据结构/Play-with-Alorithms/Play-with-Alorithms.xcodeproj/project.xcworkspace/xcuserdata/willhelen.xcuserdatad/UserInterfaceState.xcuserstate" afterPath="$PROJECT_DIR$/算法与数据结构/Play-with-Alorithms/Play-with-Alorithms.xcodeproj/project.xcworkspace/xcuserdata/willhelen.xcuserdatad/UserInterfaceState.xcuserstate" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/算法与数据结构/Play-with-Alorithms/Play-with-Alorithms.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/算法与数据结构/Play-with-Alorithms/Play-with-Alorithms.xcodeproj/project.pbxproj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/算法与数据结构/Play-with-Alorithms/LeetCode/Solutions_JS.html" afterPath="$PROJECT_DIR$/算法与数据结构/Play-with-Alorithms/LeetCode/Solutions_JS.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -20,8 +20,8 @@
       <file leaf-file-name="Solutions_JS.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/算法与数据结构/Play-with-Alorithms/LeetCode/Solutions_JS.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="469">
-              <caret line="64" column="51" lean-forward="true" selection-start-line="64" selection-start-column="51" selection-end-line="64" selection-end-column="51" />
+            <state relative-caret-position="151">
+              <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="77" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -137,12 +137,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1550501241744</updated>
-      <workItem from="1550501245024" duration="4421000" />
+      <workItem from="1550501245024" duration="5228000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4421000" />
+    <option name="totallyTimeSpent" value="5228000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1029" height="826" extended-state="0" />
@@ -179,8 +179,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/算法与数据结构/Play-with-Alorithms/LeetCode/Solutions_JS.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="64" column="51" lean-forward="true" selection-start-line="64" selection-start-column="51" selection-end-line="64" selection-end-column="51" />
+        <state relative-caret-position="151">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="77" selection-end-column="2" />
           <folding />
         </state>
       </provider>

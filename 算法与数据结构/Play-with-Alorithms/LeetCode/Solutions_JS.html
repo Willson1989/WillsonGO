@@ -38,7 +38,7 @@ Queue.prototype.dequeue = function() {
     if (this.isEmpty()) {
         return
     }
-    this.data.pop()
+    this.data.shift()
 }
 
 Queue.prototype.size = function () {
@@ -53,27 +53,26 @@ Queue.prototype.size = function () {
  */
 var cloneGraph = function(graph) {
     var map = {}
-    var q = new Queue()
-    q.enqueue(graph)
+    var queue = new Queue()
+    queue.enqueue(graph)
     var newRoot = new UndirectedGraphNode(graph.label)
     map[graph.label] = newRoot
-    while (!q.isEmpty()) {
-        let currNode = q.front()
+    while (!queue.isEmpty()) {
+        let currNode = queue.front()
         var currRoot = map[currNode.label]
         for (let key in currNode.neighbors) {
             var subNode = currNode.neighbors[key]
-            console.log('hahah : ' + subNode.label)
             let mapSubNode = map[subNode.label]
             if (mapSubNode == null) {
                 var newNode = new UndirectedGraphNode(subNode.label)
                 currRoot.neighbors.push(newNode)
                 map[newNode.label] = newNode
-                q.enqueue(newNode)
+                queue.enqueue(subNode)
             } else {
                 currRoot.neighbors.push(mapSubNode)
             }
         }
-        q.dequeue()
+        queue.dequeue()
     }
     return map[graph.label]
 };
