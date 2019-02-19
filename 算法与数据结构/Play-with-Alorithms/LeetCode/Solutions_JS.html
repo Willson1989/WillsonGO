@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+
+function UndirectedGraphNode(label) {
+    this.label = label;
+    this.neighbors = [];   // Array of UndirectedGraphNode
+}
+    
+function Queue() {
+    this.data = []
+}
+Queue.prototype.front = function(){
+    if (this.isEmpty()) {
+        return null
+    }
+    return this.data[0]
+}
+
+Queue.prototype.isEmpty = function () {
+    return this.data.length <= 0
+}
+
+Queue.prototype.enqueue = function(item) {
+    if (item == null) {
+        return
+    }
+    this.data.push(item)
+}
+
+Queue.prototype.dequeue = function() {
+    if (this.isEmpty()) {
+        return
+    }
+    this.data.shift()
+}
+
+Queue.prototype.size = function () {
+    return this.data.length
+}
+
+
+// bfs
+/**
+ * @param {UndirectedGraphNode} graph
+ * @return {UndirectedGraphNode}
+ */
+var cloneGraph = function(graph) {
+    var map = {}
+    var queue = new Queue()
+    queue.enqueue(graph)
+    var newRoot = new UndirectedGraphNode(graph.label)
+    map[graph.label] = newRoot
+    while (!queue.isEmpty()) {
+        let currNode = queue.front()
+        var currRoot = map[currNode.label]
+        for (let key in currNode.neighbors) {
+            var subNode = currNode.neighbors[key]
+            let mapSubNode = map[subNode.label]
+            if (mapSubNode == null) {
+                var newNode = new UndirectedGraphNode(subNode.label)
+                currRoot.neighbors.push(newNode)
+                map[newNode.label] = newNode
+                queue.enqueue(subNode)
+            } else {
+                currRoot.neighbors.push(mapSubNode)
+            }
+        }
+        queue.dequeue()
+    }
+    return map[graph.label]
+};
+
+
+let n0 = new UndirectedGraphNode(0);
+let n1 = new UndirectedGraphNode(1);
+let n4 = new UndirectedGraphNode(4);
+let n10 = new UndirectedGraphNode(10);
+let n9 = new UndirectedGraphNode(9);
+let n8 = new UndirectedGraphNode(8);
+let n11 = new UndirectedGraphNode(11);
+let n7 = new UndirectedGraphNode(7);
+let n6 = new UndirectedGraphNode(6);
+let n5 = new UndirectedGraphNode(5);
+let n3 = new UndirectedGraphNode(3);
+let n2 = new UndirectedGraphNode(2);
+
+n0.neighbors = [n1,n4,n9]
+n1.neighbors = [n0,n10,n9]
+n4.neighbors = [n0,n9,n8,n11]
+n9.neighbors = [n0,n1,n4,n5]
+n10.neighbors = [n1,n7,n6]
+n7.neighbors = [n10]
+n6.neighbors = [n10]
+n5.neighbors = [n9,n11]
+n11.neighbors = [n5,n3,n4]
+n8.neighbors = [n4,n3,n2]
+n3.neighbors = [n11,n8]
+n2.neighbors = [n8]
+
+let newNode = cloneGraph(n0);
+console.log(newNode)
+    
+
+</script>
+
+</body>
+</html>

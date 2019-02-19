@@ -119,6 +119,7 @@
 		04D6D94D2135963B00099EC5 /* Solution_03.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solution_03.swift; sourceTree = "<group>"; };
 		04EA218B221A51F200947364 /* LeetCode_MinStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeetCode_MinStack.swift; sourceTree = "<group>"; };
 		04EF8C23213ED58A00816840 /* Play-with-Alorithms-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Play-with-Alorithms-Bridging-Header.h"; sourceTree = "<group>"; };
+		29AB6FF3221AFC440010B4EA /* Solutions_JS.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Solutions_JS.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -284,6 +285,7 @@
 				04BA9214220BCACE004F1FF8 /* Solution_04.swift */,
 				04638DA82215784B007B8556 /* Solution_05.swift */,
 				045788E12215464900AC9010 /* LeetCode_MyCircularQueue.swift */,
+				29AB6FF3221AFC440010B4EA /* Solutions_JS.html */,
 				04EA218B221A51F200947364 /* LeetCode_MinStack.swift */,
 			);
 			path = LeetCode;
