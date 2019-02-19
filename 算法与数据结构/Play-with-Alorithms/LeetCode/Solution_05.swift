@@ -468,32 +468,45 @@ extension Solution {
         }
         return numStack.top() ?? 0
     }
-
     
-    class UndirectedGraphNode {
-        var label : Int = -1
-        var neighbors : [UndirectedGraphNode] = []
-        init(_ label : Int) {
-            self.label = label
-        }
-    }
-    
-    // dfs
-    func cloneGraph(_ node : UndirectedGraphNode?) -> UndirectedGraphNode? {
-       
+    // MARK: -------------- 克隆图 leetCode #133
+    /*
+     https://leetcode-cn.com/problems/clone-graph/
+     克隆一张无向图，图中的每个节点包含一个 label （标签）和一个 neighbors （邻接点）列表 。
+     
+     OJ的无向图序列化：
+     节点被唯一标记。 我们用 # 作为每个节点的分隔符，用 , 作为节点标签和邻接点的分隔符。
+     
+     例如，序列化无向图 {0,1,2#1,2#2,2}。 该图总共有三个节点, 被两个分隔符  # 分为三部分。
+     第一个节点的标签为 0，存在从节点 0 到节点 1 和节点 2 的两条边。
+     第二个节点的标签为 1，存在从节点 1 到节点 2 的一条边。
+     第三个节点的标签为 2，存在从节点 2 到节点 2 (本身) 的一条边，从而形成自环。
+     我们将图形可视化如下：
+        1
+       / \
+      /   \
+     0 --- 2
+          / \
+          \_/
+     */
+    /*
+     dfs深度优先搜索+递归解法
+     使用字典map来标识那些结点已经创建过了。以结点的label属性为key
+     参考： https://blog.csdn.net/qq508618087/article/details/50806972
+     */
+    func cloneGraph_dfs(_ node : UndirectedGraphNode?) -> UndirectedGraphNode? {
         guard let node = node else { return nil }
         var map : [Int : UndirectedGraphNode] = [:]
         return _cloneGraph_dfs(node, map: &map)
     }
     
-    func _cloneGraph_dfs(_ node : UndirectedGraphNode?, map : inout [Int : UndirectedGraphNode]) -> UndirectedGraphNode? {
-        guard let node = node else { return nil }
-        if let node = map[node.label] {
-            // 该label对应的结点已经创建过了，则无需创建，直接返回
-            return node
-        } else {
+    private func _cloneGraph_dfs(_ node : UndirectedGraphNode?, map : inout [Int : UndirectedGraphNode]) -> UndirectedGraphNode? {
+        guard let node = node else {
+            return nil
+        }
+        if map[node.label] == nil {
             let newNode = UndirectedGraphNode(node.label)
-            map[newNode.label] = newNode
+            map[node.label] = newNode
             for subNode in node.neighbors {
                 if let newSubNode = _cloneGraph_dfs(subNode, map: &map) {
                     newNode.neighbors.append(newSubNode)
@@ -503,15 +516,93 @@ extension Solution {
         return map[node.label]
     }
     
+    /*
+     bfs广度优先搜索+队列解法
+     使用字典map来标识那些结点已经创建过了。以结点的label属性为key
+     */
+    func cloneGraph_bfs(_ node : UndirectedGraphNode?) -> UndirectedGraphNode? {
+        guard let node = node else {
+            return nil
+        }
+        var map : [Int : UndirectedGraphNode] = [:]
+        let queue = BasicQueue<UndirectedGraphNode>()
+        queue.enqueue(node)
+        let newRoot = UndirectedGraphNode(node.label)
+        map[node.label] = newRoot
+        while !queue.isEmpty() {
+            let currNode = queue.front()!
+            let currRoot = map[currNode.label]!
+            for subNode in currNode.neighbors {
+                if let mappedSubNode = map[subNode.label] {
+                    currRoot.neighbors.append(mappedSubNode)
+                } else {
+                    let newNode = UndirectedGraphNode(subNode.label)
+                    map[subNode.label] = newNode
+                    currRoot.neighbors.append(newNode)
+                    queue.enqueue(subNode)
+                }
+            }
+            queue.dequeue()
+        }
+        return map[node.label]
+    }
+    
+    // MARK: -------------- 目标和 leetCode #494
+    /*
+     https://leetcode-cn.com/problems/target-sum/
+     给定一个非负整数数组，a1, a2, ..., an, 和一个目标数，S。现在你有两个符号 + 和 -。
+     对于数组中的任意一个整数，你都可以从 + 或 -中选择一个符号添加在前面。
+     返回可以使最终数组和为目标数 S 的所有添加符号的方法数。
+     
+     示例 1:
+     输入: nums: [1, 1, 1, 1, 1], S: 3    输出: 5
+     解释:
+     -1+1+1+1+1 = 3
+     +1-1+1+1+1 = 3
+     +1+1-1+1+1 = 3
+     +1+1+1-1+1 = 3
+     +1+1+1+1-1 = 3
+     一共有5种方法让最终目标和为3。
+     
+     注意:
+     数组的长度不会超过20，并且数组中的值全为正数。
+     初始的数组的和不会超过1000。
+     保证返回的最终结果为32位整数。
+     */
+    func findTargetSumWays(_ nums: [Int], _ S: Int) -> Int {
+        //初始从0开始，这个0不在nums数组中，只是作为一个临时的根节点，所以step初值为-1
+        return _findTargetSumWays(node: 0, target: S, step: -1, nums: nums)
+    }
+    
+    private func _findTargetSumWays(node : Int , target : Int, step : Int, nums : [Int]) -> Int {
+        // 二叉树的深度优先搜索（左子树为加法，右子树为减法。或者相反也可以）
+        let step = step + 1
+        let num = nums[step]
+        if step >= nums.count-1 {
+            let count1 = (node+num == target) ? 1 : 0
+            let count2 = (node-num == target) ? 1 : 0
+            return count1 + count2
+        }
+        let count1 = _findTargetSumWays(node: node-num, target: target, step: step, nums: nums)
+        let count2 = _findTargetSumWays(node: node+num, target: target, step: step, nums: nums)
+        return count1 + count2
+    }
+    
+    
+    //MARK: - UndirectedGraphNode for solution 133
+    class UndirectedGraphNode {
+        var label : Int = -1
+        var neighbors : [UndirectedGraphNode] = []
+        init(_ label : Int) {
+            self.label = label
+        }
+    }
+    
     //MARK: - Stack for solutions
     class BasicStack<T : Comparable> {
         
         fileprivate var minItems = [T]()
         fileprivate var data = [T]()
-        
-        init() {
-            
-        }
         
         func push(_ x: T) {
             if data.isEmpty {
@@ -594,8 +685,6 @@ extension Solution {
             return self.queueArr.count
         }
     }
-
-
 }
 
 

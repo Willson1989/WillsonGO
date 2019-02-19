@@ -52,4 +52,8 @@ let ininin = ["2","+"]
 
 print("evalRPN : ", s.evalRPN(ininin))
 
+//let kkkk = [1,0]
+let kkkk = [1,1,1,1,1]
+let tttt = 3
+print("findTargetSumWays : ",s.findTargetSumWays(kkkk, tttt))
 
