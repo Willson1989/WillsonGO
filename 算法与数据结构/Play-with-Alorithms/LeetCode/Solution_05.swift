@@ -470,6 +470,39 @@ extension Solution {
     }
 
     
+    class UndirectedGraphNode {
+        var label : Int = -1
+        var neighbors : [UndirectedGraphNode] = []
+        init(_ label : Int) {
+            self.label = label
+        }
+    }
+    
+    // dfs
+    func cloneGraph(_ node : UndirectedGraphNode?) -> UndirectedGraphNode? {
+       
+        guard let node = node else { return nil }
+        var map : [Int : UndirectedGraphNode] = [:]
+        return _cloneGraph_dfs(node, map: &map)
+    }
+    
+    func _cloneGraph_dfs(_ node : UndirectedGraphNode?, map : inout [Int : UndirectedGraphNode]) -> UndirectedGraphNode? {
+        guard let node = node else { return nil }
+        if let node = map[node.label] {
+            // 该label对应的结点已经创建过了，则无需创建，直接返回
+            return node
+        } else {
+            let newNode = UndirectedGraphNode(node.label)
+            map[newNode.label] = newNode
+            for subNode in node.neighbors {
+                if let newSubNode = _cloneGraph_dfs(subNode, map: &map) {
+                    newNode.neighbors.append(newSubNode)
+                }
+            }
+        }
+        return map[node.label]
+    }
+    
     //MARK: - Stack for solutions
     class BasicStack<T : Comparable> {
         
