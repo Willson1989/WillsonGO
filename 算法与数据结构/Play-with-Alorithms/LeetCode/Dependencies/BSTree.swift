@@ -8,14 +8,14 @@
 
 import Foundation
 
-class TreeNode<T> {
+class TreeNode<T> : NSObject{
     
+    var val : T
     var left : TreeNode?
     var right : TreeNode?
-    var value : T
     
-    init( _ value : T) {
-        self.value = value
+    init( _ val : T) {
+        self.val = val
     }
 }
 
@@ -128,7 +128,7 @@ class BSTree_Int {
         
         let r = root!
         
-        if node.value < r.value {
+        if node.val < r.val {
             r.left = _insert(root: r.left, node: node)
         } else {
             r.right = _insert(root: r.right, node: node)
@@ -139,7 +139,7 @@ class BSTree_Int {
     
     func prevEnumTree(_ node : NodeType?) {
         if let node = node {
-            print(node.value, separator: "", terminator: ", ")
+            print(node.val, separator: "", terminator: ", ")
             prevEnumTree(node.left)
             prevEnumTree(node.right)
         }
@@ -148,7 +148,7 @@ class BSTree_Int {
     func middleEnumTree(_ node : NodeType?) {
         if let node = node {
             middleEnumTree(node.left)
-            print(node.value, separator: "", terminator: ", ")
+            print(node.val, separator: "", terminator: ", ")
             middleEnumTree(node.right)
         }
     }
@@ -157,7 +157,7 @@ class BSTree_Int {
         if let node = node {
             postEnumTree(node.left)
             postEnumTree(node.right)
-            print(node.value, separator: "", terminator: ", ")
+            print(node.val, separator: "", terminator: ", ")
         }
     }
     

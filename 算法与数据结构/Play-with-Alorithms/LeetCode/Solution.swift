@@ -482,7 +482,7 @@ class Solution {
                 for _ in 0 ..< count {
                     let temp = queue.first
                     queue.removeFirst()
-                    sum += temp!.value
+                    sum += temp!.val
                     if let left = temp?.left {
                         queue.append(left)
                     }
@@ -525,7 +525,7 @@ class Solution {
                 var subRes = [Int]()
                 for _ in 0 ..< count {
                     let tmp = queue.first
-                    subRes.append(tmp!.value)
+                    subRes.append(tmp!.val)
                     queue.removeFirst()
                     if let l = tmp?.left {
                         queue.append(l)
@@ -610,7 +610,7 @@ class Solution {
             if node2 == nil {
                 return false
             }
-            return node1!.value == node2!.value &&
+            return node1!.val == node2!.val &&
                 _isSymmetric(node1!.left, node2!.right) &&
                 _isSymmetric(node1!.right, node2!.left)
         }

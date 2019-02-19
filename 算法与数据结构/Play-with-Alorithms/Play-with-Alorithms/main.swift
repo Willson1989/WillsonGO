@@ -48,12 +48,28 @@ let island : [[Character]] =
 //let ininin = ["10", "6", "9", "3", "+", "-11", "*", "/", "*", "17", "+", "5", "+"]
 //let ininin = ["4", "13", "5", "/", "+"]
 //let ininin = ["2", "1", "+", "3", "*"]
-let ininin = ["2","+"]
 
-print("evalRPN : ", s.evalRPN(ininin))
+typealias TNode = TreeNode<Int>
 
-//let kkkk = [1,0]
-let kkkk = [1,1,1,1,1]
-let tttt = 3
-print("findTargetSumWays : ",s.findTargetSumWays(kkkk, tttt))
+let n1 = TNode(1)
+let n2 = TNode(2)
+let n3 = TNode(3)
+let n4 = TNode(4)
+let n5 = TNode(5)
+let n6 = TNode(6)
+let n7 = TNode(7)
+let n8 = TNode(8)
+
+n1.left = n2
+n1.right = n3
+n2.left = n4
+n2.right = n5
+n5.left = n8
+n3.left = n6
+n3.right = n7
+
+print("inorderTraversal   : ",s.inorderTraversal(n1))
+print("postorderTraversal : ",s.postorderTraversal(n1))
+print("preorderTraversal  : ",s.preorderTraversal(n1))
+
 
