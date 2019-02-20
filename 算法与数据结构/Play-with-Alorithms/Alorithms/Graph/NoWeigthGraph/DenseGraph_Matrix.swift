@@ -124,14 +124,14 @@ public class DenseGraph_Matrix : Graph{
         }
         
         internal override func bfsFromVertex(_ v: Int) {
-            var queue = BasicQueue()
+            let queue = BasicQueue<Int>()
             queue.enqueue(v)
             self.distance[v] = 0
             self.visited[v] = true
             
             while !queue.isEmpty() {
                 
-                let tmpV = queue.front() as! Int
+                let tmpV = queue.front()!
                 queue.dequeue()
                 for i in 0 ..< self.num_Vertex {
                     if self.G.graph[tmpV][i] == true && self.visited[i] == false {

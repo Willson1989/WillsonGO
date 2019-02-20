@@ -33,14 +33,16 @@ public class GraphPath{
     public func path(with w : Int) -> [Int] {
         assert( w >= 0 && w < self.num_Vertex )
         var path = [Int]()
-        var s = BasicStack()
+        let s = BasicStack<Int>()
         var k = w
         while k != -1 {
             s.push(k)
             k = self.from[k]
         }
         while !s.isEmpty() {
-            path.append(s.pop() as! Int)
+            let top = s.top()!
+            path.append(top)
+            s.pop()
         }
         return path
     }

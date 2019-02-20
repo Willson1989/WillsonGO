@@ -201,15 +201,192 @@ class MyCircularQueue_LeetCodeSolution {
     }
 }
 
-
-/**
- * Your MyCircularQueue object will be instantiated and called as such:
- * let obj = MyCircularQueue(k)
- * let ret_1: Bool = obj.enQueue(value)
- * let ret_2: Bool = obj.deQueue()
- * let ret_3: Int = obj.Front()
- * let ret_4: Int = obj.Rear()
- * let ret_5: Bool = obj.isEmpty()
- * let ret_6: Bool = obj.isFull()
+// MARK: -------------- 用栈实现队列 leetCode #232
+/*
+ https://leetcode-cn.com/problems/implement-queue-using-stacks/
+ 使用栈实现队列的下列操作：
+ 
+ push(x) -- 将一个元素放入队列的尾部。
+ pop() -- 从队列首部移除元素。
+ peek() -- 返回队列首部的元素。
+ empty() -- 返回队列是否为空。
+ 
+ 示例:
+ MyQueue queue = new MyQueue();
+ queue.push(1);
+ queue.push(2);
+ queue.peek();  // 返回 1
+ queue.pop();   // 返回 1
+ queue.empty(); // 返回 false
+ 
+ 说明:
+ 你只能使用标准的栈操作 -- 也就是只有 push to top, peek/pop from top, size, 和 is empty 操作是合法的。
+ 你所使用的语言也许不支持栈。你可以使用 list 或者 deque（双端队列）来模拟一个栈，只要是标准的栈操作即可。
+ 假设所有操作都是有效的 （例如，一个空的队列不会调用 pop 或者 peek 操作）。
+ 
+ 注意:
+ 数组的长度不会超过20，并且数组中的值全为正数。
+ 初始的数组的和不会超过1000。
+ 保证返回的最终结果为32位整数。
  */
+class MyQueue_UsingStack {
+    /*
+     使用两个栈实现：
+     每次要添加一个新元素的时候，先将s2的元素逐个pop并添加到s1中，然后将新元素push到s2中，
+     之后再将s1中的元素重新pop回s2中，这样就保证了元素的顺序，s2中的栈顶元素就是队列的首元素。
+     */
+    var s1 = BasicStack<Int>()
+    var s2 = BasicStack<Int>()
 
+    
+    /** Initialize your data structure here. */
+    init() {
+        
+    }
+    
+    /** Push element x to the back of queue. */
+    func push(_ x: Int) {
+        while !s2.isEmpty() {
+            s1.push(s2.top()!)
+            s2.pop()
+        }
+        s2.push(x)
+        while !s1.isEmpty() {
+            s2.push(s1.top()!)
+            s1.pop()
+        }
+    }
+    
+    /** Removes the element from in front of queue and returns that element. */
+    func pop() -> Int {
+        let top = s2.top()
+        s2.pop()
+        return top ?? -1
+    }
+    
+    /** Get the front element. */
+    func peek() -> Int {
+        return s2.top() ?? -1
+    }
+    
+    /** Returns whether the queue is empty. */
+    func empty() -> Bool {
+        return s2.isEmpty()
+    }
+}
+
+// MARK: -------------- 用队列实现栈 leetCode #225
+/*
+ https://leetcode-cn.com/problems/implement-stack-using-queues/
+ 使用队列实现栈的下列操作：
+ 
+ push(x) -- 元素 x 入栈
+ pop() -- 移除栈顶元素
+ top() -- 获取栈顶元素
+ empty() -- 返回栈是否为空
+ 注意:
+ 
+ 你只能使用队列的基本操作-- 也就是 push to back, peek/pop from front, size, 和 is empty 这些操作是合法的。
+ 你所使用的语言也许不支持队列。 你可以使用 list 或者 deque（双端队列）来模拟一个队列 , 只要是标准的队列操作即可。
+ 你可以假设所有操作都是有效的（例如, 对一个空的栈不会调用 pop 或者 top 操作）。
+ */
+class MyStack_UsingQueue {
+    
+    var queue1 = BasicQueue<Int>()
+    var queue2 = BasicQueue<Int>()
+    
+    /** Push element x onto stack. */
+    func push(_ x: Int) {
+        while !queue2.isEmpty() { //先腾出地方
+            queue1.enqueue(queue2.front()!)
+            queue2.dequeue()
+        }
+        queue2.enqueue(x)
+        while !queue1.isEmpty() {
+            queue2.enqueue(queue1.front()!)
+            queue1.dequeue()
+        }
+    }
+    
+    /** Removes the element on top of the stack and returns that element. */
+    func pop() -> Int {
+        let front = queue2.front()
+        queue2.dequeue()
+        return front ?? -1
+    }
+    
+    /** Get the top element. */
+    func top() -> Int {
+        return queue2.front() ?? -1
+    }
+    
+    /** Returns whether the stack is empty. */
+    func empty() -> Bool {
+        return queue2.isEmpty()
+    }
+}
+
+
+// MARK: -------------- 最小栈 leetCode #155
+/*
+ https://leetcode-cn.com/problems/implement-stack-using-queues/
+ 设计一个支持 push，pop，top 操作，并能在常数时间内检索到最小元素的栈。
+ 
+ push(x) -- 将元素 x 推入栈中。
+ pop() -- 删除栈顶的元素。
+ top() -- 获取栈顶元素。
+ getMin() -- 检索栈中的最小元素。
+ 示例:
+ 
+ MinStack minStack = new MinStack();
+ minStack.push(-2);
+ minStack.push(0);
+ minStack.push(-3);
+ minStack.getMin();   --> 返回 -3.
+ minStack.pop();
+ minStack.top();      --> 返回 0.
+ minStack.getMin();   --> 返回 -2.
+ */
+class MinStack {
+    
+    fileprivate var minItems = [Int]()
+    fileprivate var data = [Int]()
+    
+    func push(_ x: Int) {
+        if data.isEmpty {
+            minItems.append(x)
+            data.append(x)
+        } else {
+            data.append(x)
+            if x <= minItems.last! {
+                minItems.append(x)
+            }
+        }
+    }
+    
+    func pop() {
+        if data.isEmpty {
+            return
+        }
+        let last = data.last!
+        let min  = minItems.last!
+        if last == min {
+            minItems.removeLast()
+        }
+        data.removeLast()
+    }
+    
+    func top() -> Int {
+        if data.isEmpty {
+            return -1
+        }
+        return data.last!
+    }
+    
+    func getMin() -> Int {
+        if minItems.isEmpty {
+            return Int.min
+        }
+        return minItems.last!
+    }
+}

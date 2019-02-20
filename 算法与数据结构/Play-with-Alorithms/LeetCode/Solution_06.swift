@@ -25,23 +25,8 @@ extension Solution {
     
     // MARK: 前序遍历 非递归解法
     func _preorderTraversal_iteratoration(_ root: NodeType?) -> [Int] {
-        class BasicStack {
-            fileprivate var data = [NodeType]()
-            func isEmpty() -> Bool { return data.count <= 0 }
-            func push(_ x: NodeType) { data.append(x) }
-            func pop() {
-                if data.isEmpty { return }
-                data.removeLast()
-            }
-            func top() -> NodeType? {
-                if data.isEmpty { return nil }
-                return data.last!
-            }
-            func size() -> Int { return data.count }
-        }
-        
         var res = [Int]()
-        let stk = BasicStack()
+        let stk = BasicStack<NodeType>()
         var pNode : NodeType? = root
         while pNode != nil || !stk.isEmpty() {
             if let p = pNode {
@@ -84,24 +69,9 @@ extension Solution {
     
     // MARK: 中序遍历 非递归解法
     private func _inorderTraversal_iteratoration(_ root : NodeType?) -> [Int] {
-        class BasicStack {
-            fileprivate var data = [NodeType]()
-            func isEmpty() -> Bool { return data.count <= 0 }
-            func push(_ x: NodeType) { data.append(x) }
-            func pop() {
-                if data.isEmpty { return }
-                data.removeLast()
-            }
-            func top() -> NodeType? {
-                if data.isEmpty { return nil }
-                return data.last!
-            }
-            func size() -> Int { return data.count }
-        }
-        
         guard let root = root else { return [] }
         var pNode : NodeType? = root
-        let stk = BasicStack()
+        let stk = BasicStack<NodeType>()
         var res = [Int]()
         while pNode != nil || !stk.isEmpty() {
             if let p = pNode {
@@ -161,27 +131,11 @@ extension Solution {
      https://www.cnblogs.com/rain-lei/p/3705680.html
      */
     private func _postorderTraversal_iteratoration(_ root: NodeType?) -> [Int] {
-
-        class BasicStack {
-            fileprivate var data = [NodeType]()
-            func isEmpty() -> Bool { return data.count <= 0 }
-            func push(_ x: NodeType) { data.append(x) }
-            func pop() {
-                if data.isEmpty { return }
-                data.removeLast()
-            }
-            func top() -> NodeType? {
-                if data.isEmpty { return nil }
-                return data.last!
-            }
-            func size() -> Int { return data.count }
-        }
-        
         guard let root = root else {
             return []
         }
         var res = [Int]()
-        let stk = BasicStack()
+        let stk = BasicStack<NodeType>()
         var pNode = root
         var last = root
         stk.push(pNode)

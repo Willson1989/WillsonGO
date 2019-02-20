@@ -44,9 +44,9 @@ public class ShortestPath_Dijkstra {
             return nil
         }
         
-        var stack = BasicStack()
+        let stack = BasicStack<Edge>()
         var path = [Edge]()
-        var edge = from[w]
+        let edge = from[w]
         if edge == nil {
             return nil
         }
@@ -56,9 +56,10 @@ public class ShortestPath_Dijkstra {
             e = from[e.V()]!
         }
         stack.push(e)
-        while stack.isEmpty() == false {
-            let e = stack.pop() as! Edge
+        while !stack.isEmpty() {
+            let e = stack.top()!
             path.append(e)
+            stack.pop()
         }
         return path
     }

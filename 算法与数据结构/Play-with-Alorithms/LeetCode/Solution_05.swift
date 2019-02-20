@@ -352,35 +352,9 @@ extension Solution {
      参考：https://blog.csdn.net/jackzhang_123/article/details/78894769
      */
     func dailyTemperatures_stack(_ T: [Int]) -> [Int] {
-        class BasicStack {
-            
-            fileprivate var data = [Int]()
-            
-            func push(_ x: Int) {
-                data.append(x)
-            }
-            
-            func pop() {
-                if data.isEmpty {
-                    return
-                }
-                data.removeLast()
-            }
-            
-            func top() -> Int? {
-                if data.isEmpty {
-                    return nil
-                }
-                return data.last!
-            }
-            
-            func isEmpty() -> Bool {
-                return data.count <= 0
-            }
-        }
         guard T.isEmpty == false else { return [] }
         var res = Array(repeating: 0, count: T.count)
-        let s = BasicStack()
+        let s = BasicStack<Int>()
         for i in 0 ..< T.count {
             while !s.isEmpty() && T[i] > T[s.top()!] {
                 // 总是保持栈中栈底元素到栈顶元素是递减的
@@ -425,20 +399,6 @@ extension Solution {
      = 22
      */
     func evalRPN(_ tokens: [String]) -> Int {
-        class BasicStack {
-            fileprivate var data = [Int]()
-            func isEmpty() -> Bool { return data.count <= 0 }
-            func push(_ x: Int) { data.append(x) }
-            func pop() {
-                if data.isEmpty { return }
-                data.removeLast()
-            }
-            func top() -> Int? {
-                if data.isEmpty { return nil }
-                return data.last!
-            }
-            func size() -> Int { return data.count }
-        }
         
         func makeOP(_ a : Int, _ op : String, _ b : Int) -> Int {
             switch op {
@@ -453,7 +413,7 @@ extension Solution {
         if tokens.count == 1 && !opSet.contains(tokens[0]) {
             return Int(tokens[0]) ?? 0
         }
-        let numStack = BasicStack()
+        let numStack = BasicStack<Int>()
         for c in tokens {
             let isNum = !opSet.contains(c)
             if isNum {
@@ -575,7 +535,7 @@ extension Solution {
     }
     
     private func _findTargetSumWays(node : Int , target : Int, step : Int, nums : [Int]) -> Int {
-        // 二叉树的深度优先搜索（左子树为加法，右子树为减法。或者相反也可以）
+        // 相当于二叉树的深度优先搜索（左子树为加法，右子树为减法。或者相反也可以）
         let step = step + 1
         let num = nums[step]
         if step >= nums.count-1 {
@@ -588,6 +548,35 @@ extension Solution {
         return count1 + count2
     }
     
+    // MARK: -------------- 用栈实现队列 leetCode #232
+    /*
+     https://leetcode-cn.com/problems/target-sum/
+     使用栈实现队列的下列操作：
+     
+     push(x) -- 将一个元素放入队列的尾部。
+     pop() -- 从队列首部移除元素。
+     peek() -- 返回队列首部的元素。
+     empty() -- 返回队列是否为空。
+     
+     示例:
+     MyQueue queue = new MyQueue();
+     queue.push(1);
+     queue.push(2);
+     queue.peek();  // 返回 1
+     queue.pop();   // 返回 1
+     queue.empty(); // 返回 false
+     
+     说明:
+     你只能使用标准的栈操作 -- 也就是只有 push to top, peek/pop from top, size, 和 is empty 操作是合法的。
+     你所使用的语言也许不支持栈。你可以使用 list 或者 deque（双端队列）来模拟一个栈，只要是标准的栈操作即可。
+     假设所有操作都是有效的 （例如，一个空的队列不会调用 pop 或者 peek 操作）。
+     
+     注意:
+     数组的长度不会超过20，并且数组中的值全为正数。
+     初始的数组的和不会超过1000。
+     保证返回的最终结果为32位整数。
+     */
+    
     
     //MARK: - UndirectedGraphNode for solution 133
     class UndirectedGraphNode {
@@ -595,94 +584,6 @@ extension Solution {
         var neighbors : [UndirectedGraphNode] = []
         init(_ label : Int) {
             self.label = label
-        }
-    }
-    
-    //MARK: - Stack for solutions
-    class BasicStack<T : Comparable> {
-        
-        fileprivate var minItems = [T]()
-        fileprivate var data = [T]()
-        
-        func push(_ x: T) {
-            if data.isEmpty {
-                minItems.append(x)
-                data.append(x)
-            } else {
-                data.append(x)
-                if x <= minItems.last! {
-                    minItems.append(x)
-                }
-            }
-        }
-        
-        func pop() {
-            if data.isEmpty {
-                return
-            }
-            let last = data.last!
-            let min  = minItems.last!
-            if last == min {
-                minItems.removeLast()
-            }
-            data.removeLast()
-        }
-        
-        func top() -> T? {
-            if data.isEmpty {
-                return nil
-            }
-            return data.last!
-        }
-        
-        func getMin() -> T?{
-            if minItems.isEmpty {
-                return nil
-            }
-            return minItems.last!
-        }
-        
-        func isEmpty() -> Bool {
-            return data.count <= 0
-        }
-    }
-    
-    //MARK: - Queue for solutions
-    class BasicQueue<T> {
-        
-        fileprivate var queueArr : [T]
-        
-        public init() {
-            queueArr = [T]()
-        }
-        
-        public func front() -> T? {
-            if self.isEmpty() == true {
-                return nil
-            }
-            return self.queueArr.first
-        }
-        
-        public func enqueue(_ obj : T?) {
-            if obj == nil {
-                return
-            }
-            self.queueArr.append(obj!)
-        }
-        
-        public func dequeue(){
-            if self.isEmpty() == true {
-                return
-            }
-            self.queueArr.removeFirst()
-        }
-        
-        public func isEmpty() -> Bool {
-            return self.queueArr.count == 0
-        }
-        
-        public func size() -> Int {
-            return self.queueArr.count
         }
     }
 }

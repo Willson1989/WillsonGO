@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		045788E22215464900AC9010 /* LeetCode_MyCircularQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045788E12215464900AC9010 /* LeetCode_MyCircularQueue.swift */; };
+		045788E22215464900AC9010 /* LeetCode_QueueAndStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045788E12215464900AC9010 /* LeetCode_QueueAndStack.swift */; };
 		04638DA92215784B007B8556 /* Solution_05.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04638DA82215784B007B8556 /* Solution_05.swift */; };
 		04A7811321269EE800D9384D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7811221269EE800D9384D /* main.swift */; };
 		04A7814621269F2900D9384D /* 拓展知识.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7811A21269F2900D9384D /* 拓展知识.swift */; };
@@ -53,7 +53,6 @@
 		04BA9215220BCACE004F1FF8 /* Solution_04.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA9214220BCACE004F1FF8 /* Solution_04.swift */; };
 		04BDDB0721456DA1009BC08E /* Trie.mm in Sources */ = {isa = PBXBuildFile; fileRef = 04BDDB0621456DA1009BC08E /* Trie.mm */; };
 		04D6D94E2135963B00099EC5 /* Solution_03.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D6D94D2135963B00099EC5 /* Solution_03.swift */; };
-		04EA218C221A51F200947364 /* LeetCode_MinStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EA218B221A51F200947364 /* LeetCode_MinStack.swift */; };
 		04EA218E221BDE0D00947364 /* Solution_06.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EA218D221BDE0D00947364 /* Solution_06.swift */; };
 /* End PBXBuildFile section */
 
@@ -70,7 +69,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		045788E12215464900AC9010 /* LeetCode_MyCircularQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeetCode_MyCircularQueue.swift; sourceTree = "<group>"; };
+		045788E12215464900AC9010 /* LeetCode_QueueAndStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeetCode_QueueAndStack.swift; sourceTree = "<group>"; };
 		04638DA82215784B007B8556 /* Solution_05.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solution_05.swift; sourceTree = "<group>"; };
 		04A7810F21269EE800D9384D /* Play-with-Alorithms */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Play-with-Alorithms"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04A7811221269EE800D9384D /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -118,7 +117,6 @@
 		04BDDB0521456DA1009BC08E /* Trie.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Trie.h; sourceTree = "<group>"; };
 		04BDDB0621456DA1009BC08E /* Trie.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Trie.mm; sourceTree = "<group>"; };
 		04D6D94D2135963B00099EC5 /* Solution_03.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solution_03.swift; sourceTree = "<group>"; };
-		04EA218B221A51F200947364 /* LeetCode_MinStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeetCode_MinStack.swift; sourceTree = "<group>"; };
 		04EA218D221BDE0D00947364 /* Solution_06.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solution_06.swift; sourceTree = "<group>"; };
 		04EF8C23213ED58A00816840 /* Play-with-Alorithms-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Play-with-Alorithms-Bridging-Header.h"; sourceTree = "<group>"; };
 		29AB6FF3221AFC440010B4EA /* Solutions_JS.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Solutions_JS.html; sourceTree = "<group>"; };
@@ -138,6 +136,7 @@
 		04A7810621269EE800D9384D = {
 			isa = PBXGroup;
 			children = (
+				04A7813421269F2900D9384D /* Basic */,
 				04A781692126A16800D9384D /* LeetCode */,
 				04A7811921269F2900D9384D /* Alorithms */,
 				04A7811121269EE800D9384D /* Play-with-Alorithms */,
@@ -168,7 +167,6 @@
 				04EF8C22213ED56700816840 /* Trie树 */,
 				04A7811B21269F2900D9384D /* UnionFind */,
 				04A7812421269F2900D9384D /* Graph */,
-				04A7813421269F2900D9384D /* Basic */,
 				04A7813821269F2900D9384D /* BinarySearchTree */,
 				04A7813B21269F2900D9384D /* BasicSort */,
 				04A7814221269F2900D9384D /* Heap */,
@@ -287,9 +285,8 @@
 				04BA9214220BCACE004F1FF8 /* Solution_04.swift */,
 				04638DA82215784B007B8556 /* Solution_05.swift */,
 				04EA218D221BDE0D00947364 /* Solution_06.swift */,
-				045788E12215464900AC9010 /* LeetCode_MyCircularQueue.swift */,
+				045788E12215464900AC9010 /* LeetCode_QueueAndStack.swift */,
 				29AB6FF3221AFC440010B4EA /* Solutions_JS.html */,
-				04EA218B221A51F200947364 /* LeetCode_MinStack.swift */,
 			);
 			path = LeetCode;
 			sourceTree = "<group>";
@@ -396,7 +393,6 @@
 				04A7815921269F2900D9384D /* SparseGraph.swift in Sources */,
 				04A7811321269EE800D9384D /* main.swift in Sources */,
 				04638DA92215784B007B8556 /* Solution_05.swift in Sources */,
-				04EA218C221A51F200947364 /* LeetCode_MinStack.swift in Sources */,
 				04A7814721269F2900D9384D /* UnionFind_CompressPath_01.swift in Sources */,
 				04A7814F21269F2900D9384D /* AdjacentIterators.swift in Sources */,
 				04A7815721269F2900D9384D /* SparseGraphW.swift in Sources */,
@@ -411,7 +407,7 @@
 				04A7815121269F2900D9384D /* SourceShortestPath.swift in Sources */,
 				04A781722126A16800D9384D /* BSTree.swift in Sources */,
 				04A781702126A16800D9384D /* Solution.swift in Sources */,
-				045788E22215464900AC9010 /* LeetCode_MyCircularQueue.swift in Sources */,
+				045788E22215464900AC9010 /* LeetCode_QueueAndStack.swift in Sources */,
 				04A7814E21269F2900D9384D /* UnionFind_UsingSize.swift in Sources */,
 				04A7814821269F2900D9384D /* UnionFind_UsingRank.swift in Sources */,
 				04A7816621269F2900D9384D /* IndexHeap.swift in Sources */,

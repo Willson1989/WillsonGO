@@ -2,7 +2,7 @@
 //  Solution_02.swift
 //  Play-with-Alorithms
 //
-//  Created by 朱金倩 on 2018/8/21.
+//  Created by WillHelen on 2018/8/21.
 //  Copyright © 2018年 ZhengYi. All rights reserved.
 //
 

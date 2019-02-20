@@ -68,7 +68,7 @@ public typealias TreeEnumaratorBlock<T : Comparable & Equatable> = ( _ key : T? 
 
 
 public struct BinarySearchTree<KeyType : Comparable & Equatable> {
-    
+        
     //二分搜索树的根节点
     public var root : Node<KeyType>?
     
@@ -405,16 +405,16 @@ public struct BinarySearchTree<KeyType : Comparable & Equatable> {
     fileprivate func _levelOrder(_ enumarator : TreeEnumaratorBlock<KeyType>) {
         
         //创建队列
-        var queue = BasicQueue()
+        let queue = BasicQueue<Node<KeyType>>()
         
         //先将根节点入队
         queue.enqueue(root)
         
         //如果队列不为空，就代表遍历还没有完成
-        while queue.isEmpty() != true {
+        while !queue.isEmpty() {
             
             //取出队首元素
-            let node = queue.front() as! Node<KeyType>
+            let node = queue.front()!
             //移除队中该元素
             queue.dequeue()
             

@@ -6,9 +6,7 @@ public struct Sort {
     static public func shellSort(arr : [Int]?) -> [Int]? {
         
         if let arr = arr {
-            
-            let len = arr.count
-            
+                        
             return arr
         }
         else {
