@@ -54,6 +54,7 @@
 		04BDDB0721456DA1009BC08E /* Trie.mm in Sources */ = {isa = PBXBuildFile; fileRef = 04BDDB0621456DA1009BC08E /* Trie.mm */; };
 		04D6D94E2135963B00099EC5 /* Solution_03.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D6D94D2135963B00099EC5 /* Solution_03.swift */; };
 		04EA218E221BDE0D00947364 /* Solution_06.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EA218D221BDE0D00947364 /* Solution_06.swift */; };
+		04EA21CE221FC78A00947364 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EA21CD221FC78A00947364 /* StringExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -118,6 +119,7 @@
 		04BDDB0621456DA1009BC08E /* Trie.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Trie.mm; sourceTree = "<group>"; };
 		04D6D94D2135963B00099EC5 /* Solution_03.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solution_03.swift; sourceTree = "<group>"; };
 		04EA218D221BDE0D00947364 /* Solution_06.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solution_06.swift; sourceTree = "<group>"; };
+		04EA21CD221FC78A00947364 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		04EF8C23213ED58A00816840 /* Play-with-Alorithms-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Play-with-Alorithms-Bridging-Header.h"; sourceTree = "<group>"; };
 		29AB6FF3221AFC440010B4EA /* Solutions_JS.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Solutions_JS.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -238,6 +240,7 @@
 				04A7813521269F2900D9384D /* TestHelper.swift */,
 				04A7813621269F2900D9384D /* FibonacciSequence.swift */,
 				04A7813721269F2900D9384D /* BasicQueueAndStack.swift */,
+				04EA21CD221FC78A00947364 /* StringExtension.swift */,
 			);
 			path = Basic;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				04A7815B21269F2900D9384D /* TestHelper.swift in Sources */,
 				04BDDB0721456DA1009BC08E /* Trie.mm in Sources */,
 				04A7814B21269F2900D9384D /* UnionFindTestHelper.swift in Sources */,
+				04EA21CE221FC78A00947364 /* StringExtension.swift in Sources */,
 				04A7815C21269F2900D9384D /* FibonacciSequence.swift in Sources */,
 				04A7815621269F2900D9384D /* DenseGraphW_Matrix.swift in Sources */,
 				04A7815921269F2900D9384D /* SparseGraph.swift in Sources */,

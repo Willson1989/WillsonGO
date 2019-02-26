@@ -548,35 +548,6 @@ extension Solution {
         return count1 + count2
     }
     
-    // MARK: -------------- 用栈实现队列 leetCode #232
-    /*
-     https://leetcode-cn.com/problems/target-sum/
-     使用栈实现队列的下列操作：
-     
-     push(x) -- 将一个元素放入队列的尾部。
-     pop() -- 从队列首部移除元素。
-     peek() -- 返回队列首部的元素。
-     empty() -- 返回队列是否为空。
-     
-     示例:
-     MyQueue queue = new MyQueue();
-     queue.push(1);
-     queue.push(2);
-     queue.peek();  // 返回 1
-     queue.pop();   // 返回 1
-     queue.empty(); // 返回 false
-     
-     说明:
-     你只能使用标准的栈操作 -- 也就是只有 push to top, peek/pop from top, size, 和 is empty 操作是合法的。
-     你所使用的语言也许不支持栈。你可以使用 list 或者 deque（双端队列）来模拟一个栈，只要是标准的栈操作即可。
-     假设所有操作都是有效的 （例如，一个空的队列不会调用 pop 或者 peek 操作）。
-     
-     注意:
-     数组的长度不会超过20，并且数组中的值全为正数。
-     初始的数组的和不会超过1000。
-     保证返回的最终结果为32位整数。
-     */
-    
     
     //MARK: - UndirectedGraphNode for solution 133
     class UndirectedGraphNode {
@@ -585,6 +556,290 @@ extension Solution {
         init(_ label : Int) {
             self.label = label
         }
+    }
+    
+    
+    // MARK: -------------- 字符串解码 leetCode #394
+    /*
+     https://leetcode-cn.com/problems/decode-string/
+     给定一个经过编码的字符串，返回它解码后的字符串。
+     编码规则为: k[encoded_string]，表示其中方括号内部的 encoded_string 正好重复 k 次。注意 k 保证为正整数。
+     你可以认为输入字符串总是有效的；输入字符串中没有额外的空格，且输入的方括号总是符合格式要求的。
+     此外，你可以认为原始数据不包含数字，所有的数字只表示重复的次数 k ，例如不会出现像 3a 或 2[4] 的输入。
+     
+     示例:
+     s = "3[a]2[bc]", 返回 "aaabcbc".
+     s = "3[a2[c]]",  返回 "accaccacc".
+     s = "2[abc]3[cd]ef", 返回 "abcabccdcdcdef".
+     */
+    
+    /*
+     递归 1
+     以 kk2[a2[rt]bc]3[cd]ef 为例，
+     可以把整个字符串c查分成3部分 head body tail
+     head为数字之前的部分(kk)，body为最外层[]里面的部分(a2[rt]bc])，tail为']' 后面的部分(3[cd]ef)
+     1. 遍历字符串，数字之前的部分为head，获取用于生成结果
+     2. 遍历到'['时，从该位置(index)开始遍历并找到与之配对的右括号']'，并记录该位置(rightBracketIndex)
+     3. index 到 rightBracketIndex 之间的部分为body，rightBracketIndex之后的部分为tail
+     4. 这时body和tail都为满足h格式的子字符串，递归调用解码方法，将解码完成的body和tail与head拼接成最终的解码字符串即为最终结果
+     参考：https://www.cnblogs.com/dongling/p/5843795.html
+     */
+    func decodeString(_ s: String) -> String {
+        
+        if s.isEmpty {
+            return ""
+        }
+        var index = 0
+        var head : String = ""
+        var body : String = ""
+        // 遍历获取head部分
+        while index < s.count && !s.charAt(index).isNum() {
+            head.append(s.charAt(index))
+            index += 1
+        }
+        
+        if index < s.count {
+            var repeatCount = 0
+            // index 现在指向数字的第一个字符
+            while s.charAt(index).isNum() {
+                let num = Int(String(s.charAt(index)))!
+                repeatCount = repeatCount * 10 + num
+                index += 1
+            }
+            
+            index += 1  // index 现在指向了 '[' 后面的第一个字符
+            // 使用 leftBracketNum 和 rightBracketIndex 来找到repeatCount后面字符串的最外层的括号
+            var leftBracketNum = 1
+            var rightBracketIndex = index
+            
+            while leftBracketNum > 0 {
+                let ch = s.charAt(rightBracketIndex)
+                if ch == "[" {
+                    leftBracketNum += 1
+                } else if ch == "]" {
+                    leftBracketNum -= 1
+                }
+                rightBracketIndex += 1
+            }
+            rightBracketIndex -= 1
+            // 上面的循环结束后 rightBracketIndex 指向了最外层右括号的 ']'
+            // 到现在为止，index 到 rightBracketIndex - 1 的子字符串需要在被递归解析一下(body)
+            // rightBracketIndex + 1 到 s的末尾的子字符串需要被递归解析一下(tail)
+            var bodyStr = ""
+            if let subStringBody = s.substringInRange(index ..< rightBracketIndex) {
+                bodyStr = decodeString(subStringBody)
+            }
+            var tailStr = ""
+            if let subStringTail = s.substringInRange(rightBracketIndex+1 ..< s.count) {
+                tailStr = decodeString(subStringTail)
+            }
+            
+            for _ in 0 ..< repeatCount {
+                body = body + bodyStr
+            }
+            body = body + tailStr
+        }
+        return head + body
+    }
+    /*
+     递归2
+     每一层递归函数都共享同一个字符索引位置k，每一个被[]包裹的字符串都是一个需要解码的子字符串，
+     所以当遍历字符串时，如果遇到'['时，就需要递归解码k位置后面的子字符串，当k的位置移动到 ']'时，代表当前递归的字符串解码结束，返回即可。
+     这样一层一层从里到外，完成了字符串的解码。
+     参考：https://blog.csdn.net/qq508618087/article/details/52439114
+     */
+    func decodeString_1(_ s: String) -> String {
+        func _decodeString(_ s : String, _ k : inout Int) -> String {
+            var res = ""
+            var repeatCount = 0
+            while k < s.count {
+                let ch = s.charAt(k)
+                if ch.isNum() {
+                    repeatCount = repeatCount * 10 + Int(String(ch))!
+                    k += 1
+                    
+                } else if ch == "[" {
+                    k += 1
+                    let subDecodeStr = _decodeString(s, &k)
+                    for _ in 0 ..< repeatCount {
+                        res.append(subDecodeStr)
+                    }
+                    // 这里在根据repeatCount拼接解码后的子字符串之后，一定要将其重置为0
+                    // 因为k的位置是各层递归共享的，代码走到这里时可以理解为k之前的都是解码完成的
+                    // 如果后面还有需要解码的字符串的话，repeatCount 需要重新计算。
+                    repeatCount = 0
+                    
+                } else if ch == "]" {
+                    k += 1
+                    return res
+                    
+                } else {
+                    res.append(ch)
+                    k += 1
+                }
+            }
+            return res
+        }
+        var k = 0
+        return _decodeString(s, &k)
+    }
+    
+    // MARK: -------------- 图像渲染 leetCode #733
+    /*
+     https://leetcode-cn.com/problems/flood-fill/
+     有一幅以二维整数数组表示的图画，每一个整数表示该图画的像素值大小，数值在 0 到 65535 之间。
+     给你一个坐标 (sr, sc) 表示图像渲染开始的像素值（行 ，列）和一个新的颜色值 newColor，让你重新上色这幅图像。
+     为了完成上色工作，从初始坐标开始，记录初始坐标的上下左右四个方向上像素值与初始坐标相同的相连像素点，
+     接着再记录这四个方向上符合条件的像素点与他们对应四个方向上像素值与初始坐标相同的相连像素点，……，重复该过程。
+     将所有有记录的像素点的颜色值改为新的颜色值。最后返回经过上色渲染后的图像。
+     
+     示例 1:
+     输入:
+     image = [[1,1,1],[1,1,0],[1,0,1]]
+     1 1 1
+     1 1 0
+     1 0 1
+     sr = 1, sc = 1, newColor = 2
+     输出: [[2,2,2],[2,2,0],[2,0,1]]
+     2 2 2
+     2 2 0
+     2 0 1
+     
+     解析:
+     在图像的正中间，(坐标(sr,sc)=(1,1)),
+     在路径上所有符合条件的像素点的颜色都被更改成2。
+     注意，右下角的像素没有更改为2，
+     因为它不是在上下左右四个方向上与初始点相连的像素点。
+     */
+    
+    /*
+     思路与LeetCode 200（岛屿的个数）思路类似，从(sr, sc)点出发深度优先搜索上下左右四个邻居结点，
+     如果邻居结点的值与image[sr][sc]相等的话，将其值设置为newColor。
+     */
+    func floodFill(_ image: [[Int]], _ sr: Int, _ sc: Int, _ newColor: Int) -> [[Int]] {
+        func _dfs(_ r : Int, _ c : Int, _ image : inout [[Int]], _ targetValue : Int, _ visited : inout [[Int] : Bool], _ newColor : Int) {
+            guard !image.isEmpty, r >= 0, c >= 0, r < image.count, c < image[0].count else {
+                return
+            }
+            
+            guard image[r][c] == targetValue else {
+                return
+            }
+            
+            if visited[[r, c]] != nil && visited[[r, c]]! == true {
+                return
+            }
+            
+            image[r][c] = newColor
+            visited[[r, c]] = true
+            _dfs(r+1, c, &image, targetValue, &visited, newColor)
+            _dfs(r-1, c, &image, targetValue, &visited, newColor)
+            _dfs(r, c+1, &image, targetValue, &visited, newColor)
+            _dfs(r, c-1, &image, targetValue, &visited, newColor)
+        }
+        
+        guard !image.isEmpty, sr < image.count, sc < image[0].count else {
+            return image
+        }
+        
+        var visited = [[Int] : Bool]()
+        let targetValue = image[sr][sc]
+        var resImage = image
+        _dfs(sr, sc, &resImage, targetValue, &visited, newColor)
+        return resImage
+    }
+    
+    // MARK: -------------- 01矩阵 leetCode #542
+    /*
+     https://leetcode-cn.com/problems/01-matrix/
+     给定一个由 0 和 1 组成的矩阵，找出每个元素到最近的 0 的距离。
+     两个相邻元素间的距离为 1 。
+     
+     示例 1:
+     输入:
+     0 1 0
+     1 1 1
+     0 1 0
+     
+     输出:
+     0 1 0
+     1 2 1
+     0 1 0
+     
+     
+     示例 2:
+     输入:
+     1 1 1 1
+     1 1 1 0
+     1 0 1 1
+     1 1 1 1
+     
+     输出:
+     3 2 2 1
+     2 1 1 0
+     1 0 1 1
+     2 1 2 2
+     
+     注意:
+     给定矩阵的元素个数不超过 10000。
+     给定矩阵中至少有一个元素是 0。
+     矩阵中的元素只在四个方向上相邻: 上、下、左、右。
+    */
+    
+    /*
+     解法1：迷宫思路和bfs
+     既然是求到0的最短路径步数，那么首先想到的就是用bfs，如果对矩阵的每一个元素进行bfs会超时。
+     在参考了网上的帖子之后发现了一个不错的思路：以值0的结点为起点做bfs并更新周围结点的距离。
+     1. 遍历数组将数组中不为0的元素都设置为比较大的值这里是Int.max（可以理解为0到0的最近距离为0），然后将每一个值0的元素加入到队列，
+     2. 逐个处理队列中的结点，先看当前节点上下左右的邻居结点（因为是从上下左右四个方向走到当前结点的），然后将这个邻居结点加入队列用于之后处理。
+        如果邻居结点的值大于当前结点值k加上1，则更新该邻居结点的值为k+1，如果小于等于k+1,则说明存在更短的从该邻居结点到0的路径，此时则不用更新。
+     重复2
+     参考：https://leetcode.com/problems/01-matrix/discuss/101039/java-33ms-solution-with-two-sweeps-in-on
+     */
+    func updateMatrix(_ matrix : [[Int]]) -> [[Int]] {
+        typealias Point = (x : Int, y : Int)
+        guard !matrix.isEmpty, !matrix[0].isEmpty else {
+            return []
+        }
+        var matrix = matrix
+        let queue = BasicQueue<Point>()
+        for i in 0 ..< matrix.count {
+            for j in 0 ..< matrix[0].count {
+                if matrix[i][j] != 0 {
+                    matrix[i][j] = Int.max
+                } else {
+                    queue.enqueue((i, j))
+                }
+            }
+        }
+        func updateDistance(_ neibPoint: Point, _ srcPoint : Point) {
+            if matrix[neibPoint.x][neibPoint.y] > matrix[srcPoint.x][srcPoint.y]+1 {
+                // 如果邻居结点的值大于等于当前结点值+1，则需要更新，此时才入队列
+                // 如果小于当前结点值+1，则说明有另外一条道路，其起点为该邻居结点，终点为0结点，它的距离更短一些，此时则不需要加入队列。
+                matrix[neibPoint.x][neibPoint.y] = matrix[srcPoint.x][srcPoint.y]+1
+                queue.enqueue((neibPoint.x, neibPoint.y))
+            }
+        }
+        
+        while !queue.isEmpty() {
+            let front = queue.front()!
+            queue.dequeue()
+            let x = front.x
+            let y = front.y
+            if x > 0 {
+                updateDistance((x-1, y), front)
+            }
+            if y > 0 {
+                updateDistance((x, y-1), front)
+            }
+            if x < matrix.count-1 {
+                updateDistance((x+1, y), front)
+            }
+            if y < matrix[0].count-1 {
+                updateDistance((x, y+1), front)
+            }
+        }
+        return matrix
     }
 }
 

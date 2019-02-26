@@ -73,3 +73,38 @@ print("postorderTraversal : ",s.postorderTraversal(n1))
 print("preorderTraversal  : ",s.preorderTraversal(n1))
 
 
+
+let inputStr = "kk2[ab2[cd3[e]]2[fg]]hij"
+print("input str : ",inputStr)
+print("decodeString   : ",s.decodeString(inputStr))
+print("decodeString_1 : ",s.decodeString_1(inputStr))
+
+//let inputImage = [
+//                    [1,1,6,1,0],
+//                    [1,9,1,1,0],
+//                    [1,1,9,0,0],
+//                    [1,7,1,1,0]
+//                    ]
+//let inputImage = [
+//    [1]
+//]
+let inputImage = [
+    [1, 1, 1, 1],
+    [1, 1, 1, 0],
+    [1, 0, 0, 1],
+    [1, 0, 1, 1]
+]
+print("input image : ")
+for i in 0 ..< inputImage.count {
+    print(inputImage[i])
+}
+print("")
+let t = [0,0]
+let c = 3
+let newImage = s.floodFill(inputImage, t[0], t[1], c)
+//let newImage = s.updateMatrix(inputImage)
+
+print("new colored image : ")
+for i in 0 ..< newImage.count {
+    print(newImage[i])
+}
