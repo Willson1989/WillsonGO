@@ -841,6 +841,122 @@ extension Solution {
         }
         return matrix
     }
+    
+    // MARK: -------------- 钥匙和房间 leetCode #841
+    /*
+     https://leetcode-cn.com/problems/keys-and-rooms/
+     有 N 个房间，开始时你位于 0 号房间。每个房间有不同的号码：0，1，2，...，N-1，并且房间里可能有一些钥匙能使你进入下一个房间。
+     在形式上，对于每个房间 i 都有一个钥匙列表 rooms[i]，每个钥匙 rooms[i][j] 由 [0,1，...，N-1] 中的一个整数表示，其中 N = rooms.length。 钥匙 rooms[i][j] = v 可以打开编号为 v 的房间。
+     最初，除 0 号房间外的其余所有房间都被锁住。
+     你可以自由地在房间之间来回走动。
+     如果能进入每个房间返回 true，否则返回 false。
+     
+     示例 1：
+     输入: [[1],[2],[3],[]]  输出: true
+     解释:
+     我们从 0 号房间开始，拿到钥匙 1。
+     之后我们去 1 号房间，拿到钥匙 2。
+     然后我们去 2 号房间，拿到钥匙 3。
+     最后我们去了 3 号房间。
+     由于我们能够进入每个房间，我们返回 true。
+     
+     示例 2：
+     输入：[[1,3],[3,0,1],[2],[0]]
+     输出：false
+     解释：我们不能进入 2 号房间。
+     */
+    /*
+     使用栈存储可以去到的房间号，用set记录每一个房间号。
+     每去到一个房间，就将该房间的号码从set中删除掉，然后将该房间中的钥匙所对应的房间号入栈。
+     每次去栈顶元素所对应的房间并且栈pop，如果最后栈空了但是set还不为空，则代表还有房间没有去过。
+     那么这些房间自然就是不能访问到的
+     */
+    func canVisitAllRooms(_ rooms: [[Int]]) -> Bool {
+        return self.canVisitAllRooms_dfs(rooms)
+        if rooms.isEmpty {
+            return true
+        }
+        if rooms[0].isEmpty {
+            return false
+        }
+        var roomIdSet = Set<Int>()
+        for i in 0 ..< rooms.count {
+            roomIdSet.insert(i)
+        }
+        
+        var visited = Array<Bool>(repeating: false, count: rooms.count)
+        let stack = BasicStack<Int>()
+        stack.push(0)
+        while !stack.isEmpty() {
+            let currRoom = stack.top()!
+            visited[currRoom] = true
+            stack.pop()
+            roomIdSet.remove(currRoom)
+            for roomKey in rooms[currRoom] {
+                if roomKey != currRoom && visited[roomKey] == false {
+                    stack.push(roomKey)
+                }
+            }
+        }
+        return roomIdSet.count == 0
+    }
+    
+    /*
+     dfs
+     使用count变量记录访问过的房间数。
+     从0号房间触发，当进入到房间i之后如果visited[i]==false,则代表没有访问过该房间，此时count+=1
+     在房间i中的钥匙串中找到还没有进入到的房间（visited[i]==false）并进入到该房间（dfs）。以此类推。
+     最后如果count == rooms.count 则代表所有房间都访问过了。
+     */
+    func canVisitAllRooms_dfs(_ rooms: [[Int]]) -> Bool {
+        func dfs(roomId : Int, rooms : inout [[Int]], visited : inout [Bool], count : inout Int) {
+            if !visited[roomId] {
+                count += 1
+            }
+            visited[roomId] = true
+            for keyToRoom in rooms[roomId] {
+                if !visited[keyToRoom] {
+                    // 没访问过
+                    dfs(roomId: keyToRoom, rooms: &rooms, visited: &visited, count: &count)
+                }
+            }
+        }
+        var visited = Array<Bool>(repeating: false, count: rooms.count)
+        var rooms = rooms
+        var count = 0
+        dfs(roomId: 0, rooms: &rooms, visited: &visited, count : &count) // 从0号房间出发
+        return count == rooms.count
+    }
+    
+    /*
+     bfs
+     依旧使用count来记录访问过的房间数目，使用队列进行广度优先搜索。
+     当进入一个房间i（queue.front(), queue.dequeue()），
+     如果该房间没有被访问过，则count+=1，并且visited[i]=true。
+     重放上述步骤直到队列为空，则代表能访问过的房间都访问过了。此时比较count和rooms的个数。
+     如果不相等，则说明一定有房间还没有被访问过。
+     */
+    func canVisitAllRooms_bfs(_ rooms: [[Int]]) -> Bool {
+        var count = 0
+        var visited = Array<Bool>(repeating: false, count: rooms.count)
+        let queue = BasicQueue<Int>()
+        queue.enqueue(0)
+        
+        while queue.isEmpty() == false {
+            let currRoom = queue.front()!
+            queue.dequeue()
+            if visited[currRoom] == false {
+                count += 1
+            }
+            visited[currRoom] = true
+            for keyToRoom in rooms[currRoom] {
+                if visited[keyToRoom] == false {
+                    queue.enqueue(keyToRoom)
+                }
+            }
+        }
+        return count == rooms.count
+    }
 }
 
 

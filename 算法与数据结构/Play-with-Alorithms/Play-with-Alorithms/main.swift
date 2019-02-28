@@ -108,3 +108,9 @@ print("new colored image : ")
 for i in 0 ..< newImage.count {
     print(newImage[i])
 }
+
+let inputRooms = [[1],[2],[3],[]]
+//let inputRooms = [[1,3],[3,0,1],[2],[0]]
+//let inputRooms = [[2],[],[1]]
+
+print("canVisitAllRooms : ",s.canVisitAllRooms(inputRooms))
