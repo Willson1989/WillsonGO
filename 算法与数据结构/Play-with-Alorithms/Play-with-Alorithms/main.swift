@@ -212,3 +212,16 @@ print("isPalindrome : ",s.isPalindrome(isPalindromeIn))
 let partitionIn = "aabb"
 print("partition res : ",s.partition(partitionIn))
 
+//let wordBreakIn = "leetcode"
+//let wordBreakDic = ["leet", "code"]
+//let wordBreakIn = "applepenapple"
+//let wordBreakDic = ["apple", "pen"]
+let wordBreakIn = "catssanddog"
+let wordBreakDic = ["cats", "dog", "sand", "and", "cat"]
+//let wordBreakIn = "abcd"
+//let wordBreakDic = ["a","abc","b","cd"]
+
+//let wordBreakIn = "goalspecial"
+//let wordBreakDic = ["go","goal","goals","special"]
+print("wordBreak : ",s.wordBreak(wordBreakIn, wordBreakDic))
+

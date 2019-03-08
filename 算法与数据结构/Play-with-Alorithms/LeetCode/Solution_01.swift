@@ -1049,6 +1049,97 @@ extension Solution {
         _dfs(s: s, res: &temp, final: &res)
         return res
     }
+    
+    // MARK: -------------- 单词拆分 leetCode #139
+    /*
+     https://leetcode-cn.com/problems/word-break/
+     给定一个非空字符串 s 和一个包含非空单词列表的字典 wordDict，判定 s 是否可以被空格拆分为一个或多个在字典中出现的单词。
+     
+     说明：
+     拆分时可以重复使用字典中的单词。 你可以假设字典中没有重复的单词。
+     
+     示例 1：
+     输入: s = "leetcode", wordDict = ["leet", "code"]   输出: true
+     解释: 返回 true 因为 "leetcode" 可以被拆分成 "leet code"。
+     
+     示例 2：
+     输入: s = "applepenapple", wordDict = ["apple", "pen"]  输出: true
+     解释: 返回 true 因为 "applepenapple" 可以被拆分成 "apple pen apple"。
+     注意你可以重复使用字典中的单词。
+     
+     示例 3：
+     输入: s = "catsandog", wordDict = ["cats", "dog", "sand", "and", "cat"]  输出: false
+     */
+    /*
+     由于递归解法会造成超时，所以使用非递归的形式尝试解决。
+     还是动态优化的思路，假设有一个数组dp，
+     dp[i]用来标识字符串中 i 前面的子字符串是否可以被wordDict中的单词完美划分出来。
+     那么dp[i]为true的条件就是：
+     1. 存在一个e位置 j(j < i), 并且j前面的字符串是可以被完美划分的，即dp[j] == true
+     2. j 后面的字符串在 wordDict 中可以找到。
+     满足上面两个条件的话，就可以说明位置i之前的字符串是可以被完美划分的，
+     即 dp[j] = true && wordDict.contain(s.substring([j ..< i]))
+     那么如果 k = s.length, dp[k] == true的话，就说明整个字符串都可以被完美划分。
+     
+     【注意】
+     之前一直有疑问，dp[0]的初始值为什么是true而不是false？
+     我们可以看一下这个例子：
+     let s = "catssanddog"
+     let wordDict = ["cats", "dog", "sand", "and", "cat"]
+     
+     当i走到4的时候，我们知道dp[4]其实是true
+     那么此时当j为0时，我们需要使dp[4]为true，
+     也就是表达式 dp[0] == true && wordDict.contains(s[0 ..< 4])
+     我们知道 wordDict.contains(s[0 ..< 4]) 肯定为true了，
+     那么如果dp[0]为false的话会使表达式结果为false，
+     因此如果dp[0]初始值为false的话，会影响本该正确的条件判断。
+     */
+    func wordBreak(_ s: String, _ wordDict: [String]) -> Bool {
+        
+        if s.isEmpty {
+            return false
+        }
+        var dp = Array(repeating: false, count: s.count+1)
+        dp[0] = true
+        for i in 0 ... s.count {
+            for j in 0 ..< i {
+                let subString = s.substringInRange((j..<i))!
+                if dp[j] == true && wordDict.contains(subString) {
+                    dp[i] = true
+                    break
+                }
+            }
+        }
+        return dp[s.count]
+    }
+    
+    /*
+     动态规划的递归形式，会超时，待优化。
+     如何优化可以参考：https://blog.csdn.net/bw_yyziq/article/details/79825543
+     */
+    func wordBreak_1(_ s: String, _ wordDict: [String]) -> Bool {
+        
+        func _dfs(s : String, dic : inout [String]) -> Bool {
+            if s.count < 1 {
+                return true
+            }
+            for i in 1 ... s.count {
+                guard let prefix = s.substringInRange((0 ..< i)) else {
+                    return false
+                }
+                if dic.contains(prefix) {
+                    let surfix = s.substringInRange((i..<s.count)) ?? ""
+                    if _dfs(s: surfix, dic: &dic) {
+                        return true
+                    }
+                }
+            }
+            return false
+        }
+        var dic = wordDict
+        return _dfs(s: s, dic: &dic)
+    }
 }
+
 
 
