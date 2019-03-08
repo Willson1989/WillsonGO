@@ -35,7 +35,7 @@ public class SimpleHeap<T : Comparable & Equatable> : CommonHeap<T> {
         var i = idx
         let tmp = data[i]!
         while left(i) <= count {
-            var j = left(i)
+            var j = left(i) //data[j + 1]! > data[j]!
             if j + 1 <= count && compare(data[j + 1]!, data[j]!) {
                 j = j + 1
             }

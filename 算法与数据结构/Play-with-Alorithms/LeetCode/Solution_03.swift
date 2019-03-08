@@ -254,11 +254,11 @@ extension Solution {
      */
     //回溯法
     func readBinaryWatch(_ num: Int) -> [String] {
+        typealias Time = (totalHours : Int, totalMins : Int)
         var res : [String] = []
         let hours : [Int] = [1,2,4,8]
         let mins  : [Int] = [1,2,4,8,16,32]
         let count = hours.count + mins.count
-        typealias Time = (totalHours : Int, totalMins : Int)
         let t : Time = (0, 0)
         
         //回溯函数

@@ -560,4 +560,495 @@ extension Solution {
         }
         return nums.count - last
     }
+    
+    // MARK: -------------- 只出现一次的数字 leetCode #136
+    /*
+     https://leetcode-cn.com/problems/single-number/
+     给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。
+     说明：
+     你的算法应该具有线性时间复杂度。 你可以不使用额外空间来实现吗？
+     
+     示例 1:
+     输入: [2,2,1]  输出: 1
+     
+     示例 2:
+     输入: [4,1,2,1,2]  输出: 4
+     */
+    
+    /*
+     这道题最优的算法可以使时间复杂度为O(n), 空间复杂度为O(1)
+     自己思考的解法，使用了额外得空间，复杂度为O(n) < k <= O(2n)
+     */
+    func singleNumber(_ nums: [Int]) -> Int {
+        if nums.isEmpty {
+            return -1
+        }
+        var countDic = [Int : Int]()
+        for n in nums {
+            if let count = countDic[n] {
+                countDic[n] = count + 1
+            } else {
+                countDic[n] = 1
+            }
+        }
+        var minCountNum = nums[0]
+        for (key, value) in countDic {
+            if value == 1 {
+                minCountNum = key
+                break
+            }
+        }
+        return minCountNum
+    }
+    
+    /*
+     这道题如果想要使时间复杂度为O(n), 空间复杂度为O(1)的话，
+     可以使用异或操作，异或操作的特性有一下几点：
+     1. 相同数字异或结果为0，如果是二进制按位异或的话，相同为0，不同为1。
+     2. 交换律： a ^ b = b ^ a
+     3. 结合律： (a ^ b) ^ c = a ^ (b ^ c)
+     4. 任何数和0异或结果都为本身 ： 0 ^ a = a
+     由于题目说明数组中只有一个单独存在的数字，其他的都是成对出现的，
+     所以可以将数组中的所有元素都做异或操作，根据交换律和结合律：
+     a ^ b ^ a ^ b ^ c = (a ^ a) ^ (b ^ b) ^ c = 0 ^ 0 ^ c = c
+     最后c就是那个只出现一次的元素。
+     */
+    func singleNumber_xor(_ nums: [Int]) -> Int {
+        var res = 0
+        for i in 0 ..< nums.count {
+            res = res ^ nums[i]
+        }
+        return res
+    }
+    
+    
+    
+    // MARK: -------------- 最接近原点的 K 个点 leetCode #973
+    /*
+     https://leetcode-cn.com/problems/k-closest-points-to-origin/
+     我们有一个由平面上的点组成的列表 points。需要从中找出 K 个距离原点 (0, 0) 最近的点。
+     （这里，平面上两点之间的距离是欧几里德距离。）
+     你可以按任何顺序返回答案。除了点坐标的顺序之外，答案确保是唯一的。
+     
+     示例 1：
+     输入：points = [[1,3],[-2,2]], K = 1  输出：[[-2,2]]
+     解释：
+     (1, 3) 和原点之间的距离为 sqrt(10)，
+     (-2, 2) 和原点之间的距离为 sqrt(8)，
+     由于 sqrt(8) < sqrt(10)，(-2, 2) 离原点更近。
+     我们只需要距离原点最近的 K = 1 个点，所以答案就是 [[-2,2]]。
+     
+     示例 2：
+     输入：points = [[3,3],[5,-1],[-2,4]], K = 2  输出：[[3,3],[-2,4]]
+     （答案 [[-2,4],[3,3]] 也会被接受。）
+     */
+    
+    /*
+     其实就是求距离最近的k个元素，所以我们可以升序排列数组，然后取前K个元素
+     */
+    func kClosest(_ points: [[Int]], _ K: Int) -> [[Int]] {
+        var points = points
+        points.sort { (p1, p2) -> Bool in
+            let d1 = p1[0] * p1[0] + p1[1] * p1[1]
+            let d2 = p2[0] * p2[0] + p2[1] * p2[1]
+            return d1 < d2
+        }
+        var res = [[Int]]()
+        for i in 0 ..< K {
+            res.append(points[i])
+        }
+        return res
+    }
+    
+    //自己实现归并排序
+    func kClosest_1(_ points: [[Int]], _ K: Int) -> [[Int]] {
+        // 排序
+        func mergeSort<T>(_ arr : [T], _ compare : (_ w : T, _ k : T) -> Bool) -> [T] {
+            
+            func _sort(_ l : Int, _ r : Int, _ a : inout[T], _ compare : (_ w : T, _ k : T) -> Bool) {
+                if l >= r { return }
+                let m = (r - l) / 2 + l
+                _sort(l, m, &a, compare)
+                _sort(m+1, r, &a, compare)
+                _merge(l, m, r, &a, compare)
+            }
+            
+            func _merge(_ l : Int, _ m : Int, _ r : Int, _ a : inout [T], _ compare : (_ w : T, _ k : T) -> Bool) {
+                var i = l, j = m + 1, t = [T]()
+                while i <= m && j <= r {
+                    if compare(a[i],a[j]) { t.append(a[i]); i+=1 }
+                    else { t.append(a[j]); j+=1 }
+                }
+                while i <= m { t.append(a[i]); i+=1 }
+                while j <= r { t.append(a[j]); j+=1 }
+                for i in 0 ..< t.count {
+                    a[l+i] = t[i]
+                }
+            }
+            var res = arr
+            _sort(0, res.count-1, &res, compare)
+            return res
+        }
+        
+        let sortedPoints = mergeSort(points) { (p1, p2) -> Bool in
+            let d1 = p1[0] * p1[0] + p1[1] * p1[1]
+            let d2 = p2[0] * p2[0] + p2[1] * p2[1]
+            return d1 < d2
+        }
+        var res = [[Int]]()
+        for i in 0 ..< K {
+            res.append(sortedPoints[i])
+        }
+        return res
+    }
+    
+    // MARK: -------------- 求众数 leetCode #169
+    /*
+     https://leetcode-cn.com/problems/majority-element/
+     给定一个大小为 n 的数组，找到其中的众数。众数是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。
+     你可以假设数组是非空的，并且给定的数组总是存在众数。
+     
+     示例 1:
+     输入: [3,2,3]  输出: 3
+     
+     示例 2:
+     输入: [2,2,1,1,1,2,2]  输出: 2
+     */
+    /*
+     解法1：
+     使用字典分别保存每个数字的出现次数，最后取出出现次数最多的那个数字。
+     */
+    func majorityElement(_ nums: [Int]) -> Int {
+        var countMap = [Int : Int]()
+        for n in nums {
+            if let count = countMap[n] {
+                countMap[n] = count + 1
+            } else {
+                countMap[n] = 1
+            }
+            let count = countMap[n]!
+            if count > nums.count / 2{
+                return n
+            }
+        }
+        return -1
+    }
+    
+    /*
+     解法2: 分治法
+     根据题意，数组中总会存在一个众数，所以可以把问题分解：
+     1. 将数组分为左右两个子数组，取出左右两个子数组中的众数。
+     2. 如果左边和右边的众数一样，那么直接返回这个众数。
+     3. 如果左右两边的众数不一样，则返回在当前数组中出现次数最多的那个数。
+     */
+    func majorityElement_divideAndConquer(_ nums: [Int]) -> Int {
+        
+        func _partion(_ l : Int, _ r : Int) -> Int {
+            
+            if l >= r {
+                return nums[l]
+            }
+            let m = (r - l) / 2 + l
+            let lNum = _partion(l, m)
+            let rNum = _partion(m+1, r)
+            
+            if lNum == rNum {
+                return lNum
+            }
+            
+            var lCnt = 0
+            var rCnt = 0
+            for i in l ... r {
+                if nums[i] == lNum {
+                    lCnt += 1
+                }
+                if nums[i] == rNum {
+                    rCnt += 1
+                }
+            }
+            return lCnt > rCnt ? lNum : rNum
+        }
+        let res = _partion(0, nums.count-1)
+        return res
+    }
+    
+
+    
+    // MARK: -------------- 搜索二维矩阵 II leetCode #240
+    /*
+     https://leetcode-cn.com/problems/majority-element/
+     编写一个高效的算法来搜索 m x n 矩阵 matrix 中的一个目标值 target。该矩阵具有以下特性：
+     每行的元素从左到右升序排列。
+     每列的元素从上到下升序排列。
+     示例:
+     现有矩阵 matrix 如下：
+     [
+     [1,   4,  7, 11, 15],
+     [2,   5,  8, 12, 19],
+     [3,   6,  9, 16, 22],
+     [10, 13, 14, 17, 24],
+     [18, 21, 23, 26, 30]
+     ]
+     给定 target = 5，返回 true。
+     给定 target = 20，返回 false。
+     */
+    /*
+     解法1. 动态规划：
+     根据题意可以知道，针对每一个范围的矩阵左下角的数字v是这一列最大的，同时也是这一行最小的。
+     所以可以将目标值t和左下角的值v进行比较：
+     1. t 如果等于 v，则直接返回true
+     2. t 如果大于 v，则目标值一定不会在v所处的这一列中，因为v已经是最大的了。
+     3. t 如果小于 v，则目标值一定不会在v所处的这一行中，因为v已经是最下的了。
+     就这样逐渐缩小范围，如果知道范围为0都没有找到，则返回false。
+     */
+    func searchMatrix(_ matrix: [[Int]], _ target: Int) -> Bool {
+        var r = matrix.count-1, c = 0
+        // 对于每一个矩阵，左下角的值都是这一列最大的，并且是这一行最小的
+        while r >= 0 && c <= matrix[0].count - 1 {
+            let v = matrix[r][c]
+            if target == v {
+                return true
+        
+            } else if target > v {
+                // 如果目标值比左下角的还大，说明目标值一定不存在于这一列
+                c += 1
+                
+            } else {
+                // 如果目标值比左下角的值还小，说明目标值一定不存在于这一行
+                r -= 1
+            }
+        }
+        return false
+    }
+    
+    /*
+     解法2，二分搜索:
+     首先取矩阵中的中央元素 v 与目标值 t 相比较：
+     1. 如果目标值 t 小于 v， 则目标值应该存在于v 上边 或者 左边 的矩阵中。
+     2. 如果目标值 t 小于 v， 则目标值应该存在于v 下边 或者 右边 的矩阵中。
+     */
+    func searchMatrix_binarySearch(_ matrix: [[Int]], _ target: Int) -> Bool {
+        
+        func _search(_ minX : Int, _ minY : Int, _ maxX : Int, _ maxY : Int) -> Bool {
+            
+            guard minX < maxX, minY < maxY else {
+                return false
+            }
+            let midX = (maxX - minX) / 2 + minX
+            let midY = (maxY - minY) / 2 + minY
+            let mid  = matrix[midY][midX]
+            if target == mid {
+                return true
+                
+            } else if target < mid {
+                // 在左边或者上边
+                return _search(minX, minY, midX, maxY) || _search(minX, minY, maxX, midY)
+                
+            } else { // target >= mid
+                // 在右边或者下面
+                return _search(midX+1, minY, maxX, maxY) || _search(minX, midY+1, maxX, maxY)
+            }
+        }
+        // 尾递归优化
+        return _search(0, 0, matrix[0].count, matrix.count)
+    }
+    
+    
+    // MARK: -------------- 合并两个有序数组 leetCode #88
+    /*
+     https://leetcode-cn.com/problems/merge-sorted-array/
+     给定两个有序整数数组 nums1 和 nums2，将 nums2 合并到 nums1 中，使得 num1 成为一个有序数组。
+     说明:
+     初始化 nums1 和 nums2 的元素数量分别为 m 和 n。
+     你可以假设 nums1 有足够的空间（空间大小大于或等于 m + n）来保存 nums2 中的元素。
+     
+     示例:
+     输入:
+     nums1 = [1,2,3,0,0,0], m = 3
+     nums2 = [2,5,6],       n = 3
+     输出: [1,2,2,3,5,6]
+     
+     nums1 = [1,2,4,5,0,0], m = 3
+     nums2 = [1,3],       n = 3
+     输出: [1,2,2,3,4,6]
+     1 1 2 3
+     
+     */
+    func merge_1(_ nums1: inout [Int], _ m: Int, _ nums2: [Int], _ n: Int) {
+        
+        var res = [Int]()
+        var i = 0, j = 0
+        while i < m && j < n {
+            if nums1[i] < nums2[j] {
+                res.append(nums1[i])
+                i += 1
+            } else {
+                res.append(nums2[j])
+                j += 1
+            }
+        }
+        while i < m {
+            res.append(nums1[i])
+            i += 1
+        }
+        while j < n {
+            res.append(nums2[j])
+            j += 1
+        }
+        nums1 = res
+    }
+    
+    func merge_2(_ nums1: inout [Int], _ m: Int, _ nums2: [Int], _ n: Int) {
+        var k = m + n
+        var i = m , j = n
+        while i > 0 && j > 0 {
+            if nums1[i-1] > nums2[j-1]  {
+                nums1[k-1] = nums1[i-1]
+                i -= 1
+                
+            } else {
+                nums1[k-1] = nums2[j-1]
+                j -= 1
+            }
+            k -= 1
+        }
+        
+        while j > 0 {
+            nums1[k-1] = nums2[j-1]
+            k -= 1
+            j -= 1
+        }
+    }
+    
+    func merge_3(_ nums1: inout [Int], _ m: Int, _ nums2: [Int], _ n: Int) {
+        var i = m, j = 0
+        while j < n {
+            nums1[i] = nums2[j]
+            j += 1
+            i += 1
+        }
+        nums1.sort()
+    }
+    
+    // MARK: -------------- 验证回文串 leetCode #125
+    /*
+     https://leetcode-cn.com/problems/valid-palindrome/
+     给定一个字符串，验证它是否是回文串，只考虑字母和数字字符，可以忽略字母的大小写。
+     说明：本题中，我们将空字符串定义为有效的回文串。
+     
+     示例 1:
+     输入: "A man, a plan, a canal: Panama"
+     输出: true
+     
+     示例 2:
+     输入: "race a car"
+     输出: false
+     */
+    func isPalindrome(_ s: String) -> Bool {
+        func isValid(_ i : Int, _ s : String) -> Bool {
+            let c = s.charAt(i)
+            return c.isChar() || c.isNum()
+        }
+        let s = s.lowercased()
+        var i = 0, j = s.count-1
+        while true {
+            while i <= j && !isValid(i,s) {
+                i += 1
+            }
+            while i <= j && !isValid(j,s) {
+                j -= 1
+            }
+            
+            if i > j {
+                break
+            }
+            
+            if s.charAt(i) == s.charAt(j) {
+                i += 1
+                j -= 1
+            } else {
+                return false
+            }
+        }
+        return true
+    }
+    
+    func isPalindrome_sysApi(_ s: String) -> Bool {
+        
+        func isValid(_ c : Character) -> Bool {
+            return c.isChar() || c.isNum()
+        }
+        let s = s.lowercased()
+        var newStr = ""
+        for c in s {
+            if isValid(c) {
+                newStr.append(c)
+            }
+        }
+        return newStr.reversed().elementsEqual(newStr)
+    }
+    
+    
+    // MARK: -------------- 分割回文串 leetCode #131
+    /*
+     https://leetcode-cn.com/problems/palindrome-partitioning/
+     给定一个字符串 s，将 s 分割成一些子串，使每个子串都是回文串。 返回 s 所有可能的分割方案。
+     
+     示例:
+     输入: "aab"
+     输出:
+     [
+        ["aa","b"],
+        ["a","a","b"]
+     ]
+     */
+    
+    /*
+     由于是求全集的问题，所以可以使用回溯法来解决该问题。
+     首先要明确的是，分割回文字符串的操作可以针对任何一个子字符串，所以可以用 深度优先搜索 + 回溯剪枝 来解决。
+     提供一个动态索引，当索引位置在字符串中i的位置时：
+     1. 如果左边的字符串是回文，则加到结果集里面，那么再看右边的字符串该如何分割，这又是一个子问题（递归）。
+     2. 如果不是回文，则说明以i这个位置分割的字符串结果集不是有效的，所以索引位置向后移动一位。
+     当某一个递归子问题处理的字符串的长度小于1的时候，说明深度优先遍历走到尽头，
+     此时结果集里面已经保存了一种分割方案了，将该方案添加到最终的结果数组中。
+     当前路径已经走完，所以需要回溯到父节点走另一条分支，回溯的过程中需要将走过的结点删除掉。
+     */
+    func partition(_ s: String) -> [[String]] {
+        
+        func isPalindrome(_ s : String, _ l : Int, _ r : Int) -> Bool {
+            if l == r || s.isEmpty { return true }
+            var i = l, j = r
+            while l <= j {
+                if s.charAt(i) != s.charAt(j) {
+                    return false
+                }
+                i += 1; j -= 1
+            }
+            return true
+        }
+        
+        func _dfs(s : String, res : inout [String], final : inout [[String]]) {
+            if s.count < 1 {
+                final.append(Array(res))
+                return
+            }
+            for i in 1 ... s.count {
+                let strLeft = s.substringInRange((0 ..< i))!
+                if isPalindrome(s, 0, strLeft.count-1) {
+                    res.append(strLeft)
+                    let strRight = s.substringInRange((i ..< s.count)) ?? ""
+                    _dfs(s: strRight, res: &res, final: &final)
+                    // 回溯
+                    res.removeLast()
+                }
+            }
+        }
+        
+        var temp = [String]()
+        var res = [[String]]()
+        _dfs(s: s, res: &temp, final: &res)
+        return res
+    }
 }
+
+
