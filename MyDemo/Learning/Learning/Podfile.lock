@@ -16,8 +16,8 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
-  - Alamofire (4.8.1)
-  - Curry (4.0.0)
+  - Alamofire (4.8.2)
+  - Curry (4.0.2)
   - Differentiator (3.1.0)
   - ReactiveCocoa (2.5):
     - ReactiveCocoa/UI (= 2.5)
@@ -26,32 +26,40 @@ PODS:
   - ReactiveCocoa/no-arc (2.5)
   - ReactiveCocoa/UI (2.5):
     - ReactiveCocoa/Core
-  - RxAtomic (4.4.0)
-  - RxBlocking (4.4.0):
-    - RxAtomic (~> 4.4)
-    - RxSwift (~> 4.0)
-  - RxCocoa (4.4.0):
-    - RxSwift (~> 4.0)
+  - RxAlamofire (4.4.0):
+    - RxAlamofire/Core (= 4.4.0)
+  - RxAlamofire/Core (4.4.0):
+    - Alamofire (~> 4.8)
+    - RxSwift (~> 4.4)
+  - RxAtomic (4.4.2)
+  - RxBlocking (4.4.2):
+    - RxAtomic (>= 4.4.2, ~> 4.4)
+    - RxSwift (>= 4.4.2, ~> 4.4)
+  - RxCocoa (4.4.2):
+    - RxSwift (>= 4.4.2, ~> 4.4)
   - RxDataSources (3.1.0):
     - Differentiator (~> 3.0)
     - RxCocoa (~> 4.0)
     - RxSwift (~> 4.0)
-  - RxSwift (4.4.0):
-    - RxAtomic (~> 4.4)
-  - RxTest (4.4.0):
-    - RxAtomic (~> 4.4)
-    - RxSwift (~> 4.0)
+  - RxSwift (4.4.2):
+    - RxAtomic (>= 4.4.2, ~> 4.4)
+  - RxTest (4.4.2):
+    - RxAtomic (>= 4.4.2, ~> 4.4)
+    - RxSwift (>= 4.4.2, ~> 4.4)
+  - YYText (1.0.7)
 
 DEPENDENCIES:
   - AFNetwork (~> 0.1.0)
   - Alamofire
   - Curry (~> 4.0.0)
   - ReactiveCocoa (~> 2.0)
+  - RxAlamofire
   - RxBlocking (~> 4.4.0)
   - RxCocoa (~> 4.4.0)
   - RxDataSources (~> 3.1.0)
   - RxSwift (~> 4.4.0)
   - RxTest (~> 4.4.0)
+  - YYText (~> 1.0.7)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -61,27 +69,31 @@ SPEC REPOS:
     - Curry
     - Differentiator
     - ReactiveCocoa
+    - RxAlamofire
     - RxAtomic
     - RxBlocking
     - RxCocoa
     - RxDataSources
     - RxSwift
     - RxTest
+    - YYText
 
 SPEC CHECKSUMS:
   AFNetwork: 0dbdb2ffb4a7770b3d1802dc85b50ab31263f2c2
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
-  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
-  Curry: 887c0b9de9a9947820a59557459c7895e76d7b90
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  Curry: e2388a19084bb0977d7318e39048d66550569bf0
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
-  RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
-  RxBlocking: 138ad53217434444d6eeeb4fb406a45431d92e31
-  RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749
+  RxAlamofire: ecc5e458ee11250938d23360179eb3a37cd3ee1e
+  RxAtomic: d00e97c10db88c6f08540e0bf2752fc5a2404167
+  RxBlocking: e96fdda1473d81332a6ed2cface935dc2167a122
+  RxCocoa: 477990dc3b4c3ff55fb0ac77e1cc06244e0aaec8
   RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
-  RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
-  RxTest: 19d03286bdc0a3aaea5d61d4cde31fdf4bb8a5ba
+  RxSwift: 74c29b693c8e42b0f64400e8b06564575742d649
+  RxTest: 6433d5b6229f5de424fa534bc22b5e6c38b0b671
+  YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: 1ba6bc5a6fc3a50d0b98696e98af1d9295e3b069
+PODFILE CHECKSUM: ea3c96fcd811c7aa26ac4e13dfaff7ca0471695e
 
 COCOAPODS: 1.6.1
