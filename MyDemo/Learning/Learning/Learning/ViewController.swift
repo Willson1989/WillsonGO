@@ -8,7 +8,8 @@
 
 import UIKit
 import Curry
-
+import RxSwift
+import RxCocoa
 
 struct Person {
     var name : String
@@ -26,26 +27,63 @@ struct Person {
     }
 }
 
+
+enum MyError : Error {
+    case normal
+}
+
 class ViewController: UIViewController {
 
+    var tempSubject = PublishSubject<Int>()
+    var bag = DisposeBag()
+    
     override func viewDidLoad() {
+        self.view.backgroundColor = .purple
         super.viewDidLoad()
-        
-//        P1().doSkill()
-//        P2().doSkill()
-//        P3().doSkill()
-//
-//        self.view.backgroundColor = .orange
-//        drawPyramid(5)
-//        print(myFactorial(8))
-//        
-//        let w = testWritter()
-//        print("testWritter res : \(w.data), log : \(w.record)")
-//
-//        testScoreWritter()
+        bind()
+    }
+    
+    func bind() {
+        tempSubject.subscribe(onNext: { n in
+            print("the num : ",n)
+        })
+        .disposed(by: bag)
+    }
+    
+    func tempReq() {
+        Observable<Int>.create({ (ob) -> Disposable in
+            
+            let dispose = Disposables.create {
+                
+            }
+            
+            ob.onError(ZYError.init(desc: "normal error", code: -898))
+            
+            return dispose
+            
+        })
+        .throttle(2.0, scheduler: MainScheduler.instance)
+        .flatMapLatest { Observable<Int>.just($0) }
+        .subscribe(tempSubject)
+        .disposed(by: bag)
     }
     
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        self.tempSubject.onNext(99)
+        self.tempReq()
+        // 这里的链式调用的各个函数需要满足的条件是，当前函数的输入值类型和上一个函数的输出的上下文中包裹的关联值的类型必须一致
+        // 及当前的输入是上一个的输出。
+        //        let res = fetchFromDB(6) >>= requestData >>= parsToDic >>= convertToModel
+        //        if let personInfo = res.value as? Person {
+        //            print(personInfo)
+        //        }
+        //        let vc = AlamofireDemoVC()
+        //        let vc = GCDDemoViewController()
+        //        let vc = TextKitDemoViewController()
+        //
+        //        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
     func fetchFromDB(_ cond : Int) -> Result<String> {
         return Result.success(cond > 5 ? "1" : "2")
@@ -66,19 +104,7 @@ class ViewController: UIViewController {
     func makeDouble(_ x : Int) -> Int {
         return x * 2
     }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        // 这里的链式调用的各个函数需要满足的条件是，当前函数的输入值类型和上一个函数的输出的上下文中包裹的关联值的类型必须一致
-        // 及当前的输入是上一个的输出。
-//        let res = fetchFromDB(6) >>= requestData >>= parsToDic >>= convertToModel
-//        if let personInfo = res.value as? Person {
-//            print(personInfo)
-//        }
-        let vc = AlamofireDemoVC()
-//        let vc = GCDDemoViewController()
 
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
 }
 
 
@@ -237,4 +263,57 @@ struct P3 : Skill {
     typealias SkillItem = Hand
 }
 
+struct PromiseError : Error {
+    
+}
 
+class Promise<T> {
+    typealias ResolveCallBack = (T) -> Void
+    typealias RejectCallBack = (PromiseError) -> Void
+    typealias TaskCallBack = (@escaping ResolveCallBack, @escaping RejectCallBack) -> Void
+    
+    private var task : TaskCallBack?
+    private var resolveCallback : ResolveCallBack?
+    private var rejectCallback : RejectCallBack?
+
+    
+    init(_ task : @escaping TaskCallBack) {
+        self.task = task
+    }
+    
+    func success(_ callback : @escaping ResolveCallBack) {
+        self.resolveCallback = callback
+        self.task?({ [weak self] res in
+            guard let wself = self else { return }
+            wself.resolve(res)
+        },
+        { [weak self]  error in
+            guard let wself = self else { return }
+            wself.reject(error)
+        })
+    }
+    
+    func then<U>(_ f : @escaping (T) -> Promise<U>) -> Promise<U> {
+        return Promise<U> { (resolve, reject) in
+            self.task?({ res in
+                let wrapped = f(res)
+                wrapped.success(resolve)
+            },
+            { error in
+                reject(error)
+            })
+        }
+    }
+    
+    func fail(_ callback : @escaping RejectCallBack) {
+        self.rejectCallback = callback
+    }
+    
+    private func resolve(_ res : T) {
+        self.resolveCallback?(res)
+    }
+    
+    private func reject(_ error : PromiseError) {
+        self.rejectCallback?(error)
+    }
+}

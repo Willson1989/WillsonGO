@@ -158,12 +158,14 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Curry/Curry.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/YYText/YYText.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -172,12 +174,14 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Curry/Curry.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/YYText/YYText.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then

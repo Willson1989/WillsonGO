@@ -57,9 +57,6 @@ struct GitNetManager {
         guard let url = try? path.asURL() else {
             return
         }
-        
-        request(url, method: .post, parameters: <#T##Parameters?#>, encoding: <#T##ParameterEncoding#>, headers: <#T##HTTPHeaders?#>)
-        
     }
 }
 

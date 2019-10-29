@@ -19,6 +19,7 @@ PODS:
   - Alamofire (4.8.2)
   - Curry (4.0.2)
   - Differentiator (3.1.0)
+  - ObjectMapper (3.4.2)
   - ReactiveCocoa (2.5):
     - ReactiveCocoa/UI (= 2.5)
   - ReactiveCocoa/Core (2.5):
@@ -46,12 +47,16 @@ PODS:
   - RxTest (4.4.2):
     - RxAtomic (>= 4.4.2, ~> 4.4)
     - RxSwift (>= 4.4.2, ~> 4.4)
+  - SDWebImage (5.0.2):
+    - SDWebImage/Core (= 5.0.2)
+  - SDWebImage/Core (5.0.2)
   - YYText (1.0.7)
 
 DEPENDENCIES:
   - AFNetwork (~> 0.1.0)
   - Alamofire
   - Curry (~> 4.0.0)
+  - ObjectMapper (~> 3.4.2)
   - ReactiveCocoa (~> 2.0)
   - RxAlamofire
   - RxBlocking (~> 4.4.0)
@@ -59,6 +64,7 @@ DEPENDENCIES:
   - RxDataSources (~> 3.1.0)
   - RxSwift (~> 4.4.0)
   - RxTest (~> 4.4.0)
+  - SDWebImage (~> 5.0.2)
   - YYText (~> 1.0.7)
 
 SPEC REPOS:
@@ -68,6 +74,7 @@ SPEC REPOS:
     - Alamofire
     - Curry
     - Differentiator
+    - ObjectMapper
     - ReactiveCocoa
     - RxAlamofire
     - RxAtomic
@@ -76,6 +83,7 @@ SPEC REPOS:
     - RxDataSources
     - RxSwift
     - RxTest
+    - SDWebImage
     - YYText
 
 SPEC CHECKSUMS:
@@ -84,6 +92,7 @@ SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   Curry: e2388a19084bb0977d7318e39048d66550569bf0
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
+  ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   RxAlamofire: ecc5e458ee11250938d23360179eb3a37cd3ee1e
   RxAtomic: d00e97c10db88c6f08540e0bf2752fc5a2404167
@@ -92,8 +101,9 @@ SPEC CHECKSUMS:
   RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
   RxSwift: 74c29b693c8e42b0f64400e8b06564575742d649
   RxTest: 6433d5b6229f5de424fa534bc22b5e6c38b0b671
+  SDWebImage: 6764b5fa0f73c203728052955dbefa2bf1f33282
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: ea3c96fcd811c7aa26ac4e13dfaff7ca0471695e
+PODFILE CHECKSUM: 5bba690724980c3d53eb363fa90ae8f35a19f1af
 
 COCOAPODS: 1.6.1

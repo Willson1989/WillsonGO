@@ -33,6 +33,9 @@
 		2998AF2E2244B21000EF7888 /* DetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2998AF282244B20F00EF7888 /* DetailCell.xib */; };
 		2998AF2F2244B21000EF7888 /* TitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2998AF292244B20F00EF7888 /* TitleCell.swift */; };
 		2998AF332244C45700EF7888 /* RXSearchListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2998AF322244C45700EF7888 /* RXSearchListVC.swift */; };
+		2DCAC1172289BBB500D0802A /* TextKitDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCAC1162289BBB500D0802A /* TextKitDemoViewController.swift */; };
+		2DCAC121228BFB2500D0802A /* HSTextParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCAC120228BFB2500D0802A /* HSTextParser.swift */; };
+		2DCAC123228D0AA900D0802A /* HSChatLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCAC122228D0AA900D0802A /* HSChatLabel.swift */; };
 		A5CC88C64C7651816FC0506E /* Pods_Learning.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB8074DE5737BB96A12F5F98 /* Pods_Learning.framework */; };
 		CF7ABD7C6A08D75935202FEE /* Pods_LearningTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 967A8114E2BCB807E119C6F2 /* Pods_LearningTests.framework */; };
 /* End PBXBuildFile section */
@@ -90,6 +93,9 @@
 		2998AF282244B20F00EF7888 /* DetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailCell.xib; sourceTree = "<group>"; };
 		2998AF292244B20F00EF7888 /* TitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleCell.swift; sourceTree = "<group>"; };
 		2998AF322244C45700EF7888 /* RXSearchListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RXSearchListVC.swift; sourceTree = "<group>"; };
+		2DCAC1162289BBB500D0802A /* TextKitDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextKitDemoViewController.swift; sourceTree = "<group>"; };
+		2DCAC120228BFB2500D0802A /* HSTextParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSTextParser.swift; sourceTree = "<group>"; };
+		2DCAC122228D0AA900D0802A /* HSChatLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSChatLabel.swift; sourceTree = "<group>"; };
 		3632C8791C53440F8EC082FF /* Pods-LearningTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LearningTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LearningTests/Pods-LearningTests.release.xcconfig"; sourceTree = "<group>"; };
 		6AA8037AA6A95BA05800C052 /* Pods-Learning.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Learning.release.xcconfig"; path = "Pods/Target Support Files/Pods-Learning/Pods-Learning.release.xcconfig"; sourceTree = "<group>"; };
 		812E236986834D2B6E173219 /* Pods_LearningUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LearningUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,6 +163,7 @@
 				04BBB94D222E52C100DBAF13 /* ViewController.swift */,
 				04BBB9822230C54F00DBAF13 /* Monad.swift */,
 				297429B12238CC150065AFA8 /* GCDDemoViewController.swift */,
+				2DCAC1152289BB9E00D0802A /* LearningTextKit */,
 				2966690222545B7F00CF21D9 /* LearningAlamofire */,
 				296669012253B5A500CF21D9 /* LearningRuntime */,
 				296668F92253B4A900CF21D9 /* LearningAVPlayer */,
@@ -240,6 +247,16 @@
 				2998AF272244B20F00EF7888 /* TitleCell.xib */,
 			);
 			path = cells;
+			sourceTree = "<group>";
+		};
+		2DCAC1152289BB9E00D0802A /* LearningTextKit */ = {
+			isa = PBXGroup;
+			children = (
+				2DCAC122228D0AA900D0802A /* HSChatLabel.swift */,
+				2DCAC1162289BBB500D0802A /* TextKitDemoViewController.swift */,
+				2DCAC120228BFB2500D0802A /* HSTextParser.swift */,
+			);
+			path = LearningTextKit;
 			sourceTree = "<group>";
 		};
 		A6402788493B5EB45B600C37 /* Frameworks */ = {
@@ -510,12 +527,14 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Curry/Curry.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/YYText/YYText.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -527,12 +546,14 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Curry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAlamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYText.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -550,6 +571,7 @@
 				297610AB2244F6380028360C /* RxRequestVC.swift in Sources */,
 				04BBB981222E5A8600DBAF13 /* MusicListViewController.swift in Sources */,
 				04BBB9832230C54F00DBAF13 /* Monad.swift in Sources */,
+				2DCAC121228BFB2500D0802A /* HSTextParser.swift in Sources */,
 				2998AF2F2244B21000EF7888 /* TitleCell.swift in Sources */,
 				296668FB2253B4F200CF21D9 /* MyPlayerVC.swift in Sources */,
 				29666906225A283600CF21D9 /* GItListViewController.swift in Sources */,
@@ -557,6 +579,8 @@
 				2998AF2C2244B21000EF7888 /* ImageCell.swift in Sources */,
 				297429B22238CC150065AFA8 /* GCDDemoViewController.swift in Sources */,
 				2998AF332244C45700EF7888 /* RXSearchListVC.swift in Sources */,
+				2DCAC1172289BBB500D0802A /* TextKitDemoViewController.swift in Sources */,
+				2DCAC123228D0AA900D0802A /* HSChatLabel.swift in Sources */,
 				296669002253B59A00CF21D9 /* LearningRuntimeDemoVC.m in Sources */,
 				04BBB94E222E52C100DBAF13 /* ViewController.swift in Sources */,
 				2998AECD223FD2A600EF7888 /* RXTableViewDemoVC.swift in Sources */,
