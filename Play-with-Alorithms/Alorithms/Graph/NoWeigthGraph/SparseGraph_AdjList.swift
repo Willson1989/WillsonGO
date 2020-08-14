@@ -63,14 +63,14 @@ public class SparseGraph_AdjList : Graph {
             ev.next = vexW.firstBridge
             vexW.firstBridge = ev
         }
-        num_Edge += 1
+        num_edge += 1
     }
     
     internal override func dfs(v: Int, iteration: iteratorBlock?) {
         
         self.visited[v] = true
         iteration?(v)
-        self.connectIds[v] = self.num_Components
+        self.connectIds[v] = self.num_components
         var p = graph[v].firstBridge
         while p != nil {
             if visited[p!.vertex] == false {
@@ -107,7 +107,7 @@ public class SparseGraph_AdjList : Graph {
                     pre?.next = p?.next
                     p = nil
                 }
-                self.num_Edge -= 1
+                self.num_edge -= 1
                 //不处理平行变的问题,所以匹配的时候，直接break
                 break
             }
@@ -136,7 +136,7 @@ public class SparseGraph_AdjList : Graph {
     
     public override func show() {
         print("稀疏图 邻接表 ： \(self)")
-        for i in 0 ..< self.num_Vertex {
+        for i in 0 ..< self.num_vertex {
             let v = String(format: "%03d", i)
             print("Vertex \(v) : ", separator: "", terminator: "")
             var p = graph[i].firstBridge

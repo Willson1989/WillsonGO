@@ -35,13 +35,13 @@ public class SparseGraphW_AdjList : Graph_Weighted {
             ev.next = vexW.firstArc
             vexW.firstArc = ev
         }
-        self.num_Edge += 1
+        self.num_edge += 1
     }
     
     override func dfs(v: Int, iteration: iteratorBlock?) {
         self.visited[v] = true
         iteration?(v)
-        self.connectIds[v] = self.num_Components
+        self.connectIds[v] = self.num_components
         var p = graph[v].firstArc
         while p != nil {
             if visited[p!.to] == false {
@@ -78,7 +78,7 @@ public class SparseGraphW_AdjList : Graph_Weighted {
                     pre?.next = p?.next
                     p = nil
                 }
-                self.num_Edge -= 1
+                self.num_edge -= 1
                 //不处理平行变的问题,所以匹配的时候，直接break
                 break
             }
@@ -107,7 +107,7 @@ public class SparseGraphW_AdjList : Graph_Weighted {
     
     public override func show() {
         print("稀疏图(有权) 邻接表 ： \(self)")
-        for i in 0 ..< self.num_Vertex {
+        for i in 0 ..< self.num_vertex {
             let v = String(format: "%03d", i)
             print("Vertex \(v) : ", separator: "", terminator: "")
             var p = graph[i].firstArc

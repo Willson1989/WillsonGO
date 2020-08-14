@@ -5,7 +5,7 @@ import Foundation
  适合用  邻接表(二维整型数组)  来标识
  */
 public class SparseGraph : Graph {
-    //（可以将所有的边都添加完之后再处理平行变的问题）？
+    //（可以将所有的边都添加完之后再处理平行边的问题）？
     
     internal var graph : [[Int]] = []
     
@@ -18,9 +18,9 @@ public class SparseGraph : Graph {
     
     //存在平行边
     /* 由于使用邻接表实现的稀疏图的hasEdge方法的时间复杂度是O(n)级别的
-     那么在addEdge中加入处理平行变的处理之后 addEdge 的
+     那么在addEdge中加入处理平行边的逻辑之后 addEdge 的
      时间复杂度则变成了至少为O(n)级别的，这样会降低效率，
-     所以，使用邻接表实现的图的缺点是对平行变的处理效率比较低 */
+     所以，使用邻接表实现的图的缺点是对平行边的处理效率比较低 */
     public override func addEdge(_ v: Int, _ w: Int) {
         
         if !self.isAvaliable(v) || !self.isAvaliable(w) {
@@ -34,7 +34,7 @@ public class SparseGraph : Graph {
         if v != w && !self.isDirected {
             self.graph[w].append(v)
         }
-        self.num_Edge += 1
+        self.num_edge += 1
     }
     
     
@@ -42,7 +42,7 @@ public class SparseGraph : Graph {
         
         self.visited[v] = true
         iteration?(v)
-        self.connectIds[v] = self.num_Components
+        self.connectIds[v] = self.num_components
         for i in 0 ..< self.graph[v].count {
             let j = self.graph[v][i]
             if self.visited[j] == false {
@@ -70,7 +70,7 @@ public class SparseGraph : Graph {
         for i in 0 ..< self.graph[v].count {
             if self.graph[v][i] == w {
                 self.graph[v].remove(at: i)
-                self.num_Edge -= 1
+                self.num_edge -= 1
                 break
             }
         }
@@ -94,7 +94,7 @@ public class SparseGraph : Graph {
     //打印邻接表
     public override func show() {
         print("稀疏图 邻接表 ： \(self)")
-        for i in 0 ..< self.num_Vertex {
+        for i in 0 ..< self.num_vertex {
             let v = String(format: "%03d", i)
             print("Vertex \(v) : ", separator: "", terminator: "")
             for j in 0 ..< self.graph[i].count {

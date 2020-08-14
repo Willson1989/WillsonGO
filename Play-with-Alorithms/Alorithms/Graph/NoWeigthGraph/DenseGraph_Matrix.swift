@@ -30,7 +30,7 @@ public class DenseGraph_Matrix : Graph{
             //如果是无向图
             graph[w][v] = true
         }
-        num_Edge += 1
+        num_edge += 1
     }
     
     public override func deleteEdge(_ v: Int, _ w: Int) {
@@ -47,14 +47,14 @@ public class DenseGraph_Matrix : Graph{
                 self.graph[w][v] = false
             }
         }
-        self.num_Edge -= 1
+        self.num_edge -= 1
         self.depthFirstSearch(iteration: nil)
     }
     
     internal override func dfs(v: Int, iteration: iteratorBlock?) {
         self.visited[v] = true
         iteration?(v)
-        self.connectIds[v] = self.num_Components
+        self.connectIds[v] = self.num_components
         for i in 0 ..< self.graph[v].count {
             if self.graph[v][i] == true && self.visited[i] == false {
                 self.dfs(v: i, iteration: iteration)
@@ -79,10 +79,10 @@ public class DenseGraph_Matrix : Graph{
     public override func show() {
         
         print("稠密图 邻接矩阵 ： \(self)")
-        for i in 0 ..< self.num_Vertex {
+        for i in 0 ..< self.num_vertex {
             let str = String(format: "%03d", i)
             print("Vertex \(str) : ", separator: "", terminator: "")
-            for j in 0 ..< self.num_Vertex {
+            for j in 0 ..< self.num_vertex {
                 let content = self.graph[i][j] == true ? "1" : "0"
                 print(content, separator: "", terminator: " ")
             }
@@ -103,7 +103,7 @@ public class DenseGraph_Matrix : Graph{
         
         internal override func dfsFromVertex(_ v: Int) {
             self.visited[v] = true
-            for i in 0 ..< self.num_Vertex {
+            for i in 0 ..< self.num_vertex {
                 if self.G.graph[v][i] == true && self.visited[i] == false {
                     self.from[i] = v
                     self.dfsFromVertex(i)
@@ -133,7 +133,7 @@ public class DenseGraph_Matrix : Graph{
                 
                 let tmpV = queue.front()!
                 queue.dequeue()
-                for i in 0 ..< self.num_Vertex {
+                for i in 0 ..< self.num_vertex {
                     if self.G.graph[tmpV][i] == true && self.visited[i] == false {
                         queue.enqueue(i)
                         self.visited[i] = true

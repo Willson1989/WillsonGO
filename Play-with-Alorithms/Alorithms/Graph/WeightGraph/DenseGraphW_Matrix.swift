@@ -25,7 +25,7 @@ public class DenseGraphW_Matrix : Graph_Weighted {
             //如果是无向图
             graph[w][v] = Edge(a: w, b: v, weight: weight)
         }
-        num_Edge += 1
+        num_edge += 1
     }
     
     public override func deleteEdge(_ v: Int, _ w: Int) {
@@ -42,14 +42,14 @@ public class DenseGraphW_Matrix : Graph_Weighted {
                 self.graph[w][v] = nil
             }
         }
-        self.num_Edge -= 1
+        self.num_edge -= 1
         self.depthFirstSearch(iteration: nil)
     }
     
     internal override func dfs(v: Int, iteration: iteratorBlock?) {
         self.visited[v] = true
         iteration?(v)
-        self.connectIds[v] = self.num_Components
+        self.connectIds[v] = self.num_components
         for i in 0 ..< self.graph[v].count {
             if self.graph[v][i] != nil && self.visited[i] == false {
                 self.dfs(v: i, iteration: iteration)
@@ -66,10 +66,10 @@ public class DenseGraphW_Matrix : Graph_Weighted {
     public override func show() {
         
         print("稠密图(有权图) 邻接矩阵 ： \(self)")
-        for i in 0 ..< self.num_Vertex {
+        for i in 0 ..< self.num_vertex {
             let str = String(format: "%03d", i)
             print("Vertex \(str) : ", separator: "", terminator: "")
-            for j in 0 ..< self.num_Vertex {
+            for j in 0 ..< self.num_vertex {
                 let content = self.graph[i][j] != nil ? "1" : "0"
                 print(content, separator: "", terminator: " ")
             }
@@ -95,7 +95,7 @@ extension DenseGraphW_Matrix {
         
         internal override func dfsFromVertex(_ v: Int) {
             self.visited[v] = true
-            for i in 0 ..< self.num_Vertex {
+            for i in 0 ..< self.num_vertex {
                 if self.G.graph[v][i] != nil && self.visited[i] == false {
                     self.from[i] = v
                     self.dfsFromVertex(i)
@@ -124,7 +124,7 @@ extension DenseGraphW_Matrix {
             while !queue.isEmpty() {
                 let tmpV = queue.front()!
                 queue.dequeue()
-                for i in 0 ..< self.num_Vertex {
+                for i in 0 ..< self.num_vertex {
                     if self.G.graph[tmpV][i] != nil && self.visited[i] == false {
                         queue.enqueue(i)
                         self.visited[i] = true

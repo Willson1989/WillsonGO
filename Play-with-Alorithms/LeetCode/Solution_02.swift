@@ -8,8 +8,8 @@
 
 import Foundation
 
-extension Solution {
-    
+//extension Solution {
+class Solution_02 {
     // MARK: -------------- 移除链表元素 leetCode #203
     /*
      https://leetcode-cn.com/problems/remove-linked-list-elements/description/

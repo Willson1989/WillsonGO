@@ -7,26 +7,26 @@ public let INFINITY_F : Float = 65535.0
 
 public class Graph {
     
-    internal var num_Vertex : Int = 0
-    internal var num_Edge : Int = 0
-    internal var num_Components : Int = 0
+    internal var num_vertex : Int = 0
+    internal var num_edge : Int = 0
+    internal var num_components : Int = 0
     internal var isDirected : Bool = false
     internal var visited : [Bool] = []
     
-    //遍历图的时候，num_Components会自增，connectIds用来存储各个阶段的num_Components，
+    //遍历图的时候，num_components会自增，connectIds 用来存储各个阶段的 num_components，
     //用来标识顶点之间的连通关系。connectIds[v] 和 connectIds[w]的值相等的话，代表v和w相连
     internal var connectIds : [Int] = []
     
     internal init() {
-        self.num_Vertex = 0
-        self.num_Edge = 0
-        self.num_Components = 0
+        self.num_vertex = 0
+        self.num_edge = 0
+        self.num_components = 0
     }
     
     internal init(capacity : Int, directed : Bool) {
-        self.num_Vertex = capacity
-        self.num_Edge = 0
-        self.num_Components = 0
+        self.num_vertex = capacity
+        self.num_edge = 0
+        self.num_components = 0
         self.isDirected = directed
     }
     
@@ -43,22 +43,22 @@ public class Graph {
     
     //MARK: - 返回图的顶点的个数
     public func V() -> Int {
-        return self.num_Vertex
+        return self.num_vertex
     }
     
     //MARK: - 返回图中边的个数
     public func E() -> Int {
-        return self.num_Edge
+        return self.num_edge
     }
     
     //MARK: - 返回连通分量的个数
     public func C() -> Int {
-        return self.num_Components
+        return self.num_components
     }
     
     //MARK: - 检查下标是否越界
     internal func isAvaliable( _ v : Int ) -> Bool {
-        return ( v >= 0 && v < self.num_Vertex )
+        return ( v >= 0 && v < self.num_vertex )
     }
     
     //MARK: - 使用block来遍历每个节点
@@ -69,13 +69,13 @@ public class Graph {
     
     //MARK: - 初始化 visited 数组
     internal func initVisitedArray() {
-        self.num_Components = 0
-        self.visited = Array(repeating: false, count: self.num_Vertex)
+        self.num_components = 0
+        self.visited = Array(repeating: false, count: self.num_vertex)
     }
     
     //MARK: - 初始化 connectIds 数组
     internal func initConnectIdArray() {
-        self.connectIds = Array(repeating: -1, count: self.num_Vertex)
+        self.connectIds = Array(repeating: -1, count: self.num_vertex)
     }
     
     //MARK: - 两个顶点是否连接
@@ -91,10 +91,10 @@ public class Graph {
     public func depthFirstSearch(iteration: iteratorBlock?) {
         self.initVisitedArray()
         self.initConnectIdArray()
-        for i in 0 ..< self.num_Vertex {
+        for i in 0 ..< self.num_vertex {
             if self.visited[i] == false {
                 self.dfs(v: i, iteration: iteration)
-                self.num_Components += 1
+                self.num_components += 1
             }
         }
     }

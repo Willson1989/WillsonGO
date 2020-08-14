@@ -80,7 +80,7 @@ extension DenseGraph_Matrix {
         }
         
         public func isEnd() -> Bool {
-            return self.currIdx >= self.G.num_Vertex
+            return self.currIdx >= self.G.num_vertex
         }
         
     }

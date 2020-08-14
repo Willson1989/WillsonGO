@@ -25,13 +25,13 @@ public class SparseGraphW : Graph_Weighted {
             let ev = Edge(a: w, b: v, weight: weight)
             self.graph[w].append(ev)
         }
-        self.num_Edge += 1
+        self.num_edge += 1
     }
     
     override func dfs(v: Int, iteration: iteratorBlock?) {
         self.visited[v] = true
         iteration?(v)
-        self.connectIds[v] = self.num_Components
+        self.connectIds[v] = self.num_components
         for i in 0 ..< self.graph[v].count {
             let e = self.graph[v][i]
             if self.visited[e!.to] == false {
@@ -58,7 +58,7 @@ public class SparseGraphW : Graph_Weighted {
         for i in 0 ..< self.graph[v].count {
             if self.graph[v][i]!.to == w {
                 self.graph[v].remove(at: i)
-                self.num_Edge -= 1
+                self.num_edge -= 1
                 break
             }
         }
@@ -76,7 +76,7 @@ public class SparseGraphW : Graph_Weighted {
     //打印邻接表
     public override func show() {
         print("稀疏图 邻接表 ： \(self)")
-        for i in 0 ..< self.num_Vertex {
+        for i in 0 ..< self.num_vertex {
             let v = String(format: "%03d", i)
             print("Vertex \(v) : ", separator: "", terminator: "")
             for j in 0 ..< self.graph[i].count {

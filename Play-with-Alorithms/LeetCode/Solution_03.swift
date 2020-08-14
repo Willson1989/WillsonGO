@@ -9,8 +9,8 @@
 import Foundation
 
 
-extension Solution {
-    
+//extension Solution {
+class Solution_03 {
     // MARK: -------------- 唯一摩尔斯密码词 leetCode #804
     /*
      https://leetcode-cn.com/problems/unique-morse-code-words/description/

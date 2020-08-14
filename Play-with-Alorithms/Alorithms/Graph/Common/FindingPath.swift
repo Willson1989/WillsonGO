@@ -15,23 +15,23 @@ public class GraphPath{
     internal var visited : [Bool] = []
     internal var from : [Int] = []
     internal var V : Int = INFINITY
-    internal var num_Vertex : Int = 0
+    internal var num_vertex : Int = 0
     internal var distance : [Int] = [] //广度优先遍历 和 最短路径时使用
     
     internal init(capacity : Int, v : Int) {
         self.V = v
-        self.num_Vertex = capacity
+        self.num_vertex = capacity
         self.initVisitedArray()
         self.initFromArray()
     }
     
     public func hasPath(with w : Int) -> Bool {
-        assert( w >= 0 && w < self.num_Vertex )
+        assert( w >= 0 && w < self.num_vertex )
         return self.visited[w]
     }
     
     public func path(with w : Int) -> [Int] {
-        assert( w >= 0 && w < self.num_Vertex )
+        assert( w >= 0 && w < self.num_vertex )
         var path = [Int]()
         let s = BasicStack<Int>()
         var k = w
@@ -48,7 +48,7 @@ public class GraphPath{
     }
     
     public func showPath(with w : Int) {
-        if w < 0 || w >= self.num_Vertex {
+        if w < 0 || w >= self.num_vertex {
             return
         }
         let p = self.path(with: w)
@@ -74,14 +74,14 @@ public class GraphPath{
     internal func bfsFromVertex(_ v : Int) { }
     
     internal func initFromArray() {
-        self.from = Array(repeating: -1, count: self.num_Vertex)
+        self.from = Array(repeating: -1, count: self.num_vertex)
     }
     
     internal func initDistanceArray() {
-        self.distance = Array(repeating: 0, count: self.num_Vertex)
+        self.distance = Array(repeating: 0, count: self.num_vertex)
     }
     
     internal func initVisitedArray() {
-        self.visited = Array(repeating: false, count: self.num_Vertex)
+        self.visited = Array(repeating: false, count: self.num_vertex)
     }
 }
