@@ -871,7 +871,6 @@ class Solution_05 {
      那么这些房间自然就是不能访问到的
      */
     func canVisitAllRooms(_ rooms: [[Int]]) -> Bool {
-        return canVisitAllRooms_dfs(rooms)
         if rooms.isEmpty {
             return true
         }
@@ -1105,9 +1104,7 @@ extension Solution_05 {
         }
         return inner_clone(node)
     }
-}
 
-extension Solution_05 {
     // MARK: - -------------  LRU缓存机制 leetCode #146
 
     /*
@@ -1201,6 +1198,93 @@ extension Solution_05 {
 }
 
 extension Solution_05 {
+    // MARK: - -------------  只出现一次的数字 II leetCode #137
+
+    /*
+     给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现了三次。找出那个只出现了一次的元素。
+
+     说明：
+     你的算法应该具有线性时间复杂度。 你可以不使用额外空间来实现吗？
+
+     示例 1:
+     输入: [2,2,3,2]
+     输出: 3
+
+     示例 2:
+     输入: [0,1,0,1,0,1,99]
+     输出: 99
+     */
+
+    /*
+     解法1：
+     遍历数组，使用哈希表存储每个数字的出现次数，最后取出只出现过一次的那个数字
+     时间复杂度：O(n) ~ O(n + (n - 1) / 3),
+     使用了字典，所以空间复杂度：O((n - 1) / 3)
+     */
+    func singleNumber(_ nums: [Int]) -> Int {
+        var dic: [Int: Int] = [:]
+        for n in nums {
+            if let c = dic[n] {
+                dic[n] = c + 1
+            } else {
+                dic[n] = 1
+            }
+        }
+        for (k, v) in dic {
+            if v == 1 {
+                return k
+            }
+        }
+        return -1
+    }
+
+    /*
+     解法2：位运算 - 逐位考虑
+     对以这一组的数，先抛开单独出现的那个数字，其他的数字由于都出现了3次，
+     所以二进制为1的位置的所有1的个数一定是3的倍数。再加上单独出现的的数字的1的个数，
+     那么最后使用每一个二进制位的1个数对3取余，得到的二进制数，转换成十进制之后
+     就是那个单独出现的数字。
+     如 [0, 1, 0, 1, 0, 1, 2]
+     0000
+     0001
+     0000
+     0001
+     0000
+     0001
+     0000
+     0010
+     0013
+     每一位取余之后，得到的二进制数是：0010（0%3=0，1%3=1, 3%3=0）= 2
+     */
+    func singleNumber_1(_ nums: [Int]) -> Int {
+        var ret: Int = 0
+        for i in 0 ..< 32 { // 32位整数
+            var count: Int = 0
+            for n in nums {
+                count += (n >> i) & 1
+            }
+            ret |= (count % 3) << i
+        }
+        return ret
+    }
+
+    /*
+     解法3：位运算 - 可变状态机
+     对于每一个二进制位
+     
+     https://leetcode-cn.com/problems/single-number-ii/solution/single-number-ii-mo-ni-san-jin-zhi-fa-by-jin407891/
+     https://leetcode-cn.com/problems/single-number-ii/solution/zi-dong-ji-wei-yun-suan-zui-xiang-xi-de-tui-dao-gu/
+     */
+    func singleNumber_2(_ nums: [Int]) -> Int {
+        var once : Int = 0
+        var twice : Int = 0
+        for n in nums {
+            once = (once ^ n) & (~twice)
+            twice = (twice ^ n) & (~once)
+        }
+        return once
+    }
+
     // MARK: - -------------  被围绕的区域 leetCode #130
 
     /*

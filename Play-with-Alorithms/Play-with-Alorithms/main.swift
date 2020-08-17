@@ -8,7 +8,15 @@
 
 import Foundation
 
-var aa: [[Character]] =
+let s = Solution_05()
+
+let a = [-2,-2,1,1,-3,1,-3,-3,-4,-2]
+
+let res = s.singleNumber_2(a)
+
+print("res : ", res)
+
+// var aa: [[Character]] =
 //    [
 //        ["X","X","O","X","X","X","X","X","X","X",],
 //        ["X","O","X","O","X","X","X","X","X","X",],
@@ -26,33 +34,33 @@ var aa: [[Character]] =
 //        ["X","X","X","X","O","O","X","X","X","X",],
 //        ["X","X","X","X","X","O","X","X","X","X",],
 //    ]
-[]
-//[
+// []
+// [
 //    ["X","X","X","X","X","X","X","X","X","X",],
 //    ["X","O","X","O","X","O","O","X","X","X",],
-//]
-//[
+// ]
+// [
 //    ["X","X","X","X"],
 //    ["X","O","O","X"],
 //    ["X","X","O","X"],
 //    ["X","O","X","X"],
-//]
-
-let s = Solution_05()
-
-s.solve_2(&aa)
-
-for a in aa {
-    var p = ""
-    for i in 0 ..< a.count {
-        if i == a.count - 1 {
-            p += "\(a[i])"
-        } else {
-            p += "\(a[i]),"
-        }
-    }
-    print(p)
-}
+// ]
+//
+// let s = Solution_05()
+//
+// s.solve_2(&aa)
+//
+// for a in aa {
+//    var p = ""
+//    for i in 0 ..< a.count {
+//        if i == a.count - 1 {
+//            p += "\(a[i])"
+//        } else {
+//            p += "\(a[i]),"
+//        }
+//    }
+//    print(p)
+// }
 
 // let s = Solutio_01()
 // let res = s.isBracketsBalances_reviwe_0814("[)]")
