@@ -53,15 +53,15 @@ public class SparseGraph_AdjList : Graph {
         if v == w { //不添加自环边
             return
         }
-        let ew = EdgeNode(vertex: w)
-        let vexV = graph[v]
-        ew.next = vexV.firstBridge
-        vexV.firstBridge = ew
+        let edge_w = EdgeNode(vertex: w)
+        let vex_v = graph[v]
+        edge_w.next = vex_v.firstBridge
+        vex_v.firstBridge = edge_w
         if !isDirected {
-            let ev = EdgeNode(vertex: v)
-            let vexW = graph[w]
-            ev.next = vexW.firstBridge
-            vexW.firstBridge = ev
+            let edge_v = EdgeNode(vertex: v)
+            let vex_w = graph[w]
+            edge_v.next = vex_w.firstBridge
+            vex_w.firstBridge = edge_v
         }
         num_edge += 1
     }

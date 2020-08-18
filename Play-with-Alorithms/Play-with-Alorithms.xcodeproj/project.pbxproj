@@ -58,6 +58,7 @@
 		296378F722356D5A004D5CBC /* BasicUnionFind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296378F622356D5A004D5CBC /* BasicUnionFind.swift */; };
 		296378F9223637D9004D5CBC /* BasicBinarySearchTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296378F8223637D9004D5CBC /* BasicBinarySearchTree.swift */; };
 		297429C9223B61C10065AFA8 /* LeetCode_LinkList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297429C8223B61C10065AFA8 /* LeetCode_LinkList.swift */; };
+		2D11A00924EBADB800D14F9B /* TopoSorting_拓扑排序.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D11A00824EBADB800D14F9B /* TopoSorting_拓扑排序.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -127,6 +128,7 @@
 		296378F622356D5A004D5CBC /* BasicUnionFind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicUnionFind.swift; sourceTree = "<group>"; };
 		296378F8223637D9004D5CBC /* BasicBinarySearchTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicBinarySearchTree.swift; sourceTree = "<group>"; };
 		297429C8223B61C10065AFA8 /* LeetCode_LinkList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeetCode_LinkList.swift; sourceTree = "<group>"; };
+		2D11A00824EBADB800D14F9B /* TopoSorting_拓扑排序.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TopoSorting_拓扑排序.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +204,7 @@
 				04A7812521269F2900D9384D /* Common */,
 				04A7812C21269F2900D9384D /* WeightGraph */,
 				04A7813021269F2900D9384D /* NoWeigthGraph */,
+				2D11A00824EBADB800D14F9B /* TopoSorting_拓扑排序.swift */,
 			);
 			path = Graph;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 				04A7816321269F2900D9384D /* SelectionSort.swift in Sources */,
 				04A7824D212C2AD100D9384D /* Solution_02.swift in Sources */,
 				04A7814D21269F2900D9384D /* UFType.swift in Sources */,
+				2D11A00924EBADB800D14F9B /* TopoSorting_拓扑排序.swift in Sources */,
 				296378F9223637D9004D5CBC /* BasicBinarySearchTree.swift in Sources */,
 				04A7816821269F2900D9384D /* CommonHeap.swift in Sources */,
 				04EA218E221BDE0D00947364 /* Solution_BinaryTreeSearch.swift in Sources */,

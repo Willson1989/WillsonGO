@@ -1271,13 +1271,13 @@ extension Solution_05 {
     /*
      解法3：位运算 - 可变状态机
      对于每一个二进制位
-     
+
      https://leetcode-cn.com/problems/single-number-ii/solution/single-number-ii-mo-ni-san-jin-zhi-fa-by-jin407891/
      https://leetcode-cn.com/problems/single-number-ii/solution/zi-dong-ji-wei-yun-suan-zui-xiang-xi-de-tui-dao-gu/
      */
     func singleNumber_2(_ nums: [Int]) -> Int {
-        var once : Int = 0
-        var twice : Int = 0
+        var once: Int = 0
+        var twice: Int = 0
         for n in nums {
             once = (once ^ n) & (~twice)
             twice = (twice ^ n) & (~once)
@@ -1448,5 +1448,122 @@ extension Solution_05 {
                 }
             }
         }
+    }
+}
+
+extension Solution_05 {
+    // MARK: - -------------  课程表 leetCode #207
+
+    /*
+     你这个学期必须选修 numCourse 门课程，记为 0 到 numCourse-1 。
+     在选修某些课程之前需要一些先修课程。 例如，想要学习课程 0 ，你需要先完成课程 1 ，我们用一个匹配来表示他们：[0,1]
+     给定课程总量以及它们的先决条件，请你判断是否可能完成所有课程的学习？
+
+     示例 1:
+
+     输入: 2, [[1,0]]
+     输出: true
+     解释: 总共有 2 门课程。学习课程 1 之前，你需要完成课程 0。所以这是可能的。
+     示例 2:
+
+     输入: 2, [[1,0],[0,1]]
+     输出: false
+     解释: 总共有 2 门课程。学习课程 1 之前，你需要先完成​课程 0；并且学习课程 0 之前，你还应先完成课程 1。这是不可能的。
+     */
+
+    /*
+     解法思路: 拓扑排序
+     */
+    func canFinish(_ numCourses: Int, _ prerequisites: [[Int]]) -> Bool {
+        var adj: [[Bool]] = Array(repeating: Array(repeating: false, count: numCourses), count: numCourses)
+        var indegree: [Int] = Array(repeating: 0, count: numCourses)
+        var queue: [Int] = []
+
+        // 构造图
+        for t in prerequisites {
+            let from = t[1]
+            let to = t[0]
+            // if adj[from][to] == true || adj[to][from] == true {
+            //     continue
+            // }
+            adj[from][to] = true
+            indegree[to] = indegree[to] + 1
+        }
+
+        for i in 0 ..< indegree.count {
+            if indegree[i] == 0 {
+                queue.append(i)
+            }
+        }
+
+        var cnt = 0
+
+        while queue.isEmpty == false {
+            let v = queue.first!
+            cnt += 1
+            queue.removeFirst()
+            for i in 0 ..< adj[v].count {
+                if adj[v][i] == true {
+                    let newIndegree = indegree[i] - 1
+                    if newIndegree == 0 {
+                        queue.append(i)
+                    }
+                    indegree[i] = newIndegree
+                }
+            }
+        }
+        // 不相等，说明存在环路，不能完成所有课程
+        return cnt == numCourses
+    }
+
+    /*
+     深度优先遍历 + 拓扑排序 + 栈
+     从一个结点 u 开始深度优先搜索它的相邻结点 v，这里的相邻结点是指从 u 到 v 有一个有向边，即 u -> v
+     当 u 的所有相邻结点都搜索完了，将 u 入栈，那么此时栈中 u 下面的结点就一定都是出现在 u 之后的。
+     所以在不存在环路的情况下，深度优先搜索完之后栈中的结点从栈顶到栈底，就一定是这个图的拓扑序列。
+
+     用一个数组来标记各个结点的状态
+     0 未搜索，还没有搜索到这个结点
+     1 搜索中，搜索到这个结点了，但是它的相邻结点还没搜索完成，还没有回溯到这个结点
+     2 已完成，相邻结点搜索完了并且回溯到这个结点了
+     如果在对一个结点进行深度优先搜索的过程中遇到了1(搜索中)状态的结点，说明存在了环路，直接返回false
+     https://leetcode-cn.com/problems/course-schedule/solution/ke-cheng-biao-by-leetcode-solution/
+
+     */
+    func canFinish_dfs(_ numCourses: Int, _ prerequisites: [[Int]]) -> Bool {
+        var visited: [Int] = Array(repeating: 0, count: numCourses)
+        var adj: [[Int]] = Array(repeating: [], count: numCourses)
+        var valid: Bool = true
+
+        func dfs(_ u: Int) {
+            visited[u] = 1
+            for n in adj[u] {
+                // 如果相邻结点为 搜索中，那么说明存在环路，直接返回
+                if visited[n] == 1 {
+                    valid = false
+                    return
+                }
+                dfs(n)
+            }
+            // u 的所有相邻结点都搜索完了，状态设置为 已完成
+            visited[u] = 2
+        }
+
+        for info in prerequisites {
+            let from = info[1]
+            let to = info[0]
+            adj[from].append(to)
+        }
+
+        for i in 0 ..< adj.count {
+            if visited[i] == 0 {
+                dfs(i)
+            }
+            // 深度优先搜索结点 i，发现存在环路，直接返回false
+            if !valid {
+                return false
+            }
+        }
+        return valid
     }
 }

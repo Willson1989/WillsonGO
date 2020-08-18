@@ -10,11 +10,39 @@ import Foundation
 
 let s = Solution_05()
 
-let a = [-2,-2,1,1,-3,1,-3,-3,-4,-2]
 
-let res = s.singleNumber_2(a)
+let c = 6
+//let a = [[1,0], [0,5], [1,5], [5,4], [4,3], [4,2], [1,2]]
+let a = [[1,0],[0,1]]
 
-print("res : ", res)
+let canFinish = s.canFinish(c, a)
+let canFinish_1 = s.canFinish_dfs(c, a)
+
+print("canFinish : ", canFinish)
+print("canFinish_1 : ", canFinish)
+
+//let g = TopoLogicalSorting.Graph(capacity: 6)
+//g.addEdge(from: 0, to: 5)
+//g.addEdge(from: 0, to: 1)
+//g.addEdge(from: 1, to: 5)
+//g.addEdge(from: 5, to: 2)
+//g.addEdge(from: 5, to: 4)
+//g.addEdge(from: 4, to: 3)
+//g.addEdge(from: 4, to: 2)
+//g.addEdge(from: 3, to: 5)
+//
+//let toposortres = g.topologicalSort()
+//
+//print("toposortres : ", toposortres)
+
+
+//let s = Solution_05()
+//
+//let a = [-2,-2,1,1,-3,1,-3,-3,-4,-2]
+//
+//let res = s.singleNumber_2(a)
+//
+//print("res : ", res)
 
 // var aa: [[Character]] =
 //    [
