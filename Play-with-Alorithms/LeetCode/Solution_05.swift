@@ -1108,7 +1108,9 @@ extension Solution_05 {
     // MARK: - -------------  LRU缓存机制 leetCode #146
 
     /*
-     运用你所掌握的数据结构，设计和实现一个  LRU (最近最少使用) 缓存机制。它应该支持以下操作： 获取数据 get 和 写入数据 put 。
+     https://leetcode-cn.com/problems/lru-cache/
+     运用你所掌握的数据结构，设计和实现一个  LRU (最近最少使用) 缓存机制。
+     它应该支持以下操作： 获取数据 get 和 写入数据 put 。
      获取数据 get(key) : 如果关键字 (key) 存在于缓存中，则获取关键字的值（总是正数），否则返回 -1。
      写入数据 put(key, value) : 如果关键字已经存在，则变更其数据值；如果关键字不存在，则插入该组「关键字/值」。
      当缓存容量达到上限时，它应该在写入新数据之前删除 最久未使用 的数据值，从而为新的数据值留出空间。
@@ -1201,8 +1203,8 @@ extension Solution_05 {
     // MARK: - -------------  只出现一次的数字 II leetCode #137
 
     /*
+     https://leetcode-cn.com/problems/single-number-ii/
      给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现了三次。找出那个只出现了一次的元素。
-
      说明：
      你的算法应该具有线性时间复杂度。 你可以不使用额外空间来实现吗？
 
@@ -1288,6 +1290,7 @@ extension Solution_05 {
     // MARK: - -------------  被围绕的区域 leetCode #130
 
     /*
+     https://leetcode-cn.com/problems/surrounded-regions/
      给定一个二维的矩阵，包含 'X' 和 'O'（字母 O）。
      找到所有被 'X' 围绕的区域，并将这些区域里所有的 'O' 用 'X' 填充。
      示例:
@@ -1455,6 +1458,7 @@ extension Solution_05 {
     // MARK: - -------------  课程表 leetCode #207
 
     /*
+     https://leetcode-cn.com/problems/course-schedule/
      你这个学期必须选修 numCourse 门课程，记为 0 到 numCourse-1 。
      在选修某些课程之前需要一些先修课程。 例如，想要学习课程 0 ，你需要先完成课程 1 ，我们用一个匹配来表示他们：[0,1]
      给定课程总量以及它们的先决条件，请你判断是否可能完成所有课程的学习？
@@ -1528,7 +1532,6 @@ extension Solution_05 {
      2 已完成，相邻结点搜索完了并且回溯到这个结点了
      如果在对一个结点进行深度优先搜索的过程中遇到了1(搜索中)状态的结点，说明存在了环路，直接返回false
      https://leetcode-cn.com/problems/course-schedule/solution/ke-cheng-biao-by-leetcode-solution/
-
      */
     func canFinish_dfs(_ numCourses: Int, _ prerequisites: [[Int]]) -> Bool {
         var visited: [Int] = Array(repeating: 0, count: numCourses)
@@ -1565,5 +1568,231 @@ extension Solution_05 {
             }
         }
         return valid
+    }
+
+    // MARK: - -------------  无重复字符的最长子串 leetCode #3
+
+    /*
+     https://leetcode-cn.com/problems/number-of-islands/
+     给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。
+
+     示例 1:
+     输入: "abcabcbb"
+     输出: 3
+     解释: 因为无重复字符的最长子串是 "abc"，所以其长度为 3。
+
+     示例 2:
+     输入: "bbbbb"
+     输出: 1
+     解释: 因为无重复字符的最长子串是 "b"，所以其长度为 1。
+
+     示例 3:
+     输入: "pwwkew"
+     输出: 3
+     解释: 因为无重复字符的最长子串是 "wke"，所以其长度为 3。
+          请注意，你的答案必须是 子串 的长度，"pwke" 是一个子序列，不是子串。
+     */
+    func lengthOfLongestSubstring(_ s: String) -> Int {
+        var set = Set<Character>()
+        var start = 0
+        var end = 0
+        var cnt = 0
+        let n = s.count
+        while start < n {
+            // 左指针向右移动一格，移除一个字符
+            if start != 0 {
+                set.remove(s[String.Index(encodedOffset: start - 1)])
+            }
+            while end < n && !set.contains(s[String.Index(encodedOffset: end)]) {
+                set.insert(s[String.Index(encodedOffset: end)])
+                // 不断地移动右指针
+                end += 1
+            }
+            start += 1
+            // 第 i 到 rk 个字符是一个极长的无重复字符子串
+            cnt = max(cnt, end - start + 1)
+        }
+        return cnt
+    }
+}
+
+extension Solution_05 {
+    // MARK: - -------------  字符串转换整数 (atoi) leetCode #8
+
+    /*
+     https://leetcode-cn.com/problems/string-to-integer-atoi/
+     请你来实现一个 atoi 函数，使其能将字符串转换成整数。
+
+     首先，该函数会根据需要丢弃无用的开头空格字符，直到寻找到第一个非空格的字符为止。接下来的转化规则如下：
+     如果第一个非空字符为正或者负号时，则将该符号与之后面尽可能多的连续数字字符组合起来，形成一个有符号整数。
+     假如第一个非空字符是数字，则直接将其与之后连续的数字字符组合起来，形成一个整数。
+     该字符串在有效的整数部分之后也可能会存在多余的字符，那么这些字符可以被忽略，它们对函数不应该造成影响。
+     注意：假如该字符串中的第一个非空格字符不是一个有效整数字符、字符串为空或字符串仅包含空白字符时，
+     则你的函数不需要进行转换，即无法进行有效转换。
+
+     在任何情况下，若函数不能进行有效的转换时，请返回 0 。
+
+     提示：
+     本题中的空白字符只包括空格字符 ' ' 。
+     假设我们的环境只能存储 32 位大小的有符号整数，那么其数值范围为 [−231,  231 − 1]。
+     如果数值超过这个范围，请返回  INT_MAX (231 − 1) 或 INT_MIN (−231) 。
+      
+     示例 1:
+     输入: "42"
+     输出: 42
+
+     示例 2:
+     输入: "   -42"
+     输出: -42
+     解释: 第一个非空白字符为 '-', 它是一个负号。
+          我们尽可能将负号与后面所有连续出现的数字组合起来，最后得到 -42 。
+
+     示例 3:
+     输入: "4193 with words"
+     输出: 4193
+     解释: 转换截止于数字 '3' ，因为它的下一个字符不为数字。
+
+     示例 4:
+     输入: "words and 987"
+     输出: 0
+     解释: 第一个非空字符是 'w', 但它不是数字或正、负号。
+          因此无法执行有效的转换。
+
+     示例 5:
+     输入: "-91283472332"
+     输出: -2147483648
+     解释: 数字 "-91283472332" 超过 32 位有符号整数范围。
+          因此返回 INT_MIN (−231) 。
+     */
+    /*
+     自动机（确定有限状态机 - deterministic finite automaton, DFA）
+     (设定，非法字符为: 非数字，不是 + 而且不是 -)
+     每输入一个字符时，当前的程序都会处于不用的状态。
+     start: 开始的状态，还没有任何输入字符
+     signed: 输入的字符是 + 或者 - ，标识接下来的数字是证书还是负数
+     number: 输入的字符时数字
+     end: 结束，遇到第一个非法字符、数字字符之后出现非数字、正负号之后出现非数字
+     这几个状态随着字符的输入，互相之间的转换关系如下:
+              空格     +、-     数字      其他字符
+     -------------------------------------------
+     start  | start | signed | number |   end
+     signed | end   | end    | number |   end
+     number | end   | end    | number |   end
+     end    | end   | end    | end    |   end
+     -------------------------------------------
+     将上述的映射关系写到代码中，在每次输入新的字符的时候都做一次状态转换。
+     当是数字的时候，保存计算好的数字（ans），在所有字符都根据映射关系转换完成之后，ans就是最后的结果。
+     https://leetcode-cn.com/problems/string-to-integer-atoi/solution/zi-fu-chuan-zhuan-huan-zheng-shu-atoi-by-leetcode-/
+     */
+    class AtoiSolution {
+        enum State {
+            case start, signed, number, end
+        }
+
+        var state: State = .start
+        var ans: Int = 0
+        var sign: Int = 1
+
+        let stateMap: [State: [State]] = [
+            .start: [.start, .signed, .number, .end],
+            .signed: [.end, .end, .number, .end],
+            .number: [.end, .end, .number, .end],
+            .end: [.end, .end, .end, .end],
+        ]
+
+        func getCol(_ c: Character) -> Int {
+            if c == " " { return 0 }
+            if c == "+" || c == "-" { return 1 }
+            if isNum(c) { return 2 }
+            return 3
+        }
+
+        func trans(_ c: Character) {
+            // 根据当前字符来获取新的状态
+            state = stateMap[state]![getCol(c)]
+            if state == .number {
+                ans = ans * 10 + num(c)
+                ans = sign == 1 ? min(Int(Int32.max), ans) : min(-Int(Int32.min), ans)
+            } else if state == .signed {
+                sign = c == "+" ? 1 : -1
+            }
+        }
+
+        func num(_ c: Character) -> Int {
+            return getASCII(c) - 48
+        }
+
+        func isNum(_ c: Character) -> Bool {
+            let ascii = getASCII(c)
+            if ascii < 48 || ascii > 57 {
+                return false
+            }
+            return true
+        }
+
+        func getASCII(_ c: Character) -> Int {
+            var num = 0
+            for scalar in String(c).unicodeScalars {
+                num = Int(scalar.value)
+            }
+            return num
+        }
+    }
+
+    func myAtoi(_ str: String) -> Int {
+        let solution = AtoiSolution()
+        for c in str {
+            solution.trans(c)
+        }
+        return solution.ans * solution.sign
+    }
+
+    func myAtoi_1(_ str: String) -> Int {
+        func char(at i: Int, s: String) -> Character {
+            return s[String.Index(encodedOffset: i)]
+        }
+
+        func num(_ c: Character) -> Int {
+            return getASCII(c) - 48
+        }
+
+        func getASCII(_ c: Character) -> Int {
+            var num = 0
+            for scalar in String(c).unicodeScalars {
+                num = Int(scalar.value)
+            }
+            return num
+        }
+
+        func isNum(_ c: Character) -> Bool {
+            let ascii = getASCII(c)
+            if ascii < 48 || ascii > 57 {
+                return false
+            }
+            return true
+        }
+
+        var ret = 0
+        var sign = 0
+        for i in 0 ..< str.count {
+            let c = char(at: i, s: str)
+            if !isNum(c) {
+                if i > 0 && isNum(char(at: i - 1, s: str)) {
+                    break
+                }
+                if c == " " {
+                    continue
+                } else if (c == "+" || c == "-") && sign == 0 {
+                    sign = c == "+" ? 1 : -1
+                } else {
+                    break
+                }
+            } else {
+                ret = ret * 10 + num(c)
+                ret = sign >= 0 ? min(Int(Int32.max), ret) : min(-Int(Int32.min), ret)
+            }
+        }
+        ret = sign >= 0 ? ret : -ret
+        return ret
     }
 }

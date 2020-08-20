@@ -10,39 +10,60 @@ import Foundation
 
 let s = Solution_05()
 
+//let ss = "- 123  456- 78"
+//let ss = "-91283472332"
+//let ss = "  0000000000012345678"
+//let ss = "   +010123"
+//let ss = "20000000000000000000"
+//let ss = "4193 with words"
+//let ss = "200"
+//let ss = "  -0012a42"
+//let ss = "   +0 123"
+let ss = "2147483648"
+//let ss = "-   234"
 
-let c = 6
-//let a = [[1,0], [0,5], [1,5], [5,4], [4,3], [4,2], [1,2]]
-let a = [[1,0],[0,1]]
+let res = s.myAtoi(ss)
+print("origin : \"\(ss)\"")
+print("res :\(res)")
 
-let canFinish = s.canFinish(c, a)
-let canFinish_1 = s.canFinish_dfs(c, a)
+print("max int : \(Int32.max) ")
+print("min int : \(Int32.min)")
 
-print("canFinish : ", canFinish)
-print("canFinish_1 : ", canFinish)
+//let ss = "abcabdceabcd"
+//let lengthOfLongestSubstring = s.lengthOfLongestSubstring(ss)
+//print("lengthOfLongestSubstring : ", lengthOfLongestSubstring)
 
-//let g = TopoLogicalSorting.Graph(capacity: 6)
-//g.addEdge(from: 0, to: 5)
-//g.addEdge(from: 0, to: 1)
-//g.addEdge(from: 1, to: 5)
-//g.addEdge(from: 5, to: 2)
-//g.addEdge(from: 5, to: 4)
-//g.addEdge(from: 4, to: 3)
-//g.addEdge(from: 4, to: 2)
-//g.addEdge(from: 3, to: 5)
+// let c = 6
+////let a = [[1,0], [0,5], [1,5], [5,4], [4,3], [4,2], [1,2]]
+// let a = [[1,0],[0,1]]
 //
-//let toposortres = g.topologicalSort()
+// let canFinish = s.canFinish(c, a)
+// let canFinish_1 = s.canFinish_dfs(c, a)
 //
-//print("toposortres : ", toposortres)
+// print("canFinish : ", canFinish)
+// print("canFinish_1 : ", canFinish)
 
+// let g = TopoLogicalSorting.Graph(capacity: 6)
+// g.addEdge(from: 0, to: 5)
+// g.addEdge(from: 0, to: 1)
+// g.addEdge(from: 1, to: 5)
+// g.addEdge(from: 5, to: 2)
+// g.addEdge(from: 5, to: 4)
+// g.addEdge(from: 4, to: 3)
+// g.addEdge(from: 4, to: 2)
+// g.addEdge(from: 3, to: 5)
+//
+// let toposortres = g.topologicalSort()
+//
+// print("toposortres : ", toposortres)
 
-//let s = Solution_05()
+// let s = Solution_05()
 //
-//let a = [-2,-2,1,1,-3,1,-3,-3,-4,-2]
+// let a = [-2,-2,1,1,-3,1,-3,-3,-4,-2]
 //
-//let res = s.singleNumber_2(a)
+// let res = s.singleNumber_2(a)
 //
-//print("res : ", res)
+// print("res : ", res)
 
 // var aa: [[Character]] =
 //    [
