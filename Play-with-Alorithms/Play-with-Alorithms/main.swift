@@ -8,30 +8,48 @@
 
 import Foundation
 
+
+
 let s = Solution_05()
 
-//let ss = "- 123  456- 78"
-//let ss = "-91283472332"
-//let ss = "  0000000000012345678"
-//let ss = "   +010123"
-//let ss = "20000000000000000000"
-//let ss = "4193 with words"
-//let ss = "200"
-//let ss = "  -0012a42"
-//let ss = "   +0 123"
-let ss = "2147483648"
-//let ss = "-   234"
+// let aa : [Int] = [197, 130, 1]
+// let aa : [Int] = [235, 140, 4]
+// let aa : [Int] = [0b11100000, 0b10111101,0b10101001, 0b01110101, 0b01000101]
+// let aa: [Int] = [0b01110101, 0b01000101]
+let aa: [Int] = [255]
+print("input arr : ")
+for i in 0 ..< aa.count {
+    print(String(aa[i], radix: 2), separator: " ", terminator: " ")
+}
 
-let res = s.myAtoi(ss)
-print("origin : \"\(ss)\"")
-print("res :\(res)")
+print("")
+let validRes = s.validUtf8(aa)
+let validRes_state = s.validUtf8_state(aa)
 
-print("max int : \(Int32.max) ")
-print("min int : \(Int32.min)")
+print("valid result1 : \(validRes)")
+print("valid result2 : \(validRes_state)")
 
-//let ss = "abcabdceabcd"
-//let lengthOfLongestSubstring = s.lengthOfLongestSubstring(ss)
-//print("lengthOfLongestSubstring : ", lengthOfLongestSubstring)
+
+////let ss = "- 123  456- 78"
+////let ss = "-91283472332"
+////let ss = "  0000000000012345678"
+////let ss = "   +010123"
+////let ss = "20000000000000000000"
+////let ss = "4193 with words"
+////let ss = "200"
+////let ss = "  -0012a42"
+////let ss = "   +0 123"
+// let ss = "2147483648"
+////let ss = "-   234"
+//
+//
+// let res = s.myAtoi(ss)
+// print("origin : \"\(ss)\"")
+// print("res :\(res)")
+
+// let ss = "abcabdceabcd"
+// let lengthOfLongestSubstring = s.lengthOfLongestSubstring(ss)
+// print("lengthOfLongestSubstring : ", lengthOfLongestSubstring)
 
 // let c = 6
 ////let a = [[1,0], [0,5], [1,5], [5,4], [4,3], [4,2], [1,2]]

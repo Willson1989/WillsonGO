@@ -1796,3 +1796,149 @@ extension Solution_05 {
         return ret
     }
 }
+
+extension Solution_05 {
+    // MARK: - -------------  UTF-8 编码验证 leetCode #393
+
+    /*
+     https://leetcode-cn.com/problems/utf-8-validation/
+     UTF-8 中的一个字符可能的长度为 1 到 4 字节，遵循以下的规则：
+
+     对于 1 字节的字符，字节的第一位设为0，后面7位为这个符号的unicode码。
+     对于 n 字节的字符 (n > 1)，第一个字节的前 n 位都设为1，第 n+1 位设为0，后面字节的前两位一律设为10。剩下的没有提及的二进制位，全部为这个符号的unicode码。
+     这是 UTF-8 编码的工作方式：
+
+        Char. number range  |        UTF-8 octet sequence
+           (hexadecimal)    |              (binary)
+        --------------------+---------------------------------------------
+        0000 0000-0000 007F | 0xxxxxxx
+        0000 0080-0000 07FF | 110xxxxx 10xxxxxx
+        0000 0800-0000 FFFF | 1110xxxx 10xxxxxx 10xxxxxx
+        0001 0000-0010 FFFF | 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
+
+     给定一个表示数据的整数数组，返回它是否为有效的 utf-8 编码。
+
+     注意:
+     输入是整数数组。只有每个整数的最低 8 个有效位用来存储数据。这意味着每个整数只表示 1 字节的数据。
+
+     示例 1:
+     data = [197, 130, 1], 表示 8 位的序列: 11000101 10000010 00000001.
+     返回 true 。
+     这是有效的 utf-8 编码，为一个2字节字符，跟着一个1字节字符。
+
+     示例 2:
+     data = [235, 140, 4], 表示 8 位的序列: 11101011 10001100 00000100.
+     返回 false 。
+     前 3 位都是 1 ，第 4 位为 0 表示它是一个3字节字符。
+     下一个字节是开头为 10 的延续字节，这是正确的。
+     但第二个延续字节不以 10 开头，所以是不符合规则的。
+     */
+    /*
+     有限确定状态机（DFA）
+     状态0表示clear，即所有之前的字节都已经处理成UTF-8字符了。接下来，有效的输入其实只有4种，所以0这个状态其实可以转移成4个其他状态：
+     0xxxxxxx， 表示单字节UTF-8字符，那么其实可以直接转移回0（clear）。
+     110xxxxx， 表示双字节UTF-8字符，定义一个新状态1。
+     1110xxxxx，表示三字节UTF-8字符，定义一个新状态2。
+     11110xxx ，表示四字节UTF-8字符，定义一个新状态3。
+
+     状态1 --- 10xxxxxx ---> 状态0
+     状态2 --- 10xxxxxx ---> 状态4 --- 10xxxxxx ---> 状态0
+     状态3 --- 10xxxxxx ---> 状态5 --- 10xxxxxx ---> 状态6 --- 10xxxxxx ---> 状态0
+
+     程序的起始状态为 状态0
+
+     https://leetcode-cn.com/problems/utf-8-validation/solution/java-dfa-by-zdxiq125/
+     */
+    class ValidUtf8Solution {
+        let e0 = 0b00000000
+        let e1 = 0b10000000
+        let e2 = 0b11000000
+        let e3 = 0b11100000
+        let e4 = 0b11110000
+
+        lazy var map: [Int: [Int: Int]] = {
+            var map: [Int: [Int: Int]] = [:]
+            map[0] = [e0: 0, e2: 1, e3: 2, e4: 3]
+            map[1] = [e1: 0]
+            map[2] = [e1: 4]
+            map[4] = [e1: 0]
+            map[3] = [e1: 5]
+            map[5] = [e1: 6]
+            map[6] = [e1: 0]
+            return map
+        }()
+
+        var state: Int = 0
+
+        func trans(_ n: Int) {
+            if state == -1 {
+                return
+            }
+            var k: Int?
+            if (n >> 7) ^ 0 == 0 {
+                k = e0
+            } else if (n >> 6) ^ 0b00000010 == 0 {
+                k = e1
+            } else if (n >> 5) ^ 0b00000110 == 0 {
+                k = e2
+            } else if (n >> 4) ^ 0b00001110 == 0 {
+                k = e3
+            } else if (n >> 3) ^ 0b00011110 == 0 {
+                k = e4
+            }
+            if let key = k, let subMap = map[state], let newState = subMap[key] {
+                state = newState
+            } else {
+                state = -1
+            }
+        }
+    }
+
+    func validUtf8_state(_ data: [Int]) -> Bool {
+        let solution = ValidUtf8Solution()
+        for n in data {
+            solution.trans(n)
+            if solution.state == -1 {
+                return false
+            }
+        }
+        return solution.state == 0
+    }
+
+    /*
+     解法2
+     */
+    func validUtf8(_ data: [Int]) -> Bool {
+        var i = 0
+        var follow = 0
+        let n = data.count
+        while i < n {
+            let e = data[i]
+            // x ^ x = 0, 任何数亦或自己都为0, 所以先移位再亦或的方式来判断当前数字后边应该跟着几个字节的数字
+            if (e >> 7) ^ 0 == 0 {
+                i += 1
+                continue
+            } else if (e >> 5) ^ 0b00000110 == 0 {
+                follow = 1
+            } else if (e >> 4) ^ 0b00001110 == 0 {
+                follow = 2
+            } else if (e >> 3) ^ 0b00011110 == 0 {
+                follow = 3
+            } else {
+                return false
+            }
+            if i + follow >= n {
+                return false
+            }
+            let followEnd = i + follow
+            i += 1
+            while i <= followEnd {
+                if (data[i] >> 6) ^ 0b00000010 != 0 {
+                    return false
+                }
+                i += 1
+            }
+        }
+        return true
+    }
+}
