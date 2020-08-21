@@ -1942,3 +1942,71 @@ extension Solution_05 {
         return true
     }
 }
+
+extension Solution_05 {
+    // MARK: - -------------  盛最多水的容器 leetCode #11
+
+    /*
+     https://leetcode-cn.com/problems/container-with-most-water/
+     给你 n 个非负整数 a1，a2，...，an，每个数代表坐标中的一个点 (i, ai) 。
+     在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai) 和 (i, 0)。
+     找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。
+     (说明：你不能倾斜容器，且 n 的值至少为 2。)
+
+     示例：
+     输入：[1,8,6,2,5,4,8,3,7]
+     输出：49
+     */
+
+    /*
+     双指针法
+     分别使用 i 和 j 指向数组的两端，那么就有面积 S(i, j) = min(h[i], h[j]) * (j - i)
+     在每一种状态下，无论长板收窄还是短板收窄，都会使两者之间的距离 -1。
+     (这里假设 h[i] 是短板, h[j]是长板)
+     1. 收窄长板，那么 min(h[i], h[j]) 有可能不变或者更小,因为：
+        如果 h[j - 1] > h[j], 那么 min(h[i], h[j - 1]) == h[i]
+        如果 h[j - 1] < h[j] && h[j - 1] > h[i] , 那么 min(h[i], h[j - 1]) == h[i]
+        如果 h[j - 1] < h[i] , 那么 min(h[i], h[j - 1]) == h[j - 1] < h[i]
+     2. 收窄短板，那么 min(h[i], h[j]) 有可能不变或者更大,因为：
+        如果 h[i + 1] > h[j], 那么 min(h[i+1], h[j]) == h[i] > h[j]
+        如果 h[i + 1] < h[j], 那么 min(h[i+1], h[j]) == h[j]
+     所以在每次计算完当前面积的时候，需要收窄短板。
+     https://leetcode-cn.com/problems/container-with-most-water/solution/container-with-most-water-shuang-zhi-zhen-fa-yi-do/
+     */
+    func maxArea(_ height: [Int]) -> Int {
+        if height.count < 2 {
+            return 0
+        }
+        var ret = 0
+        var s = 0
+        var e = height.count - 1
+
+        while s < e {
+            ret = max(ret, (e - s) * min(height[s], height[e]))
+            if height[s] <= height[e] {
+                s += 1
+            } else {
+                e -= 1
+            }
+        }
+        return ret
+    }
+
+    /*
+     暴力解法，双重循环，会超时
+     */
+    func maxArea_1(_ height: [Int]) -> Int {
+        if height.count < 2 {
+            return 0
+        }
+        var ret = 0
+        for i in 0 ..< height.count - 1 {
+            for j in i + 1 ..< height.count {
+                let w = j - i
+                let h = min(height[i], height[j])
+                ret = max(w * h, ret)
+            }
+        }
+        return ret
+    }
+}

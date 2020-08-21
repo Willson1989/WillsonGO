@@ -8,27 +8,31 @@
 
 import Foundation
 
-
-
 let s = Solution_05()
+
+//let aa = [1, 10, 6, 2, 5, 4, 10, 3, 7]
+let aa = [1, 10, 6, 31, 5, 31, 10, 3, 7]
+
+let res = s.maxArea(aa)
+
+print("maxArea : \(res)")
 
 // let aa : [Int] = [197, 130, 1]
 // let aa : [Int] = [235, 140, 4]
 // let aa : [Int] = [0b11100000, 0b10111101,0b10101001, 0b01110101, 0b01000101]
-// let aa: [Int] = [0b01110101, 0b01000101]
-let aa: [Int] = [255]
-print("input arr : ")
-for i in 0 ..< aa.count {
-    print(String(aa[i], radix: 2), separator: " ", terminator: " ")
-}
-
-print("")
-let validRes = s.validUtf8(aa)
-let validRes_state = s.validUtf8_state(aa)
-
-print("valid result1 : \(validRes)")
-print("valid result2 : \(validRes_state)")
-
+//// let aa: [Int] = [0b01110101, 0b01000101]
+// let aa: [Int] = [255]
+// print("input arr : ")
+// for i in 0 ..< aa.count {
+//    print(String(aa[i], radix: 2), separator: " ", terminator: " ")
+// }
+//
+// print("")
+// let validRes = s.validUtf8(aa)
+// let validRes_state = s.validUtf8_state(aa)
+//
+// print("valid result1 : \(validRes)")
+// print("valid result2 : \(validRes_state)")
 
 ////let ss = "- 123  456- 78"
 ////let ss = "-91283472332"

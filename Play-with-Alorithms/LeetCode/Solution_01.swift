@@ -317,6 +317,8 @@ class Solutio_01 {
 
     // MARK: - ------------- 二叉树的最小深度 leetCode #111
 
+    // MARK: - ------------- review : 2020 / 8 / 21
+
     /*
      https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/description/
      给定一个二叉树，找出其最小深度。 最小深度是从根节点到最近叶子节点的最短路径上的节点数量。
@@ -329,6 +331,7 @@ class Solutio_01 {
         9  20
        / \
       15  7
+     
      */
     func minDepth(_ root: TreeNode<Int>?) -> Int {
         func _depth(_ n: TreeNode<Int>?) -> Int {
