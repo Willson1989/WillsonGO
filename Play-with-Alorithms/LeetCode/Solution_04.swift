@@ -1083,11 +1083,11 @@ extension Solution_04 {
         // 虽然数组的排序也有复杂度，但是相比于接下来的剪枝操作节省的运行时间，总体的执行效率会有提升。
         let sorted = candidates.sorted(by: <)
         var ret = [[Int]]()
-        dfs(begin: 0, target: target, path: [Int](), candidates: sorted, res: &ret)
+        process_39(begin: 0, target: target, path: [Int](), candidates: sorted, res: &ret)
         return ret
     }
 
-    func dfs(begin: Int, target: Int, path: [Int], candidates: [Int], res: inout [[Int]]) {
+    func process_39(begin: Int, target: Int, path: [Int], candidates: [Int], res: inout [[Int]]) {
         var path = path
         // 在上一层已经进行了剪枝操作，那么不会存在 target < 0 的情况出现
         if target == 0 {
@@ -1105,11 +1105,106 @@ extension Solution_04 {
                 break
             }
             path.append(n)
-            dfs(begin: i, target: target - candidates[i], path: path, candidates: candidates, res: &res)
+            process_39(begin: i, target: target - candidates[i], path: path, candidates: candidates, res: &res)
             // 回溯
             // 不论是 target == 0 还是 小于0，在dfs执行完之后都需要删除最后的结点
             // 使程序可以继续输出别的结果。
             path.removeLast()
         }
+    }
+}
+
+extension Solution_04 {
+    // MARK: - ------------- 递增子序列 leetCode #491
+
+    /*
+     https://leetcode-cn.com/problems/increasing-subsequences/
+     给定一个整型数组, 你的任务是找到所有该数组的递增子序列，递增子序列的长度至少是2。
+
+     示例:
+     输入: [4, 6, 7, 7]
+     输出: [[4, 6], [4, 7], [4, 6, 7], [4, 6, 7, 7], [6, 7], [6, 7, 7], [7,7], [4,7,7]]
+
+     说明:
+     给定数组的长度不会超过15。
+     数组中的整数范围是 [-100,100]。
+     给定数组中可能包含重复数字，相等的数字应该被视为递增的一种情况。
+     */
+
+    /*
+     回溯法
+     https://leetcode-cn.com/problems/increasing-subsequences/solution/491-di-zeng-zi-xu-lie-shen-sou-hui-su-xiang-jie-by/
+     */
+    func findSubsequences(_ nums: [Int]) -> [[Int]] {
+        var res = [[Int]]()
+        var path = [Int]()
+        func process(start: Int) {
+            if path.count > 1 {
+                res.append(path)
+            }
+            // 使用set来对尾部元素进行去重
+            var used_tails = Set<Int>()
+            for i in start ..< nums.count {
+                if (path.isEmpty || (!path.isEmpty && nums[i] >= path.last!)) && !used_tails.contains(nums[i]) {
+                    path.append(nums[i])
+                    process(start: i + 1)
+                    // back trace
+                    used_tails.insert(nums[i]) // 在回溯的时候，记录这个元素用过了，后面不能再用了
+                    path.removeLast()
+                }
+            }
+        }
+        process(start: 0)
+        return res
+    }
+
+    func findSubsequences_1(_ nums: [Int]) -> [[Int]] {
+        var res = [[Int]]()
+        var used = Set<String>()
+        var path = [Int]()
+        func process(_ i: Int) {
+            if path.count > 1 {
+                let key = path.reduce("") { $0 + "\($1)" }
+                if !used.contains(key) {
+                    res.append(path)
+                    used.insert(key)
+                }
+            }
+            for k in i ..< nums.count {
+                if !path.isEmpty && nums[k] < path.last! {
+                    continue
+                }
+                path.append(nums[k])
+                process(k + 1)
+                path.removeLast()
+            }
+        }
+        process(0)
+        return res
+    }
+
+    // MARK: - ------------- 子集 II leetCode #90
+
+    /*
+      https://leetcode-cn.com/problems/subsets-ii/
+      给定一个可能包含重复元素的整数数组 nums，返回该数组所有可能的子集（幂集）。
+
+      说明：解集不能包含重复的子集。
+
+      示例:
+
+      输入: [1,2,2]
+      输出:
+      [
+        [2],
+        [1],
+        [1,2,2],
+        [2,2],
+        [1,2],
+        []
+      ]
+     */
+    func subsetsWithDup(_ nums: [Int]) -> [[Int]] {
+        return []
     }
 }
