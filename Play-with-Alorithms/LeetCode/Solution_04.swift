@@ -798,3 +798,318 @@ class Solution_04 {
         return false
     }
 }
+
+extension Solution_04 {
+    // MARK: - ------------- 两两交换链表中的节点 leetCode #24
+
+    /*
+     https://leetcode-cn.com/problems/swap-nodes-in-pairs/
+     给定一个链表，两两交换其中相邻的节点，并返回交换后的链表。
+     你不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。
+     示例1:
+     给定 1->2->3->4, 你应该返回 2->1->4->3
+
+     示例2:
+     给定 1->2->3->4->5, 你应该返回 2->1->4->3->5
+     */
+    func swapPairs(_ head: ListNode?) -> ListNode? {
+        guard head != nil, head?.next != nil else {
+            return head
+        }
+        var prev: ListNode?
+        var curr: ListNode? = head
+        var next: ListNode? = curr?.next
+        let ret: ListNode? = next
+        while next != nil {
+            prev?.next = next
+            curr?.next = next?.next
+            next?.next = curr
+            prev = curr
+            curr = curr?.next
+            next = curr?.next
+        }
+        return ret
+    }
+
+    // MARK: - ------------- 删除链表的倒数第N个节点 leetCode #19
+
+    /*
+     https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/
+     给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。
+
+     示例：
+     给定一个链表: 1->2->3->4->5, 和 n = 2.
+     当删除了倒数第二个节点后，链表变为 1->2->3->5.
+
+     说明：
+     给定的 n 保证是有效的。
+
+     进阶：
+     你能尝试使用一趟扫描实现吗？
+     */
+    func removeNthFromEnd(_ head: ListNode?, _ n: Int) -> ListNode? {
+        var start: ListNode? = head
+        var end: ListNode? = start
+        if n <= 0 {
+            return head
+        }
+        for _ in 0 ..< n - 1 {
+            end = end?.next
+        }
+        if end == nil {
+            return head
+        }
+        var prev: ListNode?
+        while end?.next != nil {
+            prev = start
+            start = start?.next
+            end = end?.next
+        }
+        if prev == nil {
+            let ret = start?.next
+            start?.next = nil
+            return ret
+
+        } else {
+            prev?.next = start?.next
+            start?.next = nil
+            return head
+        }
+    }
+
+    // MARK: - ------------- 下一个排列 leetCode #31
+
+    /*
+     https://leetcode-cn.com/problems/next-permutation/
+     实现获取下一个排列的函数，算法需要将给定数字序列重新排列成字典序中下一个更大的排列。
+
+     如果不存在下一个更大的排列，则将数字重新排列成最小的排列（即升序排列）。
+
+     必须原地修改，只允许使用额外常数空间。
+
+     以下是一些例子，输入位于左侧列，其相应输出位于右侧列。
+     实例1：
+     1,2,3 → 1,3,2
+     解释：
+     123 这个数字，下一个比它大的数字是132，所以输出 1，3，2 而不是 2，1，3
+
+     实例2：
+     3,2,1 → 1,2,3
+     解释：
+     没有比321更大的数字了，所以输出最小的数字123的排列，即 1，2，3
+     */
+
+    /*
+     1. 我们希望下一个数比当前数大，这样才满足“下一个排列”的定义。因此只需要将后面的「大数」与前面的「小数」交换，就能得到一个更大的数。
+        比如 123456，将 5 和 6 交换就能得到一个更大的数 123465。
+     2. 我们还希望下一个数增加的幅度尽可能的小，这样才满足“下一个排列与当前排列紧邻“的要求。为了满足这个要求，我们需要：
+        1. 在尽可能靠右的低位进行交换，需要从后向前查找
+        2. 将一个 尽可能小的「大数」 与前面的「小数」交换。比如 123465，下一个排列应该把 5 和 4 交换而不是把 6 和 4 交换
+        3. 将「大数」换到前面后，需要将「大数」后面的所有数重置为升序，升序排列就是最小的排列。
+           以 123465 为例：首先按照上一步，交换 5 和 4，得到 123564；
+           然后需要将 5 之后的数重置为升序，得到 123546。
+           显然 123546 比 123564 更小，123546 就是 123465 的下一个排列。
+     https://leetcode-cn.com/problems/next-permutation/solution/xia-yi-ge-pai-lie-suan-fa-xiang-jie-si-lu-tui-dao-/
+     */
+    func nextPermutation(_ nums: inout [Int]) {
+        var i = nums.count - 1
+        let len = nums.count - 1
+        // 从后向前遍历，保持升序，如果发现降序，则停止
+        while i > 0 && nums[i] <= nums[i - 1] {
+            i -= 1
+        }
+        if i == 0 {
+            // 逆序输出
+            var from = 0, to = len
+            while from <= to {
+                swapElem(&nums, from, to)
+                from += 1
+                to -= 1
+            }
+            return
+        }
+        // 从[i, nums.count - 1) 现在是降序的，在这个区间里面照一个最小的，并且比 nums[i-1] 大的数，两者交换位置
+        for j in stride(from: len, through: i, by: -1) {
+            if nums[j] > nums[i - 1] {
+                swapElem(&nums, j, i - 1)
+                break
+            }
+        }
+
+        // 将[i, nums.count - 1) 区间内的数升序排列，这样才能保证是尽量小的
+        var from = i, to = len
+        while from <= to {
+            swapElem(&nums, from, to)
+            from += 1
+            to -= 1
+        }
+    }
+
+    func swapElem(_ a: inout [Int], _ i: Int, _ j: Int) {
+        if a[i] == a[j] || i == j {
+            return
+        }
+        a[i] = a[i] ^ a[j]
+        a[j] = a[i] ^ a[j]
+        a[i] = a[i] ^ a[j]
+    }
+
+    // MARK: - ------------- 在排序数组中查找元素的第一个和最后一个位置 leetCode #34
+
+    /*
+     https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/
+     给定一个按照升序排列的整数数组 nums，和一个目标值 target。找出给定目标值在数组中的开始位置和结束位置。
+     你的算法时间复杂度必须是 O(log n) 级别。
+     如果数组中不存在目标值，返回 [-1, -1]。
+
+     示例 1:
+     输入: nums = [5,7,7,8,8,10], target = 8
+     输出: [3,4]
+
+     示例 2:
+     输入: nums = [5,7,7,8,8,10], target = 6
+     输出: [-1,-1]
+     */
+    /*
+     二分查找法 递归
+     */
+    func searchRange(_ nums: [Int], _ target: Int) -> [Int] {
+        func inner_search(from: Int, to: Int) -> [Int] {
+            if from > to {
+                return [-1, -1]
+            }
+            let mid = (from + to) / 2
+            let midNum = nums[mid]
+            if midNum > target {
+                return inner_search(from: from, to: mid - 1)
+
+            } else if midNum < target {
+                return inner_search(from: mid + 1, to: to)
+
+            } else {
+                let left = inner_search(from: from, to: mid - 1)
+                let right = inner_search(from: mid + 1, to: to)
+                return [left[0] == -1 ? mid : left[0], right[1] == -1 ? mid : right[1]]
+            }
+        }
+        return inner_search(from: 0, to: nums.count - 1)
+    }
+
+    /*
+     二分查找法 while
+     https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/solution/er-fen-cha-zhao-suan-fa-xi-jie-xiang-jie-by-labula/
+     */
+    func searchRange_1(_ nums: [Int], _ target: Int) -> [Int] {
+        func leftBounds() -> Int {
+            var left = 0, right = nums.count - 1
+            while left <= right {
+                let mid = left + (right - left) / 2
+                if nums[mid] == target {
+                    right = mid - 1
+                } else if nums[mid] > target {
+                    right = mid - 1
+                } else if nums[mid] < target {
+                    left = mid + 1
+                }
+            }
+            if left >= nums.count || nums[left] != target {
+                return -1
+            }
+            return left
+        }
+
+        func rightBounds() -> Int {
+            var left = 0, right = nums.count - 1
+            while left <= right {
+                let mid = left + (right - left) / 2
+                if nums[mid] == target {
+                    left = mid + 1
+                } else if nums[mid] > target {
+                    right = mid - 1
+                } else if nums[mid] < target {
+                    left = mid + 1
+                }
+            }
+            if right < 0 || nums[right] != target {
+                return -1
+            }
+            return right
+        }
+
+        let l = leftBounds()
+        let r = rightBounds()
+        if l != -1 && r != -1 {
+            return [l, r]
+        }
+        return [-1, -1]
+    }
+}
+
+extension Solution_04 {
+    // MARK: - ------------- 组合总和 leetCode #39
+
+    /*
+     https://leetcode-cn.com/problems/combination-sum/
+     给定一个无重复元素的数组 candidates 和一个目标数 target ，找出 candidates 中所有可以使数字和为 target 的组合。
+     candidates 中的数字可以无限制重复被选取。
+
+     说明：
+     所有数字（包括 target）都是正整数。
+     解集不能包含重复的组合。
+
+     示例 1：
+     输入：candidates = [2,3,6,7], target = 7,
+     所求解集为：
+     [
+       [7],
+       [2,2,3]
+     ]
+
+     示例 2：
+     输入：candidates = [2,3,5], target = 8,
+     所求解集为：
+     [
+       [2,2,2,2],
+       [2,3,3],
+       [3,5]
+     ]
+     */
+    /*
+     回溯法 + 剪枝
+     https://leetcode-cn.com/problems/combination-sum/solution/fei-chang-xiang-xi-de-di-gui-hui-su-tao-lu-by-re-2/
+     https://leetcode-cn.com/problems/combination-sum/solution/hui-su-suan-fa-jian-zhi-python-dai-ma-java-dai-m-2/
+     */
+    func combinationSum(_ candidates: [Int], _ target: Int) -> [[Int]] {
+        // 虽然数组的排序也有复杂度，但是相比于接下来的剪枝操作节省的运行时间，总体的执行效率会有提升。
+        let sorted = candidates.sorted(by: <)
+        var ret = [[Int]]()
+        dfs(begin: 0, target: target, path: [Int](), candidates: sorted, res: &ret)
+        return ret
+    }
+
+    func dfs(begin: Int, target: Int, path: [Int], candidates: [Int], res: inout [[Int]]) {
+        var path = path
+        // 在上一层已经进行了剪枝操作，那么不会存在 target < 0 的情况出现
+        if target == 0 {
+            // 将路径添加到结果集中
+            res.append(path)
+            return
+        }
+        // 例如有数组 [1,3,4]
+        // 由于数字的组合不能重复，当遍历到数字3时，target减去3之后的组合里面不能有 3 前面的数字 1.
+        // 因为 1 和 3 的组合在上一次已经遍历到了。所以在遍历到一个数字时，它只能和后面的数字进行组合。
+        for i in begin ..< candidates.count {
+            let n = candidates[i]
+            if target - n < 0 {
+                // 剪枝，前提是数组已经排好序，如果 target - n < 0, 则 n 后面的数字都不需要遍历了
+                break
+            }
+            path.append(n)
+            dfs(begin: i, target: target - candidates[i], path: path, candidates: candidates, res: &res)
+            // 回溯
+            // 不论是 target == 0 还是 小于0，在dfs执行完之后都需要删除最后的结点
+            // 使程序可以继续输出别的结果。
+            path.removeLast()
+        }
+    }
+}

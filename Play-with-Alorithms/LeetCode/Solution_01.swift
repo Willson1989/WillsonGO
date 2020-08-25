@@ -9,7 +9,7 @@
 import Foundation
 
 // extension Solution {
-class Solutio_01 {
+class Solution_01 {
     /*
      已知有很多会议，如果这些会议的时间有重叠，则将他们合并
      例：

@@ -8,14 +8,58 @@
 
 import Foundation
 
-let s = Solution_05()
+let s = Solution_04()
 
-//let aa = [1, 10, 6, 2, 5, 4, 10, 3, 7]
-let aa = [1, 10, 6, 31, 5, 31, 10, 3, 7]
+// var aaa  = [1,3,6,5,4,2]
+// var aaa  = [1,4,6,3,2,5]
+// var aaa  = [1,6,3,2,5,4]
+//var aaa = [6, 5, 4, 3, 2, 1]
+//var aaa = [1,2,3,4,5,6]
+//var aaa = [1,1,1,1,1,1,2,2,2,2,3]
+//var aaa : [Int] = [1,1,2,2]
+//var aaa : [Int] = [2,1,3]
 
-let res = s.maxArea(aa)
+ var aaa  = [2,3,5]
+print("origin arr : \(aaa)")
+let res = s.combinationSum(aaa, 8)
+print("result : \(res)")
 
-print("maxArea : \(res)")
+// let n1 = ListNode(1)
+// let n2 = ListNode(2)
+// let n3 = ListNode(3)
+// let n4 = ListNode(4)
+// let n5 = ListNode(5)
+// let n6 = ListNode(6)
+// n1.next = n2
+// n2.next = n3
+// n3.next = n4
+// n4.next = n5
+// n5.next = n6
+// var n: ListNode? = n1
+// print("origin list : ")
+// while n != nil {
+//    print("\(n!.val)", separator: "", terminator: " -> ")
+//    n = n?.next
+// }
+// print(" ")
+//
+// let head = s.removeNthFromEnd(n1, 0)
+// print("res list : ")
+// n = head
+//
+// while n != nil {
+//    print("\(n!.val)", separator: "", terminator: " -> ")
+//    n = n?.next
+// }
+//
+// print(" ")
+
+////let aa = [1, 10, 6, 2, 5, 4, 10, 3, 7]
+// let aa = [1, 10, 6, 31, 5, 31, 10, 3, 7]
+//
+// let res = s.maxArea(aa)
+//
+// print("maxArea : \(res)")
 
 // let aa : [Int] = [197, 130, 1]
 // let aa : [Int] = [235, 140, 4]
@@ -31,7 +75,7 @@ print("maxArea : \(res)")
 // let validRes = s.validUtf8(aa)
 // let validRes_state = s.validUtf8_state(aa)
 //
-// print("valid result1 : \(validRes)")
+// print("valid result1 : \(validRes)")nn
 // print("valid result2 : \(validRes_state)")
 
 ////let ss = "- 123  456- 78"
