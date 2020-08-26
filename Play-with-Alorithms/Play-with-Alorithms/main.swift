@@ -19,16 +19,13 @@ let s = Solution_04()
 // var aaa : [Int] = [1,1,2,2]
 // var aaa : [Int] = [2,1,3]
 
-var aaa = [1,2,3,1,1,1,1,1]
+var aaa = [4,4,4,1,4]
 //var aaa = [4,6,7,7]
 //var aaa = [1,2,3,4,5]
 
 print("origin arr : \(aaa)")
-let res = s.findSubsequences(aaa)
-let res1 = s.findSubsequences_1(aaa)
+let res = s.subsetsWithDup_1(aaa)
 print("result  : \(res)")
-print(" ")
-print("result1 : \(res1)")
 
 // let n1 = ListNode(1)
 // let n2 = ListNode(2)

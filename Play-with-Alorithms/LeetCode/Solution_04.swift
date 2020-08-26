@@ -1204,7 +1204,63 @@ extension Solution_04 {
         []
       ]
      */
+    /*
+     回溯 + 同层去重
+     https://leetcode-cn.com/problems/subsets-ii/solution/li-jie-li-jie-qu-zhong-cao-zuo-by-jin-ai-yi/
+     */
     func subsetsWithDup(_ nums: [Int]) -> [[Int]] {
-        return []
+        var res: [[Int]] = [[]]
+        var path = [Int]()
+        var nums = nums.sorted(by: <)
+        func process(_ begin: Int) {
+            if begin >= nums.count {
+                return
+            }
+            for i in begin ..< nums.count {
+                if i > begin && nums[i] == nums[i - 1] {
+                    continue
+                }
+                path.append(nums[i])
+                res.append(path)
+                process(i + 1)
+                path.removeLast()
+            }
+        }
+        process(0)
+        return res
+    }
+
+    /*
+     回溯 + Set去重
+     */
+    func subsetsWithDup_1(_ nums: [Int]) -> [[Int]] {
+        var res = [[Int]]()
+        res.append([])
+        // 存在这种情况 [4,4,4,1,4], 在进行遍历之前需要先排序将相同的数字放到一起
+        // 才能使最后的结果不会出现重复的子集合
+        var nums = nums.sorted(by: <)
+        var path = [Int]()
+        func process(_ begin: Int) {
+            if begin >= nums.count {
+                return
+            }
+            // 使用集合判断去重
+            var used = Set<Int>()
+            for i in begin ..< nums.count {
+                let n = nums[i]
+                if used.contains(n) {
+                    continue
+                }
+                path.append(n)
+                res.append(path)
+                process(i + 1)
+                if path.isEmpty == false {
+                    let last = path.removeLast()
+                    used.insert(last)
+                }
+            }
+        }
+        process(0)
+        return res
     }
 }
