@@ -11,10 +11,9 @@
 		04638DA92215784B007B8556 /* Solution_05.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04638DA82215784B007B8556 /* Solution_05.swift */; };
 		04A7811321269EE800D9384D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7811221269EE800D9384D /* main.swift */; };
 		04A7814621269F2900D9384D /* 拓展知识.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7811A21269F2900D9384D /* 拓展知识.swift */; };
-		04A7814721269F2900D9384D /* UnionFind_CompressPath_01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7811C21269F2900D9384D /* UnionFind_CompressPath_01.swift */; };
+		04A7814721269F2900D9384D /* UnionFind_CompressPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7811C21269F2900D9384D /* UnionFind_CompressPath.swift */; };
 		04A7814821269F2900D9384D /* UnionFind_UsingRank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7811D21269F2900D9384D /* UnionFind_UsingRank.swift */; };
 		04A7814921269F2900D9384D /* UnionFind_Simple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7811E21269F2900D9384D /* UnionFind_Simple.swift */; };
-		04A7814A21269F2900D9384D /* UnionFind_CompressPath_02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7811F21269F2900D9384D /* UnionFind_CompressPath_02.swift */; };
 		04A7814B21269F2900D9384D /* UnionFindTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7812021269F2900D9384D /* UnionFindTestHelper.swift */; };
 		04A7814C21269F2900D9384D /* UnionFind_UsingParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7812121269F2900D9384D /* UnionFind_UsingParent.swift */; };
 		04A7814D21269F2900D9384D /* UFType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A7812221269F2900D9384D /* UFType.swift */; };
@@ -58,6 +57,8 @@
 		296378F9223637D9004D5CBC /* BasicBinarySearchTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296378F8223637D9004D5CBC /* BasicBinarySearchTree.swift */; };
 		297429C9223B61C10065AFA8 /* LeetCode_LinkList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297429C8223B61C10065AFA8 /* LeetCode_LinkList.swift */; };
 		2D11A00924EBADB800D14F9B /* TopoSorting_拓扑排序.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D11A00824EBADB800D14F9B /* TopoSorting_拓扑排序.swift */; };
+		2D6D4BA924F66BF6008A722B /* UnionFindSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6D4BA824F66BF6008A722B /* UnionFindSet.swift */; };
+		2D6D4BC324F8A8A4008A722B /* BasicGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6D4BC224F8A8A4008A722B /* BasicGraph.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -78,10 +79,9 @@
 		04A7810F21269EE800D9384D /* Play-with-Alorithms */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Play-with-Alorithms"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04A7811221269EE800D9384D /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		04A7811A21269F2900D9384D /* 拓展知识.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "拓展知识.swift"; sourceTree = "<group>"; };
-		04A7811C21269F2900D9384D /* UnionFind_CompressPath_01.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnionFind_CompressPath_01.swift; sourceTree = "<group>"; };
+		04A7811C21269F2900D9384D /* UnionFind_CompressPath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnionFind_CompressPath.swift; sourceTree = "<group>"; };
 		04A7811D21269F2900D9384D /* UnionFind_UsingRank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnionFind_UsingRank.swift; sourceTree = "<group>"; };
 		04A7811E21269F2900D9384D /* UnionFind_Simple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnionFind_Simple.swift; sourceTree = "<group>"; };
-		04A7811F21269F2900D9384D /* UnionFind_CompressPath_02.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnionFind_CompressPath_02.swift; sourceTree = "<group>"; };
 		04A7812021269F2900D9384D /* UnionFindTestHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnionFindTestHelper.swift; sourceTree = "<group>"; };
 		04A7812121269F2900D9384D /* UnionFind_UsingParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnionFind_UsingParent.swift; sourceTree = "<group>"; };
 		04A7812221269F2900D9384D /* UFType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UFType.swift; sourceTree = "<group>"; };
@@ -125,6 +125,8 @@
 		296378F8223637D9004D5CBC /* BasicBinarySearchTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicBinarySearchTree.swift; sourceTree = "<group>"; };
 		297429C8223B61C10065AFA8 /* LeetCode_LinkList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeetCode_LinkList.swift; sourceTree = "<group>"; };
 		2D11A00824EBADB800D14F9B /* TopoSorting_拓扑排序.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TopoSorting_拓扑排序.swift"; sourceTree = "<group>"; };
+		2D6D4BA824F66BF6008A722B /* UnionFindSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnionFindSet.swift; sourceTree = "<group>"; };
+		2D6D4BC224F8A8A4008A722B /* BasicGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicGraph.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,10 +184,9 @@
 		04A7811B21269F2900D9384D /* UnionFind */ = {
 			isa = PBXGroup;
 			children = (
-				04A7811C21269F2900D9384D /* UnionFind_CompressPath_01.swift */,
+				04A7811C21269F2900D9384D /* UnionFind_CompressPath.swift */,
 				04A7811D21269F2900D9384D /* UnionFind_UsingRank.swift */,
 				04A7811E21269F2900D9384D /* UnionFind_Simple.swift */,
-				04A7811F21269F2900D9384D /* UnionFind_CompressPath_02.swift */,
 				04A7812021269F2900D9384D /* UnionFindTestHelper.swift */,
 				04A7812121269F2900D9384D /* UnionFind_UsingParent.swift */,
 				04A7812221269F2900D9384D /* UFType.swift */,
@@ -247,6 +248,7 @@
 				04EA21CD221FC78A00947364 /* StringExtension.swift */,
 				296378F622356D5A004D5CBC /* BasicUnionFind.swift */,
 				296378F8223637D9004D5CBC /* BasicBinarySearchTree.swift */,
+				2D6D4BC224F8A8A4008A722B /* BasicGraph.swift */,
 			);
 			path = Basic;
 			sourceTree = "<group>";
@@ -304,6 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				04A7816C2126A16800D9384D /* List.swift */,
+				2D6D4BA824F66BF6008A722B /* UnionFindSet.swift */,
 				04A7816D2126A16800D9384D /* BSTree.swift */,
 			);
 			path = Dependencies;
@@ -377,6 +380,7 @@
 				04A7816121269F2900D9384D /* Sort.swift in Sources */,
 				04A7815221269F2900D9384D /* MinimumSpanTrees.swift in Sources */,
 				04A7816421269F2900D9384D /* MergeSort.swift in Sources */,
+				2D6D4BC324F8A8A4008A722B /* BasicGraph.swift in Sources */,
 				04A7815421269F2900D9384D /* Graph_Weighted.swift in Sources */,
 				04BA9215220BCACE004F1FF8 /* Solution_04.swift in Sources */,
 				04A7816521269F2900D9384D /* QuickSort.swift in Sources */,
@@ -401,12 +405,13 @@
 				04A7815921269F2900D9384D /* SparseGraph.swift in Sources */,
 				04A7811321269EE800D9384D /* main.swift in Sources */,
 				04638DA92215784B007B8556 /* Solution_05.swift in Sources */,
-				04A7814721269F2900D9384D /* UnionFind_CompressPath_01.swift in Sources */,
+				04A7814721269F2900D9384D /* UnionFind_CompressPath.swift in Sources */,
 				04A7814F21269F2900D9384D /* AdjacentIterators.swift in Sources */,
 				296378F722356D5A004D5CBC /* BasicUnionFind.swift in Sources */,
 				04A7815721269F2900D9384D /* SparseGraphW.swift in Sources */,
 				297429C9223B61C10065AFA8 /* LeetCode_LinkList.swift in Sources */,
 				04A7816721269F2900D9384D /* SimpleHeap.swift in Sources */,
+				2D6D4BA924F66BF6008A722B /* UnionFindSet.swift in Sources */,
 				04A7815D21269F2900D9384D /* BasicQueueAndStack.swift in Sources */,
 				04A7814921269F2900D9384D /* UnionFind_Simple.swift in Sources */,
 				04A7816221269F2900D9384D /* InsertSort.swift in Sources */,
@@ -421,7 +426,6 @@
 				04A7814E21269F2900D9384D /* UnionFind_UsingSize.swift in Sources */,
 				04A7814821269F2900D9384D /* UnionFind_UsingRank.swift in Sources */,
 				04A7816621269F2900D9384D /* IndexHeap.swift in Sources */,
-				04A7814A21269F2900D9384D /* UnionFind_CompressPath_02.swift in Sources */,
 				04A7814C21269F2900D9384D /* UnionFind_UsingParent.swift in Sources */,
 				04A7815A21269F2900D9384D /* DenseGraph_Matrix.swift in Sources */,
 				04D6D94E2135963B00099EC5 /* Solution_03.swift in Sources */,
@@ -555,7 +559,6 @@
 					"@loader_path/../Frameworks",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Alorithms/Trie树/Play-with-Alorithms-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 			};
@@ -572,7 +575,6 @@
 					"@loader_path/../Frameworks",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Alorithms/Trie树/Play-with-Alorithms-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;

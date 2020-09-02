@@ -98,9 +98,7 @@ public class SparseGraph_AdjList : Graph {
         var pre : EdgeNode? = nil
         var p = self.graph[v].firstBridge
         while p != nil {
-            print("aaaaa")
             if p?.vertex == w {
-                print("=====")
                 if pre == nil {
                     self.graph[v].firstBridge = p?.next
                 } else {

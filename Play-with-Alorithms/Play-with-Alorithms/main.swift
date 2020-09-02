@@ -10,6 +10,47 @@ import Foundation
 
 let s = Solution_04()
 
+// let aaa = [["JFK", "C"], ["B", "JFK"], ["B", "E"], ["E", "D"], ["D", "B"], ["JFK", "E"], ["C", "B"]]
+// let aaa = [["JFK","SFO"],["JFK","ATL"],["SFO","ATL"],["ATL","JFK"],["ATL","SFO"]]
+let aaa = [["EZE", "AXA"], ["TIA", "ANU"], ["ANU", "JFK"], ["JFK", "ANU"], ["ANU", "EZE"], ["TIA", "ANU"], ["AXA", "TIA"], ["TIA", "JFK"], ["ANU", "TIA"], ["JFK", "TIA"]]
+let res = s.findItinerary(aaa)
+
+print(res)
+
+// let n0 = BasicGraph.Node(val: 0)
+// let n1 = BasicGraph.Node(val: 1)
+// let n2 = BasicGraph.Node(val: 2)
+// let n3 = BasicGraph.Node(val: 3)
+// let n4 = BasicGraph.Node(val: 4)
+// let n5 = BasicGraph.Node(val: 5)
+// let n6 = BasicGraph.Node(val: 6)
+// let n7 = BasicGraph.Node(val: 7)
+//
+// let nodes = [n0, n1, n2, n3, n4, n5, n6, n7]
+// let g = BasicGraph(nodes: nodes, isDirectGraph: false)
+//
+// g.connect(from: n0, to: n1)
+// g.connect(from: n0, to: n3)
+// g.connect(from: n1, to: n2)
+// g.connect(from: n1, to: n4)
+// g.connect(from: n1, to: n5)
+// g.connect(from: n2, to: n3)
+// g.connect(from: n2, to: n4)
+// g.connect(from: n2, to: n6)
+// g.connect(from: n3, to: n6)
+// g.connect(from: n3, to: n5)
+// g.connect(from: n4, to: n5)
+// g.connect(from: n4, to: n7)
+// g.connect(from: n5, to: n6)
+////g.connect(from: n6, to: n7)
+//
+// let t = g.eulerType()
+// print("eulerType : \(t.0)")
+// let path = g.eulerPath()
+// print("eulerPath : ")
+// for n in path {
+//    print(n.val, separator: "", terminator: " -> ")
+// }
 // var aaa  = [1,3,6,5,4,2]
 // var aaa  = [1,4,6,3,2,5]
 // var aaa  = [1,6,3,2,5,4]
@@ -19,13 +60,13 @@ let s = Solution_04()
 // var aaa : [Int] = [1,1,2,2]
 // var aaa : [Int] = [2,1,3]
 
-var aaa = [4,4,4,1,4]
-//var aaa = [4,6,7,7]
-//var aaa = [1,2,3,4,5]
-
-print("origin arr : \(aaa)")
-let res = s.subsetsWithDup_1(aaa)
-print("result  : \(res)")
+// var aaa = [4,4,4,1,4]
+////var aaa = [4,6,7,7]
+////var aaa = [1,2,3,4,5]
+//
+// print("origin arr : \(aaa)")
+// let res = s.subsetsWithDup_1(aaa)
+// print("result  : \(res)")
 
 // let n1 = ListNode(1)
 // let n2 = ListNode(2)
