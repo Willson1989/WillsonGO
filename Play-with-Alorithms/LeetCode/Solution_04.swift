@@ -1341,3 +1341,105 @@ extension Solution_04 {
         return ret.reversed()
     }
 }
+
+extension Solution_04 {
+    // MARK: - ------------- 实现 Trie (前缀树) leetCode #208
+
+    /*
+       https://leetcode-cn.com/problems/implement-trie-prefix-tree/
+       实现一个 Trie (前缀树)，包含 insert, search, 和 startsWith 这三个操作。
+
+       示例:
+       Trie trie = new Trie();
+       trie.insert("apple");
+       trie.search("apple");   // 返回 true
+       trie.search("app");     // 返回 false
+       trie.startsWith("app"); // 返回 true
+       trie.insert("app");
+       trie.search("app");     // 返回 true
+
+       说明:
+       你可以假设所有的输入都是由小写字母 a-z 构成的。
+       保证所有输入均为非空字符串。
+     */
+    // https://leetcode-cn.com/problems/implement-trie-prefix-tree/solution/shi-xian-trie-qian-zhui-shu-by-leetcode/
+    class Trie {
+        class Node {
+            private var _link: [Character: Trie.Node] = [:]
+            private var _isEnd: Bool = false
+
+            func put(_ ch: Character, node: Trie.Node) {
+                _link[ch] = node
+            }
+
+            func get(_ ch: Character) -> Trie.Node? {
+                return _link[ch]
+            }
+
+            func setEnd(_ e: Bool) {
+                _isEnd = e
+            }
+
+            func isEnd() -> Bool {
+                return _isEnd
+            }
+        }
+
+        private var root: Trie.Node
+
+        /** Initialize your data structure here. */
+        init() {
+            root = Trie.Node()
+        }
+
+        /** Inserts a word into the trie. */
+        func insert(_ word: String) {
+            var curr = root
+            let len = word.count
+            for i in 0 ..< len {
+                let c = word[String.Index(encodedOffset: i)]
+                if let node = curr.get(c) {
+                    if i == len - 1 {
+                        node.setEnd(true)
+                    }
+                    curr = node
+                } else {
+                    let newNode = Trie.Node()
+                    newNode.setEnd(i == len - 1)
+                    curr.put(c, node: newNode)
+                    curr = newNode
+                }
+            }
+        }
+
+        /** Returns if the word is in the trie. */
+        func search(_ word: String) -> Bool {
+            var curr = root
+            let len = word.count
+            for i in 0 ..< len {
+                if let node = curr.get(word[String.Index(encodedOffset: i)]) {
+                    if i == len - 1 && !node.isEnd() {
+                        return false
+                    }
+                    curr = node
+                } else {
+                    return false
+                }
+            }
+            return true
+        }
+
+        /** Returns if there is any word in the trie that starts with the given prefix. */
+        func startsWith(_ prefix: String) -> Bool {
+            var curr = root
+            for i in 0 ..< prefix.count {
+                if let node = curr.get(prefix[String.Index(encodedOffset: i)]) {
+                    curr = node
+                } else {
+                    return false
+                }
+            }
+            return true
+        }
+    }
+}
