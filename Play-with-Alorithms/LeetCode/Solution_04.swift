@@ -1443,3 +1443,98 @@ extension Solution_04 {
         }
     }
 }
+
+extension Solution_04 {
+    // MARK: - ------------- 字典序的第K小数字 leetCode #440
+
+    /*
+     https://leetcode-cn.com/problems/k-th-smallest-in-lexicographical-order/
+     给定整数 n 和 k，找到 1 到 n 中字典序第 k 小的数字。
+     注意：1 ≤ k ≤ n ≤ 109。
+
+     示例 :
+     输入:
+     n: 13   k: 2
+
+     输出:
+     10
+
+     解释:
+     字典序的排列是 [1, 10, 11, 12, 13, 2, 3, 4, 5, 6, 7, 8, 9]，所以第二小的数字是 10。
+     */
+    /*
+     数字的字典序其实是以一个数为根节点的十叉树，输出这个字典序列，实际是十叉树的先序遍历的结果序列。
+     对于第 k 个数和一个前缀 prefix，需要确定一下三个问题：
+     1. 在边界 n 内，以 prefix 为前缀的数字有多少个？
+     2. 如果第 k 个数在 prefix 前缀字节点范围之内，如何处理？
+     3. 如果第 k 个数在 prefix 前缀字节点范围之外，如何处理？
+
+     对于问题 1， 给定一个前缀 p，求 p 和 p的下一个前缀结点 n (n=p+1)，之前的结点差。然后各自乘以10，将差的结果累加直到超过上界 n，
+     所得的总数就是 p 为前缀的子节点数目
+     对于问题 2，如果 k 在子节点范围之内，那么继续搜索子树，即 prefix *= 10
+     对于问题 3，如果 k 在子节点范围之外，那么搜索下一个前缀，即 prefix += 1,
+     参考自：
+     https://leetcode-cn.com/problems/k-th-smallest-in-lexicographical-order/solution/ben-ti-shi-shang-zui-wan-zheng-ju-ti-de-shou-mo-sh/
+     */
+    func findKthNumber(_ n: Int, _ k: Int) -> Int {
+        // 在不超过上限 n 的情况下，返回以 prefix 为前缀、字典序的子节点数 （prefix是前缀，n是上界）
+        func countOfNums(ofPrefix prefix: Int, _ n: Int) -> Int {
+            var curr = prefix
+            var next = curr + 1
+            var count = 0
+            while curr <= n {
+                // 用下一个前缀的起点减去当前前缀的起点，这里要注意上界
+                count += (min(next, n + 1) - curr) // min(n - curr + 1, next - curr)
+                // 如果 curr 是 1， next 是 2， 那么接下来 curr 变成 10，next 变成 20
+                // 20 - 10 = 10，以 1 为前缀的子节点个数又增加了10个
+                // 如果 curr 是 10， next 是 20， 那么接下来 curr 变成 100，next 变成 200
+                // 200 - 100 = 100，以 1 为前缀的子节点个数又增加了100个
+                curr *= 10
+                next *= 10
+            }
+            return count
+        }
+
+        var p = 1
+        var prefix = 1
+
+        while p < k {
+            let cnt = countOfNums(ofPrefix: prefix, n)
+            if p + cnt > k { // 第k个数在当前前缀下
+                prefix *= 10
+                p += 1 // 把指针指向了第一个子节点的位置，比如11乘10后变成110，指针从11指向了110
+            } else {
+                prefix += 1
+                p += cnt // 把指针指向了下一前缀的起点
+            }
+        }
+        return prefix
+    }
+
+    // 由于是将数字排好序输出到结果数组中，并且使用了set，所以最后会超时而且空间复杂度会比较大
+    func dictionarySorted(_ n: Int, _ k: Int) -> [Int] {
+        var rank: [Int] = []
+        var set = Set<Int>()
+        func deep(_ num: Int) {
+            if num > n {
+                return
+            }
+            if set.contains(num) {
+                return
+            }
+            set.insert(num)
+            rank.append(num)
+            let d = num * 10
+            if d <= n {
+                let distance = d + 10 <= n ? 10 : n - d + 1
+                for i in d ..< d + distance {
+                    deep(i)
+                }
+            }
+        }
+        for i in 1 ... n {
+            deep(i)
+        }
+        return rank
+    }
+}

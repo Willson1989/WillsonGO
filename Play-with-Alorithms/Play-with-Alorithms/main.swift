@@ -9,6 +9,11 @@
 import Foundation
 
 let s = Solution_04()
+let n = 105, k = 10
+let sorted = s.dictionarySorted(n, k)
+print("dictionary sorted arr : \(sorted)")
+let res = s.findKthNumber(n, k)
+print("res : \(res)")
 
 // let trie = Solution_04.Trie()
 // trie.insert("willson")
@@ -26,36 +31,36 @@ let s = Solution_04()
  [[],["app"],["apple"],["beer"],["add"],["jam"],["rental"],["apps"],["app"],["ad"],["applepie"],["rest"],["jan"],["rent"],["beer"],["jam"],["apps"],["app"],["ad"],["applepie"],["rest"],["jan"],["rent"],["beer"],["jam”]]
 
  */
-let aaa = ["Trie", "insert", "insert", "insert", "insert", "insert", "insert", "search", "search", "search", "search", "search", "search", "search", "search", "search", "startsWith", "startsWith", "startsWith", "startsWith", "startsWith", "startsWith", "startsWith", "startsWith", "startsWith"]
-let bbb = [[""], ["app"], ["apple"], ["beer"], ["add"], ["jam"], ["rental"], ["apps"], ["app"], ["ad"], ["applepie"], ["rest"], ["jan"], ["rent"], ["beer"], ["jam"], ["apps"], ["app"], ["ad"], ["applepie"], ["rest"], ["jan"], ["rent"], ["beer"], ["jam"]]
+// let aaa = ["Trie", "insert", "insert", "insert", "insert", "insert", "insert", "search", "search", "search", "search", "search", "search", "search", "search", "search", "startsWith", "startsWith", "startsWith", "startsWith", "startsWith", "startsWith", "startsWith", "startsWith", "startsWith"]
+// let bbb = [[""], ["app"], ["apple"], ["beer"], ["add"], ["jam"], ["rental"], ["apps"], ["app"], ["ad"], ["applepie"], ["rest"], ["jan"], ["rent"], ["beer"], ["jam"], ["apps"], ["app"], ["ad"], ["applepie"], ["rest"], ["jan"], ["rent"], ["beer"], ["jam"]]
+//
+// var t: Solution_04.Trie?
+// var res = [String]()
+// for i in 0 ..< aaa.count {
+//    let action = aaa[i]
+//    let content = bbb[i][0]
+//    if action == "Trie" {
+//        t = Solution_04.Trie()
+//        res.append("null")
+//        print("alloc ")
+//
+//    } else if action == "insert" {
+//        t?.insert(content)
+//        res.append("null")
+//        print("insert -- \(content) ")
+//    } else if action == "search" {
+//        let r = t?.search(content) ?? false
+//        res.append(r ? "true" : "false")
+//        print("search -- \(content) , res : \(r)")
+//
+//    } else if action == "startsWith" {
+//        let r = t?.startsWith(content) ?? false
+//        res.append(r ? "true" : "false")
+//        print("start  -- \(content) , res : \(r)")
+//    }
+// }
 
-var t: Solution_04.Trie?
-var res = [String]()
-for i in 0 ..< aaa.count {
-    let action = aaa[i]
-    let content = bbb[i][0]
-    if action == "Trie" {
-        t = Solution_04.Trie()
-        res.append("null")
-        print("alloc ")
-
-    } else if action == "insert" {
-        t?.insert(content)
-        res.append("null")
-        print("insert -- \(content) ")
-    } else if action == "search" {
-        let r = t?.search(content) ?? false
-        res.append(r ? "true" : "false")
-        print("search -- \(content) , res : \(r)")
-
-    } else if action == "startsWith" {
-        let r = t?.startsWith(content) ?? false
-        res.append(r ? "true" : "false")
-        print("start  -- \(content) , res : \(r)")
-    }
-}
-
-print("res : \(res)")
+// print("res : \(res)")
 // let aaa = [["JFK", "C"], ["B", "JFK"], ["B", "E"], ["E", "D"], ["D", "B"], ["JFK", "E"], ["C", "B"]]
 // let aaa = [["JFK","SFO"],["JFK","ATL"],["SFO","ATL"],["ATL","JFK"],["ATL","SFO"]]
 // let aaa = [["EZE", "AXA"], ["TIA", "ANU"], ["ANU", "JFK"], ["JFK", "ANU"], ["ANU", "EZE"], ["TIA", "ANU"], ["AXA", "TIA"], ["TIA", "JFK"], ["ANU", "TIA"], ["JFK", "TIA"]]
