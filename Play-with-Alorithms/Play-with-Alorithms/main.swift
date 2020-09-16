@@ -8,12 +8,61 @@
 
 import Foundation
 
-let s = Solution_04()
-let n = 105, k = 10
-let sorted = s.dictionarySorted(n, k)
-print("dictionary sorted arr : \(sorted)")
-let res = s.findKthNumber(n, k)
-print("res : \(res)")
+let s = Solution_03()
+
+let input_sudoku = [[5, 3, 0, 0, 7, 0, 0, 0, 0],
+                    [6, 0, 0, 1, 9, 5, 0, 0, 0],
+                    [0, 9, 8, 0, 0, 0, 0, 6, 0],
+                    [8, 0, 0, 0, 6, 0, 0, 0, 3],
+                    [4, 0, 0, 8, 0, 3, 0, 0, 1],
+                    [7, 0, 0, 0, 2, 0, 0, 0, 6],
+                    [0, 6, 0, 0, 0, 0, 2, 8, 0],
+                    [0, 0, 0, 4, 1, 9, 0, 0, 5],
+                    [0, 0, 0, 0, 8, 0, 0, 7, 9]]
+var input_sudoku_c = s.genSudoku(input_sudoku)
+s.printSudoku(input_sudoku_c)
+
+s.solveSudoku(&input_sudoku_c)
+s.printSudoku(input_sudoku_c)
+// let s = Solution_03()
+// let n1 = ListNode(1)
+// let n2 = ListNode(2)
+// let n3 = ListNode(3)
+// let n4 = ListNode(4)
+// let n5 = ListNode(5)
+// n1.next = n2
+// n2.next = n3
+// n3.next = n4
+// n4.next = n5
+//
+// print("origin : ")
+// s.printLinkList(n1)
+//
+// let n = s.reverseList_1(n1)
+// print("result : ")
+// s.printLinkList(n)
+
+// let s = Solution_05()
+// let str = "HemO3((Mg3)(H2O(Ge)3)2)3Ke14"
+////let str = "K4(ON(SO3)2)2"
+// print("input : ", str)
+// let res1 = s.countOfAtoms(str)
+// let aa = [3, 1, 2, 4, 3, 5, 0, 3]
+// let res1 = s.trap_1(aa)
+// let res2 = s.trap_2(aa)
+// let res3 = s.trap_3(aa)
+// let res4 = s.trap_4(aa)
+// print("input : \(aa)")
+// print("res1  : \(res1)")
+// print("res2  : \(res2)")
+// print("res3  : \(res3)")
+// print("res4  : \(res4)")
+// let s = Solution_04()
+// let n = 105, k = 10
+// let sorted = s.dictionarySorted(n, k)
+// print("dictionary sorted arr : \(sorted)")
+// let res = s.findKthNumber(n, k)
+// print("res : \(res)")
 
 // let trie = Solution_04.Trie()
 // trie.insert("willson")

@@ -69,63 +69,7 @@ class Solution_01 {
         return res
     }
 
-    // MARK: - ------------- 搜索旋转排序数组 leetCode #33
-
-    /*
-     https://leetcode-cn.com/problems/search-in-rotated-sorted-array/description/
-     假设按照升序排序的数组在预先未知的某个点上进行了旋转。
-     ( 例如，数组 [0,1,2,4,5,6,7] 可能变为 [4,5,6,7,0,1,2] )。
-     搜索一个给定的目标值，如果数组中存在这个目标值，则返回它的索引，否则返回 -1 。 你可以假设数组中不存在重复的元素。
-     你的算法时间复杂度必须是 O(log n) 级别。
-
-     示例 1:
-     输入: nums = [4,5,6,7,0,1,2], target = 0
-     输出: 4
-
-     示例 2:
-     输入: nums = [4,5,6,7,0,1,2], target = 3
-     输出: -1
-     */
-    /*
-     有两种情况：
-     1.旋转的位置比较靠左边，那么旋转之后，mid左边的是有序的，右边是无序的
-     2.旋转的位置比较靠右边，那么旋转之后，mid右边的是有序的，左边是无序的
-     这是需要看target的值：
-     1.target 大于 mid：
-       如果是情况1，那么对左边无序的子数组重新查找。
-       如果是情况2，那么对右边有序的子数组进行二分查找。
-     2.target 小于 mid：
-       如果是情况1，那么对左边有序的子数组进行二分查找。
-       如果是情况2，那么对右边无序的子数组重新查找。
-     */
-    func searchInRotatedArray(_ nums: [Int], _ target: Int) -> Int {
-        var left = 0
-        var right = nums.count - 1
-        var mid = 0
-
-        while left <= right {
-            mid = (right - left) / 2 + left
-            if nums[mid] == target {
-                return mid
-            }
-            // mid 和 left比较，mid >= left,左边有序，反之右边有序
-            if nums[mid] >= nums[left] {
-                if target >= nums[left] && target <= nums[mid] {
-                    right = mid - 1
-                } else {
-                    left = mid + 1
-                }
-            } else {
-                if target >= nums[mid] && target <= nums[right] {
-                    left = mid + 1
-                } else {
-                    right = mid - 1
-                }
-            }
-        }
-        return -1
-    }
-
+    
     // MARK: - ------------- 最大子序和 leetCode #53
 
     // MARK: - ------------- review : 2020 / 8 / 5
@@ -1083,7 +1027,7 @@ class Solution_01 {
     func isPalindrome(_ s: String) -> Bool {
         func isValid(_ i: Int, _ s: String) -> Bool {
             let c = s.charAt(i)
-            return c.isChar() || c.isNum()
+            return c.isChar || c.isNum
         }
         let s = s.lowercased()
         var i = 0, j = s.count - 1
@@ -1111,7 +1055,7 @@ class Solution_01 {
 
     func isPalindrome_sysApi(_ s: String) -> Bool {
         func isValid(_ c: Character) -> Bool {
-            return c.isChar() || c.isNum()
+            return c.isChar || c.isNum
         }
         let s = s.lowercased()
         var newStr = ""

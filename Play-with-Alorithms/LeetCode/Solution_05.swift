@@ -589,7 +589,7 @@ class Solution_05 {
         var head: String = ""
         var body: String = ""
         // 遍历获取head部分
-        while index < s.count && !s.charAt(index).isNum() {
+        while index < s.count && !s.charAt(index).isNum {
             head.append(s.charAt(index))
             index += 1
         }
@@ -597,7 +597,7 @@ class Solution_05 {
         if index < s.count {
             var repeatCount = 0
             // index 现在指向数字的第一个字符
-            while s.charAt(index).isNum() {
+            while s.charAt(index).isNum {
                 let num = Int(String(s.charAt(index)))!
                 repeatCount = repeatCount * 10 + num
                 index += 1
@@ -651,7 +651,7 @@ class Solution_05 {
             var repeatCount = 0
             while k < s.count {
                 let ch = s.charAt(k)
-                if ch.isNum() {
+                if ch.isNum {
                     repeatCount = repeatCount * 10 + Int(String(ch))!
                     k += 1
 
@@ -2008,5 +2008,246 @@ extension Solution_05 {
             }
         }
         return ret
+    }
+}
+
+extension Solution_05 {
+    // MARK: - -------------  接雨水 leetCode #42
+
+    /*
+     https://leetcode-cn.com/problems/trapping-rain-water/
+     给定 n 个非负整数表示每个宽度为 1 的柱子的高度图，计算按此排列的柱子，下雨之后能接多少雨水。
+     上面是由数组 [0,1,0,2,1,0,1,3,2,1,2,1] 表示的高度图，在这种情况下，可以接 6 个单位的雨水（蓝色部分表示雨水）。
+     */
+    func trap_1(_ height: [Int]) -> Int {
+        var start = 0
+        var end = height.count - 1
+        var res = 0
+        var maxN = 0
+        var dis = 0
+        for i in 0 ..< height.count {
+            maxN = max(maxN, height[i])
+        }
+        while dis <= maxN {
+            while start < end {
+                if height[start] - dis > 0 {
+                    break
+                }
+                start += 1
+            }
+            while start < end {
+                if height[end] - dis > 0 {
+                    break
+                }
+                end -= 1
+            }
+            if start < end {
+                for i in start + 1 ..< end {
+                    let tmp = height[i]
+                    if tmp - dis <= 0 {
+                        res += 1
+                    }
+                }
+            }
+            dis += 1
+        }
+        return res
+    }
+
+    /*
+     https://leetcode-cn.com/problems/trapping-rain-water/solution/xiang-xi-tong-su-de-si-lu-fen-xi-duo-jie-fa-by-w-8/
+     解法2
+     按照列来求每一列能容纳的雨水数量
+     对于一列 c ，找到 c 前面（左边）中最高的列 max_left，和 c 后面（右边）最高的列 max_right，会有下面三种情况
+     1. max_left > c < max_right, 根据木桶短板原理， c 列能装的雨水量 sum_c = max_left - c
+     2. max_left < c < max_right, c 列能装的雨水量为 0 即 sum_c = 0
+     3. max_left = c < max_right, c 列能装的雨水量为 0 即 sum_c = 0
+     */
+    func trap_2(_ height: [Int]) -> Int {
+        var sum: Int = 0
+        for i in 1 ... height.count - 2 {
+            // 头尾两个列不用考虑，因为边上的两列装不了雨水
+            // find max left from i
+            var max_left = 0
+            for m in 0 ..< i {
+                max_left = max(height[m], max_left)
+            }
+            var max_right = 0
+            for n in i + 1 ..< height.count {
+                max_right = max(height[n], max_right)
+            }
+            let k = min(max_left, max_right)
+            sum += max(k - height[i], 0)
+        }
+        return sum
+    }
+
+    /*
+     https://leetcode-cn.com/problems/trapping-rain-water/solution/xiang-xi-tong-su-de-si-lu-fen-xi-duo-jie-fa-by-w-8/
+     解法3 - 动态规划
+     针对解法2 的优化。
+     每次遍历到一列，都要遍历它之前和之后的所有结点来找出左边和右边最大的列。可以使用动态规划来减少遍历次数。
+     对于列 i ，它左边最大的列 max_left[i] 为它左边列（i-1）和 i-1列左边最大列（max_left[i-1]）中两者的最大值，即：
+     max_left[i] = max(max_left[i-1], height[i-1])
+     同理，i列右边边最大的列 max_right[i] 为它右边列（i+1）和 i+1列右边最大列（max_right[i+1]）中两者的最大值，即：
+     max_right[i] = max(max_right[i+1], height[i+1])
+     */
+    func trap_3(_ height: [Int]) -> Int {
+        var sum: Int = 0
+        var max_left = Array(repeating: 0, count: height.count)
+        var max_right = Array(repeating: 0, count: height.count)
+
+        for i in stride(from: 1, through: height.count - 1, by: 1) {
+            max_left[i] = max(max_left[i - 1], height[i - 1])
+        }
+        for i in stride(from: height.count - 2, through: 0, by: -1) {
+            // 从那后向前遍历是因为，要想得到 max_right[i] 的值，它右边的 max_right[i] 需要先得到值
+            max_right[i] = max(max_right[i + 1], height[i + 1])
+        }
+        for i in 1 ... height.count - 2 {
+            let k = min(max_left[i], max_right[i])
+            if k > height[i] {
+                sum += (k - height[i])
+            }
+        }
+        return sum
+    }
+
+    /*
+     https://leetcode-cn.com/problems/trapping-rain-water/solution/xiang-xi-tong-su-de-si-lu-fen-xi-duo-jie-fa-by-w-8/
+     https://leetcode-cn.com/problems/trapping-rain-water/solution/jie-yu-shui-by-leetcode/
+     解法4 - 双指针(优化了上面动态规划中空间复杂度的问题)
+     首先明确下面几个变量
+     left：左边界指针
+     right：右边界指针
+     max_left：左边的最大值
+     max_right：右边的最大值
+     从左到右遍历数组，对于左指针left，它左边的最大值max_left一直是可靠的，因为max_left是从左到右一次次比较的出来的。
+     但是它右边的最大值max_right，却是不可靠的，因为max_right的左边可能还有更大的值。
+     那么如果出现 max_left < max_right时，根据短板效应，left能存的水数量取决于max_left。
+     如果此时缩短右边界，max_right的值只会更大，但是这不会影响left能存的水的数量。所以我们应该缩短左指针。
+     反之则处理右边和缩短右指针。
+     */
+    func trap_4(_ height: [Int]) -> Int {
+        var sum = 0
+        var max_left = 0
+        var max_right = 0
+        var left = 0
+        var right = height.count - 1
+        while left <= right {
+            if max_left < max_right {
+                sum += max(max_left - height[left], 0)
+                max_left = max(max_left, height[left])
+                left += 1
+            } else {
+                sum += max(max_right - height[right], 0)
+                max_right = max(max_right, height[right])
+                right -= 1
+            }
+        }
+        return sum
+    }
+}
+
+extension Solution_05 {
+    // MARK: - -------------  盛最多水的容器 leetCode #11
+
+    /*
+     https://leetcode-cn.com/problems/number-of-atoms/
+     给定一个化学式formula（作为字符串），返回每种原子的数量。
+     原子总是以一个大写字母开始，接着跟随0个或任意个小写字母，表示原子的名字。
+     如果数量大于 1，原子后会跟着数字表示原子的数量。如果数量等于 1 则不会跟数字。例如，H2O 和 H2O2 是可行的，但 H1O2 这个表达是不可行的。
+     两个化学式连在一起是新的化学式。例如 H2O2He3Mg4 也是化学式。
+     一个括号中的化学式和数字（可选择性添加）也是化学式。例如 (H2O2) 和 (H2O2)3 是化学式。
+     给定一个化学式，输出所有原子的数量。格式为：
+     第一个（按字典序）原子的名子，跟着它的数量（如果数量大于 1），
+     然后是第二个原子的名字（按字典序），跟着它的数量（如果数量大于 1），以此类推。
+
+     示例 1:
+     输入:
+     formula = "H2O"
+     输出: "H2O"
+     解释:
+     原子的数量是 {'H': 2, 'O': 1}。
+
+     示例 2:
+     输入:
+     formula = "Mg(OH)2"
+     输出: "H2MgO2"
+     解释:
+     原子的数量是 {'H': 2, 'Mg': 1, 'O': 2}。
+
+     示例 3:
+     输入:
+     formula = "K4(ON(SO3)2)2"
+     输出: "K4N2O14S4"
+     解释:
+     原子的数量是 {'K': 4, 'N': 2, 'O': 14, 'S': 4}。
+
+     注意:
+     所有原子的第一个字母为大写，剩余字母都是小写。
+     formula的长度在[1, 1000]之间。
+     formula只包含字母、数字和圆括号，并且题目中给定的是合法的化学式。
+     */
+    func countOfAtoms(_ formula: String) -> String {
+        var i = 0
+        let len = formula.count
+        func parse() -> [String: Int] {
+            var res = [String: Int]()
+            while i < len {
+                if formula[i] == "(" {
+                    i += 1
+                    let subMap = parse()
+                    subMap.forEach { k, v in
+                        if k.isEmpty { return }
+                        if let c = res[k] {
+                            res[k] = c + v
+                        } else {
+                            res[k] = v
+                        }
+                    }
+                    continue
+                }
+                if formula[i] == ")" {
+                    i += 1
+                    var subCount = 0
+                    while i < len && formula[i].isNum {
+                        subCount = subCount * 10 + (Int(String(formula[i])) ?? 0)
+                        i += 1
+                    }
+                    if subCount > 0 {
+                        res = res.mapValues { $0 * subCount }
+                    }
+                    return res
+                }
+                var name = ""
+                var count = 0
+                if i < len && formula[i].isUpper {
+                    name += String(formula[i])
+                    i += 1
+                }
+                while i < len && formula[i].isLower {
+                    name += String(formula[i])
+                    i += 1
+                }
+                while i < len && formula[i].isNum {
+                    count = count * 10 + (Int(String(formula[i])) ?? 0)
+                    i += 1
+                }
+                count = count <= 0 ? 1 : count
+                if let cnt = res[name] {
+                    res[name] = cnt + count
+                } else {
+                    res[name] = count
+                }
+            }
+            return res
+        }
+
+        let map = parse()
+        let resFormular = map.sorted { $0.key < $1.key }.reduce("") { (res, c) -> String in
+            res + c.key + (c.value > 1 ? "\(c.value)" : "")
+        }
+        return resFormular
     }
 }

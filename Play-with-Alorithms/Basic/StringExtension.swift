@@ -9,36 +9,56 @@
 import Foundation
 
 extension String {
-
-    //获取子字符串
+    // 获取子字符串
     func substringInRange(_ r: Range<Int>) -> String? {
-        if r.lowerBound < 0 || r.upperBound > self.count {
+        if r.lowerBound < 0 || r.upperBound > count {
             return nil
         }
-        let startIndex = self.index(self.startIndex, offsetBy:r.lowerBound)
-        let endIndex   = self.index(self.startIndex, offsetBy:r.upperBound)
-        return String(self[startIndex..<endIndex])
+        let startIndex = index(self.startIndex, offsetBy: r.lowerBound)
+        let endIndex = index(self.startIndex, offsetBy: r.upperBound)
+        return String(self[startIndex ..< endIndex])
     }
-    
-    
-    
-    func charAt(_ i : Int) -> Character {
+
+    func charAt(_ i: Int) -> Character {
         return self[String.Index(encodedOffset: i)]
+    }
+
+    public subscript(x: Int) -> Character {
+        return charAt(x)
     }
 }
 
 extension Character {
-    func isChar() -> Bool {
+    var isChar: Bool {
         return (self >= "a" && self <= "z") || (self >= "A" && self <= "Z")
     }
-    
-    func isNum() -> Bool {
+
+    var isNum: Bool {
         let scanner = Scanner(string: String(self))
-        var val : Int = 0
+        var val: Int = 0
         return scanner.scanInt(&val) && scanner.isAtEnd
     }
-    
-    func isBracket() -> Bool {
+
+    var isBracket: Bool {
         return self == "[" || self == "]"
     }
+
+    var ASCII: Int {
+        var num = 0
+        for scalar in String(self).unicodeScalars {
+            num = Int(scalar.value)
+        }
+        return num
+    }
+
+    var isUpper: Bool {
+        let a = ASCII
+        return a >= 65 && a <= 90
+    }
+
+    var isLower: Bool {
+        let a = ASCII
+        return a >= 97 && a <= 122
+    }
+
 }
