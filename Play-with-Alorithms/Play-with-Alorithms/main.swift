@@ -8,6 +8,8 @@
 
 import Foundation
 
+
+
 let s = Solution_03()
 
 let input_sudoku = [[5, 3, 0, 0, 7, 0, 0, 0, 0],
@@ -20,10 +22,17 @@ let input_sudoku = [[5, 3, 0, 0, 7, 0, 0, 0, 0],
                     [0, 0, 0, 4, 1, 9, 0, 0, 5],
                     [0, 0, 0, 0, 8, 0, 0, 7, 9]]
 var input_sudoku_c = s.genSudoku(input_sudoku)
+var input_sudoku_c_1 = s.genSudoku(input_sudoku)
+
 s.printSudoku(input_sudoku_c)
 
 s.solveSudoku(&input_sudoku_c)
+print("solved sudoku : ")
 s.printSudoku(input_sudoku_c)
+
+s.solveSudoku_1(&input_sudoku_c_1)
+print("solved sudoku 1 : ")
+s.printSudoku(input_sudoku_c_1)
 // let s = Solution_03()
 // let n1 = ListNode(1)
 // let n2 = ListNode(2)

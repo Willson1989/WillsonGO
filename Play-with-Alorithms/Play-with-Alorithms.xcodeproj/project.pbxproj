@@ -57,6 +57,7 @@
 		296378F9223637D9004D5CBC /* BasicBinarySearchTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296378F8223637D9004D5CBC /* BasicBinarySearchTree.swift */; };
 		297429C9223B61C10065AFA8 /* LeetCode_LinkList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297429C8223B61C10065AFA8 /* LeetCode_LinkList.swift */; };
 		2D11A00924EBADB800D14F9B /* TopoSorting_拓扑排序.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D11A00824EBADB800D14F9B /* TopoSorting_拓扑排序.swift */; };
+		2D5AA478251354420045B6A0 /* SolutionUtils.c in Sources */ = {isa = PBXBuildFile; fileRef = 2D5AA477251354420045B6A0 /* SolutionUtils.c */; };
 		2D6D4BA924F66BF6008A722B /* UnionFindSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6D4BA824F66BF6008A722B /* UnionFindSet.swift */; };
 		2D6D4BC324F8A8A4008A722B /* BasicGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6D4BC224F8A8A4008A722B /* BasicGraph.swift */; };
 /* End PBXBuildFile section */
@@ -125,6 +126,9 @@
 		296378F8223637D9004D5CBC /* BasicBinarySearchTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicBinarySearchTree.swift; sourceTree = "<group>"; };
 		297429C8223B61C10065AFA8 /* LeetCode_LinkList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeetCode_LinkList.swift; sourceTree = "<group>"; };
 		2D11A00824EBADB800D14F9B /* TopoSorting_拓扑排序.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TopoSorting_拓扑排序.swift"; sourceTree = "<group>"; };
+		2D5AA472251340F00045B6A0 /* Play-with-Alorithms-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Play-with-Alorithms-Bridging-Header.h"; sourceTree = "<group>"; };
+		2D5AA476251354420045B6A0 /* SolutionUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SolutionUtils.h; sourceTree = "<group>"; };
+		2D5AA477251354420045B6A0 /* SolutionUtils.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = SolutionUtils.c; sourceTree = "<group>"; };
 		2D6D4BA824F66BF6008A722B /* UnionFindSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnionFindSet.swift; sourceTree = "<group>"; };
 		2D6D4BC224F8A8A4008A722B /* BasicGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicGraph.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -288,6 +292,7 @@
 		04A781692126A16800D9384D /* LeetCode */ = {
 			isa = PBXGroup;
 			children = (
+				2D5AA471251340A10045B6A0 /* C files */,
 				04A7816A2126A16800D9384D /* Solution.swift */,
 				04A7816B2126A16800D9384D /* Dependencies */,
 				04A7816F2126A16800D9384D /* Solution_01.swift */,
@@ -317,6 +322,16 @@
 			children = (
 			);
 			path = "Trie树";
+			sourceTree = "<group>";
+		};
+		2D5AA471251340A10045B6A0 /* C files */ = {
+			isa = PBXGroup;
+			children = (
+				2D5AA472251340F00045B6A0 /* Play-with-Alorithms-Bridging-Header.h */,
+				2D5AA476251354420045B6A0 /* SolutionUtils.h */,
+				2D5AA477251354420045B6A0 /* SolutionUtils.c */,
+			);
+			path = "C files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -351,7 +366,7 @@
 				TargetAttributes = {
 					04A7810E21269EE800D9384D = {
 						CreatedOnToolsVersion = 9.4;
-						LastSwiftMigration = 0940;
+						LastSwiftMigration = 1150;
 					};
 				};
 			};
@@ -389,6 +404,7 @@
 				04A781712126A16800D9384D /* List.swift in Sources */,
 				04A7815521269F2900D9384D /* SparseGraphW_AdjList.swift in Sources */,
 				04A7816321269F2900D9384D /* SelectionSort.swift in Sources */,
+				2D5AA478251354420045B6A0 /* SolutionUtils.c in Sources */,
 				04A7824D212C2AD100D9384D /* Solution_02.swift in Sources */,
 				04A7814D21269F2900D9384D /* UFType.swift in Sources */,
 				2D11A00924EBADB800D14F9B /* TopoSorting_拓扑排序.swift in Sources */,
@@ -559,6 +575,7 @@
 					"@loader_path/../Frameworks",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "LeetCode/C files/Play-with-Alorithms-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 			};
@@ -575,6 +592,7 @@
 					"@loader_path/../Frameworks",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "LeetCode/C files/Play-with-Alorithms-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;

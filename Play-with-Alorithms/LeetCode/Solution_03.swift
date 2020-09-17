@@ -870,7 +870,6 @@ extension Solution_03 {
      编写一个程序，通过已填充的空格来解决数独问题。
 
      一个数独的解法需遵循如下规则：
-
      数字 1-9 在每一行只能出现一次。
      数字 1-9 在每一列只能出现一次。
      数字 1-9 在每一个以粗实线分隔的 3x3 宫内只能出现一次。
@@ -883,12 +882,16 @@ extension Solution_03 {
         var blank: [[Int]] = []
         var isCompleted: Bool = false
 
+        // pos 代表当前填写的是第几个空格
         func deep(_ pos: Int) {
             if pos > blank.count - 1 {
+                // 所有空格都填写完了
                 isCompleted = true
                 return
             }
             let row = blank[pos][0], col = blank[pos][1]
+
+            // 枚举 1 到 9，找到可以填写的数字
             for x in 1 ... 9 {
                 if isCompleted {
                     // 如果已经填完了所有的空，那就不需要继续循环遍历了。
@@ -908,20 +911,85 @@ extension Solution_03 {
             }
         }
 
+        // 遍历 9 * 9 数独矩阵
         for row in 0 ..< 9 {
             for col in 0 ..< 9 {
                 let c = board[row][col]
                 if c == "." {
+                    // 如果是空格，则记录这个空格的位置（行和列）
                     blank.append([row, col])
 
                 } else if let x = Int(String(c)) {
+                    // 如果是数字，则在行、列、矩阵方块中标识这个数字出现过
                     rowSet[row][x - 1] = true
                     columnSet[col][x - 1] = true
                     squareSet[row / 3][col / 3][x - 1] = true
                 }
             }
         }
+        // 从头到尾遍历空格，进行递归调用
         deep(0)
+    }
+
+    /*
+     主要思路还是递归+回溯，但是针对上面用来记录每个数字出现过的数组，
+     这里使用一个数字来代替，每个二进制位为1代表这个该位代表的数字出现过，
+     例如 001010110，第 1，2，4，6位为1，代表 1，2，4，6 这四个数已经出现过了，不能再填写了。
+     https://leetcode-cn.com/problems/sudoku-solver/solution/jie-shu-du-by-leetcode-solution/
+     */
+    func solveSudoku_1(_ board: inout [[Character]]) {
+        var lines = Array(repeating: 0, count: 9)
+        var columns = Array(repeating: 0, count: 9)
+        var block = Array(repeating: Array(repeating: 0, count: 3), count: 3)
+        var spaces: [[Int]] = []
+        var isCompleted: Bool = false
+
+        // 针对row行 col列，数字x，记录该数字x已经出现过
+        func flip(row: Int, col: Int, x: Int) {
+            // 移位x，在亦或运算，将x代表的二进制位设置为1，代表x已经填写过了
+            // 如果针对相同的 row，col，x 再调用一次，则会将这个位置重置，代表x没有填写过
+            let n = (1 << x)
+            lines[row] ^= n
+            columns[col] ^= n
+            block[row / 3][col / 3] ^= n
+        }
+
+        func dfs(_ pos: Int) {
+            if pos > spaces.count - 1 {
+                isCompleted = true
+                return
+            }
+            let row = spaces[pos][0], col = spaces[pos][1]
+            // 1. 或运算之后的结果是，前9位为1的位是不可以填的数字，
+            //    例如001101010，代表 1，3，5，6 是不可填的
+            var mask = lines[row] | columns[col] | block[row / 3][col / 3]
+            // 2. 取反之后的结果是，前9位为1的位是可以填的数字
+            mask = ~mask
+            // 3. 由于只考虑前9位，在取反之后9位往后的位都变成了1，
+            //    这些位的1是不需要考虑的，所以和 0x1FF 进行与运算之后将无用的1置为 0
+            mask = mask & 0x1FF
+            while mask != 0 && !isCompleted {
+                // mask 的二进制尾部有几个零，就说明是哪一个数字
+                let x = mask.trailingZeroBitCount
+                board[row][col] = Character("\(x + 1)")
+                flip(row: row, col: col, x: x)
+                dfs(pos + 1)
+                // 回溯，针对相同的位置重新调用一次，由于是亦或操作，所以这个位置的值会被重置。
+                flip(row: row, col: col, x: x)
+                mask = mask & (mask - 1)
+            }
+        }
+
+        for i in 0 ..< 9 {
+            for j in 0 ..< 9 {
+                if board[i][j] == "." {
+                    spaces.append([i, j])
+                } else if let x = Int(String(board[i][j])) {
+                    flip(row: i, col: j, x: x - 1)
+                }
+            }
+        }
+        dfs(0)
     }
 
     func genSudoku(_ arr: [[Int]]) -> [[Character]] {
