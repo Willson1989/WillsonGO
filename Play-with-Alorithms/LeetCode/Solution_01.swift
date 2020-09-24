@@ -1660,27 +1660,24 @@ extension Solution_01 {
 
      注意：本题和 1038: https://leetcode-cn.com/problems/binary-search-tree-to-greater-sum-tree/ 相同
      */
+    /*
+     反向中序遍历二叉树
+     */
     func convertBST(_ root: TreeNode<Int>?) -> TreeNode<Int>? {
-        func dfs(_ node: TreeNode<Int>?) -> Int {
+        guard let root = root else {
+            return nil
+        }
+        var sum = 0
+        func dfs(_ node : TreeNode<Int>?) {
             guard let node = node else {
-                return 0
+                return
             }
-            if node.left == nil && node.right == nil {
-                return node.val
-            }
-            node.val = dfs(node.right) + node.val
-            if let left = node.left {
-                left.val = left.val + node.val
-            }
-            return node.val
+            dfs(node.right)
+            sum += node.val
+            node.val = sum
+            dfs(node.left)
         }
-        _ = dfs(root)
-        let preorder = Solution().preorderTraversal(root)
-        print("preorder tree : ")
-        for n in preorder {
-            print(n, separator: "", terminator: ", ")
-        }
-        print("")
+        dfs(root)
         return root
     }
 

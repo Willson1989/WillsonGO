@@ -13,6 +13,7 @@ import Foundation
  所以当插入和删除结点的时候，要时刻检查二叉树是否平衡，如果不平衡，要通过旋转（左旋，右旋）来调整到平衡的状态（左右子树高度差的绝对值最大为1）
  调整平衡后的二叉搜索树被称为平衡二叉树，也叫自平衡二叉搜索树（Self-Balancing Binary Search Tree）
  https://www.jianshu.com/p/655d83f9ba7b
+ https://blog.csdn.net/isunbin/article/details/81707606
  */
 class BalancedBinaryTree<T: Comparable> {
     typealias NodeValue = T

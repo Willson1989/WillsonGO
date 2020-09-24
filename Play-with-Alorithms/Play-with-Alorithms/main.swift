@@ -9,47 +9,66 @@
 import Foundation
 
 let arr = [3, 5, 6, 4, 2, 1, 9, 7]
-let tree = BalancedBinaryTree(arr: arr)
-print("size : ", tree.size())
+let n3 = TreeNode(3)
+let n5 = TreeNode(5)
+let n6 = TreeNode(6)
+let n4 = TreeNode(4)
+let n2 = TreeNode(2)
+let n1 = TreeNode(1)
+let n9 = TreeNode(9)
+let n7 = TreeNode(7)
+n3.left = n2
+n3.right = n5
+n2.left = n1
+n5.left = n4
+n5.right = n6
+n6.right = n9
+n9.left = n7
 
-print("preOrder : ")
-tree.preOrder { node in
-    if let n = node {
-        print(n.val, separator: "", terminator: ", ")
-    }
-}
-
-print("")
-print("mid order : ")
-tree.inOrder { node in
-    if let n = node {
-        print(n.val, separator: "", terminator: ", ")
-    }
-}
-
-print("")
-print("post order : ")
-tree.postOrder { node in
-    if let n = node {
-        print(n.val, separator: "", terminator: ", ")
-    }
-}
-
-print("")
-tree.delete(3)
-print("size : ", tree.size())
-tree.delete(6)
-print("size : ", tree.size())
-tree.delete(4)
-print("size : ", tree.size())
-tree.delete(5)
-print("size : ", tree.size())
-tree.delete(2)
-print("size : ", tree.size())
-tree.delete(1)
-print("size : ", tree.size())
-tree.delete(9)
-print("size : ", tree.size())
+let s = Solution_01()
+let node = s.convertBST(n3)
+print("node")
+//let tree = BalancedBinaryTree(arr: arr)
+//print("size : ", tree.size())
+//
+//print("preOrder : ")
+//tree.preOrder { node in
+//    if let n = node {
+//        print(n.val, separator: "", terminator: ", ")
+//    }
+//}
+//
+//print("")
+//print("mid order : ")
+//tree.inOrder { node in
+//    if let n = node {
+//        print(n.val, separator: "", terminator: ", ")
+//    }
+//}
+//
+//print("")
+//print("post order : ")
+//tree.postOrder { node in
+//    if let n = node {
+//        print(n.val, separator: "", terminator: ", ")
+//    }
+//}
+//
+//print("")
+//tree.delete(3)
+//print("size : ", tree.size())
+//tree.delete(6)
+//print("size : ", tree.size())
+//tree.delete(4)
+//print("size : ", tree.size())
+//tree.delete(5)
+//print("size : ", tree.size())
+//tree.delete(2)
+//print("size : ", tree.size())
+//tree.delete(1)
+//print("size : ", tree.size())
+//tree.delete(9)
+//print("size : ", tree.size())
 
 // print("")
 // print("post order : ")
