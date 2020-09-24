@@ -801,19 +801,19 @@ class Solution_03 {
     }
 }
 
+// MARK: - ------------- 反转链表 leetCode #206
+/*
+ https://leetcode-cn.com/problems/reverse-linked-list/
+ 反转一个单链表。
+ 
+ 示例:
+ 输入: 1->2->3->4->5->NULL
+ 输出: 5->4->3->2->1->NULL
+ 
+ 进阶:
+ 你可以迭代或递归地反转链表。你能否用两种方法解决这道题？
+ */
 extension Solution_03 {
-    // MARK: - ------------- 反转链表 leetCode #206
-    /*
-     https://leetcode-cn.com/problems/reverse-linked-list/
-     反转一个单链表。
-
-     示例:
-     输入: 1->2->3->4->5->NULL
-     输出: 5->4->3->2->1->NULL
-
-     进阶:
-     你可以迭代或递归地反转链表。你能否用两种方法解决这道题？
-     */
     func reverseList(_ head: ListNode?) -> ListNode? {
         guard let head = head else {
             return nil
@@ -863,18 +863,18 @@ extension Solution_03 {
     }
 }
 
-extension Solution_03 {
-    // MARK: - ------------- 解数独 leetCode #37
-    /*
-     https://leetcode-cn.com/problems/sudoku-solver/
-     编写一个程序，通过已填充的空格来解决数独问题。
+// MARK: - ------------- 解数独 leetCode #37
+/*
+ https://leetcode-cn.com/problems/sudoku-solver/
+ 编写一个程序，通过已填充的空格来解决数独问题。
 
-     一个数独的解法需遵循如下规则：
-     数字 1-9 在每一行只能出现一次。
-     数字 1-9 在每一列只能出现一次。
-     数字 1-9 在每一个以粗实线分隔的 3x3 宫内只能出现一次。
-     空白格用 '.' 表示。
-     */
+ 一个数独的解法需遵循如下规则：
+ 数字 1-9 在每一行只能出现一次。
+ 数字 1-9 在每一列只能出现一次。
+ 数字 1-9 在每一个以粗实线分隔的 3x3 宫内只能出现一次。
+ 空白格用 '.' 表示。
+ */
+extension Solution_03 {
     func solveSudoku(_ board: inout [[Character]]) {
         var rowSet = Array(repeating: Array(repeating: false, count: 9), count: 9)
         var columnSet = Array(repeating: Array(repeating: false, count: 9), count: 9)

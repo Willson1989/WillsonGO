@@ -54,10 +54,11 @@
 		04EA218E221BDE0D00947364 /* Solution_BinaryTreeSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EA218D221BDE0D00947364 /* Solution_BinaryTreeSearch.swift */; };
 		04EA21CE221FC78A00947364 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EA21CD221FC78A00947364 /* StringExtension.swift */; };
 		296378F722356D5A004D5CBC /* BasicUnionFind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296378F622356D5A004D5CBC /* BasicUnionFind.swift */; };
-		296378F9223637D9004D5CBC /* BasicBinarySearchTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296378F8223637D9004D5CBC /* BasicBinarySearchTree.swift */; };
+		296378F9223637D9004D5CBC /* BasicBinaryTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296378F8223637D9004D5CBC /* BasicBinaryTree.swift */; };
 		297429C9223B61C10065AFA8 /* LeetCode_LinkList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297429C8223B61C10065AFA8 /* LeetCode_LinkList.swift */; };
 		2D11A00924EBADB800D14F9B /* TopoSorting_拓扑排序.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D11A00824EBADB800D14F9B /* TopoSorting_拓扑排序.swift */; };
 		2D5AA478251354420045B6A0 /* SolutionUtils.c in Sources */ = {isa = PBXBuildFile; fileRef = 2D5AA477251354420045B6A0 /* SolutionUtils.c */; };
+		2D5AA47E251C35220045B6A0 /* BalancedBinaryTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5AA47D251C35210045B6A0 /* BalancedBinaryTree.swift */; };
 		2D6D4BA924F66BF6008A722B /* UnionFindSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6D4BA824F66BF6008A722B /* UnionFindSet.swift */; };
 		2D6D4BC324F8A8A4008A722B /* BasicGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6D4BC224F8A8A4008A722B /* BasicGraph.swift */; };
 /* End PBXBuildFile section */
@@ -123,12 +124,13 @@
 		04EA218D221BDE0D00947364 /* Solution_BinaryTreeSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solution_BinaryTreeSearch.swift; sourceTree = "<group>"; };
 		04EA21CD221FC78A00947364 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		296378F622356D5A004D5CBC /* BasicUnionFind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicUnionFind.swift; sourceTree = "<group>"; };
-		296378F8223637D9004D5CBC /* BasicBinarySearchTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicBinarySearchTree.swift; sourceTree = "<group>"; };
+		296378F8223637D9004D5CBC /* BasicBinaryTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicBinaryTree.swift; sourceTree = "<group>"; };
 		297429C8223B61C10065AFA8 /* LeetCode_LinkList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeetCode_LinkList.swift; sourceTree = "<group>"; };
 		2D11A00824EBADB800D14F9B /* TopoSorting_拓扑排序.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TopoSorting_拓扑排序.swift"; sourceTree = "<group>"; };
 		2D5AA472251340F00045B6A0 /* Play-with-Alorithms-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Play-with-Alorithms-Bridging-Header.h"; sourceTree = "<group>"; };
 		2D5AA476251354420045B6A0 /* SolutionUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SolutionUtils.h; sourceTree = "<group>"; };
 		2D5AA477251354420045B6A0 /* SolutionUtils.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = SolutionUtils.c; sourceTree = "<group>"; };
+		2D5AA47D251C35210045B6A0 /* BalancedBinaryTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalancedBinaryTree.swift; sourceTree = "<group>"; };
 		2D6D4BA824F66BF6008A722B /* UnionFindSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnionFindSet.swift; sourceTree = "<group>"; };
 		2D6D4BC224F8A8A4008A722B /* BasicGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicGraph.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -251,7 +253,8 @@
 				04A7813721269F2900D9384D /* BasicQueueAndStack.swift */,
 				04EA21CD221FC78A00947364 /* StringExtension.swift */,
 				296378F622356D5A004D5CBC /* BasicUnionFind.swift */,
-				296378F8223637D9004D5CBC /* BasicBinarySearchTree.swift */,
+				296378F8223637D9004D5CBC /* BasicBinaryTree.swift */,
+				2D5AA47D251C35210045B6A0 /* BalancedBinaryTree.swift */,
 				2D6D4BC224F8A8A4008A722B /* BasicGraph.swift */,
 			);
 			path = Basic;
@@ -408,10 +411,11 @@
 				04A7824D212C2AD100D9384D /* Solution_02.swift in Sources */,
 				04A7814D21269F2900D9384D /* UFType.swift in Sources */,
 				2D11A00924EBADB800D14F9B /* TopoSorting_拓扑排序.swift in Sources */,
-				296378F9223637D9004D5CBC /* BasicBinarySearchTree.swift in Sources */,
+				296378F9223637D9004D5CBC /* BasicBinaryTree.swift in Sources */,
 				04A7816821269F2900D9384D /* CommonHeap.swift in Sources */,
 				04EA218E221BDE0D00947364 /* Solution_BinaryTreeSearch.swift in Sources */,
 				04A7814621269F2900D9384D /* 拓展知识.swift in Sources */,
+				2D5AA47E251C35220045B6A0 /* BalancedBinaryTree.swift in Sources */,
 				04A7815821269F2900D9384D /* SparseGraph_AdjList.swift in Sources */,
 				04A7815B21269F2900D9384D /* TestHelper.swift in Sources */,
 				04A7814B21269F2900D9384D /* UnionFindTestHelper.swift in Sources */,

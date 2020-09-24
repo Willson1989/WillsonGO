@@ -8,31 +8,117 @@
 
 import Foundation
 
+let arr = [3, 5, 6, 4, 2, 1, 9, 7]
+let tree = BalancedBinaryTree(arr: arr)
+print("size : ", tree.size())
 
+print("preOrder : ")
+tree.preOrder { node in
+    if let n = node {
+        print(n.val, separator: "", terminator: ", ")
+    }
+}
 
-let s = Solution_03()
+print("")
+print("mid order : ")
+tree.inOrder { node in
+    if let n = node {
+        print(n.val, separator: "", terminator: ", ")
+    }
+}
 
-let input_sudoku = [[5, 3, 0, 0, 7, 0, 0, 0, 0],
-                    [6, 0, 0, 1, 9, 5, 0, 0, 0],
-                    [0, 9, 8, 0, 0, 0, 0, 6, 0],
-                    [8, 0, 0, 0, 6, 0, 0, 0, 3],
-                    [4, 0, 0, 8, 0, 3, 0, 0, 1],
-                    [7, 0, 0, 0, 2, 0, 0, 0, 6],
-                    [0, 6, 0, 0, 0, 0, 2, 8, 0],
-                    [0, 0, 0, 4, 1, 9, 0, 0, 5],
-                    [0, 0, 0, 0, 8, 0, 0, 7, 9]]
-var input_sudoku_c = s.genSudoku(input_sudoku)
-var input_sudoku_c_1 = s.genSudoku(input_sudoku)
+print("")
+print("post order : ")
+tree.postOrder { node in
+    if let n = node {
+        print(n.val, separator: "", terminator: ", ")
+    }
+}
 
-s.printSudoku(input_sudoku_c)
+print("")
+tree.delete(3)
+print("size : ", tree.size())
+tree.delete(6)
+print("size : ", tree.size())
+tree.delete(4)
+print("size : ", tree.size())
+tree.delete(5)
+print("size : ", tree.size())
+tree.delete(2)
+print("size : ", tree.size())
+tree.delete(1)
+print("size : ", tree.size())
+tree.delete(9)
+print("size : ", tree.size())
 
-s.solveSudoku(&input_sudoku_c)
-print("solved sudoku : ")
-s.printSudoku(input_sudoku_c)
+// print("")
+// print("post order : ")
+// tree.postOrder { node in
+//    if let n = node {
+//        print(n.val, separator: "", terminator: ", ")
+//    }
+// }
+//
+// print("")
+// print("BinarySearchTree: ")
+//
+// var ttt = BinarySearchTree<Int>()
+// for n in arr {
+//    ttt.insert(key: n, value: n)
+// }
+//
+// print("BinarySearchTree in order:")
+// ttt.inOrderTree { _, v in
+//    print("\(v!)", separator: "", terminator: ", ")
+// }
+//
+// print("")
+// print("BinarySearchTree pre order:")
+// ttt.perOrderTree { _, v in
+//    print("\(v!)", separator: "", terminator: ", ")
+// }
+//
+// print("")
+// print("BinarySearchTree post order:")
+// ttt.postOrderTree { _, v in
+//    print("\(v!)", separator: "", terminator: ", ")
+// }
+//
+// print("")
 
-s.solveSudoku_1(&input_sudoku_c_1)
-print("solved sudoku 1 : ")
-s.printSudoku(input_sudoku_c_1)
+// let s = Solution_01()
+// let aaa = [3, 4, 1]
+// let res =  s.permute(aaa)
+//// let aaa = [1,1,1,2]
+//// let res = s.permuteUnique(aaa)
+// print("res : ", res)
+// let ss = "ryyryrryyryryy"
+// let ss = "yry"
+// let ss = "yry"
+// let res = s.minimumOperations(ss)
+// print("minimumOperations : \(res)")
+//
+// let input_sudoku = [[5, 3, 0, 0, 7, 0, 0, 0, 0],
+//                    [6, 0, 0, 1, 9, 5, 0, 0, 0],
+//                    [0, 9, 8, 0, 0, 0, 0, 6, 0],
+//                    [8, 0, 0, 0, 6, 0, 0, 0, 3],
+//                    [4, 0, 0, 8, 0, 3, 0, 0, 1],
+//                    [7, 0, 0, 0, 2, 0, 0, 0, 6],
+//                    [0, 6, 0, 0, 0, 0, 2, 8, 0],
+//                    [0, 0, 0, 4, 1, 9, 0, 0, 5],
+//                    [0, 0, 0, 0, 8, 0, 0, 7, 9]]
+// var input_sudoku_c = s.genSudoku(input_sudoku)
+// var input_sudoku_c_1 = s.genSudoku(input_sudoku)
+//
+// s.printSudoku(input_sudoku_c)
+//
+// s.solveSudoku(&input_sudoku_c)
+// print("solved sudoku : ")
+// s.printSudoku(input_sudoku_c)
+//
+// s.solveSudoku_1(&input_sudoku_c_1)
+// print("solved sudoku 1 : ")
+// s.printSudoku(input_sudoku_c_1)
 // let s = Solution_03()
 // let n1 = ListNode(1)
 // let n2 = ListNode(2)

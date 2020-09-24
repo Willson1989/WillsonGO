@@ -69,7 +69,6 @@ class Solution_01 {
         return res
     }
 
-    
     // MARK: - ------------- 最大子序和 leetCode #53
 
     // MARK: - ------------- review : 2020 / 8 / 5
@@ -275,7 +274,7 @@ class Solution_01 {
         9  20
        / \
       15  7
-     
+
      */
     func minDepth(_ root: TreeNode<Int>?) -> Int {
         func _depth(_ n: TreeNode<Int>?) -> Int {
@@ -1474,4 +1473,215 @@ class Solution_01 {
         }
         return getNum(retStr, sympol)
     }
+}
+
+// MARK: - ------------- 外观数列 leetCode #38
+
+/*
+ https://leetcode-cn.com/problems/count-and-say/
+ 给定一个正整数 n（1 ≤ n ≤ 30），输出外观数列的第 n 项。
+ 注意：整数序列中的每一项将表示为一个字符串。
+ 「外观数列」是一个整数序列，从数字 1 开始，序列中的每一项都是对前一项的描述。前五项如下：
+ 1.     1
+ 2.     11
+ 3.     21
+ 4.     1211
+ 5.     111221
+ 第一项是数字 1
+ 描述前一项，这个数是 1 即 “一个 1 ”，记作 11
+ 描述前一项，这个数是 11 即 “两个 1 ” ，记作 21
+ 描述前一项，这个数是 21 即 “一个 2 一个 1 ” ，记作 1211
+ 描述前一项，这个数是 1211 即 “一个 1 一个 2 两个 1 ” ，记作 111221
+
+ 示例 1:
+ 输入: 1
+ 输出: "1"
+ 解释：这是一个基本样例。
+
+ 示例 2:
+ 输入: 4
+ 输出: "1211"
+ 解释：当 n = 3 时，序列是 "21"，其中我们有 "2" 和 "1" 两组，
+ "2" 可以读作 "12"，也就是出现频次 = 1 而 值 = 2；
+ 类似 "1" 可以读作 "11"。所以答案是 "12" 和 "11" 组合在一起，也就是 "1211"。
+ */
+extension Solution_01 {
+    func countAndSay(_ n: Int) -> String {
+        func f(_ s: String) -> String {
+            var i = 0
+            var res = ""
+            while i < s.count {
+                let c: Character = s.charAt(i)
+                var j = i
+                while j < s.count && s.charAt(j) == c {
+                    j += 1
+                }
+                let cnt = max(1, j - i)
+                i = j
+                res = res + "\(cnt)\(c)"
+            }
+            return res
+        }
+        var dp = Array(repeating: "", count: n)
+        dp[0] = "1"
+        for i in 1 ..< n {
+            dp[i] = f(dp[i - 1])
+        }
+        for i in 0 ..< dp.count {
+            print("dp : ", dp[i])
+        }
+        return dp[n - 1]
+    }
+}
+
+extension Solution_01 {
+    // MARK: - ------------- 全排列 II leetCode #47
+
+    /*
+     https://leetcode-cn.com/problems/permutations-ii/
+     给定一个可包含重复数字的序列，返回所有不重复的全排列。
+
+     示例:
+     输入: [1,1,2]
+     输出:
+     [
+     [1,1,2],
+     [1,2,1],
+     [2,1,1]
+     ]
+     */
+    /*
+     https://leetcode-cn.com/problems/permutations-ii/solution/47-quan-pai-lie-iiche-di-li-jie-pai-lie-zhong-de-q/
+     https://leetcode-cn.com/problems/permutations-ii/solution/shou-hua-tu-jie-li-yong-yue-shu-tiao-jian-chong-fe/
+     */
+    func permuteUnique(_ nums: [Int]) -> [[Int]] {
+        // 先对数组进行排序，使相同的元素排列在一起，方便去重
+        let nums = nums.sorted()
+        var res = [[Int]]()
+        // 用来记录那个位置的元素在这个排列中使用过，used[i]表示 nums[i] 已经使用过了
+        var used = Array(repeating: false, count: nums.count)
+        /*
+         对于一个数组（假设有4个元素）的其中一个排列，可以想象有4个空位，每次都遍历数组来找到合适的数字填进去。
+         当填满了，就这是一个有效的排列方案，就可以输出的结果集里面了。
+         */
+        let size = nums.count
+        func backTrace(_ perm: inout [Int]) {
+            if perm.count == size {
+                // 空位填满了，输出到结果集
+                res.append(perm)
+                return
+            }
+            for i in 0 ..< nums.count {
+                if used[i] == true {
+                    // i 使用过了，不再考虑
+                    continue
+                }
+                if i > 0 && used[i - 1] == false && nums[i] == nums[i - 1] {
+                    // 1. i > 0 ，保证i前面的数是存在的
+                    // 2. used[i - 1] == false， 如果 used[i - 1] 为true，即使 nums[i] == nums[i - 1]，
+                    //    nums[i] 还是可以使用的，因为 nums[i-1] 会被剪枝掉。
+                    continue
+                }
+                used[i] = true
+                perm.append(nums[i])
+                // 寻找下一个数字填入
+                backTrace(&perm)
+                // 回溯
+                used[i] = false
+                perm.removeLast()
+            }
+        }
+        var perm = [Int]()
+        backTrace(&perm)
+        return res
+    }
+
+    // MARK: - ------------- 全排列 leetCode #46
+
+    /*
+     https://leetcode-cn.com/problems/permutations/
+     给定一个 没有重复 数字的序列，返回其所有可能的全排列。
+
+     示例:
+     输入: [1,2,3]
+     输出:
+     [
+       [1,2,3],
+       [1,3,2],
+       [2,1,3],
+       [2,3,1],
+       [3,1,2],
+       [3,2,1]
+     ]
+     */
+    func permute(_ nums: [Int]) -> [[Int]] {
+        var res = [[Int]]()
+        var used = Array(repeating: false, count: nums.count)
+        let size = nums.count
+        func backTrace(_ perm: inout [Int]) {
+            if perm.count == size {
+                res.append(perm)
+            }
+            for i in 0 ..< nums.count {
+                if used[i] {
+                    continue
+                }
+                used[i] = true
+                perm.append(nums[i])
+                backTrace(&perm)
+                used[i] = false
+                perm.removeLast()
+            }
+        }
+        var perm = [Int]()
+        backTrace(&perm)
+        return res
+    }
+}
+
+extension Solution_01 {
+    // MARK: - ------------- 把二叉搜索树转换为累加树 leetCode #538
+
+    /*
+     https://leetcode-cn.com/problems/convert-bst-to-greater-tree/
+     给定一个二叉搜索树（Binary Search Tree），把它转换成为累加树（Greater Tree)，使得每个节点的值是原来的节点值加上所有大于它的节点值之和。
+
+     例如：
+     输入: 原始二叉搜索树:
+                   5
+                 /   \
+                2     13
+
+     输出: 转换为累加树:
+                  18
+                 /   \
+               20     13
+      
+
+     注意：本题和 1038: https://leetcode-cn.com/problems/binary-search-tree-to-greater-sum-tree/ 相同
+     */
+    func convertBST(_ root: TreeNode<Int>?) -> TreeNode<Int>? {
+        func dfs(_ node: TreeNode<Int>?) -> Int {
+            guard let node = node else {
+                return 0
+            }
+            if node.left == nil && node.right == nil {
+                return node.val
+            }
+            node.val = dfs(node.right) + node.val
+            if let left = node.left {
+                left.val = left.val + node.val
+            }
+            return node.val
+        }
+        _ = dfs(root)
+        let preorder = Solution().preorderTraversal(root)
+        print("preorder tree : ")
+        for n in preorder {
+            print(n, separator: "", terminator: ", ")
+        }
+        print("")
+        return root
+    }
+
 }

@@ -1342,26 +1342,26 @@ extension Solution_04 {
     }
 }
 
+// MARK: - ------------- 实现 Trie (前缀树) leetCode #208
+
+/*
+ https://leetcode-cn.com/problems/implement-trie-prefix-tree/
+ 实现一个 Trie (前缀树)，包含 insert, search, 和 startsWith 这三个操作。
+
+ 示例:
+ Trie trie = new Trie();
+ trie.insert("apple");
+ trie.search("apple");   // 返回 true
+ trie.search("app");     // 返回 false
+ trie.startsWith("app"); // 返回 true
+ trie.insert("app");
+ trie.search("app");     // 返回 true
+
+ 说明:
+ 你可以假设所有的输入都是由小写字母 a-z 构成的。
+ 保证所有输入均为非空字符串。
+ */
 extension Solution_04 {
-    // MARK: - ------------- 实现 Trie (前缀树) leetCode #208
-
-    /*
-       https://leetcode-cn.com/problems/implement-trie-prefix-tree/
-       实现一个 Trie (前缀树)，包含 insert, search, 和 startsWith 这三个操作。
-
-       示例:
-       Trie trie = new Trie();
-       trie.insert("apple");
-       trie.search("apple");   // 返回 true
-       trie.search("app");     // 返回 false
-       trie.startsWith("app"); // 返回 true
-       trie.insert("app");
-       trie.search("app");     // 返回 true
-
-       说明:
-       你可以假设所有的输入都是由小写字母 a-z 构成的。
-       保证所有输入均为非空字符串。
-     */
     // https://leetcode-cn.com/problems/implement-trie-prefix-tree/solution/shi-xian-trie-qian-zhui-shu-by-leetcode/
     class Trie {
         class Node {
@@ -1444,38 +1444,38 @@ extension Solution_04 {
     }
 }
 
+// MARK: - ------------- 字典序的第K小数字 leetCode #440
+
+/*
+ https://leetcode-cn.com/problems/k-th-smallest-in-lexicographical-order/
+ 给定整数 n 和 k，找到 1 到 n 中字典序第 k 小的数字。
+ 注意：1 ≤ k ≤ n ≤ 109。
+
+ 示例 :
+ 输入:
+ n: 13   k: 2
+
+ 输出:
+ 10
+
+ 解释:
+ 字典序的排列是 [1, 10, 11, 12, 13, 2, 3, 4, 5, 6, 7, 8, 9]，所以第二小的数字是 10。
+ */
+/*
+ 数字的字典序其实是以一个数为根节点的十叉树，输出这个字典序列，实际是十叉树的先序遍历的结果序列。
+ 对于第 k 个数和一个前缀 prefix，需要确定一下三个问题：
+ 1. 在边界 n 内，以 prefix 为前缀的数字有多少个？
+ 2. 如果第 k 个数在 prefix 前缀字节点范围之内，如何处理？
+ 3. 如果第 k 个数在 prefix 前缀字节点范围之外，如何处理？
+
+ 对于问题 1， 给定一个前缀 p，求 p 和 p的下一个前缀结点 n (n=p+1)，之前的结点差。然后各自乘以10，将差的结果累加直到超过上界 n，
+ 所得的总数就是 p 为前缀的子节点数目
+ 对于问题 2，如果 k 在子节点范围之内，那么继续搜索子树，即 prefix *= 10
+ 对于问题 3，如果 k 在子节点范围之外，那么搜索下一个前缀，即 prefix += 1,
+ 参考自：
+ https://leetcode-cn.com/problems/k-th-smallest-in-lexicographical-order/solution/ben-ti-shi-shang-zui-wan-zheng-ju-ti-de-shou-mo-sh/
+ */
 extension Solution_04 {
-    // MARK: - ------------- 字典序的第K小数字 leetCode #440
-
-    /*
-     https://leetcode-cn.com/problems/k-th-smallest-in-lexicographical-order/
-     给定整数 n 和 k，找到 1 到 n 中字典序第 k 小的数字。
-     注意：1 ≤ k ≤ n ≤ 109。
-
-     示例 :
-     输入:
-     n: 13   k: 2
-
-     输出:
-     10
-
-     解释:
-     字典序的排列是 [1, 10, 11, 12, 13, 2, 3, 4, 5, 6, 7, 8, 9]，所以第二小的数字是 10。
-     */
-    /*
-     数字的字典序其实是以一个数为根节点的十叉树，输出这个字典序列，实际是十叉树的先序遍历的结果序列。
-     对于第 k 个数和一个前缀 prefix，需要确定一下三个问题：
-     1. 在边界 n 内，以 prefix 为前缀的数字有多少个？
-     2. 如果第 k 个数在 prefix 前缀字节点范围之内，如何处理？
-     3. 如果第 k 个数在 prefix 前缀字节点范围之外，如何处理？
-
-     对于问题 1， 给定一个前缀 p，求 p 和 p的下一个前缀结点 n (n=p+1)，之前的结点差。然后各自乘以10，将差的结果累加直到超过上界 n，
-     所得的总数就是 p 为前缀的子节点数目
-     对于问题 2，如果 k 在子节点范围之内，那么继续搜索子树，即 prefix *= 10
-     对于问题 3，如果 k 在子节点范围之外，那么搜索下一个前缀，即 prefix += 1,
-     参考自：
-     https://leetcode-cn.com/problems/k-th-smallest-in-lexicographical-order/solution/ben-ti-shi-shang-zui-wan-zheng-ju-ti-de-shou-mo-sh/
-     */
     func findKthNumber(_ n: Int, _ k: Int) -> Int {
         // 在不超过上限 n 的情况下，返回以 prefix 为前缀、字典序的子节点数 （prefix是前缀，n是上界）
         func countOfNums(ofPrefix prefix: Int, _ n: Int) -> Int {
@@ -1537,4 +1537,135 @@ extension Solution_04 {
         }
         return rank
     }
+}
+
+// MARK: - ------------- 秋叶收藏集 leetCode #LCP 19
+
+/*
+ https://leetcode-cn.com/problems/k-th-smallest-in-lexicographical-order/
+ 小扣出去秋游，途中收集了一些红叶和黄叶，他利用这些叶子初步整理了一份秋叶收藏集 leaves，
+ 字符串 leaves 仅包含小写字符 r 和 y， 其中字符 r 表示一片红叶，字符 y 表示一片黄叶。
+ 出于美观整齐的考虑，小扣想要将收藏集中树叶的排列调整成「红、黄、红」三部分。
+ 每部分树叶数量可以不相等，但均需大于等于 1。
+ 每次调整操作，小扣可以将一片红叶替换成黄叶或者将一片黄叶替换成红叶。
+ 请问小扣最少需要多少次调整操作才能将秋叶收藏集调整完毕。
+
+ 示例 1：
+ 输入：leaves = "rrryyyrryyyrr"
+ 输出：2
+ 解释：调整两次，将中间的两片红叶替换成黄叶，得到 "rrryyyyyyyyrr"
+
+ 示例 2：
+ 输入：leaves = "ryr"
+ 输出：0
+ 解释：已符合要求，不需要额外操作
+
+ 提示：
+ 3 <= leaves.length <= 10^5
+ leaves 中只包含字符 'r' 和字符 'y'
+ */
+extension Solution_04 {
+    /*
+     动态规划
+     对于某一位 i，符合题目要求的组合有以下几种：
+     1. 红 ....
+     2. 红 ... 黄
+     3. 红 ... 黄 ... 红
+
+     使用三个数组来记录状态，
+     dp[0][i] 代表从头开始全部修改成红色（纯红）需要修改几次
+     dp[1][i] 代表从头开始是红色，然后现在是黄色（红黄），需要修改几次
+     dp[2][i] 代表从头开始是红色，然后变成黄色，又变成红色（红黄红），需要修改几次
+
+     根据 i 是红是黄，判断转移情况
+     dp[0][i] 就很简单，如果是黄的，就比之前加一
+     dp[1][i] 可以从上一个纯红状态变化过来，也可以从上一个本身状态变化过来，然后两者取最小
+     dp[2][i] 可以从上一个红黄状态变化过来，也可以从上一个本身状态变化过来，然后两者取最小
+
+     最后要获得的结果是： dp[2][leaves.count-1] 值。
+     https://leetcode-cn.com/problems/UlBDOe/solution/ulbdoe-by-ikaruga/
+     */
+    func minimumOperations(_ leaves: String) -> Int {
+        let len = leaves.count
+        var dp = Array(repeating: Array(repeating: 0, count: len), count: 3)
+
+        for i in 0 ..< len {
+            let c = leaves.charAt(i)
+
+            if i < 1 {
+                dp[0][i] = c == "y" ? 1 : 0
+            } else {
+                dp[0][i] = dp[0][i - 1] + (c == "y" ? 1 : 0)
+            }
+
+            if i < 1 {
+                dp[1][i] = dp[0][i]
+            } else {
+                dp[1][i] = min(dp[1][i - 1] + (c == "r" ? 1 : 0), dp[0][i - 1] + (c == "r" ? 1 : 0))
+            }
+
+            if i < 2 {
+                dp[2][i] = dp[1][i]
+            } else {
+                dp[2][i] = min(dp[1][i - 1] + (c == "y" ? 1 : 0), dp[2][i - 1] + (c == "y" ? 1 : 0))
+            }
+        }
+        return dp[2][len - 1]
+    }
+
+    // 审题错误，本题不是要交换树叶，而是替换，所以这个解法是错误的。
+    func minimumOperations_wrong(_ leaves: String) -> Int {
+        var res = 0
+        var m = leaves.count / 2
+        if leaves.charAt(m) != "y" {
+            // 找到离中心最近的y
+            var my1 = m, my2 = m
+            while leaves.charAt(my1) != "y" {
+                my1 -= 1
+            }
+            while leaves.charAt(my2) != "y" {
+                my2 += 1
+            }
+            m = (m - my1) > (my2 - m) ? my2 : my1
+        }
+
+        var l1 = 0, l2 = m - 1
+        var r1 = m + 1, r2 = leaves.count - 1
+
+        while l1 < l2 {
+            let c_l1 = leaves.charAt(l1)
+            let c_l2 = leaves.charAt(l2)
+            if c_l1 == "r" {
+                l1 += 1
+            }
+            if c_l2 == "y" {
+                l2 -= 1
+            }
+
+            if c_l1 == "y" && c_l2 == "r" {
+                res += 1
+                l1 += 1
+                l2 -= 1
+            }
+        }
+
+        while r1 < r2 {
+            let c_r1 = leaves.charAt(r1)
+            let c_r2 = leaves.charAt(r2)
+            if c_r1 == "y" {
+                r1 += 1
+            }
+            if c_r2 == "r" {
+                r2 -= 1
+            }
+
+            if c_r1 == "r" && c_r2 == "y" {
+                res += 1
+                r1 += 1
+                r2 -= 1
+            }
+        }
+        return res
+    }
+
 }

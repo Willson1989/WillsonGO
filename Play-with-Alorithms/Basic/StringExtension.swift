@@ -26,6 +26,16 @@ extension String {
     public subscript(x: Int) -> Character {
         return charAt(x)
     }
+
+    public func replaced(from: Int, to: Int, with: String) -> String {
+        guard from <= to, from >= 0, to <= count - 1 else {
+            return self
+        }
+        var s = self
+        let rang = index(startIndex, offsetBy: from) ..< index(startIndex, offsetBy: to)
+        s.replaceSubrange(rang, with: "X")
+        return s
+    }
 }
 
 extension Character {
@@ -60,5 +70,4 @@ extension Character {
         let a = ASCII
         return a >= 97 && a <= 122
     }
-
 }
