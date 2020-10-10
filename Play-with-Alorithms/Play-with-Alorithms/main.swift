@@ -8,10 +8,19 @@
 
 import Foundation
 
-let s = [10, 20, 5]
-let d = [5, 5, 2]
-let res = Solution_01().breakfastNumber(s, d, 15)
-print("breakfastNumber : ", res)
+let a: Int = 3
+
+let s = Solution_05()
+let sss = "ABAABB"
+let res = s.calculate(sss)
+let res1 = s.calculate_1(sss)
+
+print("res : ", res)
+print("res1 : ", res1)
+// let s = [10, 20, 5]
+// let d = [5, 5, 2]
+// let res = Solution_01().breakfastNumber(s, d, 15)
+// print("breakfastNumber : ", res)
 // let arr = [3, 5, 6, 4, 2, 1, 9, 7]
 // let n3 = TreeNode(3)
 // let n5 = TreeNode(5)

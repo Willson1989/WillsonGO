@@ -1352,7 +1352,7 @@ class Solution_01 {
 
     /*
      方法2：
-     现将数组反转（reverse），然后以k位置为分界，分别对k之前的子数组和之后的子数组进行reverse。
+     先将数组反转（reverse），然后以k位置为分界，分别对k之前的子数组和之后的子数组进行reverse。
      */
     private func _rotate_2(_ nums: inout [Int], _ k: Int) {
         let len = nums.count
@@ -1476,7 +1476,7 @@ class Solution_01 {
 }
 
 // MARK: - ------------- 外观数列 leetCode #38
-
+// MARK: - ------------- review : 2020 / 10 / 10
 /*
  https://leetcode-cn.com/problems/count-and-say/
  给定一个正整数 n（1 ≤ n ≤ 30），输出外观数列的第 n 项。
@@ -1527,16 +1527,13 @@ extension Solution_01 {
         for i in 1 ..< n {
             dp[i] = f(dp[i - 1])
         }
-        for i in 0 ..< dp.count {
-            print("dp : ", dp[i])
-        }
         return dp[n - 1]
     }
 }
 
 extension Solution_01 {
     // MARK: - ------------- 全排列 II leetCode #47
-
+    // MARK: - ------------- review : 2020 / 10 / 10
     /*
      https://leetcode-cn.com/problems/permutations-ii/
      给定一个可包含重复数字的序列，返回所有不重复的全排列。
@@ -1576,6 +1573,10 @@ extension Solution_01 {
                     // i 使用过了，不再考虑
                     continue
                 }
+                // 这里理解used[i - 1]非常重要
+                // used[i - 1] == true，说明同一树支nums[i - 1]使用过
+                // used[i - 1] == false，说明同一树层nums[i - 1]使用过 (经过回溯之后，used[i - 1] 被设置为了 false)
+                // 如果同一树层nums[i - 1]使用过则直接跳过
                 if i > 0 && used[i - 1] == false && nums[i] == nums[i - 1] {
                     // 1. i > 0 ，保证i前面的数是存在的
                     // 2. used[i - 1] == false， 如果 used[i - 1] 为true，即使 nums[i] == nums[i - 1]，
@@ -1641,7 +1642,7 @@ extension Solution_01 {
 
 extension Solution_01 {
     // MARK: - ------------- 把二叉搜索树转换为累加树 leetCode #538
-
+    // MARK: - ------------- review : 2020 / 10 / 10
     /*
      https://leetcode-cn.com/problems/convert-bst-to-greater-tree/
      给定一个二叉搜索树（Binary Search Tree），把它转换成为累加树（Greater Tree)，使得每个节点的值是原来的节点值加上所有大于它的节点值之和。
@@ -1741,7 +1742,7 @@ extension Solution_01 {
             if s >= x {
                 break
             }
-            while j >= 0 && s + drinks[j] > x  {
+            while j >= 0 && s + drinks[j] > x {
                 j -= 1
             }
             if j == -1 { // j 走到头了

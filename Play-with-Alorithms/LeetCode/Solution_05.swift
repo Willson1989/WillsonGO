@@ -2251,3 +2251,53 @@ extension Solution_05 {
         return resFormular
     }
 }
+
+extension Solution_05 {
+    // MARK: - -------------  速算机器人 leetCode #LCP 17
+
+    /*
+     https://leetcode-cn.com/problems/nGK0Fy/
+     小扣在秋日市集发现了一款速算机器人。店家对机器人说出两个数字（记作 x 和 y），请小扣说出计算指令：
+
+     "A" 运算：使 x = 2 * x + y；
+     "B" 运算：使 y = 2 * y + x。
+     在本次游戏中，店家说出的数字为 x = 1 和 y = 0，小扣说出的计算指令记作仅由大写字母 A、B 组成的字符串 s，字符串中字符的顺序表示计算顺序，请返回最终 x 与 y 的和为多少。
+
+     示例 1：
+     输入：s = "AB"
+     输出：4
+
+     解释：
+     经过一次 A 运算后，x = 2, y = 0。
+     再经过一次 B 运算，x = 2, y = 2。
+     最终 x 与 y 之和为 4。
+     */
+
+    /*
+     对于字符 s ：
+     如果出现 A, 那么 x = 2*x + y, 于是就有 x + y = 2*x + 2*y
+     如果出现 B, 那么 y = 2*y + x, 于是就有 x + y = 2*x + 2*y
+     所以没出现一个 A 或者 B， x 和 y 的值都会变成原来的 2 倍。
+     假设 x 和 y 的初始值为 x0 和 y0，
+     那么最后的结果 res = (x0 + y0) * (2 ^ len(s)) 即 ((x0 + y0)) * pow(2, len(s))
+     */
+    func calculate(_ s: String) -> Int {
+        let x = 1, y = 0
+        // 2 的 4 次方，位运算写作 1 << 4, 所以 pow(2, len(s) == 1 << len(s)
+        return (x + y) * (1 << s.count)
+    }
+
+    func calculate_1(_ s: String) -> Int {
+        var x = 1, y = 0
+        for i in 0 ..< s.count {
+            let c = s[i]
+            if c == "A" {
+                x = 2 * x + y
+            }
+            if c == "B" {
+                y = 2 * y + x
+            }
+        }
+        return x + y
+    }
+}
