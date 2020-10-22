@@ -72,6 +72,17 @@ int main(int argc, const char *argv[])
     
     bool p_res_9 =  6.8 > p_5;
     cout << "6.8 > p_5 ? " << (p_res_9 ? "true" : "false") << endl;
+    
+    cout << "======== phase 3 ========" << endl;
+    Param p_6 = {11, 22};
+    cout << p_6 << endl;
+    
+    cout << "Enter the value of Param : " << endl;
+    Param p_7;
+    cin >> p_7;
+    cout << p_7;
+    
+    
 //    // https://www.cnblogs.com/wxl2578/p/3388767.html
 //
 //    cout << "========= phase 1 ==========" << endl;

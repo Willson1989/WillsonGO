@@ -11,12 +11,17 @@
 
 #include <stdio.h>
 #include <string>
+#include <iostream>
+
+using namespace std;
 
 class Param {
 public:
 
     double val1;
     double val2;
+    
+    Param();
 
     Param(double val1, double val2);
 
@@ -46,6 +51,11 @@ public:
     bool operator < (const Param & other);
     bool operator > (double n);
     friend bool operator > (double n, const Param & p); // 用于 n > p
+    
+    // 输入输出运算符
+    friend ostream &operator << (ostream & o , const Param & p);
+    
+    friend istream &operator >> (istream & i , Param & p);
 };
 
 #endif /* Param_hpp */

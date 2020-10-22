@@ -11,6 +11,11 @@
 
 using namespace std;
 
+Param :: Param() {
+    val1 = 1;
+    val2 = 2;
+}
+
 #pragma mark - 一元运算符重载
 Param :: Param(double a, double b) : val1(a), val2(b)
 {
@@ -123,4 +128,18 @@ bool operator >(double n, const Param & p)
 void Param::desc(string other)
 {
     cout << other << "val1 : " << val1 << ", val2 : " << val2 << endl;
+}
+
+#pragma mark - 输入/输出运算符重载
+
+ostream & operator <<(ostream & output, const Param & p)
+{
+    output << "Instance of Param, val1 : " << p.val1 << ", and val2 : " << p.val2 << endl;
+    return output;
+}
+
+istream & operator >>(istream & input, Param & p)
+{
+    input >> p.val1 >> p.val2;
+    return input;
 }
