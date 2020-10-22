@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D6ECCAC2536B9040073BF63 /* Param.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D6ECCAA2536B9040073BF63 /* Param.cpp */; };
+		2DBDFB5A2533F79100F59AAE /* Manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DBDFB582533F79100F59AAE /* Manager.cpp */; };
 		2DD0B0D42531BC5E00C99295 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DD0B0D32531BC5E00C99295 /* main.cpp */; };
 		2DD0B0EC2531BC8900C99295 /* MyUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DD0B0DA2531BC8900C99295 /* MyUtils.cpp */; };
 		2DD0B0ED2531BC8900C99295 /* string_num_transform_study.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DD0B0DD2531BC8900C99295 /* string_num_transform_study.cpp */; };
@@ -31,6 +33,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2D6ECCAA2536B9040073BF63 /* Param.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Param.cpp; sourceTree = "<group>"; };
+		2D6ECCAB2536B9040073BF63 /* Param.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Param.hpp; sourceTree = "<group>"; };
+		2DBDFB582533F79100F59AAE /* Manager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Manager.cpp; sourceTree = "<group>"; };
+		2DBDFB592533F79100F59AAE /* Manager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Manager.hpp; sourceTree = "<group>"; };
 		2DD0B0D02531BC5E00C99295 /* LearningCpp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LearningCpp; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DD0B0D32531BC5E00C99295 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		2DD0B0DA2531BC8900C99295 /* MyUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MyUtils.cpp; sourceTree = "<group>"; };
@@ -97,17 +103,21 @@
 		2DD0B0DE2531BC8900C99295 /* OOP */ = {
 			isa = PBXGroup;
 			children = (
-				2DD0B0DF2531BC8900C99295 /* B.cpp */,
-				2DD0B0E02531BC8900C99295 /* Employee.cpp */,
-				2DD0B0E12531BC8900C99295 /* Student.cpp */,
-				2DD0B0E22531BC8900C99295 /* Base.cpp */,
 				2DD0B0E32531BC8900C99295 /* Person.hpp */,
-				2DD0B0E42531BC8900C99295 /* Employee.hpp */,
-				2DD0B0E52531BC8900C99295 /* Student.hpp */,
-				2DD0B0E62531BC8900C99295 /* Base.hpp */,
 				2DD0B0E72531BC8900C99295 /* Person.cpp */,
+				2DD0B0E42531BC8900C99295 /* Employee.hpp */,
+				2DD0B0E02531BC8900C99295 /* Employee.cpp */,
+				2DD0B0E52531BC8900C99295 /* Student.hpp */,
+				2DD0B0E12531BC8900C99295 /* Student.cpp */,
+				2DBDFB582533F79100F59AAE /* Manager.cpp */,
+				2DBDFB592533F79100F59AAE /* Manager.hpp */,
+				2DD0B0E22531BC8900C99295 /* Base.cpp */,
+				2DD0B0E62531BC8900C99295 /* Base.hpp */,
 				2DD0B0E82531BC8900C99295 /* A.hpp */,
 				2DD0B0E92531BC8900C99295 /* B.hpp */,
+				2DD0B0DF2531BC8900C99295 /* B.cpp */,
+				2D6ECCAA2536B9040073BF63 /* Param.cpp */,
+				2D6ECCAB2536B9040073BF63 /* Param.hpp */,
 			);
 			path = OOP;
 			sourceTree = "<group>";
@@ -176,6 +186,8 @@
 				2DD0B0F02531BC8900C99295 /* Student.cpp in Sources */,
 				2DD0B0D42531BC5E00C99295 /* main.cpp in Sources */,
 				2DD0B0F32531BC8900C99295 /* Functions.cpp in Sources */,
+				2D6ECCAC2536B9040073BF63 /* Param.cpp in Sources */,
+				2DBDFB5A2533F79100F59AAE /* Manager.cpp in Sources */,
 				2DD0B0EC2531BC8900C99295 /* MyUtils.cpp in Sources */,
 				2DD0B0F12531BC8900C99295 /* Base.cpp in Sources */,
 			);

@@ -56,11 +56,6 @@ Employee::Employee(const Employee & obj)
     set_age(obj.age);
 }
 
-// 析构函数，类的对象被释放时会被调用
-Employee::~Employee(void)
-{
-    cout << "Employee instance is deallocated" << endl;
-}
 
 // 拷贝赋值函数
 Employee& Employee::operator=(const Employee & obj)
@@ -72,6 +67,13 @@ Employee& Employee::operator=(const Employee & obj)
     set_age(obj.age);
     return *this;
 }
+
+// 析构函数，类的对象被释放时会被调用
+Employee::~Employee(void)
+{
+    cout << "Employee instance is deallocated" << endl;
+}
+
 
 int Employee::get_level()
 {
@@ -88,6 +90,11 @@ string Employee::get_depart_id()
     return emp_depart_id;
 }
 
+void Employee::work()
+{
+    cout << "Employee " << name << ", is working" << endl;
+}
+
 // Employee 的友元函数
 void desc_employee_info(const Employee & emp)
 {
@@ -96,6 +103,9 @@ void desc_employee_info(const Employee & emp)
     cout << "id      : " << emp.emp_user_id << endl;
     cout << "depart  : " << emp.emp_depart_id << endl;
     cout << "level   : " << emp.emp_level << endl;
+    if (emp.address.length() > 0) {
+        cout << "address : " << emp.address << endl;
+    }
     cout << endl;
 }
 

@@ -746,6 +746,16 @@ void printByteInfo()
     cout << "\t\t max : " << numeric_limits<short int>::max() << endl;
     cout << "\t\t min : " << numeric_limits<short int>::min() << endl;
     cout << endl;
+    
+    cout << "short unsigned int : " << "byte count : " << sizeof(short unsigned int) << " byts" << endl;
+    cout << "\t\t max : " << numeric_limits<short unsigned int>::max() << endl;
+    cout << "\t\t min : " << numeric_limits<short unsigned int>::min() << endl;
+    cout << endl;
+    
+    cout << "short signed int : " << "byte count : " << sizeof(short signed int) << " byts" << endl;
+    cout << "\t\t max : " << numeric_limits<short signed int>::max() << endl;
+    cout << "\t\t min : " << numeric_limits<short signed int>::min() << endl;
+    cout << endl;
 
     cout << "int : " << "byte count : " << sizeof(int) << " byts" << endl;
     cout << "\t\t max : " << numeric_limits<int>::max() << endl;

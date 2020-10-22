@@ -14,42 +14,104 @@
 #include "Employee.hpp"
 #include "Base.hpp"
 #include "B.hpp"
+#include "Param.hpp"
 
 using namespace std;
 
 int main(int argc, const char *argv[])
 {
-    // https://www.cnblogs.com/wxl2578/p/3388767.html
+    cout << "======== phase 1 ========" << endl;
+    Param p_1 = { 1, 2 };
+    p_1.desc("++p_1 before, ");
+    ++p_1;
+    p_1.desc("++p_1 after , ");
+    /*
+     输出：
+     ++p_1 before, val1 : 1, val2 : 2
+     ++p_1 after , val1 : 2, val2 : 3
+     */
 
-    cout << "========= phase 1 ==========" << endl;
-    Employee e = Employee("willson", "0127", "7345", 19);
+    cout << "======== phase 2 ========" << endl;
+    Param p_2 = { 1, 2 };
+    Param p_3 = { 3, 5 };
+    Param p_res_1 = p_2 + p_3; //可以交换顺序，相当月p_res_1 = p_3.operator+(p_2);
+    p_res_1.desc("p_2 + p_3, ");
 
-    cout << "========= phase 2 ==========" << endl;
-    Employee e1("wn", "012711", "5", 12);
+    Param p_res_2 = p_2 - p_3;
+    p_res_2.desc("p_2 - p_3, ");
 
-    cout << "========= phase 3 ==========" << endl;
-    // 调用了拷贝构造函数
-    Employee e2 = e1;
+    Param p_res_3 = p_2 * p_3;
+    p_res_3.desc("p_2 * p_3, ");
 
-    cout << "========= phase 4 ==========" << endl;
-    // 调用了有参数的构造函数
-    Employee e3("wn1", "012711", "5", 12);
-    // 调用了拷贝赋值函数
-    e3 = e1;
+    Param p_res_4 = p_2 / p_3;
+    p_res_4.desc("p_2 / p_3, ");
 
-    cout << "========= phase 5 ==========" << endl;
-    // 调用了有参数的构造函数
-    Employee e4 = { "e4", "1111", "99", 23 };
+    Param p_res_5 = p_2 + 10;
+    p_res_5.desc("p_2 + 10, ");
 
-    cout << "========= phase 6 ==========" << endl;
-    // 调用了无参构造函数
-    Employee e6;
-    // 调用了拷贝赋值函数
-    e6 = e1;
+    Param p_res_6 = 11 + p_2; // 交换顺序的加法实际调用的是Param的友元函数
+    p_res_6.desc("11 + p_2, ");
+    /*
+     输出：
+     p_2 + p_3, val1 : 4, val2 : 7
+     p_2 - p_3, val1 : -2, val2 : -3
+     p_2 * p_3, val1 : 3, val2 : 10
+     p_2 / p_3, val1 : 0.333333, val2 : 0.4
+     p_2 + 10, val1 : 11, val2 : 12
+     11 + p_2, val1 : 12, val2 : 13
+     */
 
-    cout << "========= phase 7 ==========" << endl;
-    FriendEmployee fe(e1, "Special emp");
-    fe.desc();
+    cout << "======== phase 2 ========" << endl;
+    Param p_4 = { 1, 2 };
+    Param p_5 = { 4, 5 };
+    bool p_res_7 = p_4 < p_5;
+    cout << "p_4 < p_5 ? " << (p_res_7 ? "true" : "false") << endl;
+    
+    bool p_res_8 = p_4 > 0.5;
+    cout << "p_4 > 0.5 ? " << (p_res_8 ? "true" : "false") << endl;
+    
+    bool p_res_9 =  6.8 > p_5;
+    cout << "6.8 > p_5 ? " << (p_res_9 ? "true" : "false") << endl;
+//    // https://www.cnblogs.com/wxl2578/p/3388767.html
+//
+//    cout << "========= phase 1 ==========" << endl;
+//    Employee e = Employee("willson", "0127", "7345", 19);
+//
+//    cout << "========= phase 2 ==========" << endl;
+//    Employee e1("wn", "012711", "5", 12);
+//
+//    cout << "========= phase 3 ==========" << endl;
+//    // 调用了拷贝构造函数
+//    Employee e2 = e1;
+//
+//    cout << "========= phase 4 ==========" << endl;
+//    // 调用了有参数的构造函数
+//    Employee e3("wn1", "012711", "5", 12);
+//    // 调用了拷贝赋值函数
+//    e3 = e1;
+//
+//    cout << "========= phase 5 ==========" << endl;
+//    // 调用了有参数的构造函数
+//    Employee e4 = { "e4", "1111", "99", 23 };
+//
+//    cout << "========= phase 6 ==========" << endl;
+//    // 调用了无参构造函数
+//    Employee e6;
+//    // 调用了拷贝赋值函数
+//    e6 = e1;
+//
+//    cout << "========= phase 7 ==========" << endl;
+//    FriendEmployee fe(e1, "Special emp");
+//    fe.desc();
+//
+//    cout << "========= phase 8 ==========" << endl;
+//    Employee e7 = Employee();
+//    Employee *ptr_e7 = &e7;
+//    ptr_e7->set_name("will");
+//    ptr_e7->set_age(10);
+//    ptr_e7->set_address("Shenyang");
+//    desc_employee_info(*ptr_e7);
+
 //    Student stu = Student("willson", 31, 1, 3, "Beijing");
 //    string stu_desc = stu.stu_desc();
 //    cout << "student desc : " << endl << stu_desc;

@@ -45,6 +45,8 @@ public:
     int get_level();
     std::string get_user_id();
     std::string get_depart_id();
+    
+    void work();
 
 private:
     std::string emp_user_id;
