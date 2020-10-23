@@ -11,18 +11,35 @@
 
 using namespace std;
 
-Param :: Param() {
+Param :: Param()
+{
     val1 = 1;
     val2 = 2;
 }
 
-#pragma mark - 一元运算符重载
 Param :: Param(double a, double b) : val1(a), val2(b)
 {
 }
 
-// 递增递减运算符 重载
+// 拷贝构造函数
+Param::Param(const Param & p)
+{
+    cout << "copy constructor of Param instance " << endl;
+    val1 = p.val1;
+    val2 = p.val2;
+}
+
+#pragma mark - 一元运算符重载
 // https://www.runoob.com/cplusplus/unary-operators-overloading.html
+Param Param:: operator -()
+{
+    Param p = { -val1, -val2 };
+    return p;
+}
+
+#pragma mark - ++ 和 -- 运算符重载
+// 递增递减运算符 重载
+// https://www.runoob.com/cplusplus/increment-decrement-operators-overloading.html
 // 重载递增前缀运算符  a = ++b
 Param Param :: operator ++()
 {
@@ -110,36 +127,50 @@ Param Param::operator/(const Param & other)
 
 #pragma mark - 关系运算符重载
 // https://www.runoob.com/cplusplus/relational-operators-overloading.html
+// obj1 < obj2
 bool Param::operator <(const Param & other)
 {
     return val1 < other.val2 && val2 < other.val2;
 }
 
+// obj > n
 bool Param::operator >(double n)
 {
     return val1 > n && val2 > n;
 }
 
+// 友元函数实现  n > obj
 bool operator >(double n, const Param & p)
 {
     return (p.val1 < n) && (p.val2 < n);
 }
 
-void Param::desc(string other)
-{
-    cout << other << "val1 : " << val1 << ", val2 : " << val2 << endl;
-}
-
 #pragma mark - 输入/输出运算符重载
 
+// cout << p
 ostream & operator <<(ostream & output, const Param & p)
 {
     output << "Instance of Param, val1 : " << p.val1 << ", and val2 : " << p.val2 << endl;
     return output;
 }
 
+// cin >> p
 istream & operator >>(istream & input, Param & p)
 {
     input >> p.val1 >> p.val2;
     return input;
+}
+
+#pragma mark - 赋值运算符重载
+void Param::operator=(const Param & p)
+{
+    cout << "overloading operator = " << endl;
+    val1 = p.val1;
+    val2 = p.val2;
+}
+
+#pragma mark -
+void Param::desc(string other)
+{
+    cout << other << "val1 : " << val1 << ", val2 : " << val2 << endl;
 }

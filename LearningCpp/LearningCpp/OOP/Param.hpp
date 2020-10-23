@@ -20,12 +20,16 @@ public:
 
     double val1;
     double val2;
-    
+
     Param();
 
     Param(double val1, double val2);
 
+    Param(const Param & p);
+
     void desc(std::string other);
+
+    Param operator - ();
 
     // 重载递增前缀运算符  ++p
     Param operator++ ();
@@ -51,11 +55,16 @@ public:
     bool operator < (const Param & other);
     bool operator > (double n);
     friend bool operator > (double n, const Param & p); // 用于 n > p
-    
+
     // 输入输出运算符
-    friend ostream &operator << (ostream & o , const Param & p);
-    
-    friend istream &operator >> (istream & i , Param & p);
+    friend ostream &operator << (ostream & o, const Param & p);
+
+    friend istream &operator >> (istream & i, Param & p);
+
+    // 赋值运算符重载
+    void operator = (const Param & other);
+
+    //函数调用运算符 () 重载
 };
 
 #endif /* Param_hpp */

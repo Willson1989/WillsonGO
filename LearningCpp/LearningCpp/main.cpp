@@ -66,23 +66,30 @@ int main(int argc, const char *argv[])
     Param p_5 = { 4, 5 };
     bool p_res_7 = p_4 < p_5;
     cout << "p_4 < p_5 ? " << (p_res_7 ? "true" : "false") << endl;
-    
+
     bool p_res_8 = p_4 > 0.5;
     cout << "p_4 > 0.5 ? " << (p_res_8 ? "true" : "false") << endl;
-    
+
     bool p_res_9 =  6.8 > p_5;
     cout << "6.8 > p_5 ? " << (p_res_9 ? "true" : "false") << endl;
-    
+
     cout << "======== phase 3 ========" << endl;
-    Param p_6 = {11, 22};
+    Param p_6 = { 11, 22 };
     cout << p_6 << endl;
-    
-    cout << "Enter the value of Param : " << endl;
-    Param p_7;
-    cin >> p_7;
-    cout << p_7;
-    
-    
+
+    //cout << "Enter the value of Param : " << endl;
+    //Param p_7;
+    //cin >> p_7;
+    //cout << p_7;
+
+    cout << "======== phase 4 ========" << endl;
+    Param p_7 = { 11, 33 };
+    Param p_8 = p_7; // 因为p_8未初始化，在赋值之后调用了拷贝构造函数
+    cout << p_8 << endl;
+    Param p_9 = { 9, 8 };
+    p_9 = p_7; // 因为p_9已经初始化，在赋值之后调用了重载的赋值运算符函数
+    cout << p_9 << endl;
+
 //    // https://www.cnblogs.com/wxl2578/p/3388767.html
 //
 //    cout << "========= phase 1 ==========" << endl;
