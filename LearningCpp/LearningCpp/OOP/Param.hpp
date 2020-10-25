@@ -15,15 +15,30 @@
 
 using namespace std;
 
+class SubParam {
+public:
+    SubParam(int val);
+    void printInfo();
+private:
+    int val;
+};
+
+const int SIZE = 10;
+
 class Param {
+private:
+    int arr[SIZE];
 public:
 
     double val1;
     double val2;
+    SubParam *subParam;
 
     Param();
 
     Param(double val1, double val2);
+
+    Param(double val1, double val2, SubParam * const sp);
 
     Param(const Param & p);
 
@@ -65,6 +80,13 @@ public:
     void operator = (const Param & other);
 
     //函数调用运算符 () 重载
+    void operator() (int a, int b, int c);
+
+    //下标运算符重载
+    int operator[] (int index);
+
+    // 类成员访问运算符 -> 重载
+    SubParam *operator->();
 };
 
-#endif /* Param_hpp */
+#endif /* Param_ */

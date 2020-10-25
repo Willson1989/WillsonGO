@@ -90,6 +90,22 @@ int main(int argc, const char *argv[])
     p_9 = p_7; // 因为p_9已经初始化，在赋值之后调用了重载的赋值运算符函数
     cout << p_9 << endl;
 
+    cout << "======== phase 5 ========" << endl;
+    Param p_10;
+    p_10(7, 9, 3); // 调用了运算符（）重载函数
+    cout << p_10 << endl;
+
+    cout << "======== phase 6 ========" << endl;
+    Param p_11;
+    int val_7_p_11 = p_11[7];
+    cout << "value of arr at index 7 of p_11 : " << val_7_p_11 << endl;
+
+    cout << "======== phase 7 ========" << endl;
+    SubParam sp(11);
+    Param p_12 = Param(22, 33, &sp);
+    (&sp)->printInfo();
+    p_12->printInfo(); // 调用了 Param 中的 -> 重载函数
+
 //    // https://www.cnblogs.com/wxl2578/p/3388767.html
 //
 //    cout << "========= phase 1 ==========" << endl;
