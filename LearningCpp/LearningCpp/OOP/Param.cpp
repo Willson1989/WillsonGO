@@ -23,7 +23,7 @@ void SubParam::printInfo()
 }
 
 #pragma mark - Param
-Param :: Param()
+Param::Param()
 {
     val1 = 1;
     val2 = 2;
@@ -32,11 +32,11 @@ Param :: Param()
     }
 }
 
-Param :: Param(double a, double b) : val1(a), val2(b)
+Param::Param(double a, double b) : val1(a), val2(b)
 {
 }
 
-Param :: Param(double a, double b, SubParam *const sp)
+Param::Param(double a, double b, SubParam *const sp)
 {
     val1 = a;
     val2 = b;
@@ -65,7 +65,7 @@ Param Param:: operator -()
 // 递增递减运算符 重载
 // https://www.runoob.com/cplusplus/increment-decrement-operators-overloading.html
 // 重载递增前缀运算符  a = ++b
-Param Param :: operator ++()
+Param Param::operator ++()
 {
     cout << "operator ++ (prefix)  overload(++obj)" << endl;
     ++val1;
@@ -168,6 +168,12 @@ bool Param::operator <(const Param & other)
     return val1 < other.val2 && val2 < other.val2;
 }
 
+bool Param::operator <(double n)
+{
+    cout << "operator < overload(obj < n)" << endl;
+    return (val1 < n) && (val2 < n);
+}
+
 // obj > n
 bool Param::operator >(double n)
 {
@@ -176,10 +182,10 @@ bool Param::operator >(double n)
 }
 
 // 友元函数实现  n > obj
-bool operator >(double n, const Param & p)
+bool operator >(double n, Param & p)
 {
     cout << "operator > overload(n > obj), friend function " << endl;
-    return (p.val1 < n) && (p.val2 < n);
+    return p < n;
 }
 
 #pragma mark - 输入/输出运算符重载
@@ -187,7 +193,7 @@ bool operator >(double n, const Param & p)
 // cout << p
 ostream & operator <<(ostream & output, const Param & p)
 {
-    cout << "output operator << overload " << endl;
+    cout << "output operator << overload (friend function)" << endl;
     output << "Instance of Param, val1 : " << p.val1 << ", and val2 : " << p.val2 << endl;
     return output;
 }
@@ -195,8 +201,24 @@ ostream & operator <<(ostream & output, const Param & p)
 // cin >> p
 istream & operator >>(istream & input, Param & p)
 {
-    cout << "input operator >> overload " << endl;
+    cout << "input operator >> overload (friend function) " << endl;
     input >> p.val1 >> p.val2;
+    return input;
+}
+
+// p<<cout
+ostream & Param::operator<<(ostream & output)
+{
+    cout << "output operator << overload (property function)" << endl;
+    output << "Instance of Param, val1 : " << val1 << ", and val2 : " << val2 << endl;
+    return output;
+}
+
+// p>>cin
+istream & Param::operator>>(istream & input)
+{
+    cout << "input operator >> overload (property function) " << endl;
+    input >> val1 >> val2;
     return input;
 }
 
@@ -228,7 +250,7 @@ int Param::operator[](int index)
 
 #pragma mark - 类成员访问运算符 -> 重载
 // https://www.runoob.com/cplusplus/class-member-access-operator-overloading.html
-SubParam * Param :: operator ->()
+SubParam * Param::operator ->()
 {
     cout << "operator -> overload " << endl;
     return subParam;

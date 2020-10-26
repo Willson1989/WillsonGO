@@ -23,13 +23,17 @@ int main(int argc, const char *argv[])
     cout << "======== phase 1 ========" << endl;
     Param p_1 = { 1, 2 };
     p_1.desc("++p_1 before, ");
-    ++p_1;
+    Param res1 = ++p_1;
     p_1.desc("++p_1 after , ");
-    /*
-     输出：
-     ++p_1 before, val1 : 1, val2 : 2
-     ++p_1 after , val1 : 2, val2 : 3
-     */
+    res1.desc("res1 after ++p_1, ");
+    
+    cout << "======== phase 2 ========" << endl;
+    Param p_1_1 = {2,3};
+    p_1_1.desc("p_1_1++ before, ");
+    Param res2 = p_1_1++;
+    p_1_1.desc("p_1_1++ after, ");
+    res2.desc("res2 after p_1_1++, ");
+
 
     cout << "======== phase 2 ========" << endl;
     Param p_2 = { 1, 2 };
@@ -85,26 +89,33 @@ int main(int argc, const char *argv[])
     cout << "======== phase 4 ========" << endl;
     Param p_7 = { 11, 33 };
     Param p_8 = p_7; // 因为p_8未初始化，在赋值之后调用了拷贝构造函数
-    cout << p_8 << endl;
+    p_8.desc("p_8 ,");
     Param p_9 = { 9, 8 };
     p_9 = p_7; // 因为p_9已经初始化，在赋值之后调用了重载的赋值运算符函数
-    cout << p_9 << endl;
+    p_9.desc("p_9 ,");
 
     cout << "======== phase 5 ========" << endl;
     Param p_10;
     p_10(7, 9, 3); // 调用了运算符（）重载函数
-    cout << p_10 << endl;
+    p_10.desc("p_10 ,");
 
     cout << "======== phase 6 ========" << endl;
-    Param p_11;
+    Param p_11 = Param();
     int val_7_p_11 = p_11[7];
     cout << "value of arr at index 7 of p_11 : " << val_7_p_11 << endl;
 
     cout << "======== phase 7 ========" << endl;
     SubParam sp(11);
     Param p_12 = Param(22, 33, &sp);
-    (&sp)->printInfo();
-    p_12->printInfo(); // 调用了 Param 中的 -> 重载函数
+    (&sp)->printInfo(); // 和下面的调用方式等效
+    p_12->printInfo();  // 调用了 Param 中的 -> 重载函数
+    int sub_val = p_12->val;
+    cout << "val in SubParam : " << sub_val << endl; // 通过 -> 符号访问了SubParam的成员变量 val
+    
+    cout << "======== phase 8 ========" << endl;
+    Param p_13 = {5,6};
+    cout << p_13 << endl; // 调用了友元的 输出重载函数
+    p_13<<cout; // 调用了成员函数的输出重载函数， 这种调用方式看起来不自然
 
 //    // https://www.cnblogs.com/wxl2578/p/3388767.html
 //

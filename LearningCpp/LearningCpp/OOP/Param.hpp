@@ -19,8 +19,8 @@ class SubParam {
 public:
     SubParam(int val);
     void printInfo();
-private:
     int val;
+private:
 };
 
 const int SIZE = 10;
@@ -38,7 +38,7 @@ public:
 
     Param(double val1, double val2);
 
-    Param(double val1, double val2, SubParam * const sp);
+    Param(double val1, double val2, SubParam *const sp);
 
     Param(const Param & p);
 
@@ -68,12 +68,15 @@ public:
 
     // 关系运算符 大于 小于
     bool operator < (const Param & other);
+    bool operator < (double n);
     bool operator > (double n);
-    friend bool operator > (double n, const Param & p); // 用于 n > p
+    friend bool operator > (double n, Param & p); // 用于 n > p
 
     // 输入输出运算符
-    friend ostream &operator << (ostream & o, const Param & p);
+    ostream & operator << (ostream & o);
+    istream & operator >> (istream & i);
 
+    friend ostream &operator << (ostream & o, const Param & p);
     friend istream &operator >> (istream & i, Param & p);
 
     // 赋值运算符重载
