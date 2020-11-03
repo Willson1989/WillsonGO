@@ -13,9 +13,14 @@
 #include <typeinfo>
 #include <string>
 #include <ctime>
-
 #include <sstream>
 #include <iostream>
+#include "Param.hpp"
+#include "Employee.hpp"
+#include "Tiger.hpp"
+#include "Hawk.hpp"
+#include "Shape.hpp"
+#include "Rectangle.hpp"
 
 using namespace std;
 
@@ -27,6 +32,7 @@ void genRandomNums(int len, int *arr);
 int * gen_arr(int len);
 void print_tm(tm *t);
 void clock_study();
+void print_student(struct Student *s);
 
 struct Student {
     string name;
@@ -39,17 +45,197 @@ typedef struct Book {
     string id;
 } Book;
 
-string getHello() {
-    return "hello";
+void polymorphisn_abstract_class_study()
+{
+    Animal *anim;
+    Tiger t = Tiger("A");
+    Hawk h = Hawk("B");
+
+    anim = &t;
+    anim->fly();
+    anim->sleep();
+
+    anim = &h;
+    anim->fly();
+    anim->sleep();
+
+    /*
+     输出：
+     Base class Animal - A, fly
+     Base class Animal - A, sleep
+     Base class Animal - B, fly
+     Base class Animal - B, sleep
+
+     结果显示，即使anim分别指向了Tiger和Hawk实例，程序还是调用了父类的fly和sleep方法。
+     这就是所谓的静态多态，或者静态链接、静态绑定 。
+     函数调用在程序执行前就准备好了。有时候这也被称为早绑定，因为函数在程序编译期间就已经设置好了。
+     */
+
+    /*
+     输出：
+     Tiger - A cannot fly
+     Tiger - A sleep
+     Hawk  - B cannot fly
+     Hawk  - B sleep
+
+     将基类Animal中的方法声明加上 virtual 关键字之后，变为虚函数，
+     此时编译器看的是指针的内容，即 anim 这个指针实际指向的是什么类型实例。
+     当调用 sleep 和 fly 函数时，是在运行时期决定的，这时会调用每个实例各自的方法。
+     */
+
+    //Shape shape; // 不能实例化Shape，因为它是抽象类
+
+    Rectangle rect = { 10, 20, "red" }; // Rectangle 继承自抽象类 Shape，如果Rectangle没有实现 Shape中的纯虚函数，则会报错。
+    double area = rect.area();
+    string color = rect.getColor();
+    cout << "area : " << area << ", color : " << color << endl;
+
+    /*
+     输出：
+     function area of Rectangle
+     function getColor of Rectangle
+     area : 200, color : red
+     */
 }
 
-void print_student(struct Student *s)
+void operators_overload_study()
 {
-// void print_student(Student *s) { // 不写struct也行
-    cout << " name : " << s->name;
-    cout << " address : " << s->address;
-    cout << " age : " << s->age;
-    cout << endl;
+    cout << "======== phase 1 ========" << endl;
+    Param p_1 = { 1, 2 };
+    p_1.desc("++p_1 before, ");
+    Param res1 = ++p_1;
+    p_1.desc("++p_1 after , ");
+    res1.desc("res1 after ++p_1, ");
+
+    cout << "======== phase 2 ========" << endl;
+    Param p_1_1 = { 2, 3 };
+    p_1_1.desc("p_1_1++ before, ");
+    Param res2 = p_1_1++;
+    p_1_1.desc("p_1_1++ after, ");
+    res2.desc("res2 after p_1_1++, ");
+
+    cout << "======== phase 2 ========" << endl;
+    Param p_2 = { 1, 2 };
+    Param p_3 = { 3, 5 };
+    Param p_res_1 = p_2 + p_3; //可以交换顺序，相当月p_res_1 = p_3.operator+(p_2);
+    p_res_1.desc("p_2 + p_3, ");
+
+    Param p_res_2 = p_2 - p_3;
+    p_res_2.desc("p_2 - p_3, ");
+
+    Param p_res_3 = p_2 * p_3;
+    p_res_3.desc("p_2 * p_3, ");
+
+    Param p_res_4 = p_2 / p_3;
+    p_res_4.desc("p_2 / p_3, ");
+
+    Param p_res_5 = p_2 + 10;
+    p_res_5.desc("p_2 + 10, ");
+
+    Param p_res_6 = 11 + p_2; // 交换顺序的加法实际调用的是Param的友元函数
+    p_res_6.desc("11 + p_2, ");
+    /*
+     输出：
+     p_2 + p_3, val1 : 4, val2 : 7
+     p_2 - p_3, val1 : -2, val2 : -3
+     p_2 * p_3, val1 : 3, val2 : 10
+     p_2 / p_3, val1 : 0.333333, val2 : 0.4
+     p_2 + 10, val1 : 11, val2 : 12
+     11 + p_2, val1 : 12, val2 : 13
+     */
+
+    cout << "======== phase 2 ========" << endl;
+    Param p_4 = { 1, 2 };
+    Param p_5 = { 4, 5 };
+    bool p_res_7 = p_4 < p_5;
+    cout << "p_4 < p_5 ? " << (p_res_7 ? "true" : "false") << endl;
+
+    bool p_res_8 = p_4 > 0.5;
+    cout << "p_4 > 0.5 ? " << (p_res_8 ? "true" : "false") << endl;
+
+    bool p_res_9 =  6.8 > p_5;
+    cout << "6.8 > p_5 ? " << (p_res_9 ? "true" : "false") << endl;
+
+    cout << "======== phase 3 ========" << endl;
+    Param p_6 = { 11, 22 };
+    cout << p_6 << endl;
+
+    //cout << "Enter the value of Param : " << endl;
+    //Param p_7;
+    //cin >> p_7;
+    //cout << p_7;
+
+    cout << "======== phase 4 ========" << endl;
+    Param p_7 = { 11, 33 };
+    Param p_8 = p_7; // 因为p_8未初始化，在赋值之后调用了拷贝构造函数
+    p_8.desc("p_8 ,");
+    Param p_9 = { 9, 8 };
+    p_9 = p_7; // 因为p_9已经初始化，在赋值之后调用了重载的赋值运算符函数
+    p_9.desc("p_9 ,");
+
+    cout << "======== phase 5 ========" << endl;
+    Param p_10;
+    p_10(7, 9, 3); // 调用了运算符（）重载函数
+    p_10.desc("p_10 ,");
+
+    cout << "======== phase 6 ========" << endl;
+    Param p_11 = Param();
+    int val_7_p_11 = p_11[7];
+    cout << "value of arr at index 7 of p_11 : " << val_7_p_11 << endl;
+
+    cout << "======== phase 7 ========" << endl;
+    SubParam sp(11);
+    Param p_12 = Param(22, 33, &sp);
+    (&sp)->printInfo(); // 和下面的调用方式等效
+    p_12->printInfo();  // 调用了 Param 中的 -> 重载函数
+    int sub_val = p_12->val;
+    cout << "val in SubParam : " << sub_val << endl; // 通过 -> 符号访问了SubParam的成员变量 val
+
+    cout << "======== phase 8 ========" << endl;
+    Param p_13 = { 5, 6 };
+    cout << p_13 << endl; // 调用了友元的 输出重载函数
+    p_13 << cout; // 调用了成员函数的输出重载函数， 这种调用方式看起来不自然
+}
+
+void oop_study()
+{
+    cout << "========= phase 1 ==========" << endl;
+    Employee e = Employee("willson", "0127", "7345", 19);
+
+    cout << "========= phase 2 ==========" << endl;
+    Employee e1("wn", "012711", "5", 12);
+
+    cout << "========= phase 3 ==========" << endl;
+    // 调用了拷贝构造函数
+    Employee e2 = e1;
+
+    cout << "========= phase 4 ==========" << endl;
+    // 调用了有参数的构造函数
+    Employee e3("wn1", "012711", "5", 12);
+    // 调用了拷贝赋值函数
+    e3 = e1;
+
+    cout << "========= phase 5 ==========" << endl;
+    // 调用了有参数的构造函数
+    Employee e4 = { "e4", "1111", "99", 23 };
+
+    cout << "========= phase 6 ==========" << endl;
+    // 调用了无参构造函数
+    Employee e6;
+    // 调用了拷贝赋值函数
+    e6 = e1;
+
+    cout << "========= phase 7 ==========" << endl;
+    FriendEmployee fe(e1, "Special emp");
+    fe.desc();
+
+    cout << "========= phase 8 ==========" << endl;
+    Employee e7 = Employee();
+    Employee *ptr_e7 = &e7;
+    ptr_e7->set_name("will");
+    ptr_e7->set_age(10);
+    ptr_e7->set_address("Shenyang");
+    desc_employee_info(*ptr_e7);
 }
 
 void struct_study()
@@ -436,7 +622,6 @@ void changeVal_2(int index, int *array, int len, int val)
 
 void print_array(int *arr, int len)
 {
-    
     for (int i = 0; i < len; i++) {
         if (i == len - 1) {
             cout << *(arr + i) << endl;
@@ -445,7 +630,6 @@ void print_array(int *arr, int len)
         }
     }
 }
-
 
 void pointer_and_refrence_study()
 {
@@ -504,7 +688,7 @@ void pointer_and_refrence_study()
     // 指针常量，int * const 代表这个指针变量是一个常量，指这个指针自己的值（即变量的地址）是不可以改变的。
     int *const pci = &ci;
     *pci = 88;
-    int ci1 = 90;
+    // int ci1 = 90;
     // pci = &ci1; // 错误，pci是指针常量，声明并赋给初值之后就不能改变指向了。
 }
 
@@ -551,7 +735,6 @@ void char_pointer_string_transform()
     cout << "chat pointer 3 : " << cp3 << endl;
     cout << "chat pointer 4 : " << cp4 << endl;
 }
-
 
 void print_types_name()
 {
@@ -687,7 +870,7 @@ void lambda_study()
      或者必须能创建一个 std::function 类似的对象去捕获 lambda 函数。
      使用 auto 关键字可以帮助存储 lambda 函数。
      */
-    // 一个没有指定任何捕获的 lambda 函数, 可以显式转换成一个具有相同声明形式函数指
+    // 一个没有指定任何捕获的 lambda 函数, 可以显式转换成一个具有相同声明形式函数指针
     auto func7 = [](int x, int y) -> int {
             cout << "lambda body of func7" << endl;
             return x + y;
@@ -746,12 +929,12 @@ void printByteInfo()
     cout << "\t\t max : " << numeric_limits<short int>::max() << endl;
     cout << "\t\t min : " << numeric_limits<short int>::min() << endl;
     cout << endl;
-    
+
     cout << "short unsigned int : " << "byte count : " << sizeof(short unsigned int) << " byts" << endl;
     cout << "\t\t max : " << numeric_limits<short unsigned int>::max() << endl;
     cout << "\t\t min : " << numeric_limits<short unsigned int>::min() << endl;
     cout << endl;
-    
+
     cout << "short signed int : " << "byte count : " << sizeof(short signed int) << " byts" << endl;
     cout << "\t\t max : " << numeric_limits<short signed int>::max() << endl;
     cout << "\t\t min : " << numeric_limits<short signed int>::min() << endl;
@@ -815,5 +998,14 @@ void printByteInfo()
     cout << "unsigned long : " << "byte count : " << sizeof(unsigned long) << " byts" << endl;
     cout << "\t\t max : " << numeric_limits<unsigned long>::max() << endl;
     cout << "\t\t min : " << numeric_limits<unsigned long>::min() << endl;
+    cout << endl;
+}
+
+void print_student(struct Student *s)
+{
+// void print_student(Student *s) { // 不写struct也行
+    cout << " name : " << s->name;
+    cout << " address : " << s->address;
+    cout << " age : " << s->age;
     cout << endl;
 }

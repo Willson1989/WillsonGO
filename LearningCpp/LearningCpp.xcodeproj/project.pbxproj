@@ -18,6 +18,11 @@
 		2DD0B0F12531BC8900C99295 /* Base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DD0B0E22531BC8900C99295 /* Base.cpp */; };
 		2DD0B0F22531BC8900C99295 /* Person.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DD0B0E72531BC8900C99295 /* Person.cpp */; };
 		2DD0B0F32531BC8900C99295 /* Functions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DD0B0EB2531BC8900C99295 /* Functions.cpp */; };
+		2DD34E3F2548175700689772 /* Animal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DD34E3D2548175700689772 /* Animal.cpp */; };
+		2DD34E442548186000689772 /* Tiger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DD34E422548186000689772 /* Tiger.cpp */; };
+		2DD34E48254819A100689772 /* Hawk.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DD34E46254819A100689772 /* Hawk.cpp */; };
+		2DD34E4E25482D8200689772 /* Shape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DD34E4C25482D8200689772 /* Shape.cpp */; };
+		2DD34E5225482EBB00689772 /* Rectangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DD34E5025482EBB00689772 /* Rectangle.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -56,6 +61,16 @@
 		2DD0B0E92531BC8900C99295 /* B.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = B.hpp; sourceTree = "<group>"; };
 		2DD0B0EA2531BC8900C99295 /* string_num_transform_study.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = string_num_transform_study.hpp; sourceTree = "<group>"; };
 		2DD0B0EB2531BC8900C99295 /* Functions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Functions.cpp; sourceTree = "<group>"; };
+		2DD34E3D2548175700689772 /* Animal.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Animal.cpp; sourceTree = "<group>"; };
+		2DD34E3E2548175700689772 /* Animal.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Animal.hpp; sourceTree = "<group>"; };
+		2DD34E422548186000689772 /* Tiger.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Tiger.cpp; sourceTree = "<group>"; };
+		2DD34E432548186000689772 /* Tiger.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Tiger.hpp; sourceTree = "<group>"; };
+		2DD34E46254819A100689772 /* Hawk.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Hawk.cpp; sourceTree = "<group>"; };
+		2DD34E47254819A100689772 /* Hawk.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Hawk.hpp; sourceTree = "<group>"; };
+		2DD34E4C25482D8200689772 /* Shape.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Shape.cpp; sourceTree = "<group>"; };
+		2DD34E4D25482D8200689772 /* Shape.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Shape.hpp; sourceTree = "<group>"; };
+		2DD34E5025482EBB00689772 /* Rectangle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Rectangle.cpp; sourceTree = "<group>"; };
+		2DD34E5125482EBB00689772 /* Rectangle.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Rectangle.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +108,10 @@
 				2DD0B0DB2531BC8900C99295 /* Functions.hpp */,
 				2DD0B0DA2531BC8900C99295 /* MyUtils.cpp */,
 				2DD0B0DC2531BC8900C99295 /* MyUtils.hpp */,
+				2D6ECCAA2536B9040073BF63 /* Param.cpp */,
+				2D6ECCAB2536B9040073BF63 /* Param.hpp */,
+				2DD34E4B25482D6300689772 /* AbstractClass */,
+				2DD34E3C2548174100689772 /* Animal */,
 				2DD0B0DE2531BC8900C99295 /* OOP */,
 				2DD0B0DD2531BC8900C99295 /* string_num_transform_study.cpp */,
 				2DD0B0EA2531BC8900C99295 /* string_num_transform_study.hpp */,
@@ -116,10 +135,32 @@
 				2DD0B0E82531BC8900C99295 /* A.hpp */,
 				2DD0B0E92531BC8900C99295 /* B.hpp */,
 				2DD0B0DF2531BC8900C99295 /* B.cpp */,
-				2D6ECCAA2536B9040073BF63 /* Param.cpp */,
-				2D6ECCAB2536B9040073BF63 /* Param.hpp */,
 			);
 			path = OOP;
+			sourceTree = "<group>";
+		};
+		2DD34E3C2548174100689772 /* Animal */ = {
+			isa = PBXGroup;
+			children = (
+				2DD34E3D2548175700689772 /* Animal.cpp */,
+				2DD34E3E2548175700689772 /* Animal.hpp */,
+				2DD34E422548186000689772 /* Tiger.cpp */,
+				2DD34E432548186000689772 /* Tiger.hpp */,
+				2DD34E46254819A100689772 /* Hawk.cpp */,
+				2DD34E47254819A100689772 /* Hawk.hpp */,
+			);
+			path = Animal;
+			sourceTree = "<group>";
+		};
+		2DD34E4B25482D6300689772 /* AbstractClass */ = {
+			isa = PBXGroup;
+			children = (
+				2DD34E4C25482D8200689772 /* Shape.cpp */,
+				2DD34E4D25482D8200689772 /* Shape.hpp */,
+				2DD34E5025482EBB00689772 /* Rectangle.cpp */,
+				2DD34E5125482EBB00689772 /* Rectangle.hpp */,
+			);
+			path = AbstractClass;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -132,6 +173,7 @@
 				2DD0B0CC2531BC5E00C99295 /* Sources */,
 				2DD0B0CD2531BC5E00C99295 /* Frameworks */,
 				2DD0B0CE2531BC5E00C99295 /* CopyFiles */,
+				2D5A308B254AF3B100837E89 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -174,6 +216,26 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2D5A308B254AF3B100837E89 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2DD0B0CC2531BC5E00C99295 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -181,12 +243,17 @@
 			files = (
 				2DD0B0EF2531BC8900C99295 /* Employee.cpp in Sources */,
 				2DD0B0EE2531BC8900C99295 /* B.cpp in Sources */,
+				2DD34E4E25482D8200689772 /* Shape.cpp in Sources */,
+				2DD34E5225482EBB00689772 /* Rectangle.cpp in Sources */,
+				2DD34E48254819A100689772 /* Hawk.cpp in Sources */,
 				2DD0B0F22531BC8900C99295 /* Person.cpp in Sources */,
 				2DD0B0ED2531BC8900C99295 /* string_num_transform_study.cpp in Sources */,
 				2DD0B0F02531BC8900C99295 /* Student.cpp in Sources */,
+				2DD34E3F2548175700689772 /* Animal.cpp in Sources */,
 				2DD0B0D42531BC5E00C99295 /* main.cpp in Sources */,
 				2DD0B0F32531BC8900C99295 /* Functions.cpp in Sources */,
 				2D6ECCAC2536B9040073BF63 /* Param.cpp in Sources */,
+				2DD34E442548186000689772 /* Tiger.cpp in Sources */,
 				2DBDFB5A2533F79100F59AAE /* Manager.cpp in Sources */,
 				2DD0B0EC2531BC8900C99295 /* MyUtils.cpp in Sources */,
 				2DD0B0F12531BC8900C99295 /* Base.cpp in Sources */,

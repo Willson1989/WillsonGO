@@ -2149,6 +2149,10 @@ val in SubParam : 11
 
 http://c.biancheng.net/view/2280.html
 
+### [未完] 虚函数（virtual）
+
+https://blog.csdn.net/haoel/article/details/1948051
+
 ### [未完] union
 
 ### [未完] vector 的基本操作以及和数组的不同
