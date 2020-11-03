@@ -1,0 +1,206 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "BalancedBinaryTree"
+provides-nominal:
+- "19Play_with_Alorithms18BalancedBinaryTreeC"
+- "19Play_with_Alorithms18BalancedBinaryTreeC4NodeC"
+provides-member:
+- ["19Play_with_Alorithms18BalancedBinaryTreeC", ""]
+- ["19Play_with_Alorithms18BalancedBinaryTreeC4NodeC", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- !private "!="
+- !private "+"
+- !private "-"
+- !private "<"
+- !private "<="
+- !private "=="
+- !private ">"
+- !private ">="
+- !private "??"
+- "AssignmentPrecedence"
+- "BalancedBinaryTree"
+- "Bool"
+- "Comparable"
+- "FloatLiteralType"
+- "Int"
+- "IntegerLiteralType"
+- "Node"
+- "NodeClosure"
+- "NodeValue"
+- "T"
+- "TernaryPrecedence"
+- "Void"
+- !private "_ceil"
+- !private "_checkBalance"
+- !private "_delete"
+- !private "_deleteMin"
+- !private "_findMax"
+- !private "_findMin"
+- !private "_floor"
+- !private "_heightDiff"
+- !private "_inOrder"
+- !private "_insert"
+- !private "_left_rotate"
+- !private "_postOrder"
+- !private "_preOrder"
+- !private "_right_rotate"
+- !private "_search"
+- !private "_size"
+- !private "_updateHeight"
+- !private "_updateSize"
+- !private "abs"
+- "insert"
+- !private "max"
+- !private "root"
+- !private "search"
+depends-member:
+- !private ["s18AdditiveArithmeticP", ""]
+- !private ["Sa", "forEach"]
+- ["19Play_with_Alorithms18BalancedBinaryTreeC", "Bool"]
+- ["19Play_with_Alorithms18BalancedBinaryTreeC", "Int"]
+- ["19Play_with_Alorithms18BalancedBinaryTreeC", "Node"]
+- ["19Play_with_Alorithms18BalancedBinaryTreeC", "NodeClosure"]
+- ["19Play_with_Alorithms18BalancedBinaryTreeC", "NodeValue"]
+- ["19Play_with_Alorithms18BalancedBinaryTreeC", "Void"]
+- !private ["19Play_with_Alorithms18BalancedBinaryTreeC", "_ceil"]
+- !private ["19Play_with_Alorithms18BalancedBinaryTreeC", "_checkBalance"]
+- !private ["19Play_with_Alorithms18BalancedBinaryTreeC", "_delete"]
+- !private ["19Play_with_Alorithms18BalancedBinaryTreeC", "_deleteMin"]
+- !private ["19Play_with_Alorithms18BalancedBinaryTreeC", "_findMax"]
+- !private ["19Play_with_Alorithms18BalancedBinaryTreeC", "_findMin"]
+- !private ["19Play_with_Alorithms18BalancedBinaryTreeC", "_floor"]
+- !private ["19Play_with_Alorithms18BalancedBinaryTreeC", "_heightDiff"]
+- !private ["19Play_with_Alorithms18BalancedBinaryTreeC", "_inOrder"]
+- !private ["19Play_with_Alorithms18BalancedBinaryTreeC", "_insert"]
+- !private ["19Play_with_Alorithms18BalancedBinaryTreeC", "_left_rotate"]
+- !private ["19Play_with_Alorithms18BalancedBinaryTreeC", "_postOrder"]
+- !private ["19Play_with_Alorithms18BalancedBinaryTreeC", "_preOrder"]
+- !private ["19Play_with_Alorithms18BalancedBinaryTreeC", "_right_rotate"]
+- !private ["19Play_with_Alorithms18BalancedBinaryTreeC", "_search"]
+- !private ["19Play_with_Alorithms18BalancedBinaryTreeC", "_size"]
+- !private ["19Play_with_Alorithms18BalancedBinaryTreeC", "_updateHeight"]
+- !private ["19Play_with_Alorithms18BalancedBinaryTreeC", "_updateSize"]
+- !private ["19Play_with_Alorithms18BalancedBinaryTreeC", "abs"]
+- ["19Play_with_Alorithms18BalancedBinaryTreeC", "ceil"]
+- !private ["19Play_with_Alorithms18BalancedBinaryTreeC", "checkBalance"]
+- ["19Play_with_Alorithms18BalancedBinaryTreeC", "contain"]
+- ["19Play_with_Alorithms18BalancedBinaryTreeC", "deinit"]
+- ["19Play_with_Alorithms18BalancedBinaryTreeC", "delete"]
+- !private ["19Play_with_Alorithms18BalancedBinaryTreeC", "deleteMin"]
+- !private ["19Play_with_Alorithms18BalancedBinaryTreeC", "findMax"]
+- !private ["19Play_with_Alorithms18BalancedBinaryTreeC", "findMin"]
+- ["19Play_with_Alorithms18BalancedBinaryTreeC", "floor"]
+- !private ["19Play_with_Alorithms18BalancedBinaryTreeC", "heightDiff"]
+- ["19Play_with_Alorithms18BalancedBinaryTreeC", "inOrder"]
+- ["19Play_with_Alorithms18BalancedBinaryTreeC", "init"]
+- ["19Play_with_Alorithms18BalancedBinaryTreeC", "insert"]
+- !private ["19Play_with_Alorithms18BalancedBinaryTreeC", "left_rotate"]
+- !private ["19Play_with_Alorithms18BalancedBinaryTreeC", "max"]
+- ["19Play_with_Alorithms18BalancedBinaryTreeC", "postOrder"]
+- ["19Play_with_Alorithms18BalancedBinaryTreeC", "preOrder"]
+- !private ["19Play_with_Alorithms18BalancedBinaryTreeC", "right_rotate"]
+- !private ["19Play_with_Alorithms18BalancedBinaryTreeC", "root"]
+- ["19Play_with_Alorithms18BalancedBinaryTreeC", "search"]
+- ["19Play_with_Alorithms18BalancedBinaryTreeC", "size"]
+- !private ["19Play_with_Alorithms18BalancedBinaryTreeC", "updateHeight"]
+- !private ["19Play_with_Alorithms18BalancedBinaryTreeC", "updateSize"]
+- !private ["SK", ""]
+- !private ["SK", "forEach"]
+- !private ["s7CVarArgP", "forEach"]
+- !private ["Sl", ""]
+- !private ["Sl", "forEach"]
+- !private ["10Foundation15ContiguousBytesP", "forEach"]
+- !private ["s28CustomDebugStringConvertibleP", "forEach"]
+- !private ["s17CustomReflectableP", "forEach"]
+- !private ["s23CustomStringConvertibleP", "forEach"]
+- !private ["10Foundation12DataProtocolP", ""]
+- !private ["10Foundation12DataProtocolP", "forEach"]
+- !private ["Se", "forEach"]
+- !private ["SE", "forEach"]
+- ["SQ", ""]
+- !private ["SQ", "forEach"]
+- !private ["s25ExpressibleByArrayLiteralP", ""]
+- !private ["s25ExpressibleByArrayLiteralP", "forEach"]
+- !private ["s27ExpressibleByIntegerLiteralP", ""]
+- !private ["s23ExpressibleByNilLiteralP", "init"]
+- !private ["SH", "forEach"]
+- !private ["SM", ""]
+- !private ["SM", "forEach"]
+- !private ["10Foundation19MutableDataProtocolP", "forEach"]
+- ["19Play_with_Alorithms18BalancedBinaryTreeC4NodeC", "Int"]
+- ["19Play_with_Alorithms18BalancedBinaryTreeC4NodeC", "Node"]
+- ["19Play_with_Alorithms18BalancedBinaryTreeC4NodeC", "NodeValue"]
+- ["19Play_with_Alorithms18BalancedBinaryTreeC4NodeC", "deinit"]
+- ["19Play_with_Alorithms18BalancedBinaryTreeC4NodeC", "height"]
+- ["19Play_with_Alorithms18BalancedBinaryTreeC4NodeC", "init"]
+- ["19Play_with_Alorithms18BalancedBinaryTreeC4NodeC", "left"]
+- ["19Play_with_Alorithms18BalancedBinaryTreeC4NodeC", "right"]
+- ["19Play_with_Alorithms18BalancedBinaryTreeC4NodeC", "size"]
+- ["19Play_with_Alorithms18BalancedBinaryTreeC4NodeC", "val"]
+- !private ["Sj", ""]
+- !private ["Sk", ""]
+- !private ["Sk", "forEach"]
+- !private ["Sm", ""]
+- !private ["Sm", "forEach"]
+- !private ["ST", ""]
+- !private ["ST", "forEach"]
+- !private ["s14_ArrayProtocolP", "forEach"]
+- !private ["s24_DestructorSafeContainerP", "forEach"]
+- ["s35_ExpressibleByBuiltinIntegerLiteralP", "init"]
+- !private ["s19_HasContiguousBytesP", "forEach"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "forEach"]
+- !private ["s21_ObjectiveCBridgeableP", "forEach"]
+depends-nominal:
+- !private "s18AdditiveArithmeticP"
+- !private "Sa"
+- "19Play_with_Alorithms18BalancedBinaryTreeC"
+- !private "SK"
+- !private "s7CVarArgP"
+- !private "Sl"
+- !private "10Foundation15ContiguousBytesP"
+- !private "s28CustomDebugStringConvertibleP"
+- !private "s17CustomReflectableP"
+- !private "s23CustomStringConvertibleP"
+- !private "10Foundation12DataProtocolP"
+- !private "Se"
+- !private "SE"
+- "SQ"
+- !private "s25ExpressibleByArrayLiteralP"
+- !private "s27ExpressibleByIntegerLiteralP"
+- !private "s23ExpressibleByNilLiteralP"
+- !private "SH"
+- !private "SM"
+- !private "10Foundation19MutableDataProtocolP"
+- "19Play_with_Alorithms18BalancedBinaryTreeC4NodeC"
+- !private "Sj"
+- !private "Sk"
+- !private "Sm"
+- !private "ST"
+- !private "s14_ArrayProtocolP"
+- !private "s24_DestructorSafeContainerP"
+- "s35_ExpressibleByBuiltinIntegerLiteralP"
+- !private "s19_HasContiguousBytesP"
+- !private "s35_HasCustomAnyHashableRepresentationP"
+- !private "s21_ObjectiveCBridgeableP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/XPC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/ObjectiveC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Dispatch.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/CoreGraphics.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Swift.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/IOKit.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/SwiftOnoneSupport.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Users/fn-273/WillsonGO/Play-with-Alorithms/LeetCode/C files/Play-with-Alorithms-Bridging-Header.h"
+- "/Users/fn-273/WillsonGO/Play-with-Alorithms/LeetCode/C files/SolutionUtils.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include/xpc/XPC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/apinotes/Dispatch.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "2b4a10e5ea3a6470c79d48a3f3f5cafc"

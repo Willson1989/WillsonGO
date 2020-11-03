@@ -1,0 +1,146 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "Vertex"
+- "Edge"
+- "Graph_Weighted"
+- "<"
+- "<="
+- ">"
+- ">="
+- "=="
+provides-nominal:
+- "19Play_with_Alorithms6VertexC"
+- "19Play_with_Alorithms4EdgeC"
+- "19Play_with_Alorithms14Graph_WeightedC"
+provides-member:
+- ["19Play_with_Alorithms6VertexC", ""]
+- ["19Play_with_Alorithms4EdgeC", ""]
+- ["19Play_with_Alorithms14Graph_WeightedC", ""]
+provides-dynamic-lookup:
+- "<"
+- "<="
+- "=="
+- ">"
+- ">="
+- "V"
+- "W"
+- "addEdge"
+- "firstArc"
+- "from"
+- "next"
+- "other"
+- "to"
+- "v"
+- "weight"
+- "wt"
+depends-top-level:
+- "<"
+- "<="
+- "=="
+- ">"
+- ">="
+- "AssignmentPrecedence"
+- "Bool"
+- "Comparable"
+- "Edge"
+- "Equatable"
+- "Float"
+- "FloatLiteralType"
+- "Graph"
+- "Graph_Weighted"
+- "INFINITY"
+- "Int"
+- "IntegerLiteralType"
+- "Vertex"
+- !private "from"
+- !private "to"
+- !private "weight"
+depends-member:
+- ["SL", "<"]
+- ["SL", "<="]
+- ["SL", "=="]
+- ["SL", ">"]
+- ["SL", ">="]
+- ["SL", "INFINITY"]
+- ["SL", ""]
+- !private ["SL", "from"]
+- !private ["SL", "to"]
+- !private ["SL", "weight"]
+- ["19Play_with_Alorithms4EdgeC", "<"]
+- ["19Play_with_Alorithms4EdgeC", "<="]
+- ["19Play_with_Alorithms4EdgeC", "=="]
+- ["19Play_with_Alorithms4EdgeC", ">"]
+- ["19Play_with_Alorithms4EdgeC", ">="]
+- ["19Play_with_Alorithms4EdgeC", "Bool"]
+- ["19Play_with_Alorithms4EdgeC", "Edge"]
+- ["19Play_with_Alorithms4EdgeC", "Float"]
+- ["19Play_with_Alorithms4EdgeC", "INFINITY"]
+- ["19Play_with_Alorithms4EdgeC", "Int"]
+- ["19Play_with_Alorithms4EdgeC", "V"]
+- ["19Play_with_Alorithms4EdgeC", "W"]
+- ["19Play_with_Alorithms4EdgeC", ""]
+- ["19Play_with_Alorithms4EdgeC", "deinit"]
+- ["19Play_with_Alorithms4EdgeC", "from"]
+- ["19Play_with_Alorithms4EdgeC", "init"]
+- ["19Play_with_Alorithms4EdgeC", "next"]
+- ["19Play_with_Alorithms4EdgeC", "other"]
+- ["19Play_with_Alorithms4EdgeC", "to"]
+- ["19Play_with_Alorithms4EdgeC", "weight"]
+- ["19Play_with_Alorithms4EdgeC", "wt"]
+- ["SQ", "<"]
+- ["SQ", "<="]
+- ["SQ", "=="]
+- ["SQ", ">"]
+- ["SQ", ">="]
+- ["SQ", "INFINITY"]
+- ["SQ", ""]
+- !private ["SQ", "from"]
+- !private ["SQ", "to"]
+- !private ["SQ", "weight"]
+- ["19Play_with_Alorithms5GraphC", "Float"]
+- ["19Play_with_Alorithms5GraphC", "Int"]
+- ["19Play_with_Alorithms5GraphC", ""]
+- ["19Play_with_Alorithms5GraphC", "addEdge"]
+- ["19Play_with_Alorithms5GraphC", "init"]
+- ["19Play_with_Alorithms14Graph_WeightedC", "Float"]
+- ["19Play_with_Alorithms14Graph_WeightedC", "Int"]
+- ["19Play_with_Alorithms14Graph_WeightedC", "addEdge"]
+- ["19Play_with_Alorithms14Graph_WeightedC", "deinit"]
+- ["19Play_with_Alorithms14Graph_WeightedC", "init"]
+- ["19Play_with_Alorithms6VertexC", "Edge"]
+- ["19Play_with_Alorithms6VertexC", "Int"]
+- ["19Play_with_Alorithms6VertexC", "deinit"]
+- ["19Play_with_Alorithms6VertexC", "firstArc"]
+- ["19Play_with_Alorithms6VertexC", "init"]
+- ["19Play_with_Alorithms6VertexC", "v"]
+- ["s33_ExpressibleByBuiltinFloatLiteralP", "init"]
+- ["s35_ExpressibleByBuiltinIntegerLiteralP", "init"]
+depends-nominal:
+- "SL"
+- "19Play_with_Alorithms4EdgeC"
+- "SQ"
+- "19Play_with_Alorithms5GraphC"
+- "19Play_with_Alorithms14Graph_WeightedC"
+- "19Play_with_Alorithms6VertexC"
+- "s33_ExpressibleByBuiltinFloatLiteralP"
+- "s35_ExpressibleByBuiltinIntegerLiteralP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/XPC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/ObjectiveC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Dispatch.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/CoreGraphics.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Swift.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/IOKit.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Users/fn-273/WillsonGO/Play-with-Alorithms/LeetCode/C files/Play-with-Alorithms-Bridging-Header.h"
+- "/Users/fn-273/WillsonGO/Play-with-Alorithms/LeetCode/C files/SolutionUtils.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include/xpc/XPC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/apinotes/Dispatch.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "d5bb27c34321ef2b297b34a59bf34c06"

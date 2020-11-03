@@ -1,0 +1,177 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "TreeNode"
+- "TNode"
+- "BasicBinaryTree"
+provides-nominal:
+- "19Play_with_Alorithms8TreeNodeC"
+- "19Play_with_Alorithms5TNodeC"
+- "19Play_with_Alorithms15BasicBinaryTreeV"
+provides-member:
+- ["19Play_with_Alorithms8TreeNodeC", ""]
+- ["19Play_with_Alorithms5TNodeC", ""]
+- ["19Play_with_Alorithms15BasicBinaryTreeV", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- !private "!"
+- !private "!="
+- !private "&&"
+- !private "<"
+- !private "=="
+- !private "==="
+- ">"
+- "AssignmentPrecedence"
+- "BasicBinaryTree"
+- !private "BasicStack"
+- "Bool"
+- "Comparable"
+- "Equatable"
+- "K"
+- "NSObject"
+- "Node"
+- "SearchHandler"
+- "TNode"
+- "TreeNode"
+- "V"
+- "Void"
+- !private "_ceil"
+- !private "_delete"
+- !private "_deleteMaxNode"
+- !private "_deleteMinNode"
+- !private "_floor"
+- !private "_getMaxKeyNode"
+- !private "_getMinKeyNode"
+- !private "_insert"
+- !private "_search"
+- !private "root"
+- !private "search"
+- !private "val"
+- !private "||"
+depends-member:
+- !private ["19Play_with_Alorithms15BasicBinaryTreeV", "BasicStack"]
+- ["19Play_with_Alorithms15BasicBinaryTreeV", "Bool"]
+- ["19Play_with_Alorithms15BasicBinaryTreeV", "Node"]
+- ["19Play_with_Alorithms15BasicBinaryTreeV", "SearchHandler"]
+- ["19Play_with_Alorithms15BasicBinaryTreeV", "TNode"]
+- ["19Play_with_Alorithms15BasicBinaryTreeV", "Void"]
+- !private ["19Play_with_Alorithms15BasicBinaryTreeV", "_ceil"]
+- !private ["19Play_with_Alorithms15BasicBinaryTreeV", "_delete"]
+- !private ["19Play_with_Alorithms15BasicBinaryTreeV", "_deleteMaxNode"]
+- !private ["19Play_with_Alorithms15BasicBinaryTreeV", "_deleteMinNode"]
+- !private ["19Play_with_Alorithms15BasicBinaryTreeV", "_floor"]
+- !private ["19Play_with_Alorithms15BasicBinaryTreeV", "_getMaxKeyNode"]
+- !private ["19Play_with_Alorithms15BasicBinaryTreeV", "_getMinKeyNode"]
+- !private ["19Play_with_Alorithms15BasicBinaryTreeV", "_insert"]
+- !private ["19Play_with_Alorithms15BasicBinaryTreeV", "_search"]
+- ["19Play_with_Alorithms15BasicBinaryTreeV", "ceil"]
+- ["19Play_with_Alorithms15BasicBinaryTreeV", "contain"]
+- ["19Play_with_Alorithms15BasicBinaryTreeV", "delete"]
+- ["19Play_with_Alorithms15BasicBinaryTreeV", "deleteMax"]
+- !private ["19Play_with_Alorithms15BasicBinaryTreeV", "deleteMaxNode"]
+- ["19Play_with_Alorithms15BasicBinaryTreeV", "deleteMin"]
+- !private ["19Play_with_Alorithms15BasicBinaryTreeV", "deleteMinNode"]
+- ["19Play_with_Alorithms15BasicBinaryTreeV", "floor"]
+- !private ["19Play_with_Alorithms15BasicBinaryTreeV", "getMaxKeyNode"]
+- !private ["19Play_with_Alorithms15BasicBinaryTreeV", "getMinKeyNode"]
+- ["19Play_with_Alorithms15BasicBinaryTreeV", "inOrder"]
+- ["19Play_with_Alorithms15BasicBinaryTreeV", "init"]
+- ["19Play_with_Alorithms15BasicBinaryTreeV", "insert"]
+- ["19Play_with_Alorithms15BasicBinaryTreeV", "maxKeyNode"]
+- ["19Play_with_Alorithms15BasicBinaryTreeV", "minKeyNode"]
+- ["19Play_with_Alorithms15BasicBinaryTreeV", "postOrder"]
+- ["19Play_with_Alorithms15BasicBinaryTreeV", "preOrder"]
+- ["19Play_with_Alorithms15BasicBinaryTreeV", "root"]
+- ["19Play_with_Alorithms15BasicBinaryTreeV", "search"]
+- !private ["19Play_with_Alorithms10BasicStackC", "init"]
+- !private ["19Play_with_Alorithms10BasicStackC", "isEmpty"]
+- !private ["19Play_with_Alorithms10BasicStackC", "pop"]
+- !private ["19Play_with_Alorithms10BasicStackC", "push"]
+- !private ["19Play_with_Alorithms10BasicStackC", "top"]
+- ["s7CVarArgP", ""]
+- !private ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "val"]
+- ["s28CustomDebugStringConvertibleP", ""]
+- !private ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "val"]
+- ["s23CustomStringConvertibleP", ""]
+- !private ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "val"]
+- ["SQ", ""]
+- !private ["SQ", "init"]
+- !private ["SQ", "val"]
+- !private ["s23ExpressibleByNilLiteralP", "init"]
+- ["SH", ""]
+- !private ["SH", "init"]
+- !private ["SH", "val"]
+- ["So8NSObjectC", "TreeNode"]
+- ["So8NSObjectC", ""]
+- ["So8NSObjectC", "init"]
+- ["So8NSObjectC", "left"]
+- ["So8NSObjectC", "right"]
+- ["So8NSObjectC", "val"]
+- ["So8NSObjectP", "TreeNode"]
+- ["So8NSObjectP", ""]
+- ["So8NSObjectP", "init"]
+- ["So8NSObjectP", "left"]
+- ["So8NSObjectP", "right"]
+- ["So8NSObjectP", "val"]
+- ["19Play_with_Alorithms5TNodeC", "TNode"]
+- ["19Play_with_Alorithms5TNodeC", "deinit"]
+- ["19Play_with_Alorithms5TNodeC", "init"]
+- ["19Play_with_Alorithms5TNodeC", "key"]
+- ["19Play_with_Alorithms5TNodeC", "left"]
+- ["19Play_with_Alorithms5TNodeC", "right"]
+- ["19Play_with_Alorithms5TNodeC", "val"]
+- ["19Play_with_Alorithms8TreeNodeC", "TreeNode"]
+- ["19Play_with_Alorithms8TreeNodeC", ""]
+- ["19Play_with_Alorithms8TreeNodeC", "deinit"]
+- ["19Play_with_Alorithms8TreeNodeC", "init"]
+- ["19Play_with_Alorithms8TreeNodeC", "left"]
+- ["19Play_with_Alorithms8TreeNodeC", "right"]
+- ["19Play_with_Alorithms8TreeNodeC", "val"]
+- !private ["s35_ExpressibleByBuiltinIntegerLiteralP", "init"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- ["10Foundation27_KeyValueCodingAndObservingP", ""]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "val"]
+- ["10Foundation37_KeyValueCodingAndObservingPublishingP", ""]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "init"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "val"]
+depends-nominal:
+- "19Play_with_Alorithms15BasicBinaryTreeV"
+- !private "19Play_with_Alorithms10BasicStackC"
+- "s7CVarArgP"
+- "s28CustomDebugStringConvertibleP"
+- "s23CustomStringConvertibleP"
+- "SQ"
+- !private "s23ExpressibleByNilLiteralP"
+- "SH"
+- "So8NSObjectC"
+- "So8NSObjectP"
+- "19Play_with_Alorithms5TNodeC"
+- "19Play_with_Alorithms8TreeNodeC"
+- !private "s35_ExpressibleByBuiltinIntegerLiteralP"
+- !private "s34_ExpressibleByBuiltinStringLiteralP"
+- "10Foundation27_KeyValueCodingAndObservingP"
+- "10Foundation37_KeyValueCodingAndObservingPublishingP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/XPC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/ObjectiveC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Dispatch.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/CoreGraphics.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Swift.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/IOKit.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/SwiftOnoneSupport.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Users/fn-273/WillsonGO/Play-with-Alorithms/LeetCode/C files/Play-with-Alorithms-Bridging-Header.h"
+- "/Users/fn-273/WillsonGO/Play-with-Alorithms/LeetCode/C files/SolutionUtils.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include/xpc/XPC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/apinotes/Dispatch.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "bf02a419ab9979115ae85d16fb1918e6"

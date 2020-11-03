@@ -1,0 +1,269 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "UnionFind_CompressPath_01"
+- "UnionFind_CompressPath_02"
+provides-nominal:
+- "19Play_with_Alorithms25UnionFind_CompressPath_01C"
+- "19Play_with_Alorithms25UnionFind_CompressPath_02C"
+provides-member:
+- ["19Play_with_Alorithms25UnionFind_CompressPath_01C", ""]
+- ["19Play_with_Alorithms25UnionFind_CompressPath_02C", ""]
+provides-dynamic-lookup:
+- "find"
+depends-top-level:
+- !private "!="
+- !private "<"
+- !private ">="
+- "AssignmentPrecedence"
+- !private "FloatLiteralType"
+- "Int"
+- !private "IntegerLiteralType"
+- !private "StringLiteralType"
+- "UnionFind_CompressPath_01"
+- "UnionFind_CompressPath_02"
+- !private "UnionFind_NotFound"
+- "UnionFind_UsingRank"
+- !private "find"
+- !private "idArray"
+- !private "parents"
+- !private "unionFindName"
+- !private "||"
+depends-member:
+- !private ["Sa", "count"]
+- !private ["Sa", "subscript"]
+- !private ["SK", ""]
+- !private ["SK", "count"]
+- !private ["SK", "subscript"]
+- !private ["s7CVarArgP", "UnionFind_NotFound"]
+- ["s7CVarArgP", ""]
+- !private ["s7CVarArgP", "count"]
+- !private ["s7CVarArgP", "find"]
+- !private ["s7CVarArgP", "idArray"]
+- !private ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "parents"]
+- !private ["s7CVarArgP", "subscript"]
+- !private ["s7CVarArgP", "unionFindName"]
+- !private ["Sl", ""]
+- !private ["Sl", "count"]
+- !private ["Sl", "subscript"]
+- !private ["SL", ""]
+- !private ["10Foundation15ContiguousBytesP", "count"]
+- !private ["10Foundation15ContiguousBytesP", "subscript"]
+- !private ["s28CustomDebugStringConvertibleP", "UnionFind_NotFound"]
+- ["s28CustomDebugStringConvertibleP", ""]
+- !private ["s28CustomDebugStringConvertibleP", "count"]
+- !private ["s28CustomDebugStringConvertibleP", "find"]
+- !private ["s28CustomDebugStringConvertibleP", "idArray"]
+- !private ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "parents"]
+- !private ["s28CustomDebugStringConvertibleP", "subscript"]
+- !private ["s28CustomDebugStringConvertibleP", "unionFindName"]
+- !private ["s17CustomReflectableP", "count"]
+- !private ["s17CustomReflectableP", "subscript"]
+- !private ["s23CustomStringConvertibleP", "UnionFind_NotFound"]
+- ["s23CustomStringConvertibleP", ""]
+- !private ["s23CustomStringConvertibleP", "count"]
+- !private ["s23CustomStringConvertibleP", "find"]
+- !private ["s23CustomStringConvertibleP", "idArray"]
+- !private ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "parents"]
+- !private ["s23CustomStringConvertibleP", "subscript"]
+- !private ["s23CustomStringConvertibleP", "unionFindName"]
+- !private ["10Foundation12DataProtocolP", ""]
+- !private ["10Foundation12DataProtocolP", "count"]
+- !private ["10Foundation12DataProtocolP", "subscript"]
+- !private ["Se", "count"]
+- !private ["Se", "subscript"]
+- !private ["SE", "count"]
+- !private ["SE", "subscript"]
+- !private ["SQ", "UnionFind_NotFound"]
+- ["SQ", ""]
+- !private ["SQ", "count"]
+- !private ["SQ", "find"]
+- !private ["SQ", "idArray"]
+- !private ["SQ", "init"]
+- !private ["SQ", "parents"]
+- !private ["SQ", "subscript"]
+- !private ["SQ", "unionFindName"]
+- !private ["s25ExpressibleByArrayLiteralP", ""]
+- !private ["s25ExpressibleByArrayLiteralP", "count"]
+- !private ["s25ExpressibleByArrayLiteralP", "subscript"]
+- !private ["SH", "UnionFind_NotFound"]
+- ["SH", ""]
+- !private ["SH", "count"]
+- !private ["SH", "find"]
+- !private ["SH", "idArray"]
+- !private ["SH", "init"]
+- !private ["SH", "parents"]
+- !private ["SH", "subscript"]
+- !private ["SH", "unionFindName"]
+- !private ["SM", ""]
+- !private ["SM", "count"]
+- !private ["SM", "subscript"]
+- !private ["10Foundation19MutableDataProtocolP", "count"]
+- !private ["10Foundation19MutableDataProtocolP", "subscript"]
+- ["So8NSObjectC", "Int"]
+- !private ["So8NSObjectC", "UnionFind_NotFound"]
+- ["So8NSObjectC", ""]
+- ["So8NSObjectC", "find"]
+- !private ["So8NSObjectC", "idArray"]
+- ["So8NSObjectC", "init"]
+- !private ["So8NSObjectC", "parents"]
+- !private ["So8NSObjectC", "unionFindName"]
+- !private ["So8NSObjectP", "UnionFind_NotFound"]
+- ["So8NSObjectP", ""]
+- ["So8NSObjectP", "find"]
+- ["So8NSObjectP", "idArray"]
+- ["So8NSObjectP", "init"]
+- ["So8NSObjectP", "isConnected"]
+- ["So8NSObjectP", "parents"]
+- ["So8NSObjectP", "rank"]
+- ["So8NSObjectP", "union"]
+- ["So8NSObjectP", "unionFindName"]
+- !private ["Sj", ""]
+- !private ["Sk", ""]
+- !private ["Sk", "count"]
+- !private ["Sk", "subscript"]
+- !private ["Sm", ""]
+- !private ["Sm", "count"]
+- !private ["Sm", "subscript"]
+- !private ["ST", ""]
+- !private ["ST", "count"]
+- !private ["ST", "subscript"]
+- !private ["Sx", ""]
+- ["19Play_with_Alorithms6UFTypeC", "Int"]
+- !private ["19Play_with_Alorithms6UFTypeC", "UnionFind_NotFound"]
+- ["19Play_with_Alorithms6UFTypeC", ""]
+- ["19Play_with_Alorithms6UFTypeC", "find"]
+- !private ["19Play_with_Alorithms6UFTypeC", "idArray"]
+- ["19Play_with_Alorithms6UFTypeC", "init"]
+- !private ["19Play_with_Alorithms6UFTypeC", "parents"]
+- !private ["19Play_with_Alorithms6UFTypeC", "unionFindName"]
+- ["19Play_with_Alorithms25UnionFind_CompressPath_01C", "Int"]
+- !private ["19Play_with_Alorithms25UnionFind_CompressPath_01C", "UnionFind_NotFound"]
+- ["19Play_with_Alorithms25UnionFind_CompressPath_01C", ""]
+- ["19Play_with_Alorithms25UnionFind_CompressPath_01C", "deinit"]
+- ["19Play_with_Alorithms25UnionFind_CompressPath_01C", "find"]
+- !private ["19Play_with_Alorithms25UnionFind_CompressPath_01C", "idArray"]
+- ["19Play_with_Alorithms25UnionFind_CompressPath_01C", "init"]
+- !private ["19Play_with_Alorithms25UnionFind_CompressPath_01C", "parents"]
+- !private ["19Play_with_Alorithms25UnionFind_CompressPath_01C", "unionFindName"]
+- ["19Play_with_Alorithms25UnionFind_CompressPath_02C", "Int"]
+- !private ["19Play_with_Alorithms25UnionFind_CompressPath_02C", "UnionFind_NotFound"]
+- ["19Play_with_Alorithms25UnionFind_CompressPath_02C", ""]
+- ["19Play_with_Alorithms25UnionFind_CompressPath_02C", "deinit"]
+- ["19Play_with_Alorithms25UnionFind_CompressPath_02C", "find"]
+- !private ["19Play_with_Alorithms25UnionFind_CompressPath_02C", "idArray"]
+- ["19Play_with_Alorithms25UnionFind_CompressPath_02C", "init"]
+- !private ["19Play_with_Alorithms25UnionFind_CompressPath_02C", "parents"]
+- !private ["19Play_with_Alorithms25UnionFind_CompressPath_02C", "unionFindName"]
+- ["19Play_with_Alorithms16UnionFind_SimpleC", "Int"]
+- !private ["19Play_with_Alorithms16UnionFind_SimpleC", "UnionFind_NotFound"]
+- ["19Play_with_Alorithms16UnionFind_SimpleC", ""]
+- ["19Play_with_Alorithms16UnionFind_SimpleC", "find"]
+- !private ["19Play_with_Alorithms16UnionFind_SimpleC", "idArray"]
+- ["19Play_with_Alorithms16UnionFind_SimpleC", "init"]
+- !private ["19Play_with_Alorithms16UnionFind_SimpleC", "parents"]
+- !private ["19Play_with_Alorithms16UnionFind_SimpleC", "unionFindName"]
+- ["19Play_with_Alorithms21UnionFind_UsingParentC", "Int"]
+- !private ["19Play_with_Alorithms21UnionFind_UsingParentC", "UnionFind_NotFound"]
+- ["19Play_with_Alorithms21UnionFind_UsingParentC", ""]
+- ["19Play_with_Alorithms21UnionFind_UsingParentC", "find"]
+- !private ["19Play_with_Alorithms21UnionFind_UsingParentC", "idArray"]
+- ["19Play_with_Alorithms21UnionFind_UsingParentC", "init"]
+- !private ["19Play_with_Alorithms21UnionFind_UsingParentC", "parents"]
+- !private ["19Play_with_Alorithms21UnionFind_UsingParentC", "unionFindName"]
+- ["19Play_with_Alorithms19UnionFind_UsingRankC", "Int"]
+- !private ["19Play_with_Alorithms19UnionFind_UsingRankC", "UnionFind_NotFound"]
+- ["19Play_with_Alorithms19UnionFind_UsingRankC", ""]
+- ["19Play_with_Alorithms19UnionFind_UsingRankC", "find"]
+- !private ["19Play_with_Alorithms19UnionFind_UsingRankC", "idArray"]
+- ["19Play_with_Alorithms19UnionFind_UsingRankC", "init"]
+- !private ["19Play_with_Alorithms19UnionFind_UsingRankC", "parents"]
+- !private ["19Play_with_Alorithms19UnionFind_UsingRankC", "unionFindName"]
+- !private ["s14_ArrayProtocolP", "count"]
+- !private ["s14_ArrayProtocolP", "subscript"]
+- !private ["s24_DestructorSafeContainerP", "count"]
+- !private ["s24_DestructorSafeContainerP", "subscript"]
+- !private ["s35_ExpressibleByBuiltinIntegerLiteralP", "init"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- !private ["s19_HasContiguousBytesP", "count"]
+- !private ["s19_HasContiguousBytesP", "subscript"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "count"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "subscript"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "UnionFind_NotFound"]
+- ["10Foundation27_KeyValueCodingAndObservingP", ""]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "find"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "idArray"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "parents"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "unionFindName"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "UnionFind_NotFound"]
+- ["10Foundation37_KeyValueCodingAndObservingPublishingP", ""]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "find"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "idArray"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "init"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "parents"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "unionFindName"]
+- !private ["s21_ObjectiveCBridgeableP", "count"]
+- !private ["s21_ObjectiveCBridgeableP", "subscript"]
+depends-nominal:
+- !private "Sa"
+- !private "SK"
+- "s7CVarArgP"
+- !private "Sl"
+- !private "SL"
+- !private "10Foundation15ContiguousBytesP"
+- "s28CustomDebugStringConvertibleP"
+- !private "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- !private "10Foundation12DataProtocolP"
+- !private "Se"
+- !private "SE"
+- "SQ"
+- !private "s25ExpressibleByArrayLiteralP"
+- "SH"
+- !private "SM"
+- !private "10Foundation19MutableDataProtocolP"
+- "So8NSObjectC"
+- "So8NSObjectP"
+- !private "Sj"
+- !private "Sk"
+- !private "Sm"
+- !private "ST"
+- !private "Sx"
+- "19Play_with_Alorithms6UFTypeC"
+- "19Play_with_Alorithms25UnionFind_CompressPath_01C"
+- "19Play_with_Alorithms25UnionFind_CompressPath_02C"
+- "19Play_with_Alorithms16UnionFind_SimpleC"
+- "19Play_with_Alorithms21UnionFind_UsingParentC"
+- "19Play_with_Alorithms19UnionFind_UsingRankC"
+- !private "s14_ArrayProtocolP"
+- !private "s24_DestructorSafeContainerP"
+- !private "s35_ExpressibleByBuiltinIntegerLiteralP"
+- !private "s34_ExpressibleByBuiltinStringLiteralP"
+- !private "s19_HasContiguousBytesP"
+- !private "s35_HasCustomAnyHashableRepresentationP"
+- "10Foundation27_KeyValueCodingAndObservingP"
+- "10Foundation37_KeyValueCodingAndObservingPublishingP"
+- !private "s21_ObjectiveCBridgeableP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/XPC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/ObjectiveC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Dispatch.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/CoreGraphics.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Swift.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/IOKit.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Users/fn-273/WillsonGO/Play-with-Alorithms/LeetCode/C files/Play-with-Alorithms-Bridging-Header.h"
+- "/Users/fn-273/WillsonGO/Play-with-Alorithms/LeetCode/C files/SolutionUtils.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include/xpc/XPC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/apinotes/Dispatch.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "cbab77a05b76a49d378366a2734877e0"

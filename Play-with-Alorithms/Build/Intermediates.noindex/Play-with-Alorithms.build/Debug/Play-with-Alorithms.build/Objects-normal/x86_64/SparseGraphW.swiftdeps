@@ -1,0 +1,825 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "SparseGraphW"
+provides-nominal:
+- "19Play_with_Alorithms12SparseGraphWC"
+- "19Play_with_Alorithms12SparseGraphWC4PathC"
+- "19Play_with_Alorithms12SparseGraphWC12ShortestPathC"
+- "19Play_with_Alorithms12SparseGraphWC11LazyPrimMSTC"
+- "19Play_with_Alorithms12SparseGraphWC7PrimMSTC"
+- "19Play_with_Alorithms12SparseGraphWC10KruskalMSTC"
+- "19Play_with_Alorithms12SparseGraphWC12DijkstraPathC"
+provides-member:
+- ["19Play_with_Alorithms12SparseGraphWC", ""]
+- ["19Play_with_Alorithms12SparseGraphWC4PathC", ""]
+- ["19Play_with_Alorithms12SparseGraphWC12ShortestPathC", ""]
+- ["19Play_with_Alorithms12SparseGraphWC11LazyPrimMSTC", ""]
+- ["19Play_with_Alorithms12SparseGraphWC7PrimMSTC", ""]
+- ["19Play_with_Alorithms12SparseGraphWC10KruskalMSTC", ""]
+- ["19Play_with_Alorithms12SparseGraphWC12DijkstraPathC", ""]
+- ["19Play_with_Alorithms12SparseGraphWC", "Path"]
+- ["19Play_with_Alorithms12SparseGraphWC", "ShortestPath"]
+- ["19Play_with_Alorithms12SparseGraphWC", "LazyPrimMST"]
+- ["19Play_with_Alorithms12SparseGraphWC", "PrimMST"]
+- ["19Play_with_Alorithms12SparseGraphWC", "KruskalMST"]
+- ["19Play_with_Alorithms12SparseGraphWC", "DijkstraPath"]
+provides-dynamic-lookup:
+- "G"
+- "GenericMST_Kruskal"
+- "addEdge"
+- "bfsFromVertex"
+- "deleteEdge"
+- "dfs"
+- "dfsFromVertex"
+- "dijkstraPath"
+- "graph"
+- "hasEdge"
+- "show"
+- "visit"
+depends-top-level:
+- !private "!"
+- !private "!="
+- !private "&&"
+- !private "+"
+- !private "+="
+- !private "-"
+- !private "-="
+- !private "..<"
+- "<"
+- "=="
+- "AssignmentPrecedence"
+- !private "BasicQueue"
+- "Bool"
+- !private "BooleanLiteralType"
+- "Edge"
+- "Float"
+- !private "FloatLiteralType"
+- !private "G"
+- "GraphPath"
+- "Graph_Weighted"
+- !private "HeapType"
+- "Int"
+- !private "IntegerLiteralType"
+- "MST_Kruskal"
+- "MST_LazyPrim"
+- "MST_Prim"
+- "ShortestPath_Dijkstra"
+- !private "SimpleHeap"
+- "SparseGraphW"
+- !private "String"
+- !private "StringLiteralType"
+- !private "UnicodeScalarType"
+- !private "UnionFind_UsingSize"
+- !private "assert"
+- !private "distTo"
+- !private "edgeTo"
+- !private "from"
+- !private "ipq"
+- "iteratorBlock"
+- !private "marked"
+- !private "mstArray"
+- !private "mstTotalWeight"
+- !private "pq"
+- !private "print"
+- !private "s"
+- !private "||"
+depends-member:
+- !private ["s18AdditiveArithmeticP", ""]
+- !private ["Sa", "append"]
+- !private ["Sa", "count"]
+- !private ["Sa", "init"]
+- !private ["Sa", "remove"]
+- !private ["Sa", "subscript"]
+- !private ["s10ArraySliceV", "append"]
+- !private ["s10ArraySliceV", "count"]
+- !private ["s10ArraySliceV", "remove"]
+- !private ["s10ArraySliceV", "subscript"]
+- !private ["s10ArraySliceV", "wt"]
+- !private ["19Play_with_Alorithms10BasicQueueC", "dequeue"]
+- !private ["19Play_with_Alorithms10BasicQueueC", "enqueue"]
+- !private ["19Play_with_Alorithms10BasicQueueC", "front"]
+- !private ["19Play_with_Alorithms10BasicQueueC", "init"]
+- !private ["19Play_with_Alorithms10BasicQueueC", "isEmpty"]
+- !private ["SK", ""]
+- !private ["SK", "append"]
+- !private ["SK", "count"]
+- !private ["SK", "init"]
+- !private ["SK", "remove"]
+- !private ["SK", "subscript"]
+- !private ["SK", "wt"]
+- !private ["s7CVarArgP", "append"]
+- !private ["s7CVarArgP", "count"]
+- !private ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "isConnected"]
+- !private ["s7CVarArgP", "remove"]
+- !private ["s7CVarArgP", "subscript"]
+- !private ["s7CVarArgP", "union"]
+- !private ["Sl", ""]
+- !private ["Sl", "append"]
+- !private ["Sl", "count"]
+- !private ["Sl", "init"]
+- !private ["Sl", "remove"]
+- !private ["Sl", "subscript"]
+- !private ["Sl", "wt"]
+- ["19Play_with_Alorithms10CommonHeapC", ""]
+- !private ["19Play_with_Alorithms10CommonHeapC", "change"]
+- !private ["19Play_with_Alorithms10CommonHeapC", "contain"]
+- !private ["19Play_with_Alorithms10CommonHeapC", "extract"]
+- !private ["19Play_with_Alorithms10CommonHeapC", "extractIndex"]
+- !private ["19Play_with_Alorithms10CommonHeapC", "init"]
+- !private ["19Play_with_Alorithms10CommonHeapC", "insert"]
+- !private ["19Play_with_Alorithms10CommonHeapC", "isEmpty"]
+- !private ["SL", "V"]
+- !private ["SL", "W"]
+- !private ["SL", ""]
+- !private ["SL", "init"]
+- !private ["SL", "other"]
+- !private ["SL", "to"]
+- !private ["SL", "wt"]
+- !private ["10Foundation15ContiguousBytesP", "append"]
+- !private ["10Foundation15ContiguousBytesP", "count"]
+- !private ["10Foundation15ContiguousBytesP", "init"]
+- !private ["10Foundation15ContiguousBytesP", "remove"]
+- !private ["10Foundation15ContiguousBytesP", "subscript"]
+- !private ["10Foundation15ContiguousBytesP", "wt"]
+- !private ["s28CustomDebugStringConvertibleP", "E"]
+- !private ["s28CustomDebugStringConvertibleP", "V"]
+- !private ["s28CustomDebugStringConvertibleP", "append"]
+- !private ["s28CustomDebugStringConvertibleP", "change"]
+- !private ["s28CustomDebugStringConvertibleP", "contain"]
+- !private ["s28CustomDebugStringConvertibleP", "count"]
+- !private ["s28CustomDebugStringConvertibleP", "extractIndex"]
+- !private ["s28CustomDebugStringConvertibleP", "graph"]
+- !private ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "insert"]
+- !private ["s28CustomDebugStringConvertibleP", "isConnected"]
+- !private ["s28CustomDebugStringConvertibleP", "isEmpty"]
+- !private ["s28CustomDebugStringConvertibleP", "remove"]
+- !private ["s28CustomDebugStringConvertibleP", "subscript"]
+- !private ["s28CustomDebugStringConvertibleP", "union"]
+- !private ["s28CustomDebugStringConvertibleP", "wt"]
+- !private ["s17CustomReflectableP", "E"]
+- !private ["s17CustomReflectableP", "V"]
+- !private ["s17CustomReflectableP", "append"]
+- !private ["s17CustomReflectableP", "change"]
+- !private ["s17CustomReflectableP", "contain"]
+- !private ["s17CustomReflectableP", "count"]
+- !private ["s17CustomReflectableP", "extractIndex"]
+- !private ["s17CustomReflectableP", "graph"]
+- !private ["s17CustomReflectableP", "init"]
+- !private ["s17CustomReflectableP", "insert"]
+- !private ["s17CustomReflectableP", "isEmpty"]
+- !private ["s17CustomReflectableP", "remove"]
+- !private ["s17CustomReflectableP", "subscript"]
+- !private ["s17CustomReflectableP", "wt"]
+- !private ["s23CustomStringConvertibleP", ""]
+- !private ["s23CustomStringConvertibleP", "append"]
+- !private ["s23CustomStringConvertibleP", "appendInterpolation"]
+- !private ["s23CustomStringConvertibleP", "appendLiteral"]
+- !private ["s23CustomStringConvertibleP", "count"]
+- !private ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "isConnected"]
+- !private ["s23CustomStringConvertibleP", "remove"]
+- !private ["s23CustomStringConvertibleP", "subscript"]
+- !private ["s23CustomStringConvertibleP", "union"]
+- !private ["s23CustomStringConvertibleP", "wt"]
+- !private ["10Foundation12DataProtocolP", ""]
+- !private ["10Foundation12DataProtocolP", "append"]
+- !private ["10Foundation12DataProtocolP", "count"]
+- !private ["10Foundation12DataProtocolP", "init"]
+- !private ["10Foundation12DataProtocolP", "remove"]
+- !private ["10Foundation12DataProtocolP", "subscript"]
+- !private ["10Foundation12DataProtocolP", "wt"]
+- !private ["Se", "E"]
+- !private ["Se", "V"]
+- !private ["Se", "append"]
+- !private ["Se", "change"]
+- !private ["Se", "contain"]
+- !private ["Se", "count"]
+- !private ["Se", "extractIndex"]
+- !private ["Se", "graph"]
+- !private ["Se", "init"]
+- !private ["Se", "insert"]
+- !private ["Se", "isEmpty"]
+- !private ["Se", "remove"]
+- !private ["Se", "subscript"]
+- !private ["s26DefaultStringInterpolationV", "appendInterpolation"]
+- !private ["s26DefaultStringInterpolationV", "appendLiteral"]
+- !private ["19Play_with_Alorithms12SparseGraphWC12DijkstraPathC", "G"]
+- ["19Play_with_Alorithms12SparseGraphWC12DijkstraPathC", "Int"]
+- ["19Play_with_Alorithms12SparseGraphWC12DijkstraPathC", "SparseGraphW"]
+- ["19Play_with_Alorithms12SparseGraphWC12DijkstraPathC", "deinit"]
+- ["19Play_with_Alorithms12SparseGraphWC12DijkstraPathC", "dijkstraPath"]
+- !private ["19Play_with_Alorithms12SparseGraphWC12DijkstraPathC", "distTo"]
+- !private ["19Play_with_Alorithms12SparseGraphWC12DijkstraPathC", "from"]
+- ["19Play_with_Alorithms12SparseGraphWC12DijkstraPathC", "init"]
+- !private ["19Play_with_Alorithms12SparseGraphWC12DijkstraPathC", "marked"]
+- !private ["19Play_with_Alorithms12SparseGraphWC12DijkstraPathC", "pq"]
+- !private ["19Play_with_Alorithms12SparseGraphWC12DijkstraPathC", "s"]
+- !private ["19Play_with_Alorithms4EdgeC", "V"]
+- !private ["19Play_with_Alorithms4EdgeC", "W"]
+- !private ["19Play_with_Alorithms4EdgeC", ""]
+- !private ["19Play_with_Alorithms4EdgeC", "init"]
+- !private ["19Play_with_Alorithms4EdgeC", "other"]
+- !private ["19Play_with_Alorithms4EdgeC", "to"]
+- !private ["19Play_with_Alorithms4EdgeC", "wt"]
+- !private ["SE", "E"]
+- !private ["SE", "V"]
+- !private ["SE", "append"]
+- !private ["SE", "change"]
+- !private ["SE", "contain"]
+- !private ["SE", "count"]
+- !private ["SE", "extractIndex"]
+- !private ["SE", "graph"]
+- !private ["SE", "init"]
+- !private ["SE", "insert"]
+- !private ["SE", "isEmpty"]
+- !private ["SE", "remove"]
+- !private ["SE", "subscript"]
+- !private ["SQ", "E"]
+- !private ["SQ", "V"]
+- !private ["SQ", "W"]
+- ["SQ", ""]
+- !private ["SQ", "append"]
+- !private ["SQ", "change"]
+- !private ["SQ", "contain"]
+- !private ["SQ", "count"]
+- !private ["SQ", "extractIndex"]
+- !private ["SQ", "graph"]
+- !private ["SQ", "init"]
+- !private ["SQ", "insert"]
+- !private ["SQ", "isConnected"]
+- !private ["SQ", "isEmpty"]
+- !private ["SQ", "min"]
+- !private ["SQ", "other"]
+- !private ["SQ", "remove"]
+- !private ["SQ", "subscript"]
+- !private ["SQ", "to"]
+- !private ["SQ", "union"]
+- !private ["SQ", "wt"]
+- !private ["s25ExpressibleByArrayLiteralP", ""]
+- !private ["s25ExpressibleByArrayLiteralP", "append"]
+- !private ["s25ExpressibleByArrayLiteralP", "count"]
+- ["s25ExpressibleByArrayLiteralP", "init"]
+- !private ["s25ExpressibleByArrayLiteralP", "remove"]
+- !private ["s25ExpressibleByArrayLiteralP", "subscript"]
+- !private ["s25ExpressibleByArrayLiteralP", "wt"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", ""]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s27ExpressibleByIntegerLiteralP", ""]
+- !private ["s23ExpressibleByNilLiteralP", "E"]
+- !private ["s23ExpressibleByNilLiteralP", "V"]
+- !private ["s23ExpressibleByNilLiteralP", "change"]
+- !private ["s23ExpressibleByNilLiteralP", "contain"]
+- !private ["s23ExpressibleByNilLiteralP", "extractIndex"]
+- !private ["s23ExpressibleByNilLiteralP", "graph"]
+- !private ["s23ExpressibleByNilLiteralP", "init"]
+- !private ["s23ExpressibleByNilLiteralP", "insert"]
+- !private ["s23ExpressibleByNilLiteralP", "isEmpty"]
+- !private ["s32ExpressibleByStringInterpolationP", "StringInterpolation"]
+- !private ["s32ExpressibleByStringInterpolationP", ""]
+- !private ["s32ExpressibleByStringInterpolationP", "init"]
+- !private ["s26ExpressibleByStringLiteralP", ""]
+- !private ["s26ExpressibleByStringLiteralP", "init"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", ""]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- !private ["19Play_with_Alorithms5GraphC", "BasicQueue"]
+- ["19Play_with_Alorithms5GraphC", "Bool"]
+- !private ["19Play_with_Alorithms5GraphC", "E"]
+- ["19Play_with_Alorithms5GraphC", "Edge"]
+- ["19Play_with_Alorithms5GraphC", "Float"]
+- !private ["19Play_with_Alorithms5GraphC", "G"]
+- ["19Play_with_Alorithms5GraphC", "GraphPath"]
+- !private ["19Play_with_Alorithms5GraphC", "HeapType"]
+- ["19Play_with_Alorithms5GraphC", "Int"]
+- ["19Play_with_Alorithms5GraphC", "MST_Kruskal"]
+- ["19Play_with_Alorithms5GraphC", "MST_LazyPrim"]
+- ["19Play_with_Alorithms5GraphC", "MST_Prim"]
+- ["19Play_with_Alorithms5GraphC", "ShortestPath_Dijkstra"]
+- !private ["19Play_with_Alorithms5GraphC", "SimpleHeap"]
+- ["19Play_with_Alorithms5GraphC", "SparseGraphW"]
+- !private ["19Play_with_Alorithms5GraphC", "String"]
+- !private ["19Play_with_Alorithms5GraphC", "UnionFind_UsingSize"]
+- !private ["19Play_with_Alorithms5GraphC", "V"]
+- ["19Play_with_Alorithms5GraphC", ""]
+- ["19Play_with_Alorithms5GraphC", "addEdge"]
+- !private ["19Play_with_Alorithms5GraphC", "assert"]
+- !private ["19Play_with_Alorithms5GraphC", "connectIds"]
+- ["19Play_with_Alorithms5GraphC", "deleteEdge"]
+- !private ["19Play_with_Alorithms5GraphC", "depthFirstSearch"]
+- ["19Play_with_Alorithms5GraphC", "dfs"]
+- !private ["19Play_with_Alorithms5GraphC", "distTo"]
+- !private ["19Play_with_Alorithms5GraphC", "edgeTo"]
+- !private ["19Play_with_Alorithms5GraphC", "from"]
+- ["19Play_with_Alorithms5GraphC", "graph"]
+- ["19Play_with_Alorithms5GraphC", "hasEdge"]
+- ["19Play_with_Alorithms5GraphC", "init"]
+- !private ["19Play_with_Alorithms5GraphC", "ipq"]
+- !private ["19Play_with_Alorithms5GraphC", "isAvaliable"]
+- !private ["19Play_with_Alorithms5GraphC", "isDirected"]
+- ["19Play_with_Alorithms5GraphC", "iteratorBlock"]
+- !private ["19Play_with_Alorithms5GraphC", "marked"]
+- !private ["19Play_with_Alorithms5GraphC", "mstArray"]
+- !private ["19Play_with_Alorithms5GraphC", "mstTotalWeight"]
+- !private ["19Play_with_Alorithms5GraphC", "num_components"]
+- !private ["19Play_with_Alorithms5GraphC", "num_edge"]
+- !private ["19Play_with_Alorithms5GraphC", "num_vertex"]
+- !private ["19Play_with_Alorithms5GraphC", "pq"]
+- !private ["19Play_with_Alorithms5GraphC", "print"]
+- !private ["19Play_with_Alorithms5GraphC", "s"]
+- ["19Play_with_Alorithms5GraphC", "show"]
+- !private ["19Play_with_Alorithms5GraphC", "visited"]
+- !private ["19Play_with_Alorithms9GraphPathC", "BasicQueue"]
+- ["19Play_with_Alorithms9GraphPathC", "G"]
+- ["19Play_with_Alorithms9GraphPathC", "Int"]
+- ["19Play_with_Alorithms9GraphPathC", "SparseGraphW"]
+- !private ["19Play_with_Alorithms9GraphPathC", "V"]
+- ["19Play_with_Alorithms9GraphPathC", ""]
+- ["19Play_with_Alorithms9GraphPathC", "bfsFromVertex"]
+- ["19Play_with_Alorithms9GraphPathC", "dfsFromVertex"]
+- !private ["19Play_with_Alorithms9GraphPathC", "distance"]
+- !private ["19Play_with_Alorithms9GraphPathC", "from"]
+- ["19Play_with_Alorithms9GraphPathC", "init"]
+- !private ["19Play_with_Alorithms9GraphPathC", "initDistanceArray"]
+- !private ["19Play_with_Alorithms9GraphPathC", "visited"]
+- !private ["19Play_with_Alorithms14Graph_WeightedC", "BasicQueue"]
+- ["19Play_with_Alorithms14Graph_WeightedC", "Bool"]
+- !private ["19Play_with_Alorithms14Graph_WeightedC", "E"]
+- ["19Play_with_Alorithms14Graph_WeightedC", "Edge"]
+- ["19Play_with_Alorithms14Graph_WeightedC", "Float"]
+- !private ["19Play_with_Alorithms14Graph_WeightedC", "G"]
+- ["19Play_with_Alorithms14Graph_WeightedC", "GraphPath"]
+- !private ["19Play_with_Alorithms14Graph_WeightedC", "HeapType"]
+- ["19Play_with_Alorithms14Graph_WeightedC", "Int"]
+- ["19Play_with_Alorithms14Graph_WeightedC", "MST_Kruskal"]
+- ["19Play_with_Alorithms14Graph_WeightedC", "MST_LazyPrim"]
+- ["19Play_with_Alorithms14Graph_WeightedC", "MST_Prim"]
+- ["19Play_with_Alorithms14Graph_WeightedC", "ShortestPath_Dijkstra"]
+- !private ["19Play_with_Alorithms14Graph_WeightedC", "SimpleHeap"]
+- ["19Play_with_Alorithms14Graph_WeightedC", "SparseGraphW"]
+- !private ["19Play_with_Alorithms14Graph_WeightedC", "String"]
+- !private ["19Play_with_Alorithms14Graph_WeightedC", "UnionFind_UsingSize"]
+- !private ["19Play_with_Alorithms14Graph_WeightedC", "V"]
+- ["19Play_with_Alorithms14Graph_WeightedC", ""]
+- ["19Play_with_Alorithms14Graph_WeightedC", "addEdge"]
+- !private ["19Play_with_Alorithms14Graph_WeightedC", "assert"]
+- !private ["19Play_with_Alorithms14Graph_WeightedC", "connectIds"]
+- ["19Play_with_Alorithms14Graph_WeightedC", "deleteEdge"]
+- !private ["19Play_with_Alorithms14Graph_WeightedC", "depthFirstSearch"]
+- ["19Play_with_Alorithms14Graph_WeightedC", "dfs"]
+- !private ["19Play_with_Alorithms14Graph_WeightedC", "distTo"]
+- !private ["19Play_with_Alorithms14Graph_WeightedC", "edgeTo"]
+- !private ["19Play_with_Alorithms14Graph_WeightedC", "from"]
+- ["19Play_with_Alorithms14Graph_WeightedC", "graph"]
+- ["19Play_with_Alorithms14Graph_WeightedC", "hasEdge"]
+- ["19Play_with_Alorithms14Graph_WeightedC", "init"]
+- !private ["19Play_with_Alorithms14Graph_WeightedC", "ipq"]
+- !private ["19Play_with_Alorithms14Graph_WeightedC", "isAvaliable"]
+- !private ["19Play_with_Alorithms14Graph_WeightedC", "isDirected"]
+- ["19Play_with_Alorithms14Graph_WeightedC", "iteratorBlock"]
+- !private ["19Play_with_Alorithms14Graph_WeightedC", "marked"]
+- !private ["19Play_with_Alorithms14Graph_WeightedC", "mstArray"]
+- !private ["19Play_with_Alorithms14Graph_WeightedC", "mstTotalWeight"]
+- !private ["19Play_with_Alorithms14Graph_WeightedC", "num_components"]
+- !private ["19Play_with_Alorithms14Graph_WeightedC", "num_edge"]
+- !private ["19Play_with_Alorithms14Graph_WeightedC", "num_vertex"]
+- !private ["19Play_with_Alorithms14Graph_WeightedC", "pq"]
+- !private ["19Play_with_Alorithms14Graph_WeightedC", "print"]
+- !private ["19Play_with_Alorithms14Graph_WeightedC", "s"]
+- ["19Play_with_Alorithms14Graph_WeightedC", "show"]
+- !private ["19Play_with_Alorithms14Graph_WeightedC", "visited"]
+- !private ["SH", "E"]
+- !private ["SH", "V"]
+- !private ["SH", ""]
+- !private ["SH", "append"]
+- !private ["SH", "change"]
+- !private ["SH", "contain"]
+- !private ["SH", "count"]
+- !private ["SH", "extractIndex"]
+- !private ["SH", "graph"]
+- !private ["SH", "init"]
+- !private ["SH", "insert"]
+- !private ["SH", "isConnected"]
+- !private ["SH", "isEmpty"]
+- !private ["SH", "min"]
+- !private ["SH", "remove"]
+- !private ["SH", "subscript"]
+- !private ["SH", "union"]
+- !private ["SH", "wt"]
+- !private ["19Play_with_Alorithms8HeapTypeO", "min"]
+- !private ["19Play_with_Alorithms9IndexHeapC", "change"]
+- !private ["19Play_with_Alorithms9IndexHeapC", "contain"]
+- !private ["19Play_with_Alorithms9IndexHeapC", "extractIndex"]
+- !private ["19Play_with_Alorithms9IndexHeapC", "insert"]
+- !private ["19Play_with_Alorithms9IndexHeapC", "isEmpty"]
+- !private ["19Play_with_Alorithms12SparseGraphWC10KruskalMSTC", "Edge"]
+- !private ["19Play_with_Alorithms12SparseGraphWC10KruskalMSTC", "G"]
+- ["19Play_with_Alorithms12SparseGraphWC10KruskalMSTC", "GenericMST_Kruskal"]
+- !private ["19Play_with_Alorithms12SparseGraphWC10KruskalMSTC", "HeapType"]
+- !private ["19Play_with_Alorithms12SparseGraphWC10KruskalMSTC", "SimpleHeap"]
+- ["19Play_with_Alorithms12SparseGraphWC10KruskalMSTC", "SparseGraphW"]
+- !private ["19Play_with_Alorithms12SparseGraphWC10KruskalMSTC", "UnionFind_UsingSize"]
+- ["19Play_with_Alorithms12SparseGraphWC10KruskalMSTC", "deinit"]
+- ["19Play_with_Alorithms12SparseGraphWC10KruskalMSTC", "init"]
+- !private ["19Play_with_Alorithms12SparseGraphWC10KruskalMSTC", "mstArray"]
+- !private ["19Play_with_Alorithms12SparseGraphWC10KruskalMSTC", "mstTotalWeight"]
+- !private ["19Play_with_Alorithms12SparseGraphWC11LazyPrimMSTC", "G"]
+- !private ["19Play_with_Alorithms12SparseGraphWC11LazyPrimMSTC", "GenericMST_lazyPrim"]
+- ["19Play_with_Alorithms12SparseGraphWC11LazyPrimMSTC", "Int"]
+- ["19Play_with_Alorithms12SparseGraphWC11LazyPrimMSTC", "SparseGraphW"]
+- ["19Play_with_Alorithms12SparseGraphWC11LazyPrimMSTC", "deinit"]
+- ["19Play_with_Alorithms12SparseGraphWC11LazyPrimMSTC", "init"]
+- !private ["19Play_with_Alorithms12SparseGraphWC11LazyPrimMSTC", "marked"]
+- !private ["19Play_with_Alorithms12SparseGraphWC11LazyPrimMSTC", "pq"]
+- ["19Play_with_Alorithms12SparseGraphWC11LazyPrimMSTC", "visit"]
+- !private ["s25LosslessStringConvertibleP", ""]
+- !private ["s25LosslessStringConvertibleP", "init"]
+- !private ["19Play_with_Alorithms3MSTC", "Edge"]
+- ["19Play_with_Alorithms3MSTC", "G"]
+- ["19Play_with_Alorithms3MSTC", "GenericMST_Kruskal"]
+- !private ["19Play_with_Alorithms3MSTC", "GenericMST_Prim"]
+- !private ["19Play_with_Alorithms3MSTC", "GenericMST_lazyPrim"]
+- !private ["19Play_with_Alorithms3MSTC", "HeapType"]
+- ["19Play_with_Alorithms3MSTC", "Int"]
+- !private ["19Play_with_Alorithms3MSTC", "SimpleHeap"]
+- ["19Play_with_Alorithms3MSTC", "SparseGraphW"]
+- !private ["19Play_with_Alorithms3MSTC", "UnionFind_UsingSize"]
+- ["19Play_with_Alorithms3MSTC", ""]
+- !private ["19Play_with_Alorithms3MSTC", "edgeTo"]
+- ["19Play_with_Alorithms3MSTC", "init"]
+- !private ["19Play_with_Alorithms3MSTC", "ipq"]
+- !private ["19Play_with_Alorithms3MSTC", "marked"]
+- !private ["19Play_with_Alorithms3MSTC", "mstArray"]
+- !private ["19Play_with_Alorithms3MSTC", "mstTotalWeight"]
+- !private ["19Play_with_Alorithms3MSTC", "pq"]
+- ["19Play_with_Alorithms3MSTC", "visit"]
+- !private ["19Play_with_Alorithms11MST_KruskalC", "Edge"]
+- ["19Play_with_Alorithms11MST_KruskalC", "G"]
+- ["19Play_with_Alorithms11MST_KruskalC", "GenericMST_Kruskal"]
+- !private ["19Play_with_Alorithms11MST_KruskalC", "HeapType"]
+- !private ["19Play_with_Alorithms11MST_KruskalC", "SimpleHeap"]
+- ["19Play_with_Alorithms11MST_KruskalC", "SparseGraphW"]
+- !private ["19Play_with_Alorithms11MST_KruskalC", "UnionFind_UsingSize"]
+- ["19Play_with_Alorithms11MST_KruskalC", ""]
+- ["19Play_with_Alorithms11MST_KruskalC", "init"]
+- !private ["19Play_with_Alorithms11MST_KruskalC", "mstArray"]
+- !private ["19Play_with_Alorithms11MST_KruskalC", "mstTotalWeight"]
+- ["19Play_with_Alorithms12MST_LazyPrimC", "G"]
+- !private ["19Play_with_Alorithms12MST_LazyPrimC", "GenericMST_lazyPrim"]
+- ["19Play_with_Alorithms12MST_LazyPrimC", "Int"]
+- ["19Play_with_Alorithms12MST_LazyPrimC", "SparseGraphW"]
+- ["19Play_with_Alorithms12MST_LazyPrimC", ""]
+- ["19Play_with_Alorithms12MST_LazyPrimC", "init"]
+- !private ["19Play_with_Alorithms12MST_LazyPrimC", "marked"]
+- !private ["19Play_with_Alorithms12MST_LazyPrimC", "pq"]
+- ["19Play_with_Alorithms12MST_LazyPrimC", "visit"]
+- ["19Play_with_Alorithms8MST_PrimC", "G"]
+- !private ["19Play_with_Alorithms8MST_PrimC", "GenericMST_Prim"]
+- ["19Play_with_Alorithms8MST_PrimC", "Int"]
+- ["19Play_with_Alorithms8MST_PrimC", "SparseGraphW"]
+- ["19Play_with_Alorithms8MST_PrimC", ""]
+- !private ["19Play_with_Alorithms8MST_PrimC", "edgeTo"]
+- ["19Play_with_Alorithms8MST_PrimC", "init"]
+- !private ["19Play_with_Alorithms8MST_PrimC", "ipq"]
+- !private ["19Play_with_Alorithms8MST_PrimC", "marked"]
+- ["19Play_with_Alorithms8MST_PrimC", "visit"]
+- !private ["s10MirrorPathP", "init"]
+- !private ["SM", ""]
+- !private ["SM", "append"]
+- !private ["SM", "count"]
+- !private ["SM", "init"]
+- !private ["SM", "remove"]
+- !private ["SM", "subscript"]
+- !private ["SM", "wt"]
+- !private ["10Foundation19MutableDataProtocolP", "append"]
+- !private ["10Foundation19MutableDataProtocolP", "count"]
+- !private ["10Foundation19MutableDataProtocolP", "init"]
+- !private ["10Foundation19MutableDataProtocolP", "remove"]
+- !private ["10Foundation19MutableDataProtocolP", "subscript"]
+- !private ["So8NSCodingP", ""]
+- ["So8NSObjectC", ""]
+- !private ["So8NSObjectC", "init"]
+- !private ["So8NSObjectC", "isConnected"]
+- !private ["So8NSObjectC", "union"]
+- !private ["So8NSObjectP", ""]
+- !private ["So8NSObjectP", "init"]
+- !private ["So8NSObjectP", "isConnected"]
+- !private ["So8NSObjectP", "union"]
+- !private ["Sj", ""]
+- !private ["Sq", "E"]
+- !private ["Sq", "V"]
+- !private ["Sq", "change"]
+- !private ["Sq", "contain"]
+- !private ["Sq", "extractIndex"]
+- !private ["Sq", "graph"]
+- !private ["Sq", "insert"]
+- !private ["Sq", "isEmpty"]
+- !private ["19Play_with_Alorithms12SparseGraphWC4PathC", "G"]
+- ["19Play_with_Alorithms12SparseGraphWC4PathC", "Int"]
+- ["19Play_with_Alorithms12SparseGraphWC4PathC", "SparseGraphW"]
+- !private ["19Play_with_Alorithms12SparseGraphWC4PathC", "V"]
+- ["19Play_with_Alorithms12SparseGraphWC4PathC", "deinit"]
+- ["19Play_with_Alorithms12SparseGraphWC4PathC", "dfsFromVertex"]
+- !private ["19Play_with_Alorithms12SparseGraphWC4PathC", "from"]
+- ["19Play_with_Alorithms12SparseGraphWC4PathC", "init"]
+- !private ["19Play_with_Alorithms12SparseGraphWC4PathC", "visited"]
+- !private ["19Play_with_Alorithms12SparseGraphWC7PrimMSTC", "G"]
+- !private ["19Play_with_Alorithms12SparseGraphWC7PrimMSTC", "GenericMST_Prim"]
+- ["19Play_with_Alorithms12SparseGraphWC7PrimMSTC", "Int"]
+- ["19Play_with_Alorithms12SparseGraphWC7PrimMSTC", "SparseGraphW"]
+- ["19Play_with_Alorithms12SparseGraphWC7PrimMSTC", "deinit"]
+- !private ["19Play_with_Alorithms12SparseGraphWC7PrimMSTC", "edgeTo"]
+- ["19Play_with_Alorithms12SparseGraphWC7PrimMSTC", "init"]
+- !private ["19Play_with_Alorithms12SparseGraphWC7PrimMSTC", "ipq"]
+- !private ["19Play_with_Alorithms12SparseGraphWC7PrimMSTC", "marked"]
+- ["19Play_with_Alorithms12SparseGraphWC7PrimMSTC", "visit"]
+- !private ["Sk", ""]
+- !private ["Sk", "append"]
+- !private ["Sk", "count"]
+- !private ["Sk", "init"]
+- !private ["Sk", "remove"]
+- !private ["Sk", "subscript"]
+- !private ["Sk", "wt"]
+- !private ["Sm", ""]
+- !private ["Sm", "append"]
+- !private ["Sm", "count"]
+- !private ["Sm", "init"]
+- !private ["Sm", "remove"]
+- !private ["Sm", "subscript"]
+- !private ["Sm", "wt"]
+- !private ["ST", "Element"]
+- !private ["ST", "Iterator"]
+- !private ["ST", ""]
+- !private ["ST", "append"]
+- !private ["ST", "count"]
+- !private ["ST", "init"]
+- !private ["ST", "makeIterator"]
+- !private ["ST", "remove"]
+- !private ["ST", "subscript"]
+- !private ["ST", "wt"]
+- !private ["19Play_with_Alorithms12SparseGraphWC12ShortestPathC", "BasicQueue"]
+- !private ["19Play_with_Alorithms12SparseGraphWC12ShortestPathC", "G"]
+- ["19Play_with_Alorithms12SparseGraphWC12ShortestPathC", "Int"]
+- ["19Play_with_Alorithms12SparseGraphWC12ShortestPathC", "SparseGraphW"]
+- !private ["19Play_with_Alorithms12SparseGraphWC12ShortestPathC", "V"]
+- ["19Play_with_Alorithms12SparseGraphWC12ShortestPathC", "bfsFromVertex"]
+- ["19Play_with_Alorithms12SparseGraphWC12ShortestPathC", "deinit"]
+- !private ["19Play_with_Alorithms12SparseGraphWC12ShortestPathC", "distance"]
+- !private ["19Play_with_Alorithms12SparseGraphWC12ShortestPathC", "from"]
+- ["19Play_with_Alorithms12SparseGraphWC12ShortestPathC", "init"]
+- !private ["19Play_with_Alorithms12SparseGraphWC12ShortestPathC", "initDistanceArray"]
+- !private ["19Play_with_Alorithms12SparseGraphWC12ShortestPathC", "visited"]
+- ["19Play_with_Alorithms21ShortestPath_DijkstraC", "G"]
+- ["19Play_with_Alorithms21ShortestPath_DijkstraC", "Int"]
+- ["19Play_with_Alorithms21ShortestPath_DijkstraC", "SparseGraphW"]
+- ["19Play_with_Alorithms21ShortestPath_DijkstraC", ""]
+- ["19Play_with_Alorithms21ShortestPath_DijkstraC", "dijkstraPath"]
+- !private ["19Play_with_Alorithms21ShortestPath_DijkstraC", "distTo"]
+- !private ["19Play_with_Alorithms21ShortestPath_DijkstraC", "from"]
+- ["19Play_with_Alorithms21ShortestPath_DijkstraC", "init"]
+- !private ["19Play_with_Alorithms21ShortestPath_DijkstraC", "marked"]
+- !private ["19Play_with_Alorithms21ShortestPath_DijkstraC", "pq"]
+- !private ["19Play_with_Alorithms21ShortestPath_DijkstraC", "s"]
+- !private ["s13SignedNumericP", ""]
+- !private ["19Play_with_Alorithms10SimpleHeapC", "extract"]
+- !private ["19Play_with_Alorithms10SimpleHeapC", "init"]
+- !private ["19Play_with_Alorithms10SimpleHeapC", "insert"]
+- !private ["19Play_with_Alorithms10SimpleHeapC", "isEmpty"]
+- !private ["19Play_with_Alorithms12SparseGraphWC", "BasicQueue"]
+- ["19Play_with_Alorithms12SparseGraphWC", "Bool"]
+- ["19Play_with_Alorithms12SparseGraphWC", "DijkstraPath"]
+- !private ["19Play_with_Alorithms12SparseGraphWC", "E"]
+- ["19Play_with_Alorithms12SparseGraphWC", "Edge"]
+- ["19Play_with_Alorithms12SparseGraphWC", "Float"]
+- !private ["19Play_with_Alorithms12SparseGraphWC", "G"]
+- ["19Play_with_Alorithms12SparseGraphWC", "GraphPath"]
+- !private ["19Play_with_Alorithms12SparseGraphWC", "HeapType"]
+- ["19Play_with_Alorithms12SparseGraphWC", "Int"]
+- ["19Play_with_Alorithms12SparseGraphWC", "KruskalMST"]
+- ["19Play_with_Alorithms12SparseGraphWC", "LazyPrimMST"]
+- ["19Play_with_Alorithms12SparseGraphWC", "MST_Kruskal"]
+- ["19Play_with_Alorithms12SparseGraphWC", "MST_LazyPrim"]
+- ["19Play_with_Alorithms12SparseGraphWC", "MST_Prim"]
+- ["19Play_with_Alorithms12SparseGraphWC", "Path"]
+- ["19Play_with_Alorithms12SparseGraphWC", "PrimMST"]
+- ["19Play_with_Alorithms12SparseGraphWC", "ShortestPath"]
+- ["19Play_with_Alorithms12SparseGraphWC", "ShortestPath_Dijkstra"]
+- !private ["19Play_with_Alorithms12SparseGraphWC", "SimpleHeap"]
+- ["19Play_with_Alorithms12SparseGraphWC", "SparseGraphW"]
+- !private ["19Play_with_Alorithms12SparseGraphWC", "String"]
+- !private ["19Play_with_Alorithms12SparseGraphWC", "UnionFind_UsingSize"]
+- !private ["19Play_with_Alorithms12SparseGraphWC", "V"]
+- ["19Play_with_Alorithms12SparseGraphWC", ""]
+- ["19Play_with_Alorithms12SparseGraphWC", "addEdge"]
+- !private ["19Play_with_Alorithms12SparseGraphWC", "assert"]
+- !private ["19Play_with_Alorithms12SparseGraphWC", "connectIds"]
+- ["19Play_with_Alorithms12SparseGraphWC", "deinit"]
+- ["19Play_with_Alorithms12SparseGraphWC", "deleteEdge"]
+- !private ["19Play_with_Alorithms12SparseGraphWC", "depthFirstSearch"]
+- ["19Play_with_Alorithms12SparseGraphWC", "dfs"]
+- !private ["19Play_with_Alorithms12SparseGraphWC", "distTo"]
+- !private ["19Play_with_Alorithms12SparseGraphWC", "edgeTo"]
+- !private ["19Play_with_Alorithms12SparseGraphWC", "from"]
+- ["19Play_with_Alorithms12SparseGraphWC", "graph"]
+- ["19Play_with_Alorithms12SparseGraphWC", "hasEdge"]
+- ["19Play_with_Alorithms12SparseGraphWC", "init"]
+- !private ["19Play_with_Alorithms12SparseGraphWC", "ipq"]
+- !private ["19Play_with_Alorithms12SparseGraphWC", "isAvaliable"]
+- !private ["19Play_with_Alorithms12SparseGraphWC", "isDirected"]
+- ["19Play_with_Alorithms12SparseGraphWC", "iteratorBlock"]
+- !private ["19Play_with_Alorithms12SparseGraphWC", "marked"]
+- !private ["19Play_with_Alorithms12SparseGraphWC", "mstArray"]
+- !private ["19Play_with_Alorithms12SparseGraphWC", "mstTotalWeight"]
+- !private ["19Play_with_Alorithms12SparseGraphWC", "num_components"]
+- !private ["19Play_with_Alorithms12SparseGraphWC", "num_edge"]
+- !private ["19Play_with_Alorithms12SparseGraphWC", "num_vertex"]
+- !private ["19Play_with_Alorithms12SparseGraphWC", "pq"]
+- !private ["19Play_with_Alorithms12SparseGraphWC", "print"]
+- !private ["19Play_with_Alorithms12SparseGraphWC", "s"]
+- ["19Play_with_Alorithms12SparseGraphWC", "show"]
+- !private ["19Play_with_Alorithms12SparseGraphWC", "visited"]
+- !private ["Sx", ""]
+- !private ["SS", "init"]
+- !private ["s27StringInterpolationProtocolP", "appendInterpolation"]
+- !private ["s27StringInterpolationProtocolP", "appendLiteral"]
+- !private ["s27StringInterpolationProtocolP", "init"]
+- !private ["Sy", "init"]
+- !private ["s16TextOutputStreamP", ""]
+- !private ["s16TextOutputStreamP", "appendInterpolation"]
+- !private ["s16TextOutputStreamP", "appendLiteral"]
+- !private ["s16TextOutputStreamP", "init"]
+- !private ["s20TextOutputStreamableP", ""]
+- !private ["s20TextOutputStreamableP", "init"]
+- ["19Play_with_Alorithms6UFTypeC", ""]
+- !private ["19Play_with_Alorithms6UFTypeC", "init"]
+- !private ["19Play_with_Alorithms6UFTypeC", "isConnected"]
+- !private ["19Play_with_Alorithms6UFTypeC", "union"]
+- ["19Play_with_Alorithms16UnionFind_SimpleC", ""]
+- !private ["19Play_with_Alorithms16UnionFind_SimpleC", "init"]
+- !private ["19Play_with_Alorithms16UnionFind_SimpleC", "isConnected"]
+- !private ["19Play_with_Alorithms16UnionFind_SimpleC", "union"]
+- ["19Play_with_Alorithms21UnionFind_UsingParentC", ""]
+- !private ["19Play_with_Alorithms21UnionFind_UsingParentC", "init"]
+- !private ["19Play_with_Alorithms21UnionFind_UsingParentC", "isConnected"]
+- !private ["19Play_with_Alorithms21UnionFind_UsingParentC", "union"]
+- !private ["19Play_with_Alorithms19UnionFind_UsingSizeC", "init"]
+- !private ["19Play_with_Alorithms19UnionFind_UsingSizeC", "isConnected"]
+- !private ["19Play_with_Alorithms19UnionFind_UsingSizeC", "union"]
+- !private ["s14_ArrayProtocolP", "append"]
+- !private ["s14_ArrayProtocolP", "count"]
+- !private ["s14_ArrayProtocolP", "init"]
+- !private ["s14_ArrayProtocolP", "remove"]
+- !private ["s14_ArrayProtocolP", "subscript"]
+- !private ["s14_ArrayProtocolP", "wt"]
+- !private ["s30_CustomPlaygroundQuickLookableP", "init"]
+- !private ["s24_DestructorSafeContainerP", "append"]
+- !private ["s24_DestructorSafeContainerP", "count"]
+- !private ["s24_DestructorSafeContainerP", "init"]
+- !private ["s24_DestructorSafeContainerP", "remove"]
+- !private ["s24_DestructorSafeContainerP", "subscript"]
+- !private ["s24_DestructorSafeContainerP", "wt"]
+- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "init"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", ""]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s33_ExpressibleByBuiltinFloatLiteralP", "init"]
+- !private ["s35_ExpressibleByBuiltinIntegerLiteralP", "init"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", ""]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- !private ["s19_HasContiguousBytesP", "append"]
+- !private ["s19_HasContiguousBytesP", "count"]
+- !private ["s19_HasContiguousBytesP", "init"]
+- !private ["s19_HasContiguousBytesP", "remove"]
+- !private ["s19_HasContiguousBytesP", "subscript"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "append"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "count"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "init"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "remove"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "subscript"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "isConnected"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "union"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "init"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "isConnected"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "union"]
+- !private ["s21_ObjectiveCBridgeableP", "E"]
+- !private ["s21_ObjectiveCBridgeableP", "V"]
+- !private ["s21_ObjectiveCBridgeableP", "append"]
+- !private ["s21_ObjectiveCBridgeableP", "change"]
+- !private ["s21_ObjectiveCBridgeableP", "contain"]
+- !private ["s21_ObjectiveCBridgeableP", "count"]
+- !private ["s21_ObjectiveCBridgeableP", "extractIndex"]
+- !private ["s21_ObjectiveCBridgeableP", "graph"]
+- !private ["s21_ObjectiveCBridgeableP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "insert"]
+- !private ["s21_ObjectiveCBridgeableP", "isEmpty"]
+- !private ["s21_ObjectiveCBridgeableP", "remove"]
+- !private ["s21_ObjectiveCBridgeableP", "subscript"]
+depends-nominal:
+- !private "s18AdditiveArithmeticP"
+- !private "Sa"
+- !private "s10ArraySliceV"
+- !private "19Play_with_Alorithms10BasicQueueC"
+- !private "SK"
+- !private "s7CVarArgP"
+- !private "Sl"
+- "19Play_with_Alorithms10CommonHeapC"
+- !private "SL"
+- !private "10Foundation15ContiguousBytesP"
+- !private "s28CustomDebugStringConvertibleP"
+- !private "s17CustomReflectableP"
+- !private "s23CustomStringConvertibleP"
+- !private "10Foundation12DataProtocolP"
+- !private "Se"
+- !private "s26DefaultStringInterpolationV"
+- "19Play_with_Alorithms12SparseGraphWC12DijkstraPathC"
+- !private "19Play_with_Alorithms4EdgeC"
+- !private "SE"
+- "SQ"
+- "s25ExpressibleByArrayLiteralP"
+- !private "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- !private "s27ExpressibleByIntegerLiteralP"
+- !private "s23ExpressibleByNilLiteralP"
+- !private "s32ExpressibleByStringInterpolationP"
+- !private "s26ExpressibleByStringLiteralP"
+- !private "s33ExpressibleByUnicodeScalarLiteralP"
+- "19Play_with_Alorithms5GraphC"
+- "19Play_with_Alorithms9GraphPathC"
+- "19Play_with_Alorithms14Graph_WeightedC"
+- !private "SH"
+- !private "19Play_with_Alorithms8HeapTypeO"
+- !private "19Play_with_Alorithms9IndexHeapC"
+- "19Play_with_Alorithms12SparseGraphWC10KruskalMSTC"
+- "19Play_with_Alorithms12SparseGraphWC11LazyPrimMSTC"
+- !private "s25LosslessStringConvertibleP"
+- "19Play_with_Alorithms3MSTC"
+- "19Play_with_Alorithms11MST_KruskalC"
+- "19Play_with_Alorithms12MST_LazyPrimC"
+- "19Play_with_Alorithms8MST_PrimC"
+- !private "s10MirrorPathP"
+- !private "SM"
+- !private "10Foundation19MutableDataProtocolP"
+- !private "So8NSCodingP"
+- "So8NSObjectC"
+- !private "So8NSObjectP"
+- !private "Sj"
+- !private "Sq"
+- "19Play_with_Alorithms12SparseGraphWC4PathC"
+- "19Play_with_Alorithms12SparseGraphWC7PrimMSTC"
+- !private "Sk"
+- !private "Sm"
+- !private "ST"
+- "19Play_with_Alorithms12SparseGraphWC12ShortestPathC"
+- "19Play_with_Alorithms21ShortestPath_DijkstraC"
+- !private "s13SignedNumericP"
+- !private "19Play_with_Alorithms10SimpleHeapC"
+- "19Play_with_Alorithms12SparseGraphWC"
+- !private "Sx"
+- !private "SS"
+- !private "s27StringInterpolationProtocolP"
+- !private "Sy"
+- !private "s16TextOutputStreamP"
+- !private "s20TextOutputStreamableP"
+- "19Play_with_Alorithms6UFTypeC"
+- "19Play_with_Alorithms16UnionFind_SimpleC"
+- "19Play_with_Alorithms21UnionFind_UsingParentC"
+- !private "19Play_with_Alorithms19UnionFind_UsingSizeC"
+- !private "s14_ArrayProtocolP"
+- !private "s30_CustomPlaygroundQuickLookableP"
+- !private "s24_DestructorSafeContainerP"
+- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
+- !private "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- !private "s33_ExpressibleByBuiltinFloatLiteralP"
+- !private "s35_ExpressibleByBuiltinIntegerLiteralP"
+- !private "s34_ExpressibleByBuiltinStringLiteralP"
+- !private "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- !private "s19_HasContiguousBytesP"
+- !private "s35_HasCustomAnyHashableRepresentationP"
+- !private "10Foundation27_KeyValueCodingAndObservingP"
+- !private "10Foundation37_KeyValueCodingAndObservingPublishingP"
+- !private "s21_ObjectiveCBridgeableP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/XPC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/ObjectiveC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Combine.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Dispatch.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Darwin.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Foundation.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/CoreFoundation.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/CoreGraphics.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Swift.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/IOKit.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/SwiftOnoneSupport.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Users/fn-273/WillsonGO/Play-with-Alorithms/LeetCode/C files/Play-with-Alorithms-Bridging-Header.h"
+- "/Users/fn-273/WillsonGO/Play-with-Alorithms/LeetCode/C files/SolutionUtils.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include/xpc/XPC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/apinotes/Dispatch.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "06739ce4ae71fb76577034d6ef1fc46b"

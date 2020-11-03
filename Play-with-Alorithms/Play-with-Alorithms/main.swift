@@ -8,15 +8,27 @@
 
 import Foundation
 
-let a: Int = 3
+//let lands =
+//    [[0, 1, 1, 1],
+//     [1, 1, 1, 0],
+//     [0, 1, 0, 0],
+//     [1, 1, 0, 0]]
+
+let lands = [[1,0]]
 
 let s = Solution_05()
-let sss = "ABAABB"
-let res = s.calculate(sss)
-let res1 = s.calculate_1(sss)
+let res = s.islandPerimeter(lands)
+print("islandPerimeter res : ", res)
 
-print("res : ", res)
-print("res1 : ", res1)
+// let a: Int = 3
+//
+// let s = Solution_05()
+// let sss = "ABAABB"
+// let res = s.calculate(sss)
+// let res1 = s.calculate_1(sss)
+//
+// print("res : ", res)
+// print("res1 : ", res1)
 // let s = [10, 20, 5]
 // let d = [5, 5, 2]
 // let res = Solution_01().breakfastNumber(s, d, 15)

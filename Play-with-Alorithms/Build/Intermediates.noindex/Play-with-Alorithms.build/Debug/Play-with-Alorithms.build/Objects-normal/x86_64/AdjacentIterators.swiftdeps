@@ -1,0 +1,313 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+provides-nominal:
+- "19Play_with_Alorithms11SparseGraphC11adjIteratorC"
+- "19Play_with_Alorithms17DenseGraph_MatrixC11adjIteratorC"
+provides-member:
+- ["19Play_with_Alorithms11SparseGraphC", ""]
+- ["19Play_with_Alorithms11SparseGraphC11adjIteratorC", ""]
+- ["19Play_with_Alorithms17DenseGraph_MatrixC", ""]
+- ["19Play_with_Alorithms17DenseGraph_MatrixC11adjIteratorC", ""]
+- ["19Play_with_Alorithms11SparseGraphC", "adjIterator"]
+- ["19Play_with_Alorithms17DenseGraph_MatrixC", "adjIterator"]
+provides-dynamic-lookup:
+- "G"
+- "V"
+- "begin"
+- "currIdx"
+- "isEnd"
+- "next"
+depends-top-level:
+- !private "+="
+- !private "<"
+- !private "=="
+- !private ">="
+- "AssignmentPrecedence"
+- "Bool"
+- !private "BooleanLiteralType"
+- "DenseGraph_Matrix"
+- "FloatLiteralType"
+- !private "G"
+- "Int"
+- "IntegerLiteralType"
+- "NSObject"
+- "SparseGraph"
+- !private "V"
+- !private "currIdx"
+depends-member:
+- !private ["Sa", "count"]
+- !private ["Sa", "subscript"]
+- !private ["s10ArraySliceV", "count"]
+- !private ["s10ArraySliceV", "subscript"]
+- !private ["SK", ""]
+- !private ["SK", "count"]
+- !private ["SK", "subscript"]
+- !private ["s7CVarArgP", "G"]
+- !private ["s7CVarArgP", "V"]
+- ["s7CVarArgP", ""]
+- !private ["s7CVarArgP", "count"]
+- !private ["s7CVarArgP", "currIdx"]
+- !private ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "next"]
+- !private ["s7CVarArgP", "subscript"]
+- !private ["Sl", ""]
+- !private ["Sl", "count"]
+- !private ["Sl", "subscript"]
+- !private ["10Foundation15ContiguousBytesP", "count"]
+- !private ["10Foundation15ContiguousBytesP", "subscript"]
+- !private ["s28CustomDebugStringConvertibleP", "G"]
+- !private ["s28CustomDebugStringConvertibleP", "V"]
+- ["s28CustomDebugStringConvertibleP", ""]
+- !private ["s28CustomDebugStringConvertibleP", "count"]
+- !private ["s28CustomDebugStringConvertibleP", "currIdx"]
+- !private ["s28CustomDebugStringConvertibleP", "graph"]
+- !private ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "next"]
+- !private ["s28CustomDebugStringConvertibleP", "num_vertex"]
+- !private ["s28CustomDebugStringConvertibleP", "subscript"]
+- !private ["s17CustomReflectableP", "count"]
+- !private ["s17CustomReflectableP", "graph"]
+- !private ["s17CustomReflectableP", "num_vertex"]
+- !private ["s17CustomReflectableP", "subscript"]
+- !private ["s23CustomStringConvertibleP", "G"]
+- !private ["s23CustomStringConvertibleP", "V"]
+- ["s23CustomStringConvertibleP", ""]
+- !private ["s23CustomStringConvertibleP", "count"]
+- !private ["s23CustomStringConvertibleP", "currIdx"]
+- !private ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "next"]
+- !private ["s23CustomStringConvertibleP", "subscript"]
+- !private ["10Foundation12DataProtocolP", ""]
+- !private ["10Foundation12DataProtocolP", "count"]
+- !private ["10Foundation12DataProtocolP", "subscript"]
+- !private ["Se", "count"]
+- !private ["Se", "graph"]
+- !private ["Se", "num_vertex"]
+- !private ["Se", "subscript"]
+- ["19Play_with_Alorithms17DenseGraph_MatrixC", "Bool"]
+- ["19Play_with_Alorithms17DenseGraph_MatrixC", "DenseGraph_Matrix"]
+- ["19Play_with_Alorithms17DenseGraph_MatrixC", "Int"]
+- ["19Play_with_Alorithms17DenseGraph_MatrixC", "NSObject"]
+- !private ["19Play_with_Alorithms17DenseGraph_MatrixC", "V"]
+- ["19Play_with_Alorithms17DenseGraph_MatrixC", ""]
+- ["19Play_with_Alorithms17DenseGraph_MatrixC", "adjIterator"]
+- !private ["19Play_with_Alorithms17DenseGraph_MatrixC", "currIdx"]
+- !private ["19Play_with_Alorithms17DenseGraph_MatrixC", "graph"]
+- !private ["19Play_with_Alorithms17DenseGraph_MatrixC", "num_vertex"]
+- !private ["SE", "count"]
+- !private ["SE", "graph"]
+- !private ["SE", "num_vertex"]
+- !private ["SE", "subscript"]
+- !private ["SQ", "G"]
+- !private ["SQ", "V"]
+- ["SQ", ""]
+- !private ["SQ", "count"]
+- !private ["SQ", "currIdx"]
+- !private ["SQ", "graph"]
+- !private ["SQ", "init"]
+- !private ["SQ", "next"]
+- !private ["SQ", "num_vertex"]
+- !private ["SQ", "subscript"]
+- !private ["s25ExpressibleByArrayLiteralP", ""]
+- !private ["s25ExpressibleByArrayLiteralP", "count"]
+- !private ["s25ExpressibleByArrayLiteralP", "subscript"]
+- !private ["s23ExpressibleByNilLiteralP", "graph"]
+- !private ["s23ExpressibleByNilLiteralP", "num_vertex"]
+- ["19Play_with_Alorithms5GraphC", "Bool"]
+- ["19Play_with_Alorithms5GraphC", "DenseGraph_Matrix"]
+- !private ["19Play_with_Alorithms5GraphC", "G"]
+- ["19Play_with_Alorithms5GraphC", "Int"]
+- ["19Play_with_Alorithms5GraphC", "NSObject"]
+- ["19Play_with_Alorithms5GraphC", "SparseGraph"]
+- !private ["19Play_with_Alorithms5GraphC", "V"]
+- ["19Play_with_Alorithms5GraphC", ""]
+- !private ["19Play_with_Alorithms5GraphC", "currIdx"]
+- !private ["19Play_with_Alorithms5GraphC", "graph"]
+- !private ["19Play_with_Alorithms5GraphC", "num_vertex"]
+- !private ["SH", "G"]
+- !private ["SH", "V"]
+- ["SH", ""]
+- !private ["SH", "count"]
+- !private ["SH", "currIdx"]
+- !private ["SH", "graph"]
+- !private ["SH", "init"]
+- !private ["SH", "next"]
+- !private ["SH", "num_vertex"]
+- !private ["SH", "subscript"]
+- !private ["SM", ""]
+- !private ["SM", "count"]
+- !private ["SM", "subscript"]
+- !private ["10Foundation19MutableDataProtocolP", "count"]
+- !private ["10Foundation19MutableDataProtocolP", "subscript"]
+- ["So8NSObjectC", "Bool"]
+- ["So8NSObjectC", "DenseGraph_Matrix"]
+- ["So8NSObjectC", "G"]
+- ["So8NSObjectC", "Int"]
+- ["So8NSObjectC", "SparseGraph"]
+- ["So8NSObjectC", "V"]
+- ["So8NSObjectC", ""]
+- ["So8NSObjectC", "begin"]
+- ["So8NSObjectC", "currIdx"]
+- ["So8NSObjectC", "init"]
+- ["So8NSObjectC", "isEnd"]
+- ["So8NSObjectC", "next"]
+- ["So8NSObjectP", "DenseGraph_Matrix"]
+- ["So8NSObjectP", "G"]
+- ["So8NSObjectP", "SparseGraph"]
+- ["So8NSObjectP", "V"]
+- ["So8NSObjectP", ""]
+- ["So8NSObjectP", "begin"]
+- ["So8NSObjectP", "currIdx"]
+- ["So8NSObjectP", "init"]
+- ["So8NSObjectP", "isEnd"]
+- ["So8NSObjectP", "next"]
+- !private ["Sq", "graph"]
+- !private ["Sq", "num_vertex"]
+- !private ["Sk", ""]
+- !private ["Sk", "count"]
+- !private ["Sk", "subscript"]
+- !private ["Sm", ""]
+- !private ["Sm", "count"]
+- !private ["Sm", "subscript"]
+- !private ["ST", ""]
+- !private ["ST", "count"]
+- !private ["ST", "subscript"]
+- ["19Play_with_Alorithms11SparseGraphC", "Bool"]
+- !private ["19Play_with_Alorithms11SparseGraphC", "G"]
+- ["19Play_with_Alorithms11SparseGraphC", "Int"]
+- ["19Play_with_Alorithms11SparseGraphC", "NSObject"]
+- ["19Play_with_Alorithms11SparseGraphC", "SparseGraph"]
+- !private ["19Play_with_Alorithms11SparseGraphC", "V"]
+- ["19Play_with_Alorithms11SparseGraphC", ""]
+- ["19Play_with_Alorithms11SparseGraphC", "adjIterator"]
+- !private ["19Play_with_Alorithms11SparseGraphC", "currIdx"]
+- !private ["19Play_with_Alorithms11SparseGraphC", "graph"]
+- !private ["s14_ArrayProtocolP", "count"]
+- !private ["s14_ArrayProtocolP", "subscript"]
+- !private ["s24_DestructorSafeContainerP", "count"]
+- !private ["s24_DestructorSafeContainerP", "subscript"]
+- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "init"]
+- ["s35_ExpressibleByBuiltinIntegerLiteralP", "init"]
+- !private ["s19_HasContiguousBytesP", "count"]
+- !private ["s19_HasContiguousBytesP", "subscript"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "count"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "subscript"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "G"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "V"]
+- ["10Foundation27_KeyValueCodingAndObservingP", ""]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "currIdx"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "next"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "G"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "V"]
+- ["10Foundation37_KeyValueCodingAndObservingPublishingP", ""]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "currIdx"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "init"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "next"]
+- !private ["s21_ObjectiveCBridgeableP", "count"]
+- !private ["s21_ObjectiveCBridgeableP", "graph"]
+- !private ["s21_ObjectiveCBridgeableP", "num_vertex"]
+- !private ["s21_ObjectiveCBridgeableP", "subscript"]
+- ["19Play_with_Alorithms11SparseGraphC11adjIteratorC", "Bool"]
+- ["19Play_with_Alorithms17DenseGraph_MatrixC11adjIteratorC", "Bool"]
+- ["19Play_with_Alorithms17DenseGraph_MatrixC11adjIteratorC", "DenseGraph_Matrix"]
+- ["19Play_with_Alorithms11SparseGraphC11adjIteratorC", "G"]
+- ["19Play_with_Alorithms17DenseGraph_MatrixC11adjIteratorC", "G"]
+- ["19Play_with_Alorithms11SparseGraphC11adjIteratorC", "Int"]
+- ["19Play_with_Alorithms17DenseGraph_MatrixC11adjIteratorC", "Int"]
+- ["19Play_with_Alorithms11SparseGraphC11adjIteratorC", "SparseGraph"]
+- ["19Play_with_Alorithms11SparseGraphC11adjIteratorC", "V"]
+- ["19Play_with_Alorithms17DenseGraph_MatrixC11adjIteratorC", "V"]
+- ["19Play_with_Alorithms11SparseGraphC11adjIteratorC", ""]
+- ["19Play_with_Alorithms17DenseGraph_MatrixC11adjIteratorC", ""]
+- ["19Play_with_Alorithms11SparseGraphC11adjIteratorC", "begin"]
+- ["19Play_with_Alorithms17DenseGraph_MatrixC11adjIteratorC", "begin"]
+- ["19Play_with_Alorithms11SparseGraphC11adjIteratorC", "currIdx"]
+- ["19Play_with_Alorithms17DenseGraph_MatrixC11adjIteratorC", "currIdx"]
+- ["19Play_with_Alorithms11SparseGraphC11adjIteratorC", "deinit"]
+- ["19Play_with_Alorithms17DenseGraph_MatrixC11adjIteratorC", "deinit"]
+- ["19Play_with_Alorithms11SparseGraphC11adjIteratorC", "init"]
+- ["19Play_with_Alorithms17DenseGraph_MatrixC11adjIteratorC", "init"]
+- ["19Play_with_Alorithms11SparseGraphC11adjIteratorC", "isEnd"]
+- ["19Play_with_Alorithms17DenseGraph_MatrixC11adjIteratorC", "isEnd"]
+- ["19Play_with_Alorithms11SparseGraphC11adjIteratorC", "next"]
+- ["19Play_with_Alorithms17DenseGraph_MatrixC11adjIteratorC", "next"]
+depends-nominal:
+- !private "Sa"
+- !private "s10ArraySliceV"
+- !private "SK"
+- "s7CVarArgP"
+- !private "Sl"
+- !private "10Foundation15ContiguousBytesP"
+- "s28CustomDebugStringConvertibleP"
+- !private "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- !private "10Foundation12DataProtocolP"
+- !private "Se"
+- "19Play_with_Alorithms17DenseGraph_MatrixC"
+- !private "SE"
+- "SQ"
+- !private "s25ExpressibleByArrayLiteralP"
+- !private "s23ExpressibleByNilLiteralP"
+- "19Play_with_Alorithms5GraphC"
+- "SH"
+- !private "SM"
+- !private "10Foundation19MutableDataProtocolP"
+- "So8NSObjectC"
+- "So8NSObjectP"
+- !private "Sq"
+- !private "Sk"
+- !private "Sm"
+- !private "ST"
+- "19Play_with_Alorithms11SparseGraphC"
+- !private "s14_ArrayProtocolP"
+- !private "s24_DestructorSafeContainerP"
+- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
+- "s35_ExpressibleByBuiltinIntegerLiteralP"
+- !private "s19_HasContiguousBytesP"
+- !private "s35_HasCustomAnyHashableRepresentationP"
+- "10Foundation27_KeyValueCodingAndObservingP"
+- "10Foundation37_KeyValueCodingAndObservingPublishingP"
+- !private "s21_ObjectiveCBridgeableP"
+- "19Play_with_Alorithms11SparseGraphC11adjIteratorC"
+- "19Play_with_Alorithms17DenseGraph_MatrixC11adjIteratorC"
+- "19Play_with_Alorithms11SparseGraphC11adjIteratorC"
+- "19Play_with_Alorithms17DenseGraph_MatrixC11adjIteratorC"
+- "19Play_with_Alorithms11SparseGraphC11adjIteratorC"
+- "19Play_with_Alorithms17DenseGraph_MatrixC11adjIteratorC"
+- "19Play_with_Alorithms11SparseGraphC11adjIteratorC"
+- "19Play_with_Alorithms17DenseGraph_MatrixC11adjIteratorC"
+- "19Play_with_Alorithms11SparseGraphC11adjIteratorC"
+- "19Play_with_Alorithms17DenseGraph_MatrixC11adjIteratorC"
+- "19Play_with_Alorithms11SparseGraphC11adjIteratorC"
+- "19Play_with_Alorithms17DenseGraph_MatrixC11adjIteratorC"
+- "19Play_with_Alorithms11SparseGraphC11adjIteratorC"
+- "19Play_with_Alorithms17DenseGraph_MatrixC11adjIteratorC"
+- "19Play_with_Alorithms11SparseGraphC11adjIteratorC"
+- "19Play_with_Alorithms17DenseGraph_MatrixC11adjIteratorC"
+- "19Play_with_Alorithms11SparseGraphC11adjIteratorC"
+- "19Play_with_Alorithms17DenseGraph_MatrixC11adjIteratorC"
+- "19Play_with_Alorithms11SparseGraphC11adjIteratorC"
+- "19Play_with_Alorithms17DenseGraph_MatrixC11adjIteratorC"
+- "19Play_with_Alorithms11SparseGraphC11adjIteratorC"
+- "19Play_with_Alorithms17DenseGraph_MatrixC11adjIteratorC"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/XPC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/ObjectiveC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Dispatch.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/CoreGraphics.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Swift.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/IOKit.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Users/fn-273/WillsonGO/Play-with-Alorithms/LeetCode/C files/Play-with-Alorithms-Bridging-Header.h"
+- "/Users/fn-273/WillsonGO/Play-with-Alorithms/LeetCode/C files/SolutionUtils.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include/xpc/XPC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/apinotes/Dispatch.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "6710044582a94ec00f39a9684966fed6"
