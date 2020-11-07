@@ -21,6 +21,8 @@
 #include "Hawk.hpp"
 #include "Shape.hpp"
 #include "Rectangle.hpp"
+#include <fstream>
+#include <unistd.h>
 
 using namespace std;
 
@@ -33,6 +35,49 @@ int * gen_arr(int len);
 void print_tm(tm *t);
 void clock_study();
 void print_student(struct Student *s);
+
+void fstream_ifstream_ofstream_study()
+{
+    // 获取当前工作路径，即可执行文件所在目录的路径
+    size_t max_len = 80;
+    char file_path[max_len];
+    // getcwd 需要引入头文件 #include <unistd.h>
+    char *res = getcwd(file_path, max_len);
+    if (!res) {
+        cout << "Fail to get working space path." << endl;
+        return;
+    }
+
+    char data_to_write[100];
+    // 引入头文件 #include <fstream>
+    // 打开文件
+    strcat(file_path, "/file1");
+    ofstream ofile;
+    ofile.open(file_path, ios::trunc);
+    // 如果向一个不存在的文件中写入内容，会自动创建该文件
+    //f1 << "willson" << endl;
+    cout << "Enter your name : ";
+    cin >> data_to_write;
+    ofile << data_to_write << endl;
+    cout << "Enter your age : ";
+    cin >> data_to_write;
+    ofile << data_to_write << endl;
+    // 使用完记得关闭
+    ofile.close();
+
+    // 读取文件内容
+    ifstream infile;
+    infile.open(file_path);
+    char data_from_read[100];
+    // 每次只会读取一行数据
+    // 如果文件有多行，需要多次提取文件输入流
+    infile >> data_from_read;
+    cout << "Name of you input : " << data_from_read << endl;
+    infile >> data_from_read;
+    cout << "Age of you input  : " << data_from_read << endl;
+    // 使用完记得关闭
+    infile.close();
+}
 
 struct Student {
     string name;

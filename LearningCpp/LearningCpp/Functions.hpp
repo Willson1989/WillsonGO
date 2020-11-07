@@ -55,4 +55,7 @@ void oop_study();
 // 多态、抽象类
 void polymorphisn_abstract_class_study();
 
+// 文件输入输出流
+void fstream_ifstream_ofstream_study();
+
 #endif /* Functions_hpp */
