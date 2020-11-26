@@ -16,13 +16,38 @@
 #include "B.hpp"
 #include "Param.hpp"
 #include <unistd.h>
+#include <string.h>
+#include "SizeOfDemoClass.hpp"
+
 
 using namespace std;
 
 int main(int argc, const char *argv[])
 {
-    cout << "hahaha " << endl;
-    fstream_ifstream_ofstream_study();
+//    int a1[10];
+//    printf("sizeof int arr : %ld\n", sizeof(a1));
+//    int *a2 = new int[20];
+//    printf("sizeof int arr pointer : %ld\n", sizeof(a2));
+
+//    printf("sizeof void *            : %ld\n", sizeof(void *));
+//    printf("sizeof int *             : %ld\n", sizeof(int *));
+//    printf("sizeof int               : %ld\n", sizeof(int));
+//    printf("sizeof double            : %ld\n", sizeof(double));
+//    printf("sizeof char              : %ld\n", sizeof(char));
+//    printf("sizeof char *            : %ld\n", sizeof(char *));
+//    printf("sizeof uint32_t          : %ld\n", sizeof(uint32_t));
+//    printf("sizeof uint8_t           : %ld\n", sizeof(uint8_t));
+//    printf("sizeof SizeOfDemoClass   : %ld\n", sizeof(SizeOfDemoClass));
+//    printf("sizeof SizeOfDemoClass * : %ld\n", sizeof(SizeOfDemoClass *));
+//    printf("sizeof InsideClass1      : %ld\n", sizeof(SizeOfDemoClass::InsideClass1));
+//    printf("sizeof InsideClass1 *    : %ld\n", sizeof(SizeOfDemoClass::InsideClass1 *));
+//    printf("sizeof InsideClass2      : %ld\n", sizeof(SizeOfDemoClass::InsideClass2));
+//    printf("sizeof InsideClass2 *    : %ld\n", sizeof(SizeOfDemoClass::InsideClass2 *));
+//    printf("sizeof AStruct           : %ld\n", sizeof(AStruct));
+    //printf("sizeof AClass            : %ld\n", sizeof(AClass));
+
+//    fstream_ifstream_ofstream_study();
+
 //    polymorphisn_abstract_class_study();
 //    Student stu = Student("willson", 31, 1, 3, "Beijing");
 //    string stu_desc = stu.stu_desc();

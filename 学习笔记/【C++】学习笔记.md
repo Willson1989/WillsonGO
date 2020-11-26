@@ -54,13 +54,107 @@ b : 50000
 
 num1 --> 取反 --> 加1 --> -num1
 
--num1 --> 减1 --> 取反 --> num1
+-num1 --> 减1 --> 取反 --> num
+
+### sizeof 和 内存对齐
+
+https://blog.csdn.net/xinjixjz/article/details/6769344
+
+sizeof 用来返回指定类型所占的字节数（byte）。
+
+如果sizeof的参数是一个结构体或者类，结果会由于内存对齐方式以及成员变量的声明顺序不同而有不同的结果。
+
+例如有下面的结构体：
+
+```c++
+struct AStruct {
+    int a;
+    double b;
+    char c;
+};
+```
+
+在不了解内存对齐以及内存对齐对偏移量的约束时，很容易得出 AStruct 的字节总数为 4 + 8 + 1 = 13，但这是不正确的。
+
+在为 AStruct 分配内存空间的时候，会根据内存的对齐和成员变量的出现顺序分配不同数量的内存空间。
+
+1. 首先出现的是 int a, 它的偏移量是 0 ，占 4 个字节。
+
+2. 接着出现的是 double b, 它的偏移量是 4 ，占用8个字节，但是由于偏移量不是 8 的倍数，所以要为int a 多添加 4个字节来满足8的倍数。所以 double b 的偏移量是 8 （字节填充之后， a 变量占用 8 字节，后4个字节什么也不放）。
+
+3. 接着是 char c，它占用一个字节，所在的偏移量是 16，是 1的倍数。所以目前为止 a，b，c 占用的总量为 8 + 8 + 1 = 17。
+4. 但是根据内存对齐和内存分配策略，AStruct 占用的字节总数应该是它的占用最大字节成员变量的整数倍，这里占用最大字节的成员变量是 double b，8个字节，所以要在 17个字节的基础上再填充 7个字节达到 8 的整数倍即24，这样就满足了条件。
+5. 所以按照上边的变量声明顺序，AStruct 所占的字节总数为 24（sizeof( AStruct ) == 24）。
+
+接下来调换一下变量的声明顺序：
+
+```c++
+struct AStruct {
+    int a;
+    char c;
+    double e;
+};
+```
+
+首先结果就不是24了而是16。分析如下：
+
+1. int a 偏移量为0，占用4个字节
+2. char c 偏移量为 4，占用一个字节，4 是 1 的整数倍，所以没问题。
+3. double e 偏移量为 4 + 1 = 5，5不是 8 的倍数，所以在 double e 前面要填充3个字节达到 8 字节来满足 8 的整数倍。
+4. 填充后 double e 的偏移量为 8，所以AStruct  的总字节数为 4 + 1 + 3（填充） + 8  = 16
+5. 占用最大字节数的成员变量是 e，它占8个字节，而且目前的字节总量 16 也正好是 8 的整数倍，所以不需要再填充字节了。
+6. 所以这种情况下 AStruct 占用的总字节数为 16 而不是上边的 24。
+
+**为什么要提出内存对齐？**
+
+比如这么一种处理器，它每次读写内存的时候都从某个 8 倍数的地址开始，一次读出或写入 8 个字节的数据。
+
+假如软件能保证double类型的数据都从8倍数地址开始，那么读或写一个 double 类型数据就只需要一次内存操作。
+
+否则，我们就可能需要两次内存操作才能完成这个动作，因为数据或许恰好横跨在两个符合对齐要求的8字节内存块上。
+
+在有的处理器上内存不对齐的话可能会出现错误。
+
+虽然这种处理方式可以有效提高CPU存储变量的速度，但有些时候也会带来一些麻烦。
+
+所以我们可以屏蔽掉这种默认的对齐方式，使用我们自己定义的对齐方式。
+
+**pragma pack(n)**
+
+`#pragma pack(n)`来设定变量以 n 字节对齐方式。n 的取值应该为 1，2，4，8，16
+
+n 字节对齐就是说变量存放的起始地址的偏移量有两种情况：
+
+1. 如果n大于等于该变量所占用的字节数，那么偏移量必须满足默认的对齐方式。
+
+2. 如果n小于该变量的类型所占用的字节数，那么偏移量为n的倍数，不用满足默认的对齐方式。
+
+结构的总大小也有个约束条件，分两种情况：
+
+1. 如果n大于所有成员变量类型所占用的字节数，那么结构的总大小必须为占用空间最大的变量占用的空间数的倍数；
+
+2. 否则必须为 n 的倍数。
+
+举例：
+
+```c++
+#pragma pack(push) // 保存系统默认的对齐方式
+#pragma pack(1) // 设置自己的对齐方式
+struct AStruct {
+    int a;
+    char b;
+    double c;
+};
+#pragma pack(pop) // 声明完之后恢复系统的对齐方式
+```
+
+上面的代码，指定了内存对齐为 1 之后，AStruct 占用字节总数为 13，如果不指定，则占用16。
+
+如果指定 #pragma pack(2)，则 AStruct 占用 14个字节 。4 + 1 + 1 （char填充的1个字节）+ 8 = 14。
 
 
 
-
-
-
+### [未完] strdup 和 strcpy 的区别
 
 ### extern 修饰符
 
@@ -69,7 +163,7 @@ num1 --> 取反 --> 加1 --> -num1
 main.cpp
 
 ```c++
-\#include <iostream>
+#include <iostream>
 
 int count ;
 
@@ -87,7 +181,7 @@ int main()
 temp.cpp
 
 ```c++
-\#include <iostream>
+#include <iostream>
 
 extern int count;
 
@@ -2145,6 +2239,258 @@ val in SubParam : 11
 
 
 
+### new 的用法
+
+https://www.cnblogs.com/lustar/p/10717502.html
+
+https://blog.csdn.net/linuxheik/article/details/80449059
+
+new 有三种用法：
+
+* **new**
+
+```c++
+// AClass.hpp
+#include <stdio.h>
+class AClass {
+public:
+    AClass(int a);
+    int getValue();	
+
+private:
+    int a;
+};
+
+//AClass.cpp
+AClass::AClass(int v)
+{
+    this->a = v;
+}
+
+int AClass::getValue()
+{
+    return this->a;
+}
+
+```
+
+main.cpp
+
+```c++
+int main(int argc, const char *argv[])
+{
+    AClass *p1 = new AClass(3);
+}
+```
+
+new 操作做了三件事：
+
+1.调用了默认的new操作符函数，为AClass分配内存，如果类自己实现了 operator new，则调用自己实现的，而不是全局的。
+
+2.调用AClass的构造函数 `AClass::AClass(int v)`
+
+3.返回相应的AClass的指针
+
+* **operator new**
+
+可以针对类重写operator new操作符函数，执行自定义逻辑
+
+AClass 改动如下：
+
+```c++
+// AClass.hpp
+#include <stdio.h>
+class AClass {
+public:
+    AClass(int a);
+    int getValue();	
+    void * operator new(std::size_t size);
+    void operator delete(void *ptr);
+
+private:
+    int a;
+};
+
+//AClass.cpp
+AClass::AClass(int v)
+{
+    this->a = v;
+}
+
+int AClass::getValue()
+{
+    return this->a;
+}
+
+// 重写 new 操作符，使用 malloc 在堆上分配内存
+void * AClass::operator new(std::size_t size)
+{
+    cout << "AClass , override operator new " << endl;
+    return malloc(size);
+}
+
+// 重写 delete 操作符，用来释放内存
+void AClass::operator delete(void *ptr)
+{
+    cout << "AClass , override operator delete " << endl;
+    free(ptr);
+}
+```
+
+main.cpp
+
+```c++
+int main(int argc, const char *argv[])
+{
+    // 调用了类中自己实现的 operator new 函数，分配堆内存空间->初始化实例->返回AClass指针
+	  AClass *p = new AClass(4);
+    cout << "value of p , " << p->getValue() << endl;
+    // 调用类中自己实现的 opeator delete 函数，释放内存
+    delete p;
+}
+```
+
+* **placement new**
+
+一般来说，使用new申请空间时，是从系统的“堆”（heap）中分配空间。
+
+申请所得的空间的位置是根据当时的内存的实际使用情况决定的。
+
+但是，在某些特殊情况下，可能需要在已分配的特定内存创建对象，这就是所谓的“定位放置new”（placement new）操作。 
+
+定位放置 new 操作的语法形式不同于普通的 new 操作。
+
+例如，一般都用如下语句A* p=new A;申请空间，而定位放置new操作则使用如下语句A* p=new (ptr)A;申请空间，
+
+其中 ptr 就是程序员指定的内存首地址。
+
+main.cpp
+
+```c++
+int main(int argc, const char *argv[])
+{
+    AClass *p1 = new AClass(3);
+    AClass a1 = AClass(4);
+  
+    AClass *p2 = &a1;
+    cout << "before value p1 : " << p1->getValue() << " value p2 : " << p2->getValue() << endl;
+
+    // 在指针p1开始的位置初始化 AClass 实例对象， p1 和 p3 指向相同位置
+    AClass *p3 = new(p1) AClass(6);
+
+    // 在指针p2开始的位置初始化 AClass 实例对象， p2 和 p4 指向相同位置
+    AClass *p4 = new(p2) AClass(8);
+
+    cout << "after  value p1 : " << p1->getValue() << " value p2 : " << p2->getValue() << endl;
+    cout << "after  value p3 : " << p3->getValue() << " value p4 : " << p4->getValue() << endl;
+    
+    /*
+     输出：
+     before value p1 : 3 value p2 : 4
+     after  value p1 : 6 value p2 : 8
+     after  value p3 : 6 value p4 : 8
+     */
+}	
+```
+
+如果现在有一个类BClass，它占用的空间比AClass大，那么在原本指向AClass实例内存的位置上使用 placement  new 初始化BClass的实例，会发生什么？
+
+```c++
+class BClass {
+public:
+    BClass(int v, int k, string n)
+    {
+        a = v;
+        b = k;
+        name = n;
+    }
+    
+    int a;
+    int b;
+    string name;
+};
+```
+
+main.cpp
+
+```c++
+int main(int argc, const char *argv[])
+{
+    AClass *pa = new AClass(3);
+    BClass *pb = new (pa) BClass(5, 6, "Hello");
+    cout << "pa value : " << pa->getValue() << endl;
+    cout << "pb a : " << pb->a << ", b : " << pb->b << ", name : " << pb->name << endl;
+    /*
+     输出：
+     pa value : 5
+     pb a : 5, b : 6, name : Hello
+     */
+}
+```
+
+BClass 占用的内存空间比AClass大，即使在原本指向AClass实例对象的指针的位置创建了BClass的实例也不会报错并且可以打印出BClass 的所有成员变量的值。
+
+所以placement  new 只是在指针的这个位置创建对象，而不会因为对内存大小不匹配而发生错误。所以这种操作在某种情况下可能会发生内存侵入的情况，即自己创建的变量有可能会把其他已经存在的
+
+所以在使用 placement  new 时，应该尽量保证新创建的对象和原来指针指向的对象类型是一致。
+
+与其说 placement  new  是创建了一个新对象，不如说是利用已经分配好的内存空间。
+
+placement  new 既可以在栈上生成对象，也可以在堆上生成对象，具体会根据指针指向的位置是栈还是堆内存来决定。
+
+```c++
+int main(int argc, const char *argv[])
+{
+    int num[3];
+    num[0] = 99;
+    num[1] = 88;
+    num[2] = 77;
+
+    // num 在声明的时候没有使用new，所以是在栈上开辟空间的，所以 AClass 的实例是存储在栈上的。
+    // 在num的位置生成 AClass 对象，那么AClass 的成员 a 的值就是 99
+    AClass *pa = new(num) AClass();
+    cout << "pa get value : " << pa->getValue() << endl;
+    cout << "address pa : " << pa << endl;
+    
+    // 使用 new 声明的数组，会在堆上开辟空间
+    int * mem = new int[3];
+    mem[0] = 11;
+    mem[1] = 22;
+    mem[3] = 33;
+    AClass *pa1 = new(mem) AClass();
+    cout << "pa1 get value : " << pa1->getValue() << endl;
+    cout << "address pa1 : " << pa1 << endl;
+    // 堆上的内存使用完，需要自己手动释放
+    pa1->~AClass();
+    /*
+     输出：
+     pa get value : 99
+     address pa : 0x7ffeefbff61c
+     pa1 get value : 11
+     address pa1 : 0x1006b4480
+     free AClass
+     */
+}
+```
+
+那么 placement  new 的用处在哪里？
+
+如果有这样一个场景，我们需要大量的申请一块类似的内存空间，然后又释放掉，比如在在一个 server 中对于客户端的请求，
+
+每个客户端的每一次上行数据我们都需要为此申请一块内存，当我们处理完请求给客户端下行回复时释放掉该内存。
+
+表面上看者符合c++的内存管理要求，没有什么错误，但是仔细想想很不合理，为什么我们每个请求都要重新申请一块内存呢？
+
+要知道每一次内从的申请，系统都要在内存中找到一块合适大小的连续的内存空间，这个过程是很慢的（相对而言)，
+
+极端情况下，如果当前系统中有大量的内存碎片，并且我们申请的空间很大，甚至有可能失败。
+
+为什么我们不能共用一块我们事先准备好的内存呢？
+
+这是可以的，我们可以使用 placement new 来构造对象，那么就会在我们指定的已经分配好的内存空间中构造对象。 
+
+
+
 ### [未完] 菱形继承和虚基类
 
 http://c.biancheng.net/view/2280.html
@@ -2180,3 +2526,20 @@ https://blog.csdn.net/haoel/article/details/1948051
 ### [未完] do ... while(0) 在宏定义冲的作用
 
 ### [未完] attribute关键字
+
+`__attribute__((visibility("hidden")))`
+
+https://blog.51cto.com/liulixiaoyao/814329
+
+### [未完] 多线程编程
+
+### [未完] static_cast和dynamic_cast的区别
+
+https://www.cnblogs.com/shona/p/11940788.html
+
+https://blog.csdn.net/u012411498/article/details/80804755
+
+### [未完] C++函数声明的时候后面加const
+
+https://www.cnblogs.com/llxblogs/p/7709509.html
+
